@@ -1,0 +1,58 @@
+body {
+    overflow-x: hidden;
+}
+
+/* header */
+header {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .8)), url(../img/header-bg.jpeg) fixed center no-repeat /cover;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.banner-heading:first-letter {
+    font-family: 'Great Vibes', cursive;
+    font-size: 10rem;
+    margin-right: 20px;
+}
+
+.banner-heading img {
+    animation: beating 2s infinite;
+}
+
+@keyframes beating {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.1);
+    }
+    60% {
+        transform: scale(1.05);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* end of header */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

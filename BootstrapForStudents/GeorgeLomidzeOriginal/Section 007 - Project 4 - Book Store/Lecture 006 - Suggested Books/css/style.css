@@ -1,0 +1,166 @@
+body {
+    overflow-x: hidden;
+}
+
+/* header */
+header {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .8)), url(../img/header-bg.jpeg) fixed center no-repeat /cover;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.banner-heading:first-letter {
+    font-family: 'Great Vibes', cursive;
+    font-size: 10rem;
+    margin-right: 20px;
+}
+
+.banner-heading img {
+    animation: beating 2s infinite;
+}
+
+@keyframes beating {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.1);
+    }
+    60% {
+        transform: scale(1.05);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* end of header */
+
+/* common-title */
+.common-title {
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 500;
+    text-shadow: 2px 2px 5px #aaa;
+    transition: all .5s;
+}
+
+.common-title:first-letter {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    margin-right: 10px;
+    font-style: normal;
+}
+
+.common-title:hover {
+    transform: translate(-5px, -3px);
+    text-shadow: 2px 5px 20px #aaa;
+}
+/* end of common-title */
+
+/* gallery */
+.gallery-img {
+    backface-visibility: hidden;
+    transition: all .5s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+.first-row {
+    transform: translateX(-300px);
+    opacity: 0;
+    transition: all 2.5s;
+}
+
+.second-row {
+    transform: translateX(300px);
+    opacity: 0;
+    transition: all 2.5s;
+}
+
+.change .first-row, .change .second-row {
+    transform: translateX(0);
+    opacity: 1;
+}
+/* end of gallery */
+
+/* famous writers */
+.famous-writers {
+    background: linear-gradient(rgba(250, 250, 250, .8), rgba(250, 250, 250, .9)), url(../img/writers-bg.jpeg) fixed center no-repeat /cover;
+}
+
+/* end of famous writers */
+
+/* suggested books */
+.suggested-books {
+    height: 100vh;
+    background: url(../img/wood-bg.jpeg) center no-repeat /cover;
+}
+
+.books {
+    position: relative;
+    height: 50vh;
+}
+
+.book {
+    width: 35%;
+    position: absolute;
+    box-shadow: 5px 5px 15px #444;
+    border-right: 5px solid #777;
+    border-bottom: 10px solid #444;
+    transition: all .7s ease-in-out;
+}
+
+.book-1 {
+    top: 5%;
+    left: 20%;
+    transform: rotate(-45deg);
+}
+
+.book-2 {
+    top: 20%;
+    left: 50%;
+    transform: rotate(40deg);
+}
+
+.book-3 {
+    top: 40%;
+    left: 40%;
+    transform: rotate(55deg);
+}
+
+.book-4 {
+    top: 35%;
+    left: 10%;
+    transform: rotate(-38deg);
+}
+
+.book:hover {
+    transform: scale(1.3) rotateX(20deg);
+    z-index: 50;
+    box-shadow: 5px 5px 25px #444;
+    border-right: 10px solid #ddd;
+    border-bottom: 20px solid #bbb;
+}
+/* end of suggested books */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

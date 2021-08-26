@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- link to icon -->
+  <link rel="icon" href="images/title-img.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <!-- font -->
+  <!-- the old direct server version -->
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> -->
+
+  <!-- the locally hosted version -->
+  <link href="./fontawesome/css/all.css" rel="stylesheet">
+
+  <!-- custom style sheet -->
+  <link rel="stylesheet" href="style.css">
+  <title>Admin Dashboard</title>
+</head>
+
+
+<!-- TODO - this data-toggle thing. Let's did deeper...where else can we use it? -->
+
+<body>
+
+  <!-- navbar -->
+
+
+
+  <nav class="navbar navbar-expand-md navbar-light">
+    <!-- ml-auto is what pushes the toggle button to the right -->
+    <!-- bg-light inside the button makes the background of toggle white. I have not used so it is transparent -->
+    <button class="navbar-toggler ml-auto mb-2 " type="button" data-toggle="collapse" data-target="#myNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="container-fluid">
+        <!-- note here the combo calculations between sidebar and the rest of the content
+        for example, col-lg-3 for sidebar and col-lg-9
+        a single row divided between the top -->
+        <div class="row">
+          <!-- sidebar -->
+          <!-- fixed-top is what allows side bar to take up the space on the side -->
+          <!-- also, notice that as per the width, the side bar size also changes -->
+          <!-- notice that this matches the col- numbers with the cards section below -->
+          <!-- <div class="col-xl-10 col-lg-9 col-md-8 ml-auto"></div> -->
+          <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+            <a href="#" class="navbar-brand text-info d-block mx-auto text-center py-3 mb-4 bottom-border">Jay's Photos
+              Shop</a>
+            <div class="bottom-border pb-3">
+              <!-- set img to class rounded-circle to get rounded image border -->
+              <img src="images/felipe-marmol-4T6NkiqMZdo-unsplash.jpg" width="30" class=" mr-3">
+              <a href="#" class="text-danger">Sarah Connor</a>
+            </div>
+            <!-- flex-column is what keeps the links inside the sidebar. try removing it -->
+            <ul class="navbar-nav flex-column mt-4">
+              <!-- change one of the nav-link to current instead of sidebar-link -->
+              <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                    class="fas fa-house-damage text-light fa-lg mr-3"></i>Dashboard</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-info p-3 mb-2 sidebar-link"><i
+                    class="fas fa-user-secret text-light fa-lg mr-3"></i>Profile</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-danger p-3 mb-2 sidebar-link"><i
+                    class="fas fa-mail-bulk text-light fa-lg mr-3"></i>Inbox</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-info p-3 mb-2 sidebar-link"><i
+                    class="fas fa-shopping-basket text-light fa-lg mr-3"></i>Sales</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-danger p-3 mb-2 sidebar-link"><i
+                    class="fas fa-university text-light fa-lg mr-3"></i>Analytics</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-info p-3 mb-2 sidebar-link"><i
+                    class="fas fa-chart-pie text-light fa-lg mr-3"></i>Charts</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-danger p-3 mb-2 sidebar-link"><i
+                    class="fas fa-table-tennis text-light fa-lg mr-3"></i>Tables</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-info p-3 mb-2 sidebar-link"><i
+                    class="fas fa-shower text-light fa-lg mr-3"></i>Settings</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-danger p-3 mb-2 sidebar-link"><i
+                    class="fas fa-book-reader text-light fa-lg mr-3"></i>Documentation</a></li>
+            </ul>
+          </div>
+          <!-- end of sidebar -->
+          <!-- note here the combo calculations between sidebar and the rest of the content
+          for example, col-lg-3 for sidebar and col-lg-9
+          a single row divided between the top -->
+          <!-- top-nav -->
+          <!-- add bg-dark to get dark background. similar to the toggle button -->
+          <!-- I added an extra class called navbarjay. I LIKE GOOOOLLLLLLDDDDDDD he he :P -->
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto fixed-top py-2 top-navbar navbarjay">
+            <div class="row align-items-center">
+              <!-- notice again how the col- things add up to 12 -->
+              <div class="col-md-4">
+                <h4 class="text-white text-uppercase mb-0">Dashboard</h4>
+              </div>
+              <div class="col-md-5">
+                <form>
+                  <div class="input-group">
+                    <input type="text" class="form-control search-input text-white" placeholder="Search...">
+                    <button type="button" class="btn btn-white search-button"><i
+                        class="fas fa-search text-white"></i></button>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-3">
+                <ul class="navbar-nav">
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i
+                        class="fas fa-comments text-white fa-lg"></i></a></li>
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i
+                        class="fas fa-bell text-white fa-lg"></i></a></li>
+                  <!-- notice that we are linking the logout button to the modal below -->
+                  <!-- this is similar to the toggle we have for the navbar button -->
+                  <li class="nav-item ml-md-auto"><a href="#" class="nav-link" data-toggle="modal"
+                      data-target="#sign-out"><i class="fas fa-sign-out-alt text-white fa-lg"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- end of top-nav -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- end of navbar -->
+
+  <!-- modal -->
+  <div class="modal fade" id="sign-out">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">One more turn?</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body modalbackground1">
+          Leave the building.
+        </div>
+        <div class="modal-footer modalbackground1">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Stay Jacked In</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of modal -->
+
+  <!-- cards -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- notice that this matches the col- numbers with the sidebar section above -->
+        <!-- you will also notice that this matches everything that comes in the center box -->
+        <!-- like the table -->
+        <!-- <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top"></div> -->
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row pt-md-5 mt-md-3 mb-5">
+            <!-- now, again, we are starting a new row. so again, there will be 12 part col division -->
+            <!-- watch out for each div adding up to 12 at different break points -->
+            <div class="col-xl-3 col-sm-6 p-2">
+              <div class="card card-common">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <i class="fas fa-money-check fa-3x text-warning"></i>
+                    <div class="text-right text-secondary">
+                      <h5>Photos Sold</h5>
+                      <h3>100,000</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-secondary">
+                  <i class="fas fa-sync mr-3"></i>
+                  <span>All-time</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 p-2">
+              <div class="card card-common">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <i class="fas fa-dollar-sign fa-3x text-warning"></i>
+                    <div class="text-right text-secondary">
+                      <h5>Revenue</h5>
+                      <h3>$1,000,000,000</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-secondary">
+                  <i class="fas fa-sync mr-3"></i>
+                  <span>All-time</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 p-2">
+              <div class="card card-common">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <i class="fas fa-coins fa-3x text-warning"></i>
+                    <div class="text-right text-secondary">
+                      <h5>Photos Sold</h5>
+                      <h3>1,000</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-secondary">
+                  <i class="fas fa-sync mr-3"></i>
+                  <span>Last Month</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 p-2">
+              <div class="card card-common">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <i class="fas fa-euro-sign fa-3x text-warning"></i>
+                    <div class="text-right text-secondary">
+                      <h5>Revenue</h5>
+                      <h3>$1,000,000</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-secondary">
+                  <i class="fas fa-sync mr-3"></i>
+                  <span>Last Month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of cards -->
+
+  <!-- tables -->
+  <section>
+    <div class="container-fluid">
+      <div class="row mb-5">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row align-items-center">
+            <!-- we have two tables, side by side at full width. -->
+            <!-- this table takes up the first half -->
+            <div class="col-xl-6 col-12 mb-4 mb-xl-0">
+              <h3 class="text-white text-center mb-3">Model Payments</h3>
+              <table class="table table-striped bg-light text-center">
+                <thead>
+                  <tr class="text-muted">
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Contact</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Lola</td>
+                    <td>$25000</td>
+                    <td>25/05/2021</td>
+                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Sativa</td>
+                    <td>$6000</td>
+                    <td>25/05/2021</td>
+                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Abella</td>
+                    <td>$8000</td>
+                    <td>25/05/2021</td>
+                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  </tr>
+                  <tr>
+                    <th>4</th>
+                    <td>Micah</td>
+                    <td>$90000</td>
+                    <td>25/05/2021</td>
+                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  </tr>
+                  <tr>
+                    <th>5</th>
+                    <td>Christie</td>
+                    <td>$80000</td>
+                    <td>25/05/2021</td>
+                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- pagination -->
+              <nav>
+                <ul class="pagination justify-content-center">
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      <span>&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item active">
+                    <a href="#" class="page-link py-2 px-3">
+                      1
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      2
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      3
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      <span>&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <!-- end of pagination -->
+            </div>
+            <!-- this table takes up the second half -->
+            <div class="col-xl-6 col-12">
+              <h3 class="text-white text-center mb-3">Recent Payments</h3>
+              <table class="table table-striped table-hover bg-light text-center">
+                <thead>
+                  <tr class="text-muted">
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Adriena</td>
+                    <td>$20000</td>
+                    <td>25/05/2021</td>
+                    <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Roxy</td>
+                    <td>$45000</td>
+                    <td>25/05/2021</td>
+                    <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Raya</td>
+                    <td>$75000</td>
+                    <td>25/05/2021</td>
+                    <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <th>4</th>
+                    <td>Jane</td>
+                    <td>$69</td>
+                    <td>25/05/2021</td>
+                    <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <th>5</th>
+                    <td>Buffy</td>
+                    <td>$10</td>
+                    <td>25/05/2021</td>
+                    <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                  </tr>
+                  <!-- <tr>
+                    <th>6</th>
+                    <td>Kate</td>
+                    <td>$2000</td>
+                    <td>25/05/2021</td>
+                    <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
+                  </tr> -->
+                </tbody>
+              </table>
+              <!-- pagination -->
+              <nav>
+                <ul class="pagination justify-content-center">
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      <span>Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item active">
+                    <a href="#" class="page-link py-2 px-3">
+                      1
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      2
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      3
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      <span>Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <!-- end of pagination -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of tables -->
+
+  <!-- progress / task list -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row mb-4 align-items-center">
+            <!-- now, again, we are starting a new row. so again, there will be 12 part col division -->
+            <!-- watch out for each div adding up to 12 at different break points -->
+            <!-- just like the tables above, this progress thing will take up half screen space   -->
+            <div class="col-xl-6 col-12 mb-4 mb-xl-0">
+              <div class="bg-light text-info p-4 rounded">
+                <h4 class="mb-5">Fastest Cats In The World</h4>
+                <h6 class="mb-3">Blackie</h6>
+                <div class="progress mb-4" style="height: 20px">
+                  <div class="progress-bar progress-bar-striped font-weight-bold" style="width: 89%">
+                    500 kph
+                  </div>
+                </div>
+                <h6 class="mb-3">Kencha</h6>
+                <div class="progress mb-4" style="height: 20px">
+                  <div class="progress-bar progress-bar-striped font-weight-bold bg-success" style="width: 71%">
+                    450 kph
+                  </div>
+                </div>
+                <h6 class="mb-3">Mothi</h6>
+                <div class="progress mb-4" style="height: 20px">
+                  <div class="progress-bar progress-bar-striped font-weight-bold bg-danger" style="width: 61%">
+                    300 kph
+                  </div>
+                </div>
+                <h6 class="mb-3">Chintu</h6>
+                <div class="progress mb-4" style="height: 20px">
+                  <div class="progress-bar progress-bar-striped font-weight-bold bg-info" style="width: 51%">
+                    250 kph
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Now, taking up the second half, is the task list.
+              notice how they add up to 12 depending on break points -->
+
+            <!-- quotes stuff begins -->
+            <div class="col-xl-6 col-12 ">
+              <h4 class="text-muted p-4 mb-3 bg-light">Quotes:</h4>
+              <div class="container-fluid bg-white">
+
+                <div class="row py-3 mb-4 task-border align-items-center">
+                  <div class="col-1">
+                    <input type="checkbox" checked>
+                  </div>
+                  <div class="col-sm-9 col-8">
+                    The world is an oyster.
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i
+                        class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>delete</h6>" data-html="true" data-placement="top"><i
+                        class="fas fa-trash-alt fa-lg text-danger"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid bg-white">
+                <div class="row py-3 mb-4 task-border align-items-center">
+                  <div class="col-1">
+                    <input type="checkbox" checked>
+                  </div>
+                  <div class="col-sm-9 col-8">
+                    we may fail, but, we should at least try.
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i
+                        class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>delete</h6>" data-html="true" data-placement="top"><i
+                        class="fas fa-trash-alt fa-lg text-danger"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid bg-white">
+                <div class="row py-3 mb-4 task-border align-items-center">
+                  <div class="col-1">
+                    <input type="checkbox" unchecked>
+                  </div>
+                  <div class="col-sm-9 col-8">
+                    To sit, or not to sit.
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i
+                        class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>delete</h6>" data-html="true" data-placement="top"><i
+                        class="fas fa-trash-alt fa-lg text-danger"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid bg-white">
+                <div class="row py-3 mb-4 task-border align-items-center">
+                  <div class="col-1">
+                    <input type="checkbox" checked>
+                  </div>
+                  <div class="col-sm-9 col-8">
+                    The dracula eats sweets in the morning.
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i
+                        class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>delete</h6>" data-html="true" data-placement="top"><i
+                        class="fas fa-trash-alt fa-lg text-danger"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="container-fluid bg-white">
+                  <div class="row py-3 mb-4 task-border align-items-center">
+                    <div class="col-1">
+                      <input type="checkbox" checked>
+                    </div>
+                    <div class="col-sm-9 col-8">
+                      giant puppy with no shame.
+                    </div>
+                    <div class="col-1">
+                      <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                    </div>
+                    <div class="col-1">
+                      <a href="#" data-toggle="tooltip" title="<h6>delete</h6>" data-html="true" data-placement="top"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+                    </div>
+                  </div> -->
+            </div>
+            <!-- end of quotes -->
+          </div>
+          <!-- end of row -->
+        </div>
+        <!-- end of div for column -->
+      </div>
+      <!-- end of main row -->
+    </div>
+    <!-- end of container -->
+    </div>
+  </section>
+  <!-- end of progress / task list -->
+
+  <!-- activities / quick post -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- once again notice how this col length matches with the side bar -->
+        <!-- as usual it all adds up to 12 -->
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <!-- this is the row that will hold the two columns of activites and quick post -->
+          <div class="row align-items-center mb-5">
+            <!-- once again notice how the two cols inside add up to 12. -->
+            <!-- this is the column related to customer activities. -->
+            <div class="col-xl-7">
+              <h4 class="text-light mb-4">Recent Customer Activities</h4>
+              <!-- once again, the accordion works like a data toggle that we use with navbar -->
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-dark text-light text-left" data-toggle="collapse"
+                      data-target="#collapseOne">
+                      <img src="images/alexey-elfimov-L5VMp939Nyw-unsplash.jpg" width="50" class="mr-3 rounded">
+                      Now Travelling to France.
+                    </button>
+                  </div>
+                  <div class="collapse show" id="collapseOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Vroom...Vrooom...
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-success text-light text-left" data-toggle="collapse"
+                      data-target="#collapseOne">
+                      <img src="images/den-trushtin-NtwU4bI7k1o-unsplash.jpg" width="50" class="mr-3 rounded">
+                      Now Travelling to Germany.
+                    </button>
+                  </div>
+                  <div class="collapse show" id="collapseOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Vroom...Vrooom...
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-danger text-light text-left" data-toggle="collapse"
+                      data-target="#collapseOne">
+                      <img src="images/dusan-jovic-XeH86PLtomc-unsplash.jpg" width="50" class="mr-3 rounded">
+                      Now Travelling to Swiss.
+                    </button>
+                  </div>
+                  <div class="collapse show" id="collapseOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Vroom...Vrooom...
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-warning text-light text-left" data-toggle="collapse"
+                      data-target="#collapseOne">
+                      <img src="images/jonnelle-yankovich-C7MBtRctMbk-unsplash.jpg" width="50" class="mr-3 rounded">
+                      Now Travelling to Denmark
+                    </button>
+                  </div>
+                  <div class="collapse show" id="collapseOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Vroom...Vrooom...
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-info text-light text-left" data-toggle="collapse"
+                      data-target="#collapseOne">
+                      <img src="images/mohammad-rezaie-QVnpSUfXX20-unsplash.jpg" width="50" class="mr-3 rounded">
+                      Now Travelling to Russia
+                    </button>
+                  </div>
+                  <div class="collapse show" id="collapseOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Vroom...Vrooom...
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-primary text-light text-left" data-toggle="collapse"
+                      data-target="#collapseOne">
+                      <img src="images/nojan-namdar-WGLctO7B9G0-unsplash.jpg" width="50" class="mr-3 rounded">
+                      Now Travelling to UK.
+                    </button>
+                  </div>
+                  <div class="collapse show" id="collapseOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Vroom...Vrooom...
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of customer activities -->
+            <!-- we are now looking at posts -->
+            <!-- notice how this adds up to 12 with the previous column -->
+            <div class="col-xl-5 mt-5">
+              <div class="card rounded">
+                <div class="card-body">
+                  <h5 class="text-dark text-center mb-4">Writing a Poem</h5>
+                  <!-- normally a list is vertical. but we change it to horizontal here. -->
+                  <ul class="list-inline text-center py-3">
+                    <li class="list-inline-item mr-4">
+                      <a href="#">
+                        <i class="fas fa-pencil-ruler text-success"></i>
+                        <span class="h6 text-muted">Mood</span>
+                      </a>
+                    </li>
+                    <li class="list-inline-item mr-4">
+                      <a href="#">
+                        <i class="fas fa-camera-retro text-info"></i>
+                        <span class="h6 text-muted">Imagery</span>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#">
+                        <i class="fas fa-compass text-primary"></i>
+                        <span class="h6 text-muted">Current Location</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <form>
+                    <div class="form-group">
+                      <input type="text" class="form-control py-2 mb-3" placeholder="Start your poem engines...">
+                      <button type="button"
+                        class="btn btn-block text-uppercase font-weight-bold text-light bg-info py-2 mb-5">Process Your
+                        Thoughts</button>
+                    </div>
+                  </form>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="card bg-light">
+                        <i class="far fa-calendar-alt fa-8x text-warning d-block m-auto py-3"></i>
+                        <div class="card-body">
+                          <p class="card-text text-center font-weight-bold text-uppercase">May 13th 2021</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="card bg-light">
+                        <i class="far fa-clock fa-8x text-danger d-block m-auto py-3"></i>
+                        <div class="card-body">
+                          <p class="card-text text-center font-weight-bold text-uppercase">12:00 pm</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of posts. -->
+          </div>
+          <!-- end of second row -->
+        </div>
+      </div>
+      <!-- end of first row -->
+    </div>
+  </section>
+  <!-- end of activities / quick post -->
+
+  <!-- footer -->
+  <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- once again, this adds up to 12 with the side bar as with all the other things -->
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <!-- now comes the actual row which contains our actual contents -->
+          <div class="row border-top pt-3">
+            <!-- we have two columns. one for content on left. another for content on right. -->
+            <!-- left side things. -->
+            <div class="col-lg-6 text-center">
+              <ul class="list-inline">
+                <li class="list-inline-item mr-2">
+                  <a href="https://jay-study-nildana.github.io/developerprofile/" class="text-light">Jay's Developer
+                    Profile</a>
+                </li>
+                <li class="list-inline-item mr-2">
+                  <a href="https://github.com/Jay-study-nildana/BootstrapForStudents/tree/main/AdminDashboard" class="text-light">Code Repository</a>
+                </li>
+                <li class="list-inline-item mr-2">
+                  <a href="https://github.com/Jay-study-nildana/BootstrapForStudents" class="text-light">Bootstrap For
+                    Students</a>
+                </li>
+                <!-- <li class="list-inline-item mr-2">
+                  <a href="#" class="text-light">Blog</a>
+                </li> -->
+              </ul>
+            </div>
+            <!-- left side things ends. -->
+            <!-- right side things. -->
+            <div class="col-lg-6 text-center text-light">
+              <p>2021 Student Code. Use it as it pleases you. I <i class="fas fa-heart text-light"></i> Coding <span
+                  class="text-danger"> and its awesome!</span></p>
+            </div>
+            <!-- right side things. ends -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- end of footer -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "bf964247-7ae4-4f08-9c9d-2b6ef2d3c51a",
+		"name": "InitialCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get With Collection ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/art/?object_number=KMS4488&lang=en",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"art",
+						""
+					],
+					"query": [
+						{
+							"key": "object_number",
+							"value": "KMS4488"
+						},
+						{
+							"key": "lang",
+							"value": "en"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/art/search/?keys=city&lang=en&output=JSON-LD&jsonld_type=compact&facets=has_image&filters=%5Bhas_image%3Atrue%5D&offset=0&rows=10",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"art",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "keys",
+							"value": "city"
+						},
+						{
+							"key": "lang",
+							"value": "en"
+						},
+						{
+							"key": "output",
+							"value": "JSON-LD"
+						},
+						{
+							"key": "jsonld_type",
+							"value": "compact"
+						},
+						{
+							"key": "facets",
+							"value": "has_image"
+						},
+						{
+							"key": "filters",
+							"value": "%5Bhas_image%3Atrue%5D"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "rows",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Host",
+			"value": "https://api.smk.dk/api/v1"
+		}
+	]
+}

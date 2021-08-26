@@ -1,0 +1,42 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #eee;
+}
+
+/* navbar */
+.sidebar {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .9)), url(images/img1.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 5px 7px 25px #999;
+}
+
+.bottom-border {
+  border-bottom: 1px groove #eee;
+}
+
+.sidebar-link {
+  transition: all .4s;
+}
+
+/* end of navbar */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

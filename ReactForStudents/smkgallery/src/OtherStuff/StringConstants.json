@@ -1,0 +1,22 @@
+{
+  "ProjectTitle": "SMK Gallery",
+  "Home": "Home",
+  "DeveloperNote1": "Developer Note",
+  "DeveloperNote2": "Hello. Hope all good",
+  "OtherThings": "Other Things",
+  "Developer": "Jay",
+  "GitHub": "Source Code on GitHub",
+  "Sentence": "Hire Me",
+  "LandingTitleSentence": "A quick demo project used for teaching React JS to Students",
+  "AboutSentence1": "This is a sample project that I built as part of my React JS student teaching process",
+  "AboutSentence2": "This uses a lot of features. As and when I learning something new, I add that new topic to this project",
+  "AboutSentence3": "I have added extensive in-code as well as out-code documentation for the sake of making it easy for students",
+  "OtherThingsSentence1": "I have put some random React components here",
+  "OtherThingsSentence2": "Some more sentences and info I might add here, later",
+  "SMKLandingTitle": "National Gallery of Denmark",
+  "SMKLandingDescription": "This page consumes and displays things from the SMK API",
+  "SMKNudityWarning": "The images that show here are directly from the gallery. I am sure, some of this art stuff might containing nudity. Please note I cannot control this, and I request, students who use this project to be aware of it",
+  "NumberOfLoadingLines": 5,
+  "DefaultImage1" : "https://iip-thumb.smk.dk/iiif/jp2/KKS2007-182.TIF.reconstructed.tif.jp2/full/!1024,/0/default.jpg",
+  "About": "About"
+}
