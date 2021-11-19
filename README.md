@@ -10,6 +10,10 @@ Head over to this folder [ReactForStudents](ReactForStudents) for React related 
 
 Head over to this folder [BootstrapForStudents](BootstrapForStudents) for Bootstrap related content.
 
+# Electron JS
+
+Head over to this folder [ElectronJSForStudents](ElectronJSForStudents) for Electron JS related content.
+
 # Hire Me
 
 I work as a full time freelance software developer and coding tutor. Hire me at [UpWork](https://www.upwork.com/fl/vijayasimhabr) or [Fiverr](https://www.fiverr.com/jay_codeguy).
