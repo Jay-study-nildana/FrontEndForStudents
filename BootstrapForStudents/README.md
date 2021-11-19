@@ -1,13 +1,5 @@
 # BootStrap For Students
 
-Update : This repo is archived. Please continue at the new repository 
-
-https://github.com/Jay-study-nildana/FrontEndForStudents
-
-Thank you.
-
-------------------------
-
 This is the code that is cloned from the original repository by George Lomidze, with my own improvements and changes. 
 
 Original source available here : https://github.com/PacktPublishing/Bootstrap-4---Create-4-Real-World-Projects
