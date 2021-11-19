@@ -1,13 +1,5 @@
 # ReactJS For Students
 
-Update : This repo is archived. Please continue at the new repository 
-
-https://github.com/Jay-study-nildana/FrontEndForStudents
-
-Thank you.
-
-------------------------
-
 This repository contains React related things that I use while teaching my students.
 
 - Also read [DeveloperTips.md](DeveloperTips.md)
