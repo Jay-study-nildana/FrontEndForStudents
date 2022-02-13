@@ -1,0 +1,13 @@
+{
+  "title": "Hello. My name is Jay. Welcome to my React JS Based Profile Website",
+  "text": "I work as a full time coding tutor. I teach .NET, C Sharp, JavaScript, P5.JS and React JS",
+  "button": [
+    {
+      "title": "Explore"
+    },
+    {
+      "title": "Learn more",
+      "color": "#f4a"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "react-ecosystems-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx babel-node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "uuid": "3.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.7.5",
+    "@babel/node": "7.7.4",
+    "@babel/preset-env": "7.7.6"
+  }
+}
