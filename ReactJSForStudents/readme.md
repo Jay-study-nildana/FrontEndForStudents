@@ -2,10 +2,16 @@
 
 some React JS related code for my students.
 
+Also look at [DevelopmentFlow.md](DevelopmentFlow.md).
+Also look at [References.md](References.md).
+Also look at [commonproblems.md](commonproblems.md).
+Also look at [essentiallibraries.md](essentiallibraries.md).
+
 # Projects
 
-1. [ToDoApp](ToDoApp) - simple todo app with API consumption from a basic API server - based on 'Building Modern Projects with React' course on linked in.
+1. [ReactStudentApp](reactstudentappmar182022) - simple demo app built from ground up for my students. Uses the following libraries - react-redux redux redux-devtools-extension redux-persist reselect styled-components redux-thunk
 1. [adrinappdemo1](adrinappdemo1) - landing page using the Landy CRA template.
+1. [Creative Tim Material Ki React Open Source Free Theme](material-kit-react) - remixing the free and open source theme that is available from Creative Tim website.
 
 # General Notes
 
