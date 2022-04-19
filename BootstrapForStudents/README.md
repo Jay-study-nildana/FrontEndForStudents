@@ -2,6 +2,8 @@
 
 This is the code that is cloned from the original repository by George Lomidze, with my own improvements and changes. 
 
+![image info](bootstrapsite1.png)
+
 Original source available here : https://github.com/PacktPublishing/Bootstrap-4---Create-4-Real-World-Projects
 
 * Also read [DeveloperTips.md](DeveloperTips.md)
@@ -14,12 +16,10 @@ Live Sites [Available here](Deployments.md).
 
 # Modified Projects
 
-These are the projects that I have modified as part of my own practice, and have made available for my students.
+There are two versions here.
 
-1. [PhotoX](PhotoX) - This was the very first project I remixed. So, this contains the maximum amount of detail in terms of comments and explanations. If you are learning CSS, start with this project. It has the maximum number of comments.
-1. [Admin Dashboard](AdminDashboard) - This was the second project I remixed. It contains less comments than PhotoX. Better to go through this after PhotoX.
-
-My belief is, if you can understand the code inside the project [PhotoX](PhotoX), interpret each line, and make meaningful remixes of the code and give it your own, customized look, you are good to go.
+1. [Bootstrap4](Bootstrap4) - Bootstrap Version 4.X related projects.
+1. [Bootstrap5](Bootstrap5) - Bootstrap Version 5.X related projects. This is essentially the 4.X projects that were updated to work with the new Boostrap by me.
 
 # Note To Students
 
@@ -27,15 +27,6 @@ My belief is, if you can understand the code inside the project [PhotoX](PhotoX)
 1. The important thing to remember, from my own experience of learning bootstrap, is that, it will probably takes years to write bootstrap code without using existing code samples. 
 1. So, my advice is to use existing code, try and understand the different CSS and bootstrap code used, and then, keep remixing and learn. 
 1. It will happen slowly, so, be patient.
-
-# Bootstrap Version
-
-Currently, the code is built on top of Bootstrap 4.X.
-
-# Starter Template 
-
-1. Available here - [Bootstrap4TemplateStarter](Bootstrap4TemplateStarter)
-1. Available here with Font Awesome Locally Installed - [Bootstrap4TemplateStarterWithLocalFontAwesome](Bootstrap4TemplateStarterWithLocalFontAwesome)
 
 # Personal Note
 
@@ -52,6 +43,15 @@ This code has the same license as the original. MIT License.
 # Hire Me
 
 I work as a full time freelance software developer and coding tutor. Hire me at [UpWork](https://www.upwork.com/fl/vijayasimhabr) or [Fiverr](https://www.fiverr.com/jay_codeguy). 
+
+# Hobbies
+
+I try to maintain a few hobbies.
+
+1. Podcasting. You can listen to my [podcast here](https://stories.thechalakas.com/listen-to-podcast/).
+1. Photography. You can see my photography on [Unsplash here](https://unsplash.com/@jay_neeruhaaku).
+1. Digital Photorealism 3D Art and Arch Viz. You can see my work on this on [Adobe Behance](https://www.behance.net/vijayasimhabr).
+1. Writing and Blogging. You can read my blogs. I have many medium Publications. [Read them here](https://medium.com/@vijayasimhabr).
 
 # important note 
 

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- link to icon -->
+  <link rel="icon" href="images/title-img.png" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+
+  <!-- font -->
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+    integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" /> -->
+
+  <!-- the locally hosted version -->
+  <link href="./fontawesome/css/all.css" rel="stylesheet">
+
+  <!-- custom style sheet -->
+  <link rel="stylesheet" href="style.css" />
+  <title>PhotoX</title>
+</head>
+
+<body>
+
+  <!-- someblock -->
+  <!-- END OF someblock -->
+
+  <!-- TODO - when click on the menu, can it animate to the location -->
+
+  <header>
+    <!-- navbar -->
+
+    <nav class="navbar navbar-expand-lg fixed-top nav-menu">
+      <a href="#" class="navbar-brand text-light text-uppercase"><span class="h2 font-weight-bold">Jay's </span><span
+          class="h1">Unsplash</span></a>
+      <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#myNavbar">
+        <div class="bg-light line1"></div>
+        <div class="bg-light line2"></div>
+        <div class="bg-light line3"></div>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end text-uppercase font-weight-bold" id="myNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link m-2 menu-item nav-active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#story" class="nav-link m-2 menu-item">Story</a>
+          </li>
+          <li class="nav-item">
+            <a href="#Collection" class="nav-link m-2 menu-item">Collection</a>
+          </li>
+          <li class="nav-item">
+            <a href="#Gallery" class="nav-link m-2 menu-item">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a href="#feedback" class="nav-link m-2 menu-item">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link m-2 menu-item">Stats</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link m-2 menu-item">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- END OF navbar -->
+
+    <!-- banner -->
+    <!-- responsive design.
+    by default, the text is centered
+    once the md breakpoint is hit, md and above resolutions, 
+    text will be right aligned. -->
+    <div class="text-light text-md-right banner text-center">
+      <h1 class="display-4  banner-heading">
+        <span class="display-2">
+          Jay's
+        </span>
+        UnSplash Photo Collection
+      </h1>
+      <p class="lead banner-par">I have been uploading some of my photos to the unsplash website.</p>
+      <p class="lead banner-par2">Some of them, are showcased here.</p>
+    </div>
+    <!-- END OF banner -->
+  </header>
+
+  <!-- mission -->
+  <section class="p-5 mission" id="story">
+    <div class="container-fluid">
+      <!-- title -->
+      <div class="row text-white text-center">
+        <div class="col m-4">
+          <h1 class="display-4 mb-4">Story</h1>
+          <div class="underline mb-4"></div>
+          <p class="lead">Years and decades of technology innovation has given us the ability take pictures of the world
+            around us. I love taking photos and this website is a snap of that world. Photos man! It's awesome.</p>
+        </div>
+      </div>
+      <!-- end of title -->
+      <div class="row m-5">
+        <div class="col-md-6 text-center">
+          <i class="fas fa-camera fa-8x text-white m-4"></i>
+          <h1 class="text-white mb-3">Creativity</h1>
+          <p class="text-white">My head is like a dam of creativity. I bring that to the table and I also bring it to
+            the balcony.</p>
+        </div>
+        <div class="col-md-3 text-center">
+          <i class="fas fa-lightbulb fa-8x text-white m-4"></i>
+          <h1 class="text-white mb-3">Lighting</h1>
+          <p class="text-white">I love natural lighting. I also dont mind artificial lighting. A good lighting is good
+            for the photos. no good lighting means no good photos. Get your lighting in place.</p>
+        </div>
+        <div class="col-md-3 text-center">
+          <i class="fas fa-tree fa-8x text-white m-4"></i>
+          <h1 class="text-white mb-3">Nature</h1>
+          <p class="text-white">Save the trees. Save the planet. Accept climate change and act accordingly. Plant a tree
+            today and take photos of that tree</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 text-center">
+          <!-- <img src="images/vijayasimha-br-mK1LejgFkhM-unsplash.jpg" width="350" class="img-fluid camera-img"> -->
+          <img src="images/vijayasimha-br-mK1LejgFkhM-unsplash.jpg" class="img-fluid">
+        </div>
+        <div class="col-lg-3 text-white text-lg-right text-center mission-text">
+          <h1>My favorite photo - Scowling Cat</h1>
+          <p class="lead">This is one of my favorite photos. It also has the highest hits on my unsplash account. I used
+            to have a pet female cat. This cat was one of her paramours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of mission -->
+
+  <!-- collection -->
+  <section class="bg-info py-40" id="Collection">
+    <div class="container-fluid">
+      <!-- title -->
+      <div class="row text-white text-center">
+        <div class="col m-4">
+          <h1 class="display-4 mb-4">Photo Collection</h1>
+          <div class="underline mb-4"></div>
+          <p class="lead">Here are some more cool photos from my collection of photos. Love Crocodiles! They are totally
+            badass!</p>
+        </div>
+      </div>
+      <!-- end of title -->
+      <div class="row">
+        <div class="col-lg-6 col-sm-6 my-5">
+          <div class="card border-0 card-shadow">
+            <img src="images/vijayasimha-br-xkaerzRN7cY-unsplash.jpg" class="card-img">
+            <div class="card-img-overlay">
+              <h5 class="text-white text-lowercase font-weight-bold p-2 heading">Make Hay When Sun Shines</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 my-5">
+          <div class="card border-0 card-shadow">
+            <img src="images/vijayasimha-br-tdkgrKXbj7g-unsplash.jpg" class="card-img">
+            <div class="card-img-overlay">
+              <h5 class="text-white text-lowercase font-weight-bold p-2 heading">Croc Nap Time</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 my-5">
+          <div class="card border-0 card-shadow">
+            <img src="images/vijayasimha-br-G_TCE1Z_5GY-unsplash.jpg" class="card-img">
+            <div class="card-img-overlay">
+              <h5 class="text-white text-lowercase font-weight-bold p-2 heading">Super Cool Sky</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 my-5">
+          <div class="card border-0 card-shadow">
+            <img src="images/vijayasimha-br-5Kl1tcYD4ww-unsplash.jpg" class="card-img">
+            <div class="card-img-overlay">
+              <h5 class="text-dark text-lowercase font-weight-bold p-2 heading">Yello Flower Buds</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of collection -->
+
+  <!-- note: in the original code, there is a jquery filter code
+  i am purposefully avoiding using jquery. if you want it, check original code. -->
+  <!-- gallery -->
+  <section class="py-5">
+    <div class="container-fluid" id="Gallery">
+      <!-- title -->
+      <div class="row text-muted text-center">
+        <div class="col m-4">
+          <h1 class="display-4 mb-4">Gallery</h1>
+          <div class="underline-dark mb-4"></div>
+          <p class="lead">Just showing all my images randomly.</p>
+          <p class="lead">TODO - need to figure out a way to fill out the images.</p>
+        </div>
+      </div>
+      <!-- end of title -->
+      <!-- I have commented the following UL because I am not using the jquery filter. -->
+      <!-- <ul class="list-inline text-center text-uppercase font-weight-bold my-4">
+        <li class="list-inline-item gallery-list-item active-item" data-filter="all">All<span
+            class="mx-md-5 mx-3 text-muted">/</span>
+        </li>
+        <li class="list-inline-item gallery-list-item" data-filter="new">New<span
+            class="mx-md-5 mx-3 text-muted">/</span>
+        </li>
+        <li class="list-inline-item gallery-list-item" data-filter="free">Free<span
+            class="mx-md-5 mx-3 text-muted">/</span>
+        </li>
+        <li class="list-inline-item gallery-list-item" data-filter="pro">Pro
+        </li>
+      </ul> -->
+      <div class="container-fluid">
+        <div class="d-flex flex-wrap justify-content-center">
+          <div class="filter new"><img src="images/vijayasimha-br-G_TCE1Z_5GY-unsplash.jpg" width="300"></div>
+          <div class="filter free"><img src="images/vijayasimha-br-5Kl1tcYD4ww-unsplash.jpg" width="300"></div>
+          <div class="filter pro"><img src="images/vijayasimha-br-mK1LejgFkhM-unsplash.jpg" width="300"></div>
+          <div class="filter new"><img src="images/vijayasimha-br-mLIJzTxTsLg-unsplash.jpg" width="300"></div>
+          <div class="filter pro"><img src="images/vijayasimha-br-tdkgrKXbj7g-unsplash.jpg" width="300"></div>
+          <div class="filter free"><img src="images/vijayasimha-br-xkaerzRN7cY-unsplash.jpg" width="300"></div>
+          <div class="filter new"><img src="images/vijayasimha-br-G_TCE1Z_5GY-unsplash.jpg" width="300"></div>
+          <div class="filter free"><img src="images/vijayasimha-br-5Kl1tcYD4ww-unsplash.jpg" width="300"></div>
+          <div class="filter pro"><img src="images/vijayasimha-br-mK1LejgFkhM-unsplash.jpg" width="300"></div>
+          <div class="filter new"><img src="images/vijayasimha-br-mLIJzTxTsLg-unsplash.jpg" width="300"></div>
+          <div class="filter pro"><img src="images/vijayasimha-br-tdkgrKXbj7g-unsplash.jpg" width="300"></div>
+          <div class="filter free"><img src="images/vijayasimha-br-xkaerzRN7cY-unsplash.jpg" width="300"></div>
+          <!-- <div class="filter pro"><img src="images/img7.jpeg" width="300"></div>
+          <div class="filter free"><img src="images/img8.jpeg" width="300"></div>
+          <div class="filter new"><img src="images/img9.jpeg" width="300"></div>
+          <div class="filter pro"><img src="images/img10.jpeg" width="300"></div>
+          <div class="filter free"><img src="images/img11.jpeg" width="300"></div>
+          <div class="filter pro"><img src="images/img12.jpeg" width="300"></div>
+          <div class="filter new"><img src="images/img13.jpeg" width="300"></div>
+          <div class="filter free"><img src="images/img14.jpeg" width="300"></div>
+          <div class="filter new"><img src="images/img15.jpeg" width="300"></div>
+          <div class="filter pro"><img src="images/img16.jpeg" width="300"></div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of gallery -->
+
+  <!-- TODO - as it is with images, each image has a different resolution. 
+  I need to ensure that they sort of zoom to the same size at display time. -->
+  <!-- customers -->
+  <section class="p-5 customers" id="feedback">
+    <div class="container-fluid">
+      <!-- title -->
+      <div class="row text-white text-center">
+        <div class="col m-4">
+          <h1 class="display-4 mb-4">Happy Customers</h1>
+          <div class="underline mb-4"></div>
+          <p class="lead">These are some of my clients who have purchased my photos on unsplash.</p>
+        </div>
+      </div>
+      <!-- end of title -->
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="carousel slide" data-ride="carousel" id="customer-carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#customer-carousel" data-slide-to="0" class="active"></li>
+              <li data-target="#customer-carousel" data-slide-to="1"></li>
+              <li data-target="#customer-carousel" data-slide-to="2"></li>
+              <li data-target="#customer-carousel" data-slide-to="3"></li>
+              <li data-target="#customer-carousel" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active text-center">
+                <img src="images/joshua-rawson-harris-6PROVhY2Yq4-unsplash.jpg" class="img-fluid rounded-circle "
+                  width="400">
+                <blockquote class="blockquote text-white">
+                  <p class="mb-5">The lighting, the angles. blows my mind every time. I have been buying Jay's photos
+                    since 1821</p>
+                </blockquote>
+                <h5 class="text-light text-uppercase font-weight-bold mb-3">Hermoine</h5>
+                <ul class="list-inline mb-5">
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="carousel-item text-center">
+                <img src="images/matheus-ferrero-W7b3eDUb_2I-unsplash.jpg" class="img-fluid rounded-circle "
+                  width="400">
+                <blockquote class="blockquote text-white">
+                  <p class="mb-5">Jay's photos are from another world. The best photos ever! My family has been using
+                    him as our photographer for generations.</p>
+                </blockquote>
+                <h5 class="text-light text-uppercase font-weight-bold mb-3">Claire</h5>
+                <ul class="list-inline mb-5">
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="carousel-item text-center">
+                <img src="images/ayo-ogunseinde-6W4F62sN_yI-unsplash.jpg" class="img-fluid rounded-circle " width="400">
+                <blockquote class="blockquote text-white">
+                  <p class="mb-5">He does not just make photos. He invents them! He invented photography. Like a time
+                    traveler and horse rider</p>
+                </blockquote>
+                <h5 class="text-light text-uppercase font-weight-bold mb-3">Roomba</h5>
+                <ul class="list-inline mb-5">
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="carousel-item text-center">
+                <img src="images/mark-decile-W0fOHWkpxUQ-unsplash.jpg" class="img-fluid rounded-circle " width="400">
+                <blockquote class="blockquote text-white">
+                  <p class="mb-5">This one time, he took a photo by flying himself upwards, to the sky, using 4 drones
+                    attached to his 4 limbs. It's crazy. Total madness sometimes.</p>
+                </blockquote>
+                <h5 class="text-light text-uppercase font-weight-bold mb-3">Sarah</h5>
+                <ul class="list-inline mb-5">
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="carousel-item text-center">
+                <img src="images/nikola-jovanovic-MwVRSdJY374-unsplash.jpg" class="img-fluid rounded-circle "
+                  width="400">
+                <blockquote class="blockquote text-white">
+                  <p class="mb-5">Apparently he is now making plans to take photos on the moon. I dont know if that is
+                    possible, but that's just how he operates.</p>
+                </blockquote>
+                <h5 class="text-light text-uppercase font-weight-bold mb-3">Alexa</h5>
+                <ul class="list-inline mb-5">
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fas fa-star text-warning"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of customers -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
