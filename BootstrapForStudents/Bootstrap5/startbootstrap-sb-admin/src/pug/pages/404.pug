@@ -1,0 +1,12 @@
+extends ../layouts/error.pug
+
+block content
+    .container
+        .row.justify-content-center
+            .col-lg-6
+                .text-center.mt-4
+                    img.mb-4.img-error(src='assets/img/error-404-haikei-pink-orange-wave.svg')
+                    p.lead The bat file you are looking for does not exist. 
+                    a(href='index.html')
+                        i.fas.fa-arrow-left.me-1
+                        | Return to Bat Cave
