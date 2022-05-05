@@ -1,0 +1,6 @@
+{
+  "domain": "ameeshapatelishot.us.auth0.com",
+  "clientId": "1k2k2k23i33i33m3m3",
+  "audience": "https://thatswhatshesaid.com",
+  "scope":"read:current_user update:current_user_metadata read:capquotes read:penquotes read:profiledetails read:seeallquotes read:sitestats"
+}

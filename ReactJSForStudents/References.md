@@ -13,6 +13,7 @@ References I used when I was learning React JS.
 1. https://redux.js.org/introduction/getting-started -- add redux
 1. https://github.com/reduxjs/react-redux - react and redux ready to use template
 1. 'Building Modern Projects with React' on Linked In Learning.
+1. https://github.com/facebook/create-react-app/blob/HEAD/README.md#popular-alternatives - Contains ton of information for learners.
 
 # Hire Me
 

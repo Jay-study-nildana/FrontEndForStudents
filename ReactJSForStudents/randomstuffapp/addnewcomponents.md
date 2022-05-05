@@ -1,19 +1,39 @@
-# Essential Libraries
+# adding a new component
 
-Building an app in react means, using a lot of libraries. There must thousands of them.
+This is the flow to add a new endpoint, in a new view component. For example, say, you have a new API endpoint that you want to start consuming and showing the data in this app. 
 
-Still, in this page, I have listed some common libraries that you will be using all the time. Usually, you can simply look at package.json of any of my demo projects, and see what happens you need to use. 
+Look at the following files, for additional comments and clarity. Folder is, 'randomstuffgenerator'
 
-Or, you could just clone any of my projects, and simply practice on top of it.
+1. AccountClaims.js
+1. AccountClaimsTable.js
+1. RandomQuoteList.js
+1. RandomQuoteItem.js
 
-1. https://github.com/remix-run/react-router - used for routing. You see, unlike standard HTML, React JS does not have a routing option.
-1. react-redux
-1. redux
-1. redux-devtools-extension
-1. redux-persist
-1. reselect
-1. styled-components
-1. redux-thunk
+This would be the flow.
+
+# Step One - actions.js
+
+Update your actions.
+
+# Step Two - reducers.js
+
+update state stuff.
+
+# Step Three - thunks.js
+
+this is where you put the fetch code. This where you write the GET AND POST stuff.
+
+# Step Four - selectors.js
+
+this is the filtering step. Right now, nothing to filter, but we have it. let's use it.
+
+# Step Five - build your view component
+
+Now, everything is ready. build your react component.
+
+1. import everything you need first.
+1. Then, map all the props.
+1.Then, build the actual component.
 
 # Hire Me
 
