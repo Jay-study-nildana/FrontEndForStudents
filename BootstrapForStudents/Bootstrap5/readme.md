@@ -32,6 +32,8 @@ The entire process of upgrading from 4.X to 5.X was almost 90 % without problems
 # Starter Projects
 
 1. [Bootstrap5TemplateStarter](Bootstrap5TemplateStarter) - starter project.
+1. [Bootstrap5TemplateStarter](Bootstrap5TemplateStarter) - starter project. with a male model photo.
+1. [Bootstrap5TemplateStarter](Bootstrap5TemplateStarter) - starter project. with a panda photo.
 
 # Hire Me
 
