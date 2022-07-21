@@ -1,14 +1,18 @@
-# Original Untouched Code - Bootstrap 4: Create Four Real World Projects By George Lomidze
+# NASA APOD XHR and Fetch Demo
 
-This is the original untouched code, downloaded on April 2nd 2021.
+Just using the quick and easy NASA APOD API to show how XHR and Fetch can be used.
 
-Original source available here : https://github.com/PacktPublishing/Bootstrap-4---Create-4-Real-World-Projects
+![image info](bootstrapsite1.png)
 
-# Personal Note
+Note : you can get the bootstrap starter template from here, https://github.com/Jay-study-nildana/FrontEndForStudents/tree/main/BootstrapForStudents/Bootstrap5
 
-I have always had a huge problem with CSS and Bootstrap and Responsive Design all my life. 
+# References
 
-I found, George Lomidze tutorials, which I watched via my learning.oreilly.com subscription, very useful. 
+1. https://stackoverflow.com/questions/38235715/fetch-reject-promise-and-catch-the-error-if-status-is-not-ok
+1. https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+1. https://apod.nasa.gov/apod/lib/about_apod.html
+1. https://github.com/nasa/api-docs
+1. https://blogs.windows.com/msedgedev/2016/05/24/fetch-and-xhr-limitations/
 
 # Hire Me
 

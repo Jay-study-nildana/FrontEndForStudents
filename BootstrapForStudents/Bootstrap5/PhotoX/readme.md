@@ -27,7 +27,7 @@ Available in the folder [GeorgeLomidzeOriginal](../../GeorgeLomidzeOriginal/).
   
 # Hire Me
 
-I work as a full time freelance software developer and coding tutor. Hire me at [UpWork](https://www.upwork.com/fl/vijayasimhabr) or [Fiverr](https://www.fiverr.com/jay_codeguy). 
+I work as a full time freelance coding tutor. Hire me at [UpWork](https://www.upwork.com/fl/vijayasimhabr) or [Fiverr](https://www.fiverr.com/jay_codeguy). 
 
 # Hobbies
 
