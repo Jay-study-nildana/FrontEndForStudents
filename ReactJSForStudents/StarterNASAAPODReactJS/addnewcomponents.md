@@ -1,15 +1,8 @@
 # adding a new component
 
-This is the flow to add a new endpoint, in a new view component. For example, say, you have a new API endpoint that you want to start consuming and showing the data in this app. 
+This is the flow to add a new endpoint, in a new view component. 
 
-Look at the following files, for additional comments and clarity. Folder is, 'randomstuffgenerator'
-
-1. AccountClaims.js
-1. AccountClaimsTable.js
-1. RandomQuoteList.js
-1. RandomQuoteItem.js
-
-This would be the flow.
+For example, say, you have a new API endpoint that you want to start consuming and showing the data in this app. 
 
 # Step One - actions.js
 
@@ -37,11 +30,11 @@ Now, everything is ready. build your react component.
 
 1. import everything you need first.
 1. Then, map all the props.
-1.Then, build the actual component.
+1. Then, build the actual component.
 
 # Hire Me
 
-I work as a full time freelance software developer and coding tutor. Hire me at [UpWork](https://www.upwork.com/fl/vijayasimhabr) or [Fiverr](https://www.fiverr.com/jay_codeguy). 
+I work as a full time freelance coding tutor. Hire me at [UpWork](https://www.upwork.com/fl/vijayasimhabr) or [Fiverr](https://www.fiverr.com/jay_codeguy).  
 
 # Hobbies
 

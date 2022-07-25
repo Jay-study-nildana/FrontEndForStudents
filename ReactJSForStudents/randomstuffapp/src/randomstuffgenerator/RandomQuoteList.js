@@ -106,8 +106,6 @@ const RandomQuoteList = ({ todobaz, isLoading, startLoadingTodos }) => {
 
     useEffect(() => {
         GrabThetoken();
-
-
     }, []);
 
     const [inputValue, setInputValue] = useState(`HelloThere`);

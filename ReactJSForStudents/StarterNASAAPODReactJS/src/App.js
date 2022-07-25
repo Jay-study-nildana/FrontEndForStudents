@@ -6,10 +6,10 @@ import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./views/Home";
-import AddQuotePal from "./views/AddQuotePal";
-import ClaimsToSee from "./views/ClaimsToSee";
-import Profile from "./views/Profile";
-import ExternalApi from "./views/ExternalApi";
+// import AddQuotePal from "./views/AddQuotePal";
+// import ClaimsToSee from "./views/ClaimsToSee";
+// import Profile from "./views/Profile";
+// import ExternalApi from "./views/ExternalApi";
 import NASAImage from "./views/NASAImage"
 import { useAuth0 } from "@auth0/auth0-react";
 import history from "./utils/history";
@@ -22,15 +22,15 @@ import initFontAwesome from "./utils/initFontAwesome";
 initFontAwesome();
 
 const App = () => {
-  const { isLoading, error } = useAuth0();
+  // const { isLoading, error } = useAuth0();
 
-  if (error) {
-    return <div>Oops... {error.message}</div>;
-  }
+  // if (error) {
+  //   return <div>Oops... {error.message}</div>;
+  // }
 
-  if (isLoading) {
-    return <Loading />;
-  }
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
 
   return (
     <Router history={history}>
@@ -39,10 +39,10 @@ const App = () => {
         <Container className="flex-grow-1 mt-5">
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/profile" component={Profile} />
+            {/* <Route path="/profile" component={Profile} />
             <Route path="/external-api" component={ExternalApi} />
             <Route path="/claimstosee" component={ClaimsToSee} />
-            <Route path="/addquotepal" component={AddQuotePal} />
+            <Route path="/addquotepal" component={AddQuotePal} /> */}
             <Route path="/NASAImage" component={NASAImage} />
           </Switch>
         </Container>

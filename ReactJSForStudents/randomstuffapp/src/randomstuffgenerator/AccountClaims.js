@@ -143,11 +143,11 @@ const AccountClaims = ({claim, isLoading, startLoadingClaims}) => {
       const loadingMessage2 = (
         <GeneralWrapper>
             {/* <div>Loading quote stuff...</div> */}
-            {/* <GeneralWrapper>
+            <GeneralWrapper>
                 <p>{dummyClaims.toString()}</p>
                 <AccountClaimsTable claimrows = {dummyClaims} />
             </GeneralWrapper>    
-            <hr />                     */}
+            <hr />                    
             {/* <GeneralWrapper>
                 <Button onClick={changeRandomText}>Acquire Claims</Button>
             </GeneralWrapper> */}

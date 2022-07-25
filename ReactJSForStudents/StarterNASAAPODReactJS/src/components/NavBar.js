@@ -18,22 +18,22 @@ import {
   DropdownItem,
 } from "reactstrap";
 
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {
-    user,
-    isAuthenticated,
-    loginWithRedirect,
-    logout,
-  } = useAuth0();
+  // const {
+  //   user,
+  //   isAuthenticated,
+  //   loginWithRedirect,
+  //   logout,
+  // } = useAuth0();
   const toggle = () => setIsOpen(!isOpen);
 
-  const logoutWithRedirect = () =>
-    logout({
-      returnTo: window.location.origin,
-    });
+  // const logoutWithRedirect = () =>
+  //   logout({
+  //     returnTo: window.location.origin,
+  //   });
 
   return (
     <div className="nav-container">
@@ -53,7 +53,7 @@ const NavBar = () => {
                   Home
                 </NavLink>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink
                   tag={RouterNavLink}
                   to="/claimstosee"
@@ -62,7 +62,7 @@ const NavBar = () => {
                 >
                   ClaimsToSee
                 </NavLink>
-              </NavItem>    
+              </NavItem>     */}
               <NavItem>
                 <NavLink
                   tag={RouterNavLink}
@@ -73,7 +73,7 @@ const NavBar = () => {
                   NASAImage
                 </NavLink>
               </NavItem>                         
-              <NavItem>
+              {/* <NavItem>
                 <NavLink
                   tag={RouterNavLink}
                   to="/addquotepal"
@@ -82,8 +82,8 @@ const NavBar = () => {
                 >
                   AddQuotePal
                 </NavLink>
-              </NavItem>              
-              {isAuthenticated && (
+              </NavItem>               */}
+              {/* {isAuthenticated && (
                 <NavItem>
                   <NavLink
                     tag={RouterNavLink}
@@ -94,9 +94,9 @@ const NavBar = () => {
                     External API
                   </NavLink>
                 </NavItem>
-              )}
+              )} */}
             </Nav>
-            <Nav className="d-none d-md-block" navbar>
+            {/* <Nav className="d-none d-md-block" navbar>
               {!isAuthenticated && (
                 <NavItem>
                   <Button
@@ -139,8 +139,8 @@ const NavBar = () => {
                   </DropdownMenu>
                 </UncontrolledDropdown>
               )}
-            </Nav>
-            {!isAuthenticated && (
+            </Nav> */}
+            {/* {!isAuthenticated && (
               <Nav className="d-md-none" navbar>
                 <NavItem>
                   <Button
@@ -153,8 +153,8 @@ const NavBar = () => {
                   </Button>
                 </NavItem>
               </Nav>
-            )}
-            {isAuthenticated && (
+            )} */}
+            {/* {isAuthenticated && (
               <Nav
                 className="d-md-none justify-content-between"
                 navbar
@@ -191,7 +191,7 @@ const NavBar = () => {
                   </RouterNavLink>
                 </NavItem>
               </Nav>
-            )}
+            )} */}
           </Collapse>
         </Container>
       </Navbar>
