@@ -8,13 +8,13 @@ Showcases the following concepts
 1. Using Redux
 1. Using Selector
 1. MUI UI components
-1. Consuming Web API Authentication
+1. Consuming Web API
 
 ![image info](RandomStuffGeneratorReactApp.png)
 
 # Setting Up Project and Running
 
-1. npm install. Installs all neccessary node modules.
+1. npm install. Installs all neccessary node modules. 
 1. npm start
 
 # Notes - About NASA APOD API Consumption
