@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm-run-all --parallel spa api-server",
+    "start": "npm-run-all --parallel spa",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
