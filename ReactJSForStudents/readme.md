@@ -11,6 +11,7 @@ Note : If you end up using the Auth0 React Sample, like I do, please remember th
 
 # Projects
 
+1. [helloworld](helloworld) - a 'hello world' react js project without any extra libraries. just the core basics.
 1. [randomstuffapp](randomstuffapp) - a practice project that consumes my random stuff project web api server - https://jay-study-nildana.github.io/RandomStuffDocs/
 1. [StarterNASAAPODReactJS](StarterNASAAPODReactJS) - a starter project that can be used as a template for learning and building new react js projects. 
 
