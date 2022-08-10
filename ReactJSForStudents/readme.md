@@ -7,8 +7,6 @@ Also look at [References.md](References.md).
 Also look at [commonproblems.md](commonproblems.md).
 Also look at [essentiallibraries.md](essentiallibraries.md).
 
-Note : If you end up using the Auth0 React Sample, like I do, please remember that the 'auth_config.json' file wont get committed to your github account. So, just remember to back it up manually. Or, remove it from .gitignore.
-
 # Projects - Starters and Hello World
 
 1. [helloworld](helloworld) - a 'hello world' react js project without any extra libraries. just the core basics.
@@ -17,10 +15,7 @@ Note : If you end up using the Auth0 React Sample, like I do, please remember th
 1. [reactrouterdomhelloworld](reactrouterdomhelloworld) - a hello world project which shows router dom usage which helps you have routes in a react js app.
 1. [localstoragehelloworld](localstoragehelloworld) - a hello world project that shows how to use local storage. 
 1. [reactfbloginhelloworld](reactfbloginhelloworld) - a hello world project that shows a simple fb login, and uses https. 
-
-# Projects - React Router DOM
-
-1. [reactrouterdomhelloworld](reactrouterdomhelloworld) - hello world project with the very basic React Router DOM usage. 
+1. [httpshelloworld](httpshelloworld) - a hello world project that shows how to configure https. Very useful when you are interacting with online services, like fb login or api servers, that demand that you use https even when running the code on localhost.
 
 # General Notes
 
