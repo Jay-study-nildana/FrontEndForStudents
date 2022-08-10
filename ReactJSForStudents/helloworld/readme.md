@@ -2,6 +2,8 @@
 
 This is a starter project. 
 
+![image info](RandomStuffGeneratorReactApp.png)
+
 Shows the following.
 
 1. How to create a brand new react js project.

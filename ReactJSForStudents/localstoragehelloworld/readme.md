@@ -1,4 +1,4 @@
-# React JS Hello World Project with React Router DOM
+# React JS Hello World Project with Local Storage
 
 ![image info](RandomStuffGeneratorReactApp.png)
 
@@ -19,15 +19,13 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 
 ```
     npm install
-    npm install react-router-dom
-    npm install history
+    npm install local-storage
     npm start
 
 ```
 
 1. npm install. Installs all neccessary node modules. 
-1. npm install react-router-dom. Add router dom library. 
-1. npm install history. Add history library. need to make router work better.
+1. npm install local-storage. Installs the local storage library.
 1. npm start
 
 # Notes - General
@@ -37,11 +35,7 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 # References
 
 1. https://medium.com/projectwt/create-react-app-hello-world-2022-edition-f36275a0e7c4
-1. https://www.npmjs.com/package/react-router-dom
-1. https://www.npmjs.com/package/history
-1. https://reactrouter.com/docs/en/v6/getting-started/tutorial
-1. https://reactrouter.com/docs/en/v6/getting-started/overview
-1. https://stackblitz.com/github/remix-run/react-router/tree/main/examples/basic
+1. https://www.npmjs.com/package/local-storage
 
 # Hire Me
 
