@@ -16,6 +16,7 @@ Note : If you end up using the Auth0 React Sample, like I do, please remember th
 1. [StarterNASAAPODReactJS](StarterNASAAPODReactJS) - a starter project that can be used as a template for learning and building new react js projects. 
 1. [reactrouterdomhelloworld](reactrouterdomhelloworld) - a hello world project which shows router dom usage which helps you have routes in a react js app.
 1. [localstoragehelloworld](localstoragehelloworld) - a hello world project that shows how to use local storage. 
+1. [reactfbloginhelloworld](reactfbloginhelloworld) - a hello world project that shows a simple fb login, and uses https. 
 
 # Projects - React Router DOM
 
