@@ -24,3 +24,6 @@ yarn-error.log*
 
 # ignore cert folder contents
 .cert/
+
+# ignore the fb app id values
+googleconfig.json
