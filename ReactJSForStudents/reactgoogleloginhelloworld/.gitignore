@@ -22,4 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# auth_config.json
+# ignore cert folder contents
+.cert/
+
+# ignore the fb app id values
+googleconfig.json
