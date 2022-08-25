@@ -18,6 +18,7 @@ Also look at [essentiallibraries.md](essentiallibraries.md).
 1. [reactgoogleloginhelloworld](reactgoogleloginhelloworld) - a hello world project that shows a simple google login, and uses https. 
 1. [helloworldjest](helloworldjest) - a hello world project that shows a simple jest testing and code coverage.
 1. [httpshelloworld](httpshelloworld) - a hello world project that shows how to configure https. Very useful when you are interacting with online services, like fb login or api servers, that demand that you use https even when running the code on localhost.
+1. [axioshelloworldhttps](axioshelloworldhttps) - axios hello world react project with https. 
 
 # General Notes
 
