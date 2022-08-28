@@ -4,6 +4,25 @@
 
 Note : If you are just starting with React JS, I would recommend, trying this link. [create-react-app, Hello World, 2022 edition](https://medium.com/projectwt/create-react-app-hello-world-2022-edition-f36275a0e7c4)
 
+# local storage usage
+
+```
+  function addStuff() {
+    //foo is the key
+    //bar is the value
+    //standard key value things that you see in dictionaries
+    ls('foo', 'bar');
+    ls.set('batman', 'Bruce Wayne');
+    // <- 'bar'
+    console.log(`added stuff`);
+  }
+
+  function showStuff() {
+    console.log(ls.get('batman'))
+    console.log(ls('foo'));
+  }
+```
+
 # Related Projects
 
 1. https://stackblitz.com/edit/github-agqlf5?file=src%2FApp.jsx - Try this as well. It's pretty basic and pretty cool. 
