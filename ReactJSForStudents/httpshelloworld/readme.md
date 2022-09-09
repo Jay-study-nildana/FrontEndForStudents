@@ -6,6 +6,59 @@ Note : If you are just starting with React JS, I would recommend, trying this li
 
 Note : Firefox might complain that there is a security risk. Dont get scared by this. you self created this certificate. So, obviously, browsers like Firefox will complain. Click on Advanced and accept the risk and continue.
 
+# https extra notes 
+
+First, look at the 'start' command in package.json.
+
+```
+  "scripts": {
+    "start": "set HTTPS=true&&set SSL_CRT_FILE=./.cert/cert.pem&&set SSL_KEY_FILE=./.cert/key.pem&&react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+```
+
+That's how we force this project to run in HTTPS. To make this happen, we need to install certificates. 
+
+Note : I did this on windows. So, these steps are windows specific. 
+
+To get certificates, you have the following commands. 
+
+1. install chocolatey
+1. then, the actual certificate library, 'choco install mkcert'
+1. the actual command to create the certificates.
+
+```
+    //create a certficate folder
+    mkdir -p .cert
+    //create the actual certificates in the folder 
+    mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem "localhost"
+```
+
+it's a lot of steps. if you did everything correctly, you will get this. 
+
+```
+    Compiled successfully!
+
+    You can now view reactfbloginhelloworld in the browser.
+
+    Local:            https://localhost:3000
+    On Your Network:  https://192.168.29.208:3000
+
+    Note that the development build is not optimized.
+    To create a production build, use npm run build.
+```
+
+# about chocolatey and Powershell
+
+Installing chocolatey on windows is not easy. You have to run a lot of commands in powershell, and you should do it in admin mode. 
+
+```
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+
+
 # Local host running 
 
 1. Local:            https://localhost:3000
