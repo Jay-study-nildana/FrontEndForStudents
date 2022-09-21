@@ -27,7 +27,9 @@ And, fill it up with the following values from your FB app.
 
 # 'popup_closed_by_user' error
 
-Google has recently upgraded their libraries for logging in. you will get errors. as mentioned before, this library is old. 
+Google has recently upgraded their libraries for logging in. you will get errors. 
+
+as mentioned before, this library is old. That is why, we need to use the 'gapi' library as a quick fix.
 
 ```
     gapi.load('client:auth2', () => {
@@ -37,6 +39,14 @@ Google has recently upgraded their libraries for logging in. you will get errors
         });
     });
 ```
+
+# google profile image.
+
+There is an issue with the google image. For whatever reason, it sometimes does not work. I have done the best I can, but, I dont know what I am missing. So, do keep this in mind.
+
+# refresh = logout
+
+the fblogin does not auto log you out. However, google might log out when you refresh. 
 
 # Local host running 
 

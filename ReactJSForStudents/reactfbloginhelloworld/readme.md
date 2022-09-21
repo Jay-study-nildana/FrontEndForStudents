@@ -23,7 +23,7 @@ The following code can help you show the image.
 ```
     <img src={userData.picture.data.url} className="img-fluid" alt="..."></img>
 ```
-I dont know why, but, it does not work when the app runs for the first time. But, once the app is working, you put this code, you will get photo from FB.
+Note : remember to check for the value being null before you show any images and such. Otherwise, the app will crash or simply not work. 
 
 # issue with react-facebook-login dependency
 
@@ -105,6 +105,10 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 # Notes - General
 
 1. I have put comments and console logs (caveman debugging) all over the place. ensure you have console open when you are running the app. 
+
+# Primary References
+
+1. https://developers.facebook.com/docs/facebook-login/overview
 
 # References
 

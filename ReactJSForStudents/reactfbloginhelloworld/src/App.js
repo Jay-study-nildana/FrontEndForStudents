@@ -4,11 +4,14 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import fbconfig from './fbconfig.json';
 
+//this is a place holder image, in case, I cannot get the image from facebook.
+let sphinximage = `https://commons.wikimedia.org/wiki/File:Jardin_El_Capricho_Sfinxs_at_Plaza_de_los_Emperadores05_cropped.jpg`;
 
 function App() {
 
   const [loggedin, setloggedin] = useState(false);
-  const [userData,setuserData] = useState('')
+  const [userData,setuserData] = useState('');
+  const [image,setimage] = useState(sphinximage);
 
   const responseFacebook = (response) => {  
     console.log(response);
@@ -18,6 +21,10 @@ function App() {
       //loggedintrue = true;
       setloggedin(true);
       setuserData(response);
+      if(response.picture.data.url != null)
+      {
+        setimage(response.picture.data.url);
+      }
 
     }
     else
@@ -29,8 +36,9 @@ function App() {
   useEffect(() => {
     console.log(loggedin);
     console.log(userData);
+    console.log(image);
 
-  }, [loggedin,userData]);  
+  }, [loggedin,userData,image]);  
 
   function logOut() {
     setloggedin(false);
@@ -44,27 +52,28 @@ function App() {
         <hr></hr>
         {!loggedin &&
           < FacebookLogin
-          appId={fbconfig.appID}
-          autoLoad={true}
-          fields="name,email,picture"
-          callback={responseFacebook}
-          cssClass="my-facebook-button-class"
-          icon="fa-facebook"
-        />        }
+            appId={fbconfig.appID}
+            autoLoad={true}
+            fields="name,email,picture"
+            callback={responseFacebook}
+            cssClass="my-facebook-button-class"
+            icon="fa-facebook"
+          />        
+        }
         {
           loggedin &&         
           <div className="text-center">
             <button
-            type="button"
-            className="btn btn-primary"
-            onClick={logOut}
+              type="button"
+              className="btn btn-primary"
+              onClick={logOut}
             >
             logout
             </button>
             <hr></hr>            
             <h3>{userData.name}</h3>
             <p>{userData.email}</p>
-            {/* <img src={userData.picture.data.url} className="img-fluid" alt="..."></img> */}
+            <img src={image} className="img-fluid" alt="..."></img>
             </div>
         }
       </div>
