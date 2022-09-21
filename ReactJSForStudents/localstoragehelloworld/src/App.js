@@ -36,6 +36,7 @@ const ShowSomeStuff = () => {
     //standard key value things that you see in dictionaries
     ls('foo', 'bar');
     ls.set('batman', 'Bruce Wayne');
+    ls.set('inputentered',quoteContentMimic);
     // <- 'bar'
     console.log(`added stuff`);
   }
@@ -43,6 +44,7 @@ const ShowSomeStuff = () => {
   function showStuff() {
     console.log(ls.get('batman'))
     console.log(ls('foo'));
+    console.log(ls.get('inputentered'))
   }
 
   const stuff = (

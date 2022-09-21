@@ -2,6 +2,10 @@
 
 ![image info](RandomStuffGeneratorReactApp.png)
 
+Note: This is useful when you want to store something, like for session management. For example, after a successfull login, you want to store the logged in user, and clear the values, when the user logs out. 
+
+Of course, this is not the most secure way to do things. However, good for hobby projects. 
+
 Note : If you are just starting with React JS, I would recommend, trying this link. [create-react-app, Hello World, 2022 edition](https://medium.com/projectwt/create-react-app-hello-world-2022-edition-f36275a0e7c4)
 
 # local storage usage

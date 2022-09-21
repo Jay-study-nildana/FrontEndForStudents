@@ -2,6 +2,8 @@
 
 ![image info](RandomStuffGeneratorReactApp.png)
 
+Note: the main routes are in the file, Layout.js. You will notice that is plugged in as the root path in the main App.js.
+
 Note : If you are just starting with React JS, I would recommend, trying this link. [create-react-app, Hello World, 2022 edition](https://medium.com/projectwt/create-react-app-hello-world-2022-edition-f36275a0e7c4)
 
 # Related Projects
