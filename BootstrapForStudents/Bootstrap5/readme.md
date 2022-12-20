@@ -25,8 +25,10 @@ My belief is, if you can understand the code inside the project [PhotoX](PhotoX)
 # Starter Projects
 
 1. [Bootstrap5TemplateStarter](Bootstrap5TemplateStarter) - starter project.
-1. [Bootstrap5TemplateStarter](Bootstrap5TemplateStarter) - starter project. with a male model photo.
-1. [Bootstrap5TemplateStarter](Bootstrap5TemplateStarter) - starter project. with a panda photo.
+1. [Bootstrap5TemplateStarterMaleModel](Bootstrap5TemplateStarterMaleModel) - starter project. with a male model photo.
+1. [Bootstrap5TemplateStarterCutePanda](Bootstrap5TemplateStarterCutePanda) - starter project. with a panda photo.
+1. [Bootstrap5TemplateStarterAmeeshaPatel](Bootstrap5TemplateStarterAmeeshaPatel) - starter project. with a panda photo.
+
 
 # Additional Projects
 

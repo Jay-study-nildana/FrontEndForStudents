@@ -2,6 +2,10 @@
 
 Front End - Bootstrap and React js and related front end things for my students
 
+# HTML and CSS
+
+Head over to this folder [HTMLCSSForStudents](HTMLCSSForStudents) for HTML and CSS related content.
+
 # React JS
 
 Head over to this folder [ReactJSForStudents](ReactJSForStudents) for React related content.
