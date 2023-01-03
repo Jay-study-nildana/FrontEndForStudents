@@ -18,15 +18,6 @@ Head over to this folder [BootstrapForStudents](BootstrapForStudents) for Bootst
 
 Head over to this folder [ElectronJSForStudents](ElectronJSForStudents) for Electron JS related content.
 
-# Heroku Deployment list
-
-Every now and then, I will deploy a few repositories on heroku to make a live site.
-
-1. https://github.com/Jay-study-nildana/Bootstrap5TemplateStarterHeroku
-1. https://github.com/Jay-study-nildana/StarterNASAAPODReactJSWithHeroku
-
-note : heroku is disabling free deployments. So, these links and the deployments might stop working after some time. I am already paying money to Azure. So, as of now, I am not in the mood to pay another cloud service. Hope, thats okay. 
-
 # Hire Me
 
 I work as a full time freelance coding tutor. Hire me at [UpWork](https://www.upwork.com/fl/vijayasimhabr) or [Fiverr](https://www.fiverr.com/jay_codeguy). 
