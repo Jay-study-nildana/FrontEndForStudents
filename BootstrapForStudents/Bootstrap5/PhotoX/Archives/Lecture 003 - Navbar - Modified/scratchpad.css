@@ -1,0 +1,64 @@
+/* xs = Extra small <576px
+Max container width None (auto)
+
+sm = Small ≥576px
+Max container width 540px
+
+md = Medium ≥768px
+Max container width 720px
+
+lg = Large ≥992px
+Max container width 960px
+
+xl = Extra large ≥1200px
+Max container width 1140px */
+
+
+/* navbar */
+.nav-menu {
+  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .5));
+  padding: 30px;
+  transition: all .7s;
+}
+
+.menu-item {
+  /* font-size: 100px; */
+  letter-spacing: 50px;
+  /* color: #eee; */
+  /* color: blue; */
+  /* transition: color .5s; */
+}
+
+.menu-item:hover {
+  /* color: #70aed2; */
+  color:pink;
+}
+
+.nav-active {
+  color: #70aed2;
+}
+
+.line1, .line2, .line3 {
+  width: 23px;
+  height: 3px;
+  margin: 5px;
+  transition: all .4s;
+}
+
+.change .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .line2 {
+  opacity: 0;
+}
+
+.change .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.custom-navbar {
+  padding: 5px 30px;
+  background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .7));
+}
+/* end of navbar */

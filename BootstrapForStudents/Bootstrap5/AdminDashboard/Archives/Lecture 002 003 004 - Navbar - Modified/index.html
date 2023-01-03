@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- link to icon -->
+  <link rel="icon" href="images/title-img.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <!-- font -->
+  <!-- the old direct server version -->
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> -->
+
+  <!-- the locally hosted version -->
+  <link href="./fontawesome/css/all.css" rel="stylesheet">
+
+  <!-- custom style sheet -->
+  <link rel="stylesheet" href="style.css">
+  <title>Admin Dashboard</title>
+</head>
+
+<body>
+
+  <!-- navbar -->
+
+
+
+  <nav class="navbar navbar-expand-md navbar-light">
+    <!-- ml-auto is what pushes the toggle button to the right -->
+    <!-- bg-light inside the button makes the background of toggle white. I have not used so it is transparent -->
+    <button class="navbar-toggler ml-auto mb-2 " type="button" data-toggle="collapse" data-target="#myNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="container-fluid">
+        <!-- note here the combo calculations between sidebar and the rest of the content
+        for example, col-lg-3 for sidebar and col-lg-9
+        a single row divided between the top -->
+        <div class="row">
+          <!-- sidebar -->
+          <!-- fixed-top is what allows side bar to take up the space on the side -->
+          <!-- also, notice that as per the width, the side bar size also changes -->
+          <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+            <a href="#" class="navbar-brand text-info d-block mx-auto text-center py-3 mb-4 bottom-border">Jay's Photos
+              Shop</a>
+            <div class="bottom-border pb-3">
+              <!-- set img to class rounded-circle to get rounded image border -->
+              <img src="images/felipe-marmol-4T6NkiqMZdo-unsplash.jpg" width="30" class=" mr-3">
+              <a href="#" class="text-danger">Sarah Connor</a>
+            </div>
+            <!-- flex-column is what keeps the links inside the sidebar. try removing it -->
+            <ul class="navbar-nav flex-column mt-4">
+              <!-- change one of the nav-link to current instead of sidebar-link -->
+              <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                    class="fas fa-house-damage text-light fa-lg mr-3"></i>Dashboard</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-info p-3 mb-2 sidebar-link"><i
+                    class="fas fa-user-secret text-light fa-lg mr-3"></i>Profile</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-danger p-3 mb-2 sidebar-link"><i
+                    class="fas fa-mail-bulk text-light fa-lg mr-3"></i>Inbox</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-info p-3 mb-2 sidebar-link"><i
+                    class="fas fa-shopping-basket text-light fa-lg mr-3"></i>Sales</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-danger p-3 mb-2 sidebar-link"><i
+                    class="fas fa-university text-light fa-lg mr-3"></i>Analytics</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-info p-3 mb-2 sidebar-link"><i
+                    class="fas fa-chart-pie text-light fa-lg mr-3"></i>Charts</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-danger p-3 mb-2 sidebar-link"><i
+                    class="fas fa-table-tennis text-light fa-lg mr-3"></i>Tables</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-info p-3 mb-2 sidebar-link"><i
+                    class="fas fa-shower text-light fa-lg mr-3"></i>Settings</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-danger p-3 mb-2 sidebar-link"><i
+                    class="fas fa-book-reader text-light fa-lg mr-3"></i>Documentation</a></li>
+            </ul>
+          </div>
+          <!-- end of sidebar -->
+          <!-- note here the combo calculations between sidebar and the rest of the content
+          for example, col-lg-3 for sidebar and col-lg-9
+          a single row divided between the top -->
+          <!-- top-nav -->
+          <!-- add bg-dark to get dark background. similar to the toggle button -->
+          <!-- I added an extra class called navbarjay. I LIKE GOOOOLLLLLLDDDDDDD he he :P -->
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto fixed-top py-2 top-navbar navbarjay">
+            <div class="row align-items-center">
+              <!-- notice again how the col- things add up to 12 -->
+              <div class="col-md-4">
+                <h4 class="text-white text-uppercase mb-0">Dashboard</h4>
+              </div>
+              <div class="col-md-5">
+                <form>
+                  <div class="input-group">
+                    <input type="text" class="form-control search-input text-white" placeholder="Search...">
+                    <button type="button" class="btn btn-white search-button"><i
+                        class="fas fa-search text-white"></i></button>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-3">
+                <ul class="navbar-nav">
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i
+                        class="fas fa-comments text-white fa-lg"></i></a></li>
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i
+                        class="fas fa-bell text-white fa-lg"></i></a></li>
+                  <li class="nav-item ml-md-auto"><a href="#" class="nav-link" data-toggle="modal"
+                      data-target="#sign-out"><i class="fas fa-sign-out-alt text-white fa-lg"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- end of top-nav -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- end of navbar -->
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

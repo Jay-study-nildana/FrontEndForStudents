@@ -1,0 +1,174 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* someblock */
+
+/* END OF someblock */
+
+/* header */
+
+header{
+  /* we want it to take up the entire 100 % of the viewport */
+  height: 100vh;
+  /* i dont want the image to repeat
+  i want the image to be center 
+  and /cover is actually the final size of the backgroun. 
+  its actually division of the center center by the cover value */
+  /* we are using background shortcuts here. 
+  each of the attributes can be specified separately */
+  background: url(images/vijayasimha-br-mLIJzTxTsLg-unsplash.jpg) no-repeat center center /cover;
+}
+
+
+
+/* END OF header */
+
+/* navbar */
+
+/* navbar */
+.nav-menu {
+  /* this gives like a semi-transparent background. so we can still see the image. */
+  /* background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .5)); */
+  /*this one gives a nice solid color*/
+  background: purple;
+  /* padding: 30px; */
+  transition: all .7s;
+}
+
+.menu-item {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #eee;
+  transition: color .5s;
+}
+
+.menu-item:hover {
+  color: #70aed2;
+}
+
+.nav-active {
+  color: #70aed2;
+}
+
+.line1, .line2, .line3 {
+  width: 50px;
+  height: 6px;
+  margin: 10px;
+  transition: all .4s;
+}
+
+.change .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .line2 {
+  opacity: 0;
+}
+
+.change .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.custom-navbar {
+  padding: 5px 30px;
+  background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .7));
+}
+/* end of navbar */
+
+.banner{
+  /* absolute
+    The element is removed from the normal document flow, 
+    and no space is created for the element in the page layout. */
+  position: absolute; 
+  /* here, we decide from what point of space the DOM should be displayed */
+  /* so, here, it will start 50 % of the div space from both top to bottom */
+  top: 50%;
+  left: 50%;
+  /* repositions an element in the horizontal and/or vertical directions */
+  /* Its coordinates define how much the element moves in each direction */
+  /* here, I am moving to the left and right by 50 % of available space */
+  transform: translate(-50%,-50%);
+  /* we can specify the available width for this div
+  here I am saying it can use 80% of available width in all directions */
+  width: 80%;
+}
+
+.banner-heading {
+  animation-name: anim;
+  animation-duration: 2s;
+}
+
+.banner-par {
+  animation-name: anim;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+}
+
+.banner-par2 {
+  animation-name: anim;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes anim {
+  /* this is like the starting point for the animation */
+  0% {
+    /* the text will start at 100px to the left, the x axis */
+    transform: translateX(-100px);
+    /* it will be invisible */
+    opacity: 0;
+  }
+  /* this is like the ending point for the animation */
+  100% {
+    /* as part of animation, the text will move to its original position */
+    transform: translateX(0px);
+    /* as part of animation, the text will become visible */
+    opacity: 1;
+  }
+}
+
+/* END OF banner */
+
+/* mission stuff */
+
+.mission {
+  background: blueviolet;
+}
+
+/* mission stuff */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
