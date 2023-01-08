@@ -1,12 +1,30 @@
-# HTML and CSS for Students
+# Bootstrap 5 with Calculator.
 
-Code related to HTML and CSS for my students.
+This is a simple calculator.
 
-# folders
+![image info](bootstrapsite1.png)
 
-1. [MarkingUpLetter](MarkingUpLetter)
-1. [Structuringapageofcontent](Structuringapageofcontent)
-1. [Calculator](Calculator)
+# CodePen version
+
+1. https://codepen.io/giana/pen/GJMBEv (original)
+1. https://codepen.io/jay-pancodu/pen/qByEeLa (my remix version)
+
+# Concepts introduced
+
+1. setup a basic layout with HTML and CSS
+1. setting up a background-image using radial-gradient
+1. using some basic WebKit CSS extensions
+1. using ::before and ::after in CSS, https://codepen.io/jay-pancodu/pen/MWBwgNp
+1. animatio with keyframes, https://codepen.io/jay-pancodu/pen/RwBPwVX
+
+# References
+
+1. https://developer.mozilla.org/en-US/docs/Web/CSS/Webkit_Extensions
+1. https://stackoverflow.com/questions/74885300/codepen-output-differs-from-local-output/74885482#74885482
+1. https://developer.mozilla.org/en-US/docs/Web/CSS/padding
+1. https://getbootstrap.com/docs/5.1/getting-started/introduction/
+2. https://learning.oreilly.com/videos/bootstrap-4-create - Bootstrap 4: Create Four Real World Projects By George Lomidze
+3. https://github.com/PacktPublishing/Bootstrap-4---Create-4-Real-World-Projects
 
 # Hire Me
 
