@@ -2,7 +2,11 @@
 
 This is a simple starer project.
 
-Showcases the following concepts
+# code sandbox
+
+1. https://codesandbox.io/s/react-js-nasa-apod-4l8hxz
+
+# Showcases the following concepts
 
 1. Using React
 1. Using Redux

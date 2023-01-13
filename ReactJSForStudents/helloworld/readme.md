@@ -4,6 +4,12 @@ This is a starter project.
 
 ![image info](RandomStuffGeneratorReactApp.png)
 
+# Code Sandbox
+
+1. https://codesandbox.io/s/react-js-hello-world-9dn2lc
+
+# general notes
+
 Shows the following.
 
 1. How to create a brand new react js project.
@@ -13,6 +19,7 @@ Shows the following.
 1. take input
 1. console logging
 1. using buttons
+1. simple unit test.
 
 Note : After looking at this, I would strongly recommend, you look at this. [React JS Starter — Consumes NASA APOD API with Redux and Thunks](https://medium.com/p/e21e138a8b49). This will show you how to use additional libraries, responsive web design, routing, redux and consuming web apis.
 
@@ -79,13 +86,18 @@ I work as a full time freelance coding tutor. Hire me at [UpWork](https://www.up
 
 I try to maintain a few hobbies.
 
-1. Podcasting. You can listen to my [podcast here](https://stories.thechalakas.com/listen-to-podcast/).
-1. Photography. You can see my photography on [Unsplash here](https://unsplash.com/@jay_neeruhaaku).
-1. Digital Photorealism 3D Art and Arch Viz. You can see my work on this on [Adobe Behance](https://www.behance.net/vijayasimhabr).
-1. Writing and Blogging. You can read my blogs. I have many medium Publications. [Read them here](https://medium.com/@vijayasimhabr).
+1. Podcasting. You can listen to my daily life [podcast](https://stories.thechalakas.com/listen-to-podcast/).
+1. Podcasting. You can listen to my movies [podcast](https://sandkdesignstudio.in/jays-movie-podcast/).
+1. Photography Nature. You can see my photography on [Unsplash](https://unsplash.com/@jay_neeruhaaku).
+1. Photography Fashion. You can see my fashion photography on [Behance](https://www.behance.net/vijayasimhabr)
+1. Digital Photorealism 3D Art. You can see my work on [ArtStation](https://www.artstation.com/jay_kalenildana).
+1. Daily Life Blog. [Read it here](https://medium.com/the-sanguine-tech-trainer).
+1. Coding and Technology Blog. [Read it here](https://medium.com/projectwt).
+1.  Daz 3D, Photography and Photoshop Blog. [Read it here](https://medium.com/random-pink-hula).
 
 # important note 
 
 This code is provided as is without any warranties. It's primarily meant for my own personal use, and to make it easy for me share code with my students. Feel free to use this code as it pleases you.
 
-I can be reached through my website - [Jay's Developer Profile](https://jay-study-nildana.github.io/developerprofile)
+1. Jay's [Developer Profile](https://jay-study-nildana.github.io/developerprofile)
+1. Jay's [Personal Site](https://stories.thechalakas.com/)
