@@ -2,28 +2,17 @@
 
 I have taken the original Photo X project by George Lomidze and have made my own modifications and upgrades.
 
-This was the very first project I remixed. So, this contains the maximum amount of detail in terms of comments and explanations. If you are learning CSS, start with this project.
+# CodePen version
 
-![image info](bootstrapsite1.png)
-
-Jump straight to the last folder, [Lecture010011ContactandFooterModified](Lecture010011ContactandFooterModified), which contains the final output.
-
-# Note To Students
-
-1. Bootstrap is one of those things that is commonly used. That means, you will find a lot of ready to use code on the internet. You can also buy or download ready to use themes.
-1. The important thing to remember, from my own experience of learning bootstrap, is that, it will probably takes years to write bootstrap code without using existing code samples. 
-1. So, my advice is to use existing code, try and understand the different CSS and bootstrap code used, and then, keep remixing and learn. 
-1. It will happen slowly, so, be patient.
-
-# Original Code
-
-Available in the folder [GeorgeLomidzeOriginal](../../GeorgeLomidzeOriginal/).
+1. https://codepen.io/jay-pancodu/pen/eYjRBjJ (slightly different layout and images, but, similar concepts)
 
 # References
 
+1. https://stackoverflow.com/questions/17036766/fixed-height-and-width-for-bootstrap-carousel - I was having this issue where the carousel was jumping up and down as the image was changing. I was using images of different resolutions, so it was jumping the image height between transitions. this link fixes it.
 1. https://getbootstrap.com/docs/5.1/getting-started/introduction/
-2. 1. https://learning.oreilly.com/videos/bootstrap-4-create - Bootstrap 4: Create Four Real World Projects By George Lomidze
-3. https://github.com/PacktPublishing/Bootstrap-4---Create-4-Real-World-Projects
+1. https://learning.oreilly.com/videos/bootstrap-4-create - Bootstrap 4: Create Four Real World Projects By George Lomidze
+1. https://github.com/PacktPublishing/Bootstrap-4---Create-4-Real-World-Projects
+1. https://fontawesome.com/how-to-use/on-the-web/setup/hosting-font-awesome-yourself
   
 # Hire Me
 
