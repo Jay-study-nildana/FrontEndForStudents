@@ -1,5 +1,8 @@
 console.log(`I am Batman`);
 
+//TODO : I am not using Camel Case. 
+//TODO : variable names are not meaningful.
+
 //let's do an API call
 
 
