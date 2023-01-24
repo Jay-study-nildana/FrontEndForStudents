@@ -10,7 +10,7 @@ a simple movie site that I am building using the MOVIEDB API.
 
 # other stuff
 
-1. for a proper node js back end web api approach look at, this. [https://github.com/Jay-study-nildana/FrontEndForStudents/tree/main/BootstrapForStudents/Bootstrap5/MovieDBProject](https://github.com/Jay-study-nildana/NodeJSForStudents/tree/main/MovieDBwebapi)
+1. for a proper node js back end web api approach look at, this. https://github.com/Jay-study-nildana/NodeJSForStudents/tree/main/MovieDBwebapi
 1. remember, what I have said above about CORS. commerical and public APIs must be consumed from your own backend to protect your api keys, and customize the experience to suit your needs. 
 
 # Hire Me
