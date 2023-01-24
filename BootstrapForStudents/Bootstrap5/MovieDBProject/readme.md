@@ -8,6 +8,11 @@ a simple movie site that I am building using the MOVIEDB API.
 1. update the api key in the file 'apikey.js'
 1. remember that these API keys, like most API keys are meant to be used with a back end API that you should be buildign. this demo is primarily for learning purposes. if you run into any CORS errors, then, simply use the code in your back end Node JS API and use the front end code with your own back end API serving the data, that is being obtained from movie DB.
 
+# other stuff
+
+1. for a proper node js back end web api approach look at, this. https://github.com/Jay-study-nildana/FrontEndForStudents/tree/main/BootstrapForStudents/Bootstrap5/MovieDBProject
+1. remember, what I have said above about CORS. commerical and public APIs must be consumed from your own backend to protect your api keys, and customize the experience to suit your needs. 
+
 # Hire Me
 
 I work as a full time freelance coding tutor. Hire me at [UpWork](https://www.upwork.com/fl/vijayasimhabr) or [Fiverr](https://www.fiverr.com/jay_codeguy). 
