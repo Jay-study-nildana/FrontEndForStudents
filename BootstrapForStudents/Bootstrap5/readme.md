@@ -20,9 +20,10 @@ My belief is, if you can understand the code inside the project [PhotoX](PhotoX)
 1. [Bootstrap5TemplateStarterMaleModel](Bootstrap5TemplateStarterMaleModel) - starter project. with a male model photo.
 1. [Bootstrap5TemplateStarterCutePanda](Bootstrap5TemplateStarterCutePanda) - starter project. with a panda photo.
 
-# Additional Projects
+# Mini Projects
 
 1. [NASAAPODXhrFetch](NASAAPODXhrFetch) - quick and simple demo that demonstrates XHR and Fetch, whilst consuming API from the popular 'NASA Astronomy Picture of the Day' API server. My students seem to get excited everytime I show them NASA stuff while teaching them how to consume API servers.
+1. [MovieDBProject](MovieDBProject) - vanilla JS project that shows how to consume and show movie details from MOVIEDB site. 
 
 # Hire Me
 

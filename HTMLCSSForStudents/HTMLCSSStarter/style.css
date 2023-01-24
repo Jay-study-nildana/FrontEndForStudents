@@ -1,0 +1,61 @@
+/* use * to remove default values that are set by the browser
+take complete control */
+
+* {
+  margin : 0;
+  padding : 0;
+/*   ensures you get real box values */
+  box-sizing : border-box; 
+}
+
+body {
+  background-color : red;
+  font-family : Arial;
+  font-size : 20px;
+}
+
+h1 {
+  font-size : 40px;
+  margin : 10px;
+  text-align : center;
+}
+
+p {
+  margin : 20px;
+  text-align : justify;
+}
+
+.one {
+  color : aquamarine
+}
+
+.two {
+  color : brown
+}
+
+.three {
+  color : pink
+}
+
+/* //box model */
+
+#four {
+  background-color : wheat;
+  border : 10px solid blueviolet;
+  padding : 100px;
+  margin : 25px;
+  color : red;
+  text-align : left;
+}
+
+#imageameesha {
+  padding : 0% 25% ;
+  margin : 20px 0px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}

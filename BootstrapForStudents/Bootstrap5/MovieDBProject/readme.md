@@ -1,16 +1,12 @@
-# HTML and CSS for Students
+# Movie Website using Vanilla JS with MovieDB API
 
-Code related to HTML and CSS for my students.
+a simple movie site that I am building using the MOVIEDB API.
 
-# Starter Projects
+# some notes
 
-1. [HTMLCSSStarter](HTMLCSSStarter)
-
-# Mini Projects
-
-1. [MarkingUpLetter](MarkingUpLetter)
-1. [Structuringapageofcontent](Structuringapageofcontent)
-1. [Calculator](Calculator)
+1. you will need to get a 'movie db key' from the [movie db website](https://www.themoviedb.org/) and put that in the 'movieAPIkey' variable before you can run this project.
+1. update the api key in the file 'apikey.js'
+1. remember that these API keys, like most API keys are meant to be used with a back end API that you should be buildign. this demo is primarily for learning purposes. if you run into any CORS errors, then, simply use the code in your back end Node JS API and use the front end code with your own back end API serving the data, that is being obtained from movie DB.
 
 # Hire Me
 
