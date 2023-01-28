@@ -1,26 +1,14 @@
-# Front End For Students
+# JS for Students
 
-Front End - Bootstrap and React js and related front end things for my students
+Code related to JavaScript for my students.
 
-# HTML and CSS
+# Starter Projects
 
-Head over to this folder [HTMLCSSForStudents](HTMLCSSForStudents) for HTML and CSS related content.
+1. [Bootstrap5TemplateStarterAmeeshaPatel](Bootstrap5TemplateStarterAmeeshaPatel) - starter project. (Recommended)
 
-# JavaScript
+# Folders
 
-Head over to this folder [JSForStudents](JSForStudents) for HTML and CSS related content.
-
-# React JS
-
-Head over to this folder [ReactJSForStudents](ReactJSForStudents) for React related content.
-
-# Bootstrap
-
-Head over to this folder [BootstrapForStudents](BootstrapForStudents) for Bootstrap related content.
-
-# Electron JS
-
-Head over to this folder [ElectronJSForStudents](ElectronJSForStudents) for Electron JS related content.
+1. [JavaScriptBasics](JavaScriptBasics)
 
 # Hire Me
 
