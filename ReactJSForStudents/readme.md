@@ -2,30 +2,25 @@
 
 some React JS related code for my students.
 
-Also look at [DevelopmentFlow.md](DevelopmentFlow.md).
-Also look at [References.md](References.md).
-Also look at [commonproblems.md](commonproblems.md).
-Also look at [essentiallibraries.md](essentiallibraries.md).
-
-# Projects - CodeSandbox
-
-1. https://codesandbox.io/s/react-template-bootstrap-cx3k9n
-1. https://codesandbox.io/s/github/Jay-study-nildana/ReactStart_Bootstrap_CodeSandbox
-
-# Projects - Starters and Hello World
+# Projects
 
 note: I have added code sand box links for each project, where, applicable.
 
-1. [helloworld](helloworld) - a 'hello world' react js project without any extra libraries. just the core basics.
-1. [randomstuffapp](randomstuffapp) - a practice project that consumes my random stuff project web api server - https://jay-study-nildana.github.io/RandomStuffDocs/
-1. [StarterNASAAPODReactJS](StarterNASAAPODReactJS) - a starter project that can be used as a template for learning and building new react js projects. 
+1. [helloworld](helloworld) - a 'hello world' react js project without any extra libraries. just the core basics. includes codesandbox.
+1. [helloworld2023](helloworld2023) - hello world, but improved for 2023. routing. basic input and output. image slider. includes codesandbox.
+1. [StarterNASAAPODReactJS](StarterNASAAPODReactJS) - consuming web api. redux. fetch calls. includes codesandbox.
+1. [localstoragehelloworld](localstoragehelloworld) - using local storage. includes codesandbox.
+1. [httpshelloworld](httpshelloworld) - a hello world project that shows how to configure https. Very useful when you are interacting with online services, like fb login or api servers, that demand that you use https even when running the code on localhost.
+
+# archived
+
+projects which are no longer actively maintained. useful for general reference.
+
 1. [reactrouterdomhelloworld](reactrouterdomhelloworld) - a hello world project which shows router dom usage which helps you have routes in a react js app.
-1. [localstoragehelloworld](localstoragehelloworld) - a hello world project that shows how to use local storage. 
 1. [reactfbloginhelloworld](reactfbloginhelloworld) - a hello world project that shows a simple fb login, and uses https. 
 1. [reactgoogleloginhelloworld](reactgoogleloginhelloworld) - a hello world project that shows a simple google login, and uses https. 
-1. [helloworldjest](helloworldjest) - a hello world project that shows a simple jest testing and code coverage.
-1. [httpshelloworld](httpshelloworld) - a hello world project that shows how to configure https. Very useful when you are interacting with online services, like fb login or api servers, that demand that you use https even when running the code on localhost.
-1. [axioshelloworldhttps](axioshelloworldhttps) - axios hello world react project with https. 
+1. [axioshelloworldhttps](axioshelloworldhttps) - axios hello world react project with https.
+1. [randomstuffapp](randomstuffapp) - a practice project that consumes my random stuff project web api server - https://jay-study-nildana.github.io/RandomStuffDocs/ 
 
 # General Notes
 

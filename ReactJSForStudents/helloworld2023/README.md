@@ -1,8 +1,6 @@
-# React JS Hello World Project
+# react js hello world 2023
 
-This is a starter project. 
-
-![image info](RandomStuffGeneratorReactApp.png)
+reacj hello world for 2023
 
 # Code Sandbox
 
@@ -15,6 +13,10 @@ This is a starter project.
 1. when using CSS classes, use 'className'
 
 # standard libraries to add 
+
+```
+npm install @babel/runtime typescript @babel/core @redux-devtools/extension @testing-library/jest-dom @testing-library/react @testing-library/user-event react-bootstrap react-dom react-redux react-router-dom redux redux-persist redux-thunk reselect
+```
 
 1. @babel/runtime
 1. typescript
@@ -32,20 +34,26 @@ This is a starter project.
 1. redux-thunk
 1. reselect
 
+# extra libraries
+
+1. npm install react-slideshow-image . https://github.com/femioladeji/react-slideshow
+
 # general notes
 
-Shows the following.
+Shows the following basic things about react.
 
 1. How to create a brand new react js project.
+1. using bootstrap via react-bootstrap
 1. created new components
-1. showing an image
+1. passing objects between components
+1. showing image
 1. created new components in folders. 
-1. take input
+1. take input and show text output 
 1. console logging
 1. using buttons
-1. simple unit test.
+1. using react-router to create routes and basic navigation with menu
 
-Note : After looking at this, I would strongly recommend, you look at this. [React JS Starter — Consumes NASA APOD API with Redux and Thunks](https://medium.com/p/e21e138a8b49). This will show you how to use additional libraries, responsive web design, routing, redux and consuming web apis.
+Note : After looking at this, I would strongly recommend, you look at this. [React JS Starter — Consumes NASA APOD API with Redux and Thunks](https://medium.com/p/e21e138a8b49). This will show you how to use redux and consuming web apis.
 
 # Local host running 
 
