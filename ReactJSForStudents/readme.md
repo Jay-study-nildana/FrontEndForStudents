@@ -2,6 +2,11 @@
 
 some React JS related code for my students.
 
+# Starter Templates
+
+1. https://codesandbox.io/s/react-template-bootstrap-cx3k9n
+1. [reactjsstartertemplate](reactjsstartertemplate)
+
 # Projects
 
 note: I have added code sand box links for each project, where, applicable.
@@ -11,6 +16,7 @@ note: I have added code sand box links for each project, where, applicable.
 1. [StarterNASAAPODReactJS](StarterNASAAPODReactJS) - consuming web api. redux. fetch calls. includes codesandbox.
 1. [localstoragehelloworld](localstoragehelloworld) - using local storage. includes codesandbox.
 1. [httpshelloworld](httpshelloworld) - a hello world project that shows how to configure https. Very useful when you are interacting with online services, like fb login or api servers, that demand that you use https even when running the code on localhost.
+1. [listdemo](listdemo) - different ways to use lists in react js.
 
 # archived
 
