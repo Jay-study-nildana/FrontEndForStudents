@@ -1,6 +1,6 @@
 # React JS NASA APOD Starter Project
 
-This is a simple starer project.
+This is a simple starer project. DOES NOT USE, reduxjs/toolkit. So, this is a more hard core version of redux usage.
 
 # code sandbox
 
