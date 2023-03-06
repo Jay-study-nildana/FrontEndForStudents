@@ -2,6 +2,10 @@
 
 This is a simple starer project. DOES NOT USE, reduxjs/toolkit. So, this is a more hard core version of redux usage.
 
+Update on March 6th 2023. 
+
+I would recommend you look at, 'reduxhelloworld' and 'reduxhelloworldNASAAPOD' react projects, which contain a more simplified redux usage with the redux toolkit.
+
 # code sandbox
 
 1. https://codesandbox.io/s/react-js-nasa-apod-4l8hxz

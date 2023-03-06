@@ -16,8 +16,9 @@ note: I have added code sand box links for each project, where, applicable. most
 1. [localstoragehelloworld](localstoragehelloworld) - using local storage. includes codesandbox.
 1. [httpshelloworld](httpshelloworld) - a hello world project that shows how to configure https. Very useful when you are interacting with online services, like fb login or api servers, that demand that you use https even when running the code on localhost.
 1. [listdemo](listdemo) - different ways to use lists in react js.
-1. [reduxhelloworld](reduxhelloworld) - redux hello world with .
-1. [StarterNASAAPODReactJS](StarterNASAAPODReactJS) - consuming web api. redux. fetch calls. includes codesandbox.
+1. [reduxhelloworld](reduxhelloworld) - redux hello world with redux toolkit.
+1. [reduxhelloworldNASAAPOD](reduxhelloworldNASAAPOD) - redux hello world with redux toolkit that consumes NASA APOD.
+1. [StarterNASAAPODReactJS](StarterNASAAPODReactJS) - consuming web api. redux. fetch calls. includes codesandbox. (not recommended for beginners)
 
 # archived
 

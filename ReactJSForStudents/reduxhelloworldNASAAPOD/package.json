@@ -1,0 +1,34 @@
+{
+  "name": "reduxhelloworldnasaapod",
+  "version": "1.0.0",
+  "description": "a quick and easy starter template.\n\n1. react bootstrap included for responsiveness\n1. react router for basic routing\n\nfor early stage learners",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@babel/core": "7.20.12",
+    "@redux-devtools/extension": "3.2.4",
+    "@reduxjs/toolkit": "1.9.3",
+    "react": "18.2.0",
+    "react-bootstrap": "2.7.0",
+    "react-dom": "18.2.0",
+    "react-redux": "8.0.5",
+    "react-router-dom": "6.6.2",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/runtime": "7.13.8",
+    "typescript": "4.1.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

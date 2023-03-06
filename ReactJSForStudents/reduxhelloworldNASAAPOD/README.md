@@ -1,12 +1,10 @@
-# Redux Toolkit Hello World Text Box
+# redux ToolKit NASA APOD
 
-a simple redux usage. uses 'reduxjs/toolkit' to make redux usage easier.
-
-1. http://localhost:3000/redux-textbox
+a simple redux usage that shows how to consume NASA APOD API. uses 'reduxjs/toolkit' to make redux usage easier.
 
 # Code Sandbox
 
-1. https://codesandbox.io/s/redux-toolkit-hello-world-text-box-i5drnd
+1. https://codesandbox.io/s/redux-toolkit-nasa-apod-ikn5b3
 
 # Local host running 
 
@@ -29,6 +27,7 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 
 # References
 
+1. https://api.nasa.gov/
 1. https://reactjs.org/docs/hello-world.html
 1. https://reactjs.org/docs/create-a-new-react-app.html
 1. https://www.bootstrapcdn.com/
