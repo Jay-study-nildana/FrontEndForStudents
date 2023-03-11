@@ -13,11 +13,28 @@ Note : please remember that the google login library is designed to work for old
 
 to see the changes you have to make to get it to work.
 
+Note: get api, from here, https://console.cloud.google.com/apis/dashboard.
+
+# mkcert Usage
+
+In order to get this project to run, you must ensure, that you install the local certificate. Check the reference section for more details.
+
+The certs that you create, must match the following line from package.json.
+
+```
+  "scripts": {
+    "start": "set HTTPS=true&&set SSL_CRT_FILE=./.cert/cert.pem&&set SSL_KEY_FILE=./.cert/key.pem&&react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },    
+```
+
 # googleconfig.json file
 
 Please create a file called 'googleconfig.json' in your 'src' folder. 
 
-And, fill it up with the following values from your FB app. 
+And, fill it up with the following values from your google app app. 
 
 ```
     {
@@ -76,6 +93,7 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 
 # References
 
+1. https://medium.com/projectwt/react-js-localhost-with-https-using-mkcert-338927e94212
 1. https://medium.com/projectwt/create-react-app-hello-world-2022-edition-f36275a0e7c4
 1. https://www.freecodecamp.org/news/how-to-set-up-https-locally-with-create-react-app/
 1. https://www.npmjs.com/package/react-google-login

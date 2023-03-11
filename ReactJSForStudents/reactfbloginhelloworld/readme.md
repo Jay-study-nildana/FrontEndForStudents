@@ -4,6 +4,10 @@
 
 Note : If you are just starting with React JS, I would recommend, trying this link. [create-react-app, Hello World, 2022 edition](https://medium.com/projectwt/create-react-app-hello-world-2022-edition-f36275a0e7c4)
 
+Note : get your FB app id from, https://developers.facebook.com/
+
+Note : Firefox might complain that there is a security risk. Dont get scared by this. you self created this certificate. So, obviously, browsers like Firefox will complain. Click on Advanced and accept the risk and continue.
+
 # fbconfig.json file
 
 Please create a file called 'fbconfig.json' in your 'src' folder. 
@@ -112,6 +116,7 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 
 # References
 
+1. https://medium.com/projectwt/react-js-localhost-with-https-using-mkcert-338927e94212
 1. https://medium.com/projectwt/create-react-app-hello-world-2022-edition-f36275a0e7c4
 1.https://stackoverflow.com/questions/46566830/how-to-use-create-react-app-with-an-older-react-version
 1. https://www.freecodecamp.org/news/how-to-set-up-https-locally-with-create-react-app/
