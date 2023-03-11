@@ -13,9 +13,9 @@ let string1 = `this is coming from App JS`;
 function App() {
   return (
     <div className="App">
-      <div className="text-center hero my-5">
+      {/* <div className="text-center hero my-5">
         <GetSomething />
-      </div>
+      </div> */}
       <div className="text-center hero my-5">
         <GetSomethingWithButton />
       </div>   

@@ -63,6 +63,8 @@ const GetSomethingMongo = () => {
         {/* <img className="mb-3 app-logo" src={logo} alt="React logo" width="120" /> */}
         <h1 className="mb-4">{string1}</h1> 
         <h1 className="mb-4">{stringloaded}</h1>   
+        <h6 className="mb-4">{post.date}</h6>
+        <h6 className="mb-4">{post.title}</h6>
         <button className="btn btn-primary" onClick={resetView}>reset view</button>
         <img src={post.hdurl} className="img-fluid" alt="..."></img>
         <h6 className="mb-4">{post.explanation}</h6>

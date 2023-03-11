@@ -33,17 +33,15 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 
 # Setting Up Project and Running
 
+note: you have to make sure https is working. I have included a blog post below on how to do it.
+
 ```
     npm install
-    npm install axios
-    npm install cors
     npm start
 
 ```
 
 1. npm install. Installs all neccessary node modules. 
-1. npm install axios add axios to the project
-1. npm install cors helps you manager cors. like bypass cors errors. 
 1. npm start
 
 # Notes - General
@@ -52,6 +50,7 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 
 # References
 
+1. https://medium.com/projectwt/react-js-localhost-with-https-using-mkcert-338927e94212
 1. https://medium.com/projectwt/create-react-app-hello-world-2022-edition-f36275a0e7c4
 1. https://www.freecodecamp.org/news/how-to-set-up-https-locally-with-create-react-app/
 1. https://www.freecodecamp.org/news/how-to-use-axios-with-react/

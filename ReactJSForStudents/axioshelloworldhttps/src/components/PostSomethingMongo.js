@@ -4,11 +4,11 @@ import axios from "axios";
 import { useState, useEffect } from 'react';
 import React from "react";
 
-let string1 = `This is coming from PostSomethingMongo Component`;
+let string1 = `POST from WEB api is happening here`;
 let stringloading = `loading........`;
-let stringloaded = `MONGO DB DATA IS HERE FROM AXIOS`;
+let stringloaded = `POST from WEB api is happening here`;
 let listofmovies = `Here are all the movies `;
-let MongoURI = 'http://localhost:8081/mongodb/searchformovie'
+let MongoURI = 'http://localhost:8081/returnname'
 let stringclickButton = `click the button to load data`
 
 const PostSomethingMongo = () => {
@@ -135,14 +135,43 @@ const PostSomethingMongo = () => {
                 {/* <img className="mb-3 app-logo" src={logo} alt="React logo" width="120" /> */}
                 <h1 className="mb-4">{string1}</h1>
                 <h1 className="mb-4">{stringloaded}</h1>
+
                 {/* <img src={post.hdurl} className="img-fluid" alt="..."></img>
         <h6 className="mb-4">{post.explanation}</h6> */}
-                <h6 className="mb-4">{listofmovies} about {quoteContent}</h6>
+                {/* <h6 className="mb-4">{listofmovies} about {quoteContent}</h6>
                 <button className="btn btn-primary" onClick={resetView}>reset view</button>
 
                 {post.movies.map((singlemovieitem) =>
                     <MovieItem key={singlemovieitem._id} movie={singlemovieitem} />
-                )}
+                )} */}
+
+                <h4>sentence : {post.sentence}</h4>
+                <br></br>
+                <p>receivedName : {post.receivedName}</p>
+
+                <div className="input-group mb-3">
+                    <div>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="enter anything you want"
+                            onChange={e => setquoteContent(e.target.value)}
+                            value={quoteContent}
+                        />
+                        <p>You are typing : {quoteContentMimic}</p>
+                    </div>
+                    <br></br>
+                    <div>
+                        {/* <Button onClick={clearEverything}>Clear Everything</Button> */}
+                        <button
+                            type="button"
+                            className="btn btn-primary"
+                            onClick={clearEverything}
+                        >clear Everything
+                        </button>
+                        <button className="btn btn-primary" onClick={callNASAAPI}>call API</button>
+                    </div>
+                </div>                
 
             </div>
         );
