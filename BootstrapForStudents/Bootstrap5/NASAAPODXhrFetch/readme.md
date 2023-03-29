@@ -6,6 +6,11 @@ Just using the quick and easy NASA APOD API to show how XHR and Fetch can be use
 
 Note : you can get the bootstrap starter template from here, https://github.com/Jay-study-nildana/FrontEndForStudents/tree/main/BootstrapForStudents/Bootstrap5
 
+# CodePen
+
+1. https://codepen.io/jay-pancodu/pen/RwYZwBG , Fetch Only.
+1. https://codepen.io/jay-pancodu/pen/oNMMwPm , Fetch and XHR.
+
 # References
 
 1. https://stackoverflow.com/questions/38235715/fetch-reject-promise-and-catch-the-error-if-status-is-not-ok
