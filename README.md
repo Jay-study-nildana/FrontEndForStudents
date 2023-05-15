@@ -1,3 +1,15 @@
+# Jay's 113 JavaSCript Online Classes
+
+join my online classes and learn to code.
+
+more details here : [Jay's 113](https://github.com/Jay-study-nildana/FrontEndForStudents/discussions/20)
+
+also here : 
+
+1. Fill up this form so you can get more details about joining the classes : https://forms.gle/WTMcP9wZgk5Tp2129
+2. discord https://discord.gg/gyXGe9RxTP
+3. at my instagram account, https://www.instagram.com/codingtutorjay/
+
 # Front End For Students
 
 Front End - Bootstrap and React js and related front end things for my students
