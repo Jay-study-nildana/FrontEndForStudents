@@ -29,7 +29,7 @@ I work as a full time freelance coding tutor. Hire me at [UpWork](https://www.up
 
 # Free Workshops in Bangalore
 
-I have co-founded a company that provides free workshops in Board Games, Art and Coding. check it out here, [amiay.in](amiay.in)
+I have co-founded a company that provides free workshops in Board Games, Art and Coding. check it out here, [amiay.in](http://amiay.in/)
 
 # Hobbies
 
