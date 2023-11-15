@@ -1,14 +1,3 @@
-# Jay's 113 JavaSCript Online Classes
-
-join my online classes and learn to code.
-
-more details here : [Jay's 113](https://github.com/Jay-study-nildana/FrontEndForStudents/discussions/20)
-
-also here : 
-
-1. Fill up this form so you can get more details about joining the classes : https://forms.gle/WTMcP9wZgk5Tp2129
-2. discord https://discord.gg/gyXGe9RxTP
-3. at my instagram account, https://www.instagram.com/codingtutorjay/
 
 # Front End For Students
 
@@ -37,6 +26,10 @@ Head over to this folder [ElectronJSForStudents](ElectronJSForStudents) for Elec
 # Hire Me
 
 I work as a full time freelance coding tutor. Hire me at [UpWork](https://www.upwork.com/fl/vijayasimhabr) or [Fiverr](https://www.fiverr.com/jay_codeguy). 
+
+# Free Workshops in Bangalore
+
+I have co-founded a company that provides free workshops in Board Games, Art and Coding. check it out here, [amiay.in](amiay.in)
 
 # Hobbies
 
