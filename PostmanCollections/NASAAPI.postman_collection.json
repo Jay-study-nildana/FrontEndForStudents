@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "1af13477-35c8-4f58-a829-15d3a508fdc2",
+		"name": "NASAAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9430666"
+	},
+	"item": [
+		{
+			"name": "insight_weather",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/insight_weather/?api_key=d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1&feedtype=json&ver=1.0",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"insight_weather",
+						""
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1"
+						},
+						{
+							"key": "feedtype",
+							"value": "json"
+						},
+						{
+							"key": "ver",
+							"value": "1.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "apod",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/planetary/apod?api_key=d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"planetary",
+						"apod"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Solar Flare (FLR)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/DONKI/FLR?startDate=2016-01-01&endDate=2020-01-30&api_key=d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"DONKI",
+						"FLR"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2016-01-01"
+						},
+						{
+							"key": "endDate",
+							"value": "2020-01-30"
+						},
+						{
+							"key": "api_key",
+							"value": "d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "NASAAPIKey",
+			"value": "d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1"
+		}
+	]
+}
