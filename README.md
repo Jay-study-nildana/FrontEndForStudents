@@ -16,7 +16,9 @@ Front End - Bootstrap and React js and related front end things for my students
 2. https://www.freecodecamp.org/learn/2022/responsive-web-design/ : another favorite course to learn CSS and HTML
 3. https://www.youtube.com/playlist?list=PL7SHzFbuSdW0-VhFwVTD2CRzpxkHnwKXm : my own YouTube videos for first time developers.
 4. https://www.youtube.com/playlist?list=PL7SHzFbuSdW0LWKYOOMPVzVVCa_BtnuZb : my own YouTube videos related to GitHub Usage.
-5. https://github.com/murtaugh/HTML5-Reset : a nice HTML starter. 
+5. https://github.com/murtaugh/HTML5-Reset : a nice HTML starter.
+
+more cool [repos here](coolrepos.md)
 
 # hire and get to know me
 
