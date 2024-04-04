@@ -18,7 +18,7 @@ Front End - Bootstrap and React js and related front end things for my students
 4. https://www.youtube.com/playlist?list=PL7SHzFbuSdW0LWKYOOMPVzVVCa_BtnuZb : my own YouTube videos related to GitHub Usage.
 5. https://github.com/murtaugh/HTML5-Reset : a nice HTML starter.
 
-more cool [repos here](coolrepos.md)
+see here for some [cool repos I like](https://github.com/Jay-study-nildana/somecoolrepos).
 
 # hire and get to know me
 
