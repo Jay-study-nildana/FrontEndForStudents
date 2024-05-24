@@ -13,12 +13,6 @@ I realized, I never put any Postman collections for my students to use.
         1. My personal favorite, apod
     1. DON'T FORGET TO ADD THE API key, in the variables section of the collection. 
 
-# Project using this API
-
-1. https://github.com/Jay-study-nildana/FrontEndForStudents/tree/main/BootstrapForStudents/Bootstrap5/NASAAPODXhrFetch
-1. https://github.com/Jay-study-nildana/FrontEndForStudents/tree/main/ReactJSForStudents/StarterNASAAPODReactJS
-1. https://github.com/Jay-study-nildana/FrontEndForStudents/tree/main/ReactJSForStudents/reduxhelloworldNASAAPOD
-
 # hire and get to know me
 
 find ways to hire me, follow me and stay in touch with me.
