@@ -7,7 +7,6 @@ Front End - Bootstrap and React js and related front end things for my students
 1. JavaScript : Head over to this folder [JSForStudents](JSForStudents) for HTML and CSS related content.
 1. React JS : Head over to this folder [ReactJSForStudents](ReactJSForStudents) for React related content.
 1. Bootstrap : Head over to this folder [BootstrapForStudents](BootstrapForStudents) for Bootstrap related content.
-1. Electron JS : Head over to this folder [ElectronJSForStudents](ElectronJSForStudents) for Electron JS related content.
 1. Postman Collections : Ready to use postman collections. [PostmanCollections](PostmanCollections)
 
 # Useful Resources/Links/Repos and Other Stuff
