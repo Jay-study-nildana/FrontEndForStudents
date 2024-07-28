@@ -92,6 +92,8 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 
 # Mac Related links
 
+note: I am not able to get mkcert to work on Mac, no matter how much I try. 
+
 1. https://github.com/FiloSottile/mkcert
 2. https://brew.sh
 
