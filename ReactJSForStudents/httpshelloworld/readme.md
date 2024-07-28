@@ -88,6 +88,7 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 
 1. https://medium.com/projectwt/create-react-app-hello-world-2022-edition-f36275a0e7c4
 1. https://www.freecodecamp.org/news/how-to-set-up-https-locally-with-create-react-app/
+1. https://medium.com/projectwt/react-js-localhost-with-https-using-mkcert-338927e94212
 
 # hire and get to know me
 
