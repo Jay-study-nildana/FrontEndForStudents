@@ -90,6 +90,11 @@ Note : When doing react JS, I would strongly recommending using two computers. O
 1. https://www.freecodecamp.org/news/how-to-set-up-https-locally-with-create-react-app/
 1. https://medium.com/projectwt/react-js-localhost-with-https-using-mkcert-338927e94212
 
+# Mac Related links
+
+1. https://github.com/FiloSottile/mkcert
+2. https://brew.sh
+
 # hire and get to know me
 
 find ways to hire me, follow me and stay in touch with me.
