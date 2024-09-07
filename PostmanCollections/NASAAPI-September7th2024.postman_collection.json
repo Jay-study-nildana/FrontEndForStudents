@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "1af13477-35c8-4f58-a829-15d3a508fdc2",
-		"name": "NASAAPI",
+		"_postman_id": "3d4e994b-d6a1-4e6a-9d27-bed571d7beb4",
+		"name": "NASAAPI-September7th2024",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "9430666"
 	},
@@ -12,12 +12,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.nasa.gov/insight_weather/?api_key=d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1&feedtype=json&ver=1.0",
-					"protocol": "https",
+					"raw": "{{nasahosturi}}/insight_weather/?api_key={{NASAAPIKey}}&feedtype=json&ver=1.0",
 					"host": [
-						"api",
-						"nasa",
-						"gov"
+						"{{nasahosturi}}"
 					],
 					"path": [
 						"insight_weather",
@@ -26,7 +23,7 @@
 					"query": [
 						{
 							"key": "api_key",
-							"value": "d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1"
+							"value": "{{NASAAPIKey}}"
 						},
 						{
 							"key": "feedtype",
@@ -47,12 +44,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.nasa.gov/planetary/apod?api_key=d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1",
-					"protocol": "https",
+					"raw": "{{nasahosturi}}/planetary/apod?api_key={{NASAAPIKey}}",
 					"host": [
-						"api",
-						"nasa",
-						"gov"
+						"{{nasahosturi}}"
 					],
 					"path": [
 						"planetary",
@@ -61,7 +55,7 @@
 					"query": [
 						{
 							"key": "api_key",
-							"value": "d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1"
+							"value": "{{NASAAPIKey}}"
 						}
 					]
 				}
@@ -74,12 +68,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.nasa.gov/DONKI/FLR?startDate=2016-01-01&endDate=2020-01-30&api_key=d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1",
-					"protocol": "https",
+					"raw": "{{nasahosturi}}/DONKI/FLR?startDate=2016-01-01&endDate=2020-01-30&api_key={{NASAAPIKey}}",
 					"host": [
-						"api",
-						"nasa",
-						"gov"
+						"{{nasahosturi}}"
 					],
 					"path": [
 						"DONKI",
@@ -96,7 +87,7 @@
 						},
 						{
 							"key": "api_key",
-							"value": "d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1"
+							"value": "{{NASAAPIKey}}"
 						}
 					]
 				}
@@ -104,10 +95,36 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "NASAAPIKey",
-			"value": "d7Qmzz1hVt9AdbNgKGKahCQcfP5rdm40uAK67XR1"
+			"value": ""
+		},
+		{
+			"key": "nasahosturi",
+			"value": "https://api.nasa.gov"
 		}
 	]
 }

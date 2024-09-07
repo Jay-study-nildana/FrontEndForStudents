@@ -1,10 +1,13 @@
-# Bootstrap 5 Template Starter
+# Bootstrap5Starter
 
-This is the bootstrap 5.X template. Uses Ameesha Patel has the main image.
+This is the bootstrap 5.X template.
+
+1. Use this to practice Bootstrap
+1. Use this to practice JavaScript
 
 # CodePen version
 
-1. https://codepen.io/jay-pancodu/pen/abjbrxK
+1. https://codepen.io/jay-pancodu/pen/gONZdpO
 
 # book a session with me
 

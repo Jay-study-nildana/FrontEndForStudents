@@ -4,12 +4,7 @@ Just using the quick and easy NASA APOD API to show how XHR and Fetch can be use
 
 # CodePen
 
-1. https://codepen.io/jay-pancodu/pen/RwYZwBG , Fetch Only.
-1. https://codepen.io/jay-pancodu/pen/oNMMwPm , Fetch and XHR.
-
-# Images
-
-the photos are from my photography hobby. [S and K Design Studio](https://sandkdesignstudio.in/portfolio/)
+1. https://codepen.io/jay-pancodu/pen/PorXdbPa
 
 # References
 
