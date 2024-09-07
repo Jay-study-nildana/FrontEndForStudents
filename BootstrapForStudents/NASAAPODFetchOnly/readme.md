@@ -4,7 +4,7 @@ Just using the quick and easy NASA APOD API to show how XHR and Fetch can be use
 
 # CodePen
 
-1. https://codepen.io/jay-pancodu/pen/PorXdbPa
+1. https://codepen.io/jay-pancodu/pen/PorXdbP
 
 # References
 
