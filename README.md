@@ -9,6 +9,7 @@ First, check out the following
 
 After learning the basics, come back, and look at these demo projects here.
 
+1. HTML & css : Head over to this folder [CSSProjects](CSSProjects) for React related content.
 1. React JS : Head over to this folder [ReactJSForStudents](ReactJSForStudents) for React related content.
 1. Bootstrap : Head over to this folder [BootstrapForStudents](BootstrapForStudents) for Bootstrap related content.
 1. Postman Collections : Ready to use postman collections. [PostmanCollections](PostmanCollections)
