@@ -1,20 +1,21 @@
 
 # Front End For Students
 
-First, check out the following
+1. [CSSProjects](CSSProjects)
+1. [JavaScriptConcepts](JavaScriptConcepts)
+1. [ReactJSForStudents](ReactJSForStudents)
+1. [BootstrapForStudents](BootstrapForStudents)
+1. [PostmanCollections](PostmanCollections)
 
-1. https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/ - Use this to learn basics of JavaScript
-2. https://www.freecodecamp.org/learn/2022/responsive-web-design/ - Use this to learn basics of HTML/CSS.
-4. https://www.youtube.com/playlist?list=PL7SHzFbuSdW0LWKYOOMPVzVVCa_BtnuZb : my own YouTube videos related to GitHub Usage.
+# YouTube Channel with Tutorials
 
-After learning the basics, come back, and look at these demo projects here.
+1. Coding Essentials : https://www.youtube.com/playlist?list=PL7SHzFbuSdW0LWKYOOMPVzVVCa_BtnuZb
+1. Front End Basics : https://www.youtube.com/playlist?list=PL7SHzFbuSdW2DmT1ebDC_iSM9rDD-kT6F
 
-1. HTML & css : Head over to this folder [CSSProjects](CSSProjects) for React related content.
-1. React JS : Head over to this folder [ReactJSForStudents](ReactJSForStudents) for React related content.
-1. Bootstrap : Head over to this folder [BootstrapForStudents](BootstrapForStudents) for Bootstrap related content.
-1. Postman Collections : Ready to use postman collections. [PostmanCollections](PostmanCollections)
+# References
 
-see here for some [cool repos I like](https://github.com/Jay-study-nildana/somecoolrepos).
+1. https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
+1. https://www.freecodecamp.org/learn/2022/responsive-web-design/
 
 # book a session with me
 
