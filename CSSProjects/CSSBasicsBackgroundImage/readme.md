@@ -1,13 +1,12 @@
-# Postman Collections
+# CSS Starter Project
 
-I realized, I never put any Postman collections for my students to use. 
+starter project. 
 
-# Collections here
+codepen : https://codepen.io/jay-pancodu/pen/xxoMKbv
 
-1. NASA API. 
-    1. download the [collection here](NASAAPI-September7th2024.postman_collection.json)
-    1. get the key on the NASA API website, https://api.nasa.gov/
-    1. DON'T FORGET TO ADD THE API key, in the variables section of the collection. 
+# references
+
+1. https://www.freecodecamp.org/certification/jay_tutor/responsive-web-design
 
 # book a session with me
 

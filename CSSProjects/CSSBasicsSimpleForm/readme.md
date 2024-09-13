@@ -1,14 +1,12 @@
-# Redux Demo with NASA APO API consumption
+# CSS Starter Project
 
-redux demo.
+starter project. 
 
-1. codesandbox : https://codesandbox.io/p/sandbox/redux-toolkit-nasa-apod-ikn5b3
-1. codesandbox : https://codesandbox.io/p/sandbox/react-js-nasa-apod-4l8hxz
+codepen : https://codepen.io/jay-pancodu/pen/xxoMKbv
 
-# how to run
+# references
 
-1. npm install
-1. npm start
+1. https://www.freecodecamp.org/certification/jay_tutor/responsive-web-design
 
 # book a session with me
 

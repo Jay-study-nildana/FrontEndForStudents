@@ -2,15 +2,21 @@
 
 Some beginner friendly CSS projects for my students.
 
-# Projects
-
 1. [CSSStarterProject](CSSStarterProject) - starter project
+1. Videos related to this, available on my Youtube Channel. [front end basics](https://www.youtube.com/playlist?list=PL7SHzFbuSdW2DmT1ebDC_iSM9rDD-kT6F)
+
+# Projects 
+
 1. [SurveyForm](SurveyForm)
 1. [TributePage](TributePage)
 1. [TechnicalPage](TechnicalPage)
 1. [ProductPage](ProductPage)
 1. [PortfolioPage](PortfolioPage)
 
+# Quick Topics
+
+1.[CSSBasicsBackgroundImage](CSSBasicsBackgroundImage) - set background image
+1.[CSSBasicsSimpleForm](CSSBasicsSimpleForm) - set background image
 
 # references
 

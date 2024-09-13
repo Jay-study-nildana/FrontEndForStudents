@@ -1,11 +1,9 @@
-
 # Front End For Students
 
 1. [CSSProjects](CSSProjects)
 1. [JavaScriptConcepts](JavaScriptConcepts)
 1. [ReactJSForStudents](ReactJSForStudents)
 1. [BootstrapForStudents](BootstrapForStudents)
-1. [PostmanCollections](PostmanCollections)
 
 # YouTube Channel with Tutorials
 

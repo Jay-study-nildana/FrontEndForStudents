@@ -2,25 +2,17 @@
 
 some React JS related code for my students.
 
-# Projects
+# Projects - 2024
+
+note: 'npx create-react-app@5' used for creating these projects.
+
+1. [batmansayshello](batmansayshello) - see a random joke
+
+# Projects - Pre 2024
 
 1. [reactjsstartertemplate](reactjsstartertemplate) - starter project
 1. [httpshelloworld](httpshelloworld) - installing a local cert, mkcert, chocolatey, Powershell and so on.
 1. [redux-toolkit-nasa-apod](redux-toolkit-nasa-apod) - consuming web api. redux. fetch calls. includes codesandbox. 
-
-# General Notes
-
-```
-
-    npx create-react-app my-app
-    cd my-app
-    npm start
-
-```
-
-1. Local: http://localhost:3000
-1. On Your Network: http://172.28.96.1:3000
-1. make sure you install 'react-start' via npm before running my projects
 
 # book a session with me
 

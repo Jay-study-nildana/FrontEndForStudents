@@ -1,0 +1,38 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+div {
+    background-color:antiquewhite;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    min-height: 400px;
+}  
+
+.header-h1 {
+    text-align: center;
+}
+
+footer {
+    background-color: gold;
+    text-align: center;
+    margin-top: 10px;
+    padding: 1px;
+}
+
+.section1 {
+    min-height: 100px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 250px;
+    align-self: center;
+}

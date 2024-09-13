@@ -1,0 +1,109 @@
+/* first, the standard defaults */
+/* a lot of things in CSS are optional. the more optional things you do, the
+better your web page will look cool */
+
+/* get some fonts. Optional. If you want to use something unique from google fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+
+/* set up some basic CSS variables. Optional. You don't have to use CSS variables */
+/* very useful to control colors all over the page just like that.  */
+:root {
+  --color-white: #f3f3f3;
+  --color-darkblue: #1b1b32;
+  --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+  --color-green: #37af65;
+  --color-text: rgb(226, 3, 3);
+}
+
+/* once again, some default styling for the input boxes. Optional */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* once again, some standard default values for all DOM elements. optional */
+
+body {
+  /* use whatever fonts you imported above */
+  /* if the fonts don't load for some reason, the default font will take over anyway */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* media based break points. basic responsiveness */
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* first, the standard defaults, above. */
+
+/* now let's do a simple background image */
+/* this works fine, but, the image does not sit in the center */
+/* body {
+  background-image: url(https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg);
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-size: cover;
+} */
+
+/* lets use a nice trick with the ::before option */
+/* now the image is filling up nicely*/
+/* but now, the text and other content is not visible, new problem. */
+
+/* body::before {
+  background-image: url(https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg);
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-size: cover;
+
+  content: '';
+  position: fixed;
+  height: 100%;
+  width: 100%;
+} */
+
+/* let's reuse the above body styling, but push the image all the way back 
+using the z-index  */
+
+body::before {
+  background-image: url(https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg);
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-size: cover;
+
+  content: '';
+  position: fixed;
+  height: 100%;
+  width: 100%;
+
+  z-index: -1;
+}
+
+/* finally, we have a nice centrally located background image */
+/* it's pushed to the back, and text content is also visible. */
+
+/* One last thing, let's push the text to the center, so it looks nice */
+
+.pushtexttocenter {
+  margin-top: 0; /* if you don't put this, a weird space appears on the top*/
+  text-align: center;
+}
+
+.h1extra {
+  padding-top: 100px; /* I want the heading to come a little bit down*/
+}
