@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 200px;
+}
+
+.display {
+    grid-column: span 4;
+    background-color: #222;
+    color: white;
+    text-align: right;
+    padding: 10px;
+    font-size: 2em;
+}
+
+.button {
+    padding: 20px;
+    font-size: 1.5em;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+}
+
+.operator {
+    background-color: #f9a825;
+    color: white;
+}

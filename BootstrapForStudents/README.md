@@ -4,6 +4,8 @@
 1. [Bootstrap5TemplateStarterAmeeshaPatel](Bootstrap5TemplateStarterAmeeshaPatel)
 1. [NASAAPODXhrFetch](NASAAPODXhrFetch)
 1. [NASAAPODFetchOnly](NASAAPODFetchOnly)
+1. [CalculatorProject](CalculatorProject)
+1. [WeatherAPIProject](WeatherAPIProject)
 
 # book a session with me
 
