@@ -6,6 +6,7 @@
 1. [NASAAPODFetchOnly](NASAAPODFetchOnly)
 1. [CalculatorProject](CalculatorProject)
 1. [WeatherAPIProject](WeatherAPIProject)
+1. [PhotoGallery](PhotoGallery)
 
 # book a session with me
 
