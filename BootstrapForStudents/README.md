@@ -7,6 +7,7 @@
 1. [CalculatorProject](CalculatorProject)
 1. [WeatherAPIProject](WeatherAPIProject)
 1. [PhotoGallery](PhotoGallery)
+1. [StringConcepts](StringConcepts)
 
 # book a session with me
 
