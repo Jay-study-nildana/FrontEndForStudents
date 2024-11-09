@@ -22,8 +22,6 @@ swaggerSetup(app);
 
 app.use(express.json());
 
-//const url =
-  "mongodb+srv://dbuserreadwrite1:N351mcH301xaTZjE@clusterhw.r2wa4.mongodb.net/?retryWrites=true&w=majority&appName=ClusterHW";
 const url = process.env.MONGODB_URI;
 const dbName = "sample_mflix";
 
