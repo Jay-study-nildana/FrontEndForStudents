@@ -1,0 +1,5 @@
+    LOCAL_HOST = "localhost"
+    DEFAULT_PORT = "8080"
+    DEFAULT_PORT2 = "8081"
+    DEFAULT_PORT3 = "8082"
+    DEFAULT_PORT4 = "8083"
