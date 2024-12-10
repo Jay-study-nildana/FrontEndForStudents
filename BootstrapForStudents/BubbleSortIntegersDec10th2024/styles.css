@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #005f99;
+}
+
+#controls {
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#array-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    height: 150px;
+    gap: 10px;
+    position: relative;
+}
+
+.array-bubble {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.5s ease;
+}
+
+.array-bubble.active {
+    background-color: #ffc107;
+    transform: translateY(-20px);
+}
+
+.array-bubble.exploding {
+    animation: explode 0.6s forwards;
+}
+
+@keyframes explode {
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+#status-message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #555;
+}
