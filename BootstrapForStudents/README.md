@@ -8,6 +8,10 @@
 1. [WeatherAPIProject](WeatherAPIProject)
 1. [PhotoGallery](PhotoGallery)
 1. [StringConcepts](StringConcepts)
+1. [ArrayEssentials](ArrayEssentialsDec10th2024)
+1. [StringEssentials](StringEssentialsDec10th2024)
+1. [BubbleSortIntegers](BubbleSortIntegersDec10th2024)
+1. [BubbleSortStrings](BubbleSortStringsDec10th2024)
 
 # book a session with me
 
