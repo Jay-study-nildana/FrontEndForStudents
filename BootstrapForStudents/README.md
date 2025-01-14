@@ -12,6 +12,10 @@
 1. [StringEssentials](StringEssentialsDec10th2024)
 1. [BubbleSortIntegers](BubbleSortIntegersDec10th2024)
 1. [BubbleSortStrings](BubbleSortStringsDec10th2024)
+1. [VarLet](VarLetJan142025)
+1. Arrow Functions
+    1. [Arrow and Regular Function](ArrowJan142025)
+    1. [Arrow Function with Parameters](ArrowJan142025b)
 
 # book a session with me
 
