@@ -12,6 +12,17 @@
 1. [StringEssentials](StringEssentialsDec10th2024)
 1. [BubbleSortIntegers](BubbleSortIntegersDec10th2024)
 1. [BubbleSortStrings](BubbleSortStringsDec10th2024)
+1. [VarLet](VarLetJan142025)
+1. Arrow Functions
+    1. [Arrow and Regular Function](ArrowJan142025)
+    1. [Arrow Function with Parameters](ArrowJan142025b)
+    1. [Arrow Function with Default Parameters](ArrowJan142025c)
+1. Destructuring
+    1. [Object Destructuring](DestructuringJan172025)
+    1. [Object Destructuring Assign Variables](DestructuringJan172025b)
+    1. [Nested Object Destructuring](DestructuringJan172025c)
+    1. [Array Destructuring](DestructuringJan172025d)
+1. [Spread Operator with Arrays](SpreadOperatorArraysJan172025)
 
 # book a session with me
 
