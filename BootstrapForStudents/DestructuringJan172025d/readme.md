@@ -1,15 +1,11 @@
-# Arrow Functions vs Regular Functions
+# Destructuring to Assign Variables from Arrays
 
-This project demonstrates the differences between ES6 arrow functions and regular functions in JavaScript.
-
-## Usage
-
-Click the buttons to see the output of an arrow function and a regular function.
+This project demonstrates the use of destructuring to assign variables from arrays in JavaScript.
 
 ## How to Run
 
 1. Clone the repository.
-2. Open `index.html` in your browser.
+2. Open `index.html` in a web browser.
 
 ## Book a Session with Me
 

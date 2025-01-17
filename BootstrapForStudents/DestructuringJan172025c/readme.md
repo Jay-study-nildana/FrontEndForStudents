@@ -1,15 +1,11 @@
-# Arrow Functions vs Regular Functions
+# Destructuring Assign Variables from Nested Objects
 
-This project demonstrates the differences between ES6 arrow functions and regular functions in JavaScript.
-
-## Usage
-
-Click the buttons to see the output of an arrow function and a regular function.
+This project demonstrates the use of destructuring assign variables from nested objects in JavaScript.
 
 ## How to Run
 
 1. Clone the repository.
-2. Open `index.html` in your browser.
+2. Open `index.html` in a web browser.
 
 ## Book a Session with Me
 

@@ -1,3 +1,10 @@
+:root {
+    --background-color: #f4f4f4;
+    --text-color: #000;
+    --error-color: red;
+    --button-hover-color: #ddd;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -5,7 +12,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 #container {
@@ -22,9 +30,14 @@ button {
     font-size: 16px;
     cursor: pointer;
     margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
 }
 
 #error {
-    color: red;
+    color: var(--error-color);
     margin-top: 20px;
 }
