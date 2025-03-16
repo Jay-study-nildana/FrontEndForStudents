@@ -5,6 +5,7 @@ some node JS related code for my students.
 # Projects
 
 1. [NodeJSHelloWorld](NodeJSHelloWorld) - Hello World with Node JS.
+1. [NodeJSHelloWorld2](NodeJSHelloWorld2) - Hello World with Node JS. One more.
 1. [MongoDB_API_CRUD_HelloWorld](mongodbhwnov2024a) - Hello World with Mongo DB plus API Server.
 
 # book a session with me
