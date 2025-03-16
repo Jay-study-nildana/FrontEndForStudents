@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "51150f44-551d-4177-b70e-ecae1d7ee9a7",
+		"name": "March162025",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9430666"
+	},
+	"item": [
+		{
+			"name": "ADDTWONUMBERS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"num1\": 5,\r\n  \"num2\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BATMAN",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"num1\": 5,\r\n  \"num2\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/batman",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"batman"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -6,6 +6,14 @@ Node JS Hello World.
 
 1. https://medium.com/projectwt/setup-a-simple-nodejs-server-with-api-endpoints-and-static-bootstrap-site-a809ebcb8e74
 
+# API endpoints
+
+1. http://localhost:8082/superman
+1. http://localhost:8082/batman
+1. http://localhost:8082/anythingelse (404)
+
+Note: Use the included Postman Collection.
+
 # .env file
 
 You must create a .env file as provided in .env.example.
