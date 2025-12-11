@@ -6,6 +6,11 @@
 1. [BootstrapForStudents](BootstrapForStudents)
 1. [NodeJSForStudents](NodeJSForStudents)
 
+# Recommended VS Code Extensions
+
+1. https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode : Useful for practising JavaScript
+2. https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server : Useful for running Vanilla JS project folders
+
 # YouTube Channel with Tutorials
 
 1. Coding Essentials : https://www.youtube.com/playlist?list=PL7SHzFbuSdW0LWKYOOMPVzVVCa_BtnuZb
