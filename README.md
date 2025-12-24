@@ -1,10 +1,6 @@
 # Front End For Students
 
-1. [CSSProjects](CSSProjects)
-1. [JavaScriptConcepts](JavaScriptConcepts)
-1. [ReactJSForStudents](ReactJSForStudents)
-1. [BootstrapForStudents](BootstrapForStudents)
-1. [NodeJSForStudents](NodeJSForStudents)
+Projects across different aspects of JavaScript related development. Includes both front end as well as backend and also full stack projects. 
 
 # Recommended VS Code Extensions
 
