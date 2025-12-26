@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  moduleFormat    = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id    Int     @default(autoincrement()) @id
+  email String  @unique
+  name  String?
+  posts Post[]
+}
+
+model Post {
+  id        Int      @default(autoincrement()) @id
+  title     String
+  content   String? 
+  published Boolean? @default(false)
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  Int?
+}
+
+model PassPortAuthUser {
+  id              String                      @id @default(uuid()) @db.Uuid
+  email           String                      @unique
+  password        String
+  name            String?
+  isActive        Boolean                     @default(true)
+  emailVerifiedAt DateTime?                   @db.Timestamp(6)
+  lastLoginAt     DateTime?                   @db.Timestamp(6)
+  userRoles       PassPortAuthUserRole[]
+  refreshTokens   PassPortAuthRefreshToken[]
+
+  createdAt       DateTime                    @default(now()) @db.Timestamp(6)
+  updatedAt       DateTime?                   @updatedAt @db.Timestamp(6)
+
+  @@map("PassPortAuthUser")
+}
+
+model PassPortAuthRole {
+  id          String                      @id @default(uuid()) @db.Uuid
+  name        String                      @unique
+  description String?
+  userRoles   PassPortAuthUserRole[]
+  createdAt   DateTime                    @default(now()) @db.Timestamp(6)
+
+  @@map("PassPortAuthRole")
+}
+
+model PassPortAuthUserRole {
+  id        String                @id @default(uuid()) @db.Uuid
+  userId    String                @db.Uuid
+  roleId    String                @db.Uuid
+  user      PassPortAuthUser      @relation(fields: [userId], references: [id])
+  role      PassPortAuthRole      @relation(fields: [roleId], references: [id])
+  createdAt DateTime              @default(now()) @db.Timestamp(6)
+
+  @@unique([userId, roleId])
+  @@map("PassPortAuthUserRole")
+}
+
+model PassPortAuthRefreshToken {
+  id           String                      @id @default(uuid()) @db.Uuid
+  tokenHash    String
+  expiresAt    DateTime                    @db.Timestamp(6)
+  createdAt    DateTime                    @default(now()) @db.Timestamp(6)
+  revoked      Boolean                     @default(false)
+
+  // self-relation: this token may be replaced by another token (replacedBy)
+  replacedById String?                     @db.Uuid
+  replacedBy   PassPortAuthRefreshToken?   @relation("Replacement", fields: [replacedById], references: [id])
+
+  // opposite side of the self-relation: tokens that this token replaced
+  replacedTokens PassPortAuthRefreshToken[] @relation("Replacement")
+
+  userId       String                      @db.Uuid
+  user         PassPortAuthUser            @relation(fields: [userId], references: [id])
+  ip           String?
+  userAgent    String?
+
+  @@map("PassPortAuthRefreshToken")
+}
