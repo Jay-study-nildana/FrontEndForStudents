@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Accessible Form Example</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Contact us</h1>
+
+  <!-- live region for form-level messages -->
+  <div id="form-status" role="status" aria-live="polite" class="visually-hidden"></div>
+
+  <form id="contactForm" novalidate>
+    <fieldset>
+      <legend>Contact form</legend>
+
+      <div class="field">
+        <label for="name">Full name <span aria-hidden="true">*</span></label>
+        <input id="name" name="name" type="text" required aria-required="true" aria-describedby="name-hint" />
+        <div id="name-hint" class="hint">Enter your first and last name.</div>
+        <div id="name-error" class="error" aria-live="assertive"></div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email <span aria-hidden="true">*</span></label>
+        <input id="email" name="email" type="email" required aria-required="true" aria-describedby="email-hint" />
+        <div id="email-hint" class="hint">We’ll use this to reply to you.</div>
+        <div id="email-error" class="error" aria-live="assertive"></div>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" aria-describedby="message-hint"></textarea>
+        <div id="message-hint" class="hint">Tell us about your question or feedback.</div>
+        <div id="message-error" class="error" aria-live="assertive"></div>
+      </div>
+
+      <div class="field">
+        <button type="submit">Submit</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <script>
+    // Minimal accessible client-side validation and focus management
+    (function(){
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('form-status');
+
+      function showError(input, msg){
+        const err = document.getElementById(input.id + '-error');
+        input.classList.add('invalid');
+        input.setAttribute('aria-invalid', 'true');
+        err.textContent = msg;
+      }
+      function clearError(input){
+        const err = document.getElementById(input.id + '-error');
+        input.classList.remove('invalid');
+        input.removeAttribute('aria-invalid');
+        err.textContent = '';
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        // Clear previous errors
+        ['name','email','message'].forEach(id=>{
+          clearError(document.getElementById(id));
+        });
+
+        const name = form.elements['name'];
+        const email = form.elements['email'];
+        const message = form.elements['message'];
+        let firstInvalid = null;
+
+        if(!name.value.trim()){
+          showError(name, 'Please enter your full name.');
+          firstInvalid = firstInvalid || name;
+        }
+
+        // Basic email pattern check
+        const emailVal = email.value.trim();
+        if(!emailVal){
+          showError(email, 'Please enter your email address.');
+          firstInvalid = firstInvalid || email;
+        } else if(!/^[\w.+-]+@[\w-]+\.[\w.-]+$/.test(emailVal)){
+          showError(email, 'Please enter a valid email address.');
+          firstInvalid = firstInvalid || email;
+        }
+
+        if(firstInvalid){
+          status.textContent = 'There are errors in the form. Please fix them and try again.';
+          // focus first invalid field and ensure screen reader will read the message
+          firstInvalid.focus();
+          return;
+        }
+
+        // Simulate successful submission (replace with real fetch/XHR)
+        status.textContent = 'Sending…';
+        // disable form or show spinner in real implementation
+        setTimeout(()=>{
+          form.reset();
+          status.textContent = 'Thanks — we received your message.';
+          // move focus to the status for screen-reader users
+          // (status has role=status and aria-live)
+          document.getElementById('name').focus(); // optionally focus meaningful element
+        }, 800);
+      });
+
+    })();
+  </script>
+</body>
+</html>

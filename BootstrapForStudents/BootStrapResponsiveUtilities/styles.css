@@ -1,0 +1,4 @@
+/* Small helper styles */
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.bg-white { background: #fff !important; }
+.border { border: 1px solid rgba(2,6,23,.06) !important; }

@@ -1,0 +1,8 @@
+:root{--muted:#6b7280;--max:1100px}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;font-family:system-ui,Inter,Arial;background:#fff;color:#0b1220}
+.wrap{max-width:var(--max);margin:1.25rem auto;padding:0 1rem}
+.hero img{width:100%;height:auto;border-radius:8px;display:block}
+.muted{color:var(--muted)}
+.thumbs{display:flex;gap:.5rem;list-style:none;padding:0;margin:1rem 0}
+.thumbs img{width:200px;height:auto;border-radius:6px;display:block}

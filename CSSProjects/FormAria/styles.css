@@ -1,0 +1,9 @@
+    body { font-family: system-ui, sans-serif; padding: 2rem; max-width:700px; margin:auto; }
+    .field { margin-bottom: 1rem; }
+    label { display:block; font-weight:600; margin-bottom:.25rem; }
+    input, textarea, select { width:100%; padding:.5rem; font-size:1rem; border:1px solid #ccc; border-radius:6px; }
+    .hint { font-size:.9rem; color:#555; }
+    .error { color:#b91c1c; font-size:.95rem; margin-top:.25rem; }
+    .visually-hidden { position:absolute; width:1px; height:1px; margin:-1px; border:0; clip:rect(0 0 0 0); overflow:hidden; padding:0; white-space:nowrap;}
+    button { padding:.6rem 1rem; border-radius:8px; background:#2563eb; color:#fff; border:0; cursor:pointer; }
+    .invalid { border-color:#b91c1c; }

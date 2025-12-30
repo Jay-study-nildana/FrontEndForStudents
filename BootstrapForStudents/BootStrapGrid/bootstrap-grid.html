@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bootstrap Grid — Mini Project</title>
+
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Optional custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+  <header class="py-4 mb-4 bg-white border-bottom">
+    <div class="container">
+      <h1 class="h3 mb-0">Bootstrap Grid — Magazine Layout</h1>
+      <p class="text-muted small mb-0">Learn row/col, nesting, offsets, ordering and responsive columns.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Basic responsive columns -->
+    <section class="mb-5">
+      <h2 class="h5">1. Responsive columns (xs → lg)</h2>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4"><div class="p-3 bg-white border">col-12 col-md-6 col-lg-4</div></div>
+        <div class="col-12 col-md-6 col-lg-4"><div class="p-3 bg-white border">col-12 col-md-6 col-lg-4</div></div>
+        <div class="col-12 col-md-12 col-lg-4"><div class="p-3 bg-white border">col-12 col-md-12 col-lg-4</div></div>
+      </div>
+    </section>
+
+    <!-- Offsets and ordering -->
+    <section class="mb-5">
+      <h2 class="h5">2. Offsets and ordering</h2>
+      <p class="small text-muted">Use offsets or order utilities to change visual placement.</p>
+      <div class="row g-3 align-items-center">
+        <div class="col-6 col-md-4 order-2 order-md-1"><div class="p-3 bg-white border">order-2 on xs, order-md-1 on md+</div></div>
+        <div class="col-6 col-md-4 offset-md-2"><div class="p-3 bg-white border">offset-md-2</div></div>
+      </div>
+    </section>
+
+    <!-- Nesting -->
+    <section class="mb-5">
+      <h2 class="h5">3. Nesting rows</h2>
+      <div class="row g-3">
+        <div class="col-12 col-md-8">
+          <div class="p-3 bg-white border">
+            Parent column (col-md-8)
+            <div class="row g-2 mt-3">
+              <div class="col-6"><div class="p-2 bg-light border">Nested col-6</div></div>
+              <div class="col-6"><div class="p-2 bg-light border">Nested col-6</div></div>
+            </div>
+          </div>
+        </div>
+        <aside class="col-12 col-md-4">
+          <div class="p-3 bg-white border">Sidebar</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Auto-layout columns -->
+    <section class="mb-5">
+      <h2 class="h5">4. Auto-layout & equal-width columns</h2>
+      <div class="row g-3">
+        <div class="col"><div class="p-3 bg-white border">Auto</div></div>
+        <div class="col"><div class="p-3 bg-white border">Auto</div></div>
+        <div class="col"><div class="p-3 bg-white border">Auto</div></div>
+      </div>
+    </section>
+
+    <!-- Grid utilities: gutters, vertical alignment -->
+    <section class="mb-5">
+      <h2 class="h5">5. Gutters & vertical alignment</h2>
+      <div class="row gy-4 gx-1 align-items-center">
+        <div class="col-4"><div class="p-3 bg-white border">Aligned center</div></div>
+        <div class="col-4"><div class="p-3 bg-white border">Aligned center</div></div>
+        <div class="col-4"><div class="p-3 bg-white border">Aligned center</div></div>
+      </div>
+    </section>
+
+    <footer class="my-5 text-muted small">
+      <p>Exercises in README.</p>
+    </footer>
+  </main>
+
+  <!-- Bootstrap JS (optional for components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

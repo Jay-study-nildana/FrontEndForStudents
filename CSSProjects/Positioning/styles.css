@@ -1,0 +1,43 @@
+:root{--bg:#fbfdff;--card:#fff;--accent:#2563eb;--muted:#6b7280}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#0b1220}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:1rem;top:1rem;padding:.5rem .75rem;background:#000;color:#fff;border-radius:6px}
+.wrap{max-width:900px;margin:1.25rem auto;padding:0 1rem}
+.site-header{padding:1rem 0}
+.muted{color:var(--muted);margin-top:.25rem}
+
+.pane{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 6px 20px rgba(11,17,32,0.04);margin-bottom:1rem}
+
+.card{padding:1rem;border:1px solid #e6eef8;border-radius:8px;position:static}
+.card.relative{position:relative}
+.card .close{
+  position:absolute; /* positioned relative to .card (nearest positioned ancestor) */
+  top:.5rem; right:.5rem;
+  border:0;background:#ef4444;color:#fff;padding:.35rem .5rem;border-radius:6px;cursor:pointer;
+}
+
+/* Fixed footer */
+.fixed-bar{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  background:linear-gradient(90deg,#2563eb,#1e40af);
+  color:white;padding:.75rem 1rem;text-align:center;font-weight:600;
+  box-shadow:0 -8px 18px rgba(2,6,23,0.12);
+}
+
+/* Sticky header within scroll-area */
+.scroll-area{border:1px dashed #e6eef8;padding:1rem;margin-top:.5rem;height:240px;overflow:auto;border-radius:8px}
+.sticky{position:sticky;top:0;background:#fff;padding:.5rem;border-bottom:1px solid #e6eef8;font-weight:600;z-index:1}
+
+/* stacking context demo */
+.stack-demo{position:relative;height:140px;margin-top:1rem}
+.stack-demo .box{width:120px;height:120px;border-radius:8px;position:absolute;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.box.a{left:10px;top:10px;background:#ef4444;z-index:2}
+.box.b{left:60px;top:30px;background:#f59e0b;transform:translateZ(0); /* creates stacking context */ z-index:1}
+.box.c{left:110px;top:50px;background:#2563eb;z-index:3;opacity:.95}
+
+/* small-screen adjustments */
+@media (max-width:520px){
+  .wrap{padding:0 0.5rem}
+  .card .close{top:.35rem;right:.35rem;padding:.25rem .4rem}
+}

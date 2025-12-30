@@ -1,0 +1,3 @@
+# BAD robots.txt: blocks all crawlers from the entire site
+User-agent: *
+Disallow: /

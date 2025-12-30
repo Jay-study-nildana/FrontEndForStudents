@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Positioning Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main</a>
+  <header class="site-header">
+    <h1>Positioning — Demo</h1>
+    <p class="muted">Examples: static, relative, absolute, fixed, sticky, and stacking context (z-index).</p>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="pane">
+      <h2>1. relative + absolute (anchoring)</h2>
+      <div class="card relative">
+        <button class="close" aria-label="Close">✕</button>
+        <p>This card is <strong>position: relative</strong>. The close button is <strong>position: absolute</strong> and anchored to the top-right of the card.</p>
+      </div>
+    </section>
+
+    <section class="pane">
+      <h2>2. fixed element (viewport)</h2>
+      <p>Scroll this page — the blue bar fixed to the bottom stays visible.</p>
+    </section>
+
+    <section class="pane">
+      <h2>3. sticky header</h2>
+      <p>Scroll down to see the sticky block (sticks at top within its container).</p>
+      <div class="scroll-area">
+        <div class="sticky">I am position: sticky; top: 0</div>
+        <div class="long">
+          <!-- filler content to allow scrolling -->
+          <p>Content line 1</p>
+          <p>Content line 2</p>
+          <p>Content line 3</p>
+          <p>Content line 4</p>
+          <p>Content line 5</p>
+          <p>Content line 6</p>
+          <p>Content line 7</p>
+          <p>Content line 8</p>
+          <p>Content line 9</p>
+          <p>Content line 10</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pane">
+      <h2>4. z-index & stacking contexts</h2>
+      <p>Hover the overlapping boxes to see stacking order. Transform creates a new stacking context.</p>
+      <div class="stack-demo">
+        <div class="box a">A (no transform)</div>
+        <div class="box b">B (transform)</div>
+        <div class="box c">C (higher z-index)</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fixed-bar">Fixed footer — stays on screen</footer>
+
+  <script>
+    // small script to demonstrate that absolute positions are relative to nearest positioned ancestor
+    // no heavy logic here; purely demonstrative
+  </script>
+</body>
+</html>

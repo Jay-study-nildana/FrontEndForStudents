@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>srcset — Mini Project</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <h1>Responsive images with srcset & sizes</h1>
+    <p class="muted">This demo shows how the browser picks the best image from srcset based on viewport and sizes.</p>
+
+    <section class="hero">
+      <img
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=60&fm=jpg&fit=crop"
+        srcset="
+          https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=60&fm=jpg&fit=crop 400w,
+          https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=60&fm=jpg&fit=crop 800w,
+          https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=60&fm=jpg&fit=crop 1200w
+        "
+        sizes="(max-width: 600px) 96vw, (max-width: 1000px) 75vw, 1200px"
+        alt="Waves breaking on a beach" width="1200" height="600" />
+    </section>
+
+    <section>
+      <h2>Thumbnail list</h2>
+      <ul class="thumbs">
+        <li><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&q=60&fm=jpg&fit=crop" alt="Thumb 1" loading="lazy" width="400" height="266"></li>
+        <li><img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?w=400&q=60&fm=jpg&fit=crop" alt="Thumb 2" loading="lazy" width="400" height="266"></li>
+        <li><img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=400&q=60&fm=jpg&fit=crop" alt="Thumb 3" loading="lazy" width="400" height="266"></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

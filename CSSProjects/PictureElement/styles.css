@@ -1,0 +1,6 @@
+:root{--muted:#6b7280;--max:1100px}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;font-family:system-ui,Inter,Arial;background:#fff;color:#0b1220}
+.wrap{max-width:var(--max);margin:1.25rem auto;padding:0 1rem}
+.hero picture,img{display:block;width:100%;height:auto;border-radius:8px}
+.muted{color:var(--muted)}

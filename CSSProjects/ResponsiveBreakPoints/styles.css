@@ -1,0 +1,35 @@
+:root{
+  --bg:#ffffff;--muted:#6b7280;--card:#fff;--accent:#2563eb;
+  --container-max:1100px;
+}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:#f8fafc;color:#0b1220}
+.wrap{max-width:var(--container-max);margin:1.25rem auto;padding:0 1rem}
+.site-header{padding:1rem 0}
+.muted{color:var(--muted);margin-top:.25rem}
+.pane{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 6px 20px rgba(11,17,32,0.04);margin-bottom:1rem}
+
+/* Fluid typography */
+.fluid{font-size: clamp(1.25rem, 1rem + 3.5vw, 3rem); margin:0.75rem 0}
+
+/* Responsive grid using auto-fit and minmax */
+.grid{display:grid;gap:1rem;grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))}
+.card{background:#fff;padding:1rem;border-radius:8px;border:1px solid #eef2ff;min-height:80px}
+
+/* Responsive demo box */
+.responsive-demo{height:120px;background:linear-gradient(90deg,#eff6ff,#fff);display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid #e6eef8}
+
+/* Mobile-first breakpoints */
+/* Medium (tablet) */
+@media (min-width: 48rem) { /* ~768px */
+  .wrap{padding:0 1.25rem}
+  .responsive-demo{height:140px}
+}
+
+/* Large (desktop) */
+@media (min-width: 75rem) { /* ~1200px */
+  .wrap{padding:0 2rem}
+  .responsive-demo{height:180px}
+}
+
+/* Example of using rem-based media query: change root font-size to test effect */
+/* Note: rems depend on root font-size; ems depend on element font-size */

@@ -1,0 +1,31 @@
+:root{
+  --gap:1rem;
+  --bg:#fbfcfe;
+  --card:#fff;
+  --accent:#2563eb;
+  --muted:#6b7280;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;font-family:system-ui,Inter,Arial;background:var(--bg);color:#0b1220}
+.site-header{padding:1rem;max-width:1100px;margin:0 auto}
+.container{max-width:1100px;margin:1rem auto;padding:0 1rem;display:grid;gap:var(--gap)}
+
+/* Mobile-first: single column */
+.container{grid-template-columns:1fr}
+.card{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 6px 20px rgba(11,17,32,.04);text-align:center}
+
+/* Small tablet: 2 columns */
+@media (min-width: 40rem) { /* 640px */
+  .container{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Landscape tablet / small laptop: 3 columns */
+@media (min-width: 62rem) { /* ~992px */
+  .container{grid-template-columns:repeat(3,1fr)}
+}
+
+/* Large desktop: center content and add gap changes */
+@media (min-width: 90rem) { /* ~1440px */
+  .container{grid-template-columns:repeat(4,1fr);gap:1.5rem}
+}
