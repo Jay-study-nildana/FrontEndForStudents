@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Breakpoints Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Responsive Breakpoints & Fluid Design</h1>
+    <p class="muted">Mobile-first, content-driven breakpoints, fluid typography, and responsive grids.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="pane">
+      <h2>1. Fluid typography (clamp)</h2>
+      <p class="lead">Resize the viewport to see `clamp()` in action for the H1 below.</p>
+      <h1 class="fluid">This H1 uses clamp() for smooth scaling</h1>
+    </section>
+
+    <section class="pane">
+      <h2>2. Responsive Grid (auto-fit / minmax)</h2>
+      <div class="grid">
+        <div class="card">1<br/>Content</div>
+        <div class="card">2<br/>Content</div>
+        <div class="card">3<br/>Content</div>
+        <div class="card">4<br/>Content</div>
+        <div class="card">5<br/>Content</div>
+      </div>
+    </section>
+
+    <section class="pane">
+      <h2>3. Breakpoints (mobile-first)</h2>
+      <p>Resize the page — layout changes at the breakpoints below:</p>
+      <ul>
+        <li>Small: base (mobile)</li>
+        <li>Medium: min-width 48rem (~768px)</li>
+        <li>Large: min-width 75rem (~1200px)</li>
+      </ul>
+      <div class="responsive-demo">Resize me</div>
+    </section>
+  </main>
+</body>
+</html>

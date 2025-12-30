@@ -1,0 +1,130 @@
+/* Basic accessible layout and styles for the demo */
+:root{
+  --bg:#f6f7fb;
+  --card:#fff;
+  --accent:#0b63ff;
+  --text:#0b1220;
+  --muted:#4b5563;
+}
+
+*{
+    box-sizing:border-box;
+}
+html,body{
+    height:100%; 
+    margin:0; 
+    font-family:system-ui,Segoe UI,Roboto,Arial; 
+    color:var(--text)
+}
+body{
+    background:var(--bg); 
+    line-height:1.4; 
+    display:flex; 
+    flex-direction:column; 
+    min-height:100vh
+}
+
+/* Skip link visible on keyboard focus */
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.skip-link:focus{
+  left:1rem;
+  top:1rem;
+  width:auto;
+  height:auto;
+  background:#000;
+  color:#fff;
+  padding:.5rem .75rem;
+  border-radius:4px;
+  z-index:1000;
+}
+
+/* Header & nav */
+.site-header{
+  background:linear-gradient(90deg, rgba(11,99,255,0.06), transparent);
+  padding:1rem;
+  border-bottom:1px solid rgba(11,17,34,0.06);
+}
+.brand h1{
+    margin:.2rem 0; 
+    font-size:1.25rem
+}
+.top-nav ul{
+    list-style:none; 
+    margin:0; 
+    padding:0; 
+    display:flex; 
+    gap:.5rem; 
+    align-items:center
+}
+.top-nav a{
+  color:var(--accent); 
+  text-decoration:none; 
+  padding:.25rem .5rem; 
+  border-radius:6px
+}
+.top-nav a:hover{
+  background:rgba(11,99,255,0.06)
+}
+
+/* Main layout: content + sidebar */
+.container{
+  display:grid;
+  grid-template-columns: 1fr 300px;
+  gap:1rem;
+  width:min(1100px,96%);
+  margin:1rem auto;
+  align-items:start;
+}
+
+/* Article cards */
+.post{
+  background:var(--card);
+  padding:1rem;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(2,6,23,0.06);
+  border:1px solid rgba(11,17,34,0.03);
+}
+
+.post + .post{
+  margin-top:.5rem
+}
+
+.post-header h2{
+  margin:.25rem 0
+}
+.meta{
+  color:var(--muted); 
+  font-size:.9rem
+}
+
+/* Sidebar */
+.sidebar{
+  background:var(--card);
+  padding:1rem;
+  border-radius:10px;
+  border:1px solid rgba(11,17,34,0.03);
+}
+
+/* Footer */
+.site-footer{
+  margin-top:auto;
+  padding:1rem;
+  text-align:center;
+  color:var(--muted);
+  font-size:.95rem;
+  border-top:1px solid rgba(11,17,34,0.03);
+}
+
+/* Responsive: stack on small screens */
+@media (max-width:820px){
+  .container{ grid-template-columns: 1fr; }
+  .sidebar{ order:2 } /* keep sidebar after articles */
+  body{ background-color: #000;  }
+}

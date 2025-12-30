@@ -1,0 +1,28 @@
+:root{
+  --measure: 66ch;
+  --muted:#6b7280;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-family:Inter,system-ui,Arial;font-size:16px} /* base 1rem = 16px */
+body{margin:0;color:#0b1220;background:#fff;line-height:1.6}
+.wrap{max-width:var(--measure);margin:2rem auto;padding:0 1rem}
+
+/* Fluid headline */
+.fluid{
+  /* clamp(min, preferred, max) - uses viewport for fluid step */
+  font-size: clamp(1.5rem, 1rem + 4vw, 3rem);
+  line-height:1.05;
+  margin:0 0 .5rem;
+}
+
+.lead{color:var(--muted);margin-top:0;margin-bottom:1rem}
+
+/* Fluid body example: small increase on larger screens */
+p{font-size: clamp(1rem, 0.95rem + 0.6vw, 1.125rem); margin:0 0 1rem}
+
+/* Accessible measure (line length) */
+article{max-width:var(--measure);}
+
+/* Optional: responsive root change (advanced demo) */
+/* @media (min-width: 75rem) { html { font-size:18px; } } */

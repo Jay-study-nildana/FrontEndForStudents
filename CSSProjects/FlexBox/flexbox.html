@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Flexbox Deep Dive Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Flexbox — Deep Dive</h1>
+    <p class="muted">Container and item properties, common layouts, and pitfalls.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="pane">
+      <h2>1. Centering (both axes)</h2>
+      <div class="center-demo">
+        <div class="box">Centered</div>
+      </div>
+    </section>
+
+    <section class="pane">
+      <h2>2. Nav with gap</h2>
+      <nav class="nav-demo" aria-label="Demo navigation">
+        <ul class="nav-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Docs</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <section class="pane">
+      <h2>3. Equal-height columns</h2>
+      <div class="row equal-height">
+        <div class="col">Short content</div>
+        <div class="col">Tall content<br/>more lines<br/>more lines</div>
+        <div class="col">Medium</div>
+      </div>
+    </section>
+
+    <section class="pane">
+      <h2>4. Responsive cards — flex-wrap and min-width</h2>
+      <div class="cards">
+        <div class="card">Card A with some text</div>
+        <div class="card">Card B with a little more text to demo wrapping behavior</div>
+        <div class="card">Card C</div>
+        <div class="card">Card D with longer text to show how min-width affects wrapping</div>
+      </div>
+    </section>
+
+    <section class="pane">
+      <h2>5. min-width:0 common pitfall</h2>
+      <div class="overflow-demo">
+        <div class="flex-item shrinkable">
+          <p class="long">This long text should wrap and not overflow the container when <code>min-width: 0</code> is set on the flex child.</p>
+        </div>
+        <div class="flex-item fixed">Side</div>
+      </div>
+      <p class="note">If the text overflows, add <code>min-width: 0</code> to the `.shrinkable` child.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -33,3 +33,7 @@ find ways to hire me, follow me and stay in touch with me.
 1. [stackoverflow](https://stackoverflow.com/users/5338888/jay)
 1. [Jay's Coding Channel on YouTube](https://www.youtube.com/channel/UCJJVulg4J7POMdX0veuacXw/)
 1. [medium blog](https://medium.com/@vijayasimhabr)
+
+# AI Assistance Disclaimer
+
+This project was developed with assistance from AI/LLMs (including GitHub Copilot, ChatGPT, and related tools), supervised by humans who occasionally knew what they were doing.

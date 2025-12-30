@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bootstrap Components — Mini Project</title>
+
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+  <header class="py-4 bg-white border-bottom mb-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="h5 mb-0">Bootstrap Components Playground</h1>
+      <!-- Navbar simplified -->
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Docs</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Cards -->
+    <section class="mb-4">
+      <h2 class="h6">Cards</h2>
+      <div class="row g-3">
+        <div class="col-12 col-md-6">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=60&fm=jpg&fit=crop" class="card-img-top" alt="Example image">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Short card content and a couple of action buttons.</p>
+              <a href="#" class="btn btn-primary me-2">Primary</a>
+              <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Open modal</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card p-3">
+            <h5 class="card-title">Form inside a card</h5>
+            <form id="cardForm" novalidate>
+              <div class="mb-3">
+                <label for="name" class="form-label">Full name</label>
+                <input id="name" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Preferences</label>
+                <select class="form-select">
+                  <option selected>Choose...</option>
+                  <option>Option 1</option>
+                </select>
+              </div>
+              <button class="btn btn-success" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal (Bootstrap) -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Example Modal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>This is a demo modal. Modals require the Bootstrap JS bundle (included below).</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast & Tooltip demo -->
+    <section class="mb-4">
+      <h2 class="h6">Toast & Tooltip</h2>
+      <div class="d-flex gap-2 align-items-start">
+        <button id="showToast" class="btn btn-outline-primary">Show Toast</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip example">Hover me</button>
+      </div>
+
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+        <div id="liveToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+          <div class="toast-header">
+            <strong class="me-auto">Demo</strong>
+            <small>now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">Hello, this is a Bootstrap toast message.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collapse -->
+    <section class="mb-4">
+      <h2 class="h6">Collapse (Accordion)</h2>
+      <div class="accordion" id="demoAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1">First item</button>
+          </h2>
+          <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#demoAccordion">
+            <div class="accordion-body">Content for the first item.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">Second item</button>
+          </h2>
+          <div id="c2" class="accordion-collapse collapse" data-bs-parent="#demoAccordion">
+            <div class="accordion-body">Content for the second item.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-4 text-center small text-muted">
+    Bootstrap components demo
+  </footer>
+
+  <!-- Bootstrap JS (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Enable tooltip
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (el) {
+      return new bootstrap.Tooltip(el);
+    });
+
+    // Toast show
+    document.getElementById('showToast').addEventListener('click', () => {
+      const toast = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'));
+      toast.show();
+    });
+
+    // Simple form feedback
+    document.getElementById('cardForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Form submitted (demo).');
+    });
+  </script>
+</body>
+</html>

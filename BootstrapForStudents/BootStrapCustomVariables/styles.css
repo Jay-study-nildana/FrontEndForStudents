@@ -1,0 +1,31 @@
+/* Quick CSS variable overrides for Bootstrap (works with CSS-variable aware Bootstrap builds)
+   These override a subset of tokens for demonstration purposes.
+   Note: For complete customization (breakpoints, gutters, component variables), prefer Sass customization.
+*/
+
+:root {
+  /* primary override */
+  --bs-primary: #7c3aed; /* violet */
+  --bs-primary-rgb: 124,58,237;
+
+  /* surface / background */
+  --bs-body-bg: #fbf7ff;
+  --bs-body-color: #0b1220;
+
+  /* border / muted */
+  --bs-border-color: #efe6ff;
+  --bs-muted: #5b5565;
+}
+
+/* Alternative theme when .alt-theme is present on <html> */
+:root.alt-theme {
+  --bs-primary: #06b6d4; /* teal */
+  --bs-primary-rgb: 6,182,212;
+  --bs-body-bg: #001219;
+  --bs-body-color: #e6fffa;
+  --bs-border-color: #00343a;
+  --bs-muted: #9ae6b4;
+}
+
+/* Small helper to ensure body uses CSS variable-based background if present */
+body { background-color: var(--bs-body-bg); color: var(--bs-body-color); }

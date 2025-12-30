@@ -1,0 +1,90 @@
+<!doctype html>
+<!-- BAD Lighthouse Demo: intentionally full of anti-patterns -->
+<!-- Note: missing lang, no viewport meta, render-blocking CSS/JS, unoptimized images, no alt text, low contrast, no landmarks, no accessibility features -->
+<html>
+<head>
+  <title>Bad Lighthouse Demo</title>
+  <!-- No meta description, no canonical, no lang, no viewport -->
+  <!-- Huge blocking CSS (simulated by a large style block) -->
+  <style>
+    /* very large stylesheet to simulate render-blocking CSS */
+    /* (pretend this is thousands of lines) */
+    body{background:#eee;color:#777;font-family: "Times New Roman", Times, serif}
+    header,footer,section,article,main{display:block}
+    .hero{height:600px;background:#ccc;display:flex;align-items:center;justify-content:center}
+    .hero h1{font-size:48px;margin:0}
+    nav ul{list-style:disc;margin-left:40px}
+    /* ...more pretend CSS (makes parser work longer) ... */
+  </style>
+
+  <!-- Loading web fonts without preload or font-display -> render-blocking FOIT -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+  <!-- No preconnect, no critical CSS separation -->
+</head>
+<body>
+  <!-- No skip link, no landmarks, no lang attribute on <html> -->
+  <div id="header">
+    <div class="logo">Logo</div>
+    <div class="nav">
+      <a href="#">click here</a> | <a href="#">click here</a> | <a href="#">click here</a>
+    </div>
+  </div>
+
+  <!-- Huge unoptimized hero image (no width/height, no alt) causing CLS and long downloads -->
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="">
+    <h1>Welcome to our site</h1>
+  </div>
+
+  <main>
+    <!-- Lots of content and images, many without alt text -->
+    <section class="posts">
+      <div class="post"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e"><h2>Post A</h2><p>Click here to learn more.</p></div>
+      <div class="post"><img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3"><h2>Post B</h2><p>Click here to learn more.</p></div>
+      <div class="post"><img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d"><h2>Post C</h2><p>Click here to learn more.</p></div>
+    </section>
+
+    <!-- Form with no labels -->
+    <section class="contact">
+      <h2>Contact us</h2>
+      <form>
+        <input type="text" name="name" placeholder="Your name">
+        <input type="email" name="email" placeholder="Your email">
+        <button>Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Example</p>
+  </footer>
+
+  <!-- Blocking, heavy JavaScript on the main thread (simulates long tasks) -->
+  <script>
+    // simulate heavy computation (blocks main thread)
+    const start = Date.now();
+    while (Date.now() - start < 2500) {
+      // busy wait for 2.5s
+      Math.random() * Math.random();
+    }
+    // Inject lots of DOM (simulates JS-rendered content that prevents early LCP)
+    for (let i=0;i<200;i++){
+      const d = document.createElement('div');
+      d.textContent = 'Item '+i;
+      document.body.appendChild(d);
+    }
+  </script>
+
+  <!-- Inline analytics-like script (executed early and synchronous) -->
+  <script>
+    // fake synchronous tracking call
+    (function syncTrack(){
+      // slow XHR-like loop (blocking)
+      let x = 0;
+      for(let i=0;i<10000000;i++){ x+=i; }
+      console.log('tracked', x);
+    })();
+  </script>
+</body>
+</html>

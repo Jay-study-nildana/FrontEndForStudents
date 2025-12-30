@@ -1,0 +1,135 @@
+<!doctype html>
+<!-- GOOD SEO Demo: optimized for discoverability, accessibility, and linkability -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Clear, descriptive title and meta description -->
+  <title>Introduction to Semantic HTML & Accessibility — Example Course</title>
+  <meta name="description" content="Practical notes and examples on semantic HTML, accessibility, and web fundamentals — ideal for students and developers.">
+
+  <!-- Canonical URL to avoid duplicate-content issues -->
+  <link rel="canonical" href="https://example.com/semantic-html" />
+
+  <!-- Open Graph / Twitter card for rich sharing -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Introduction to Semantic HTML & Accessibility — Example Course" />
+  <meta property="og:description" content="Practical notes and examples on semantic HTML and accessibility." />
+  <meta property="og:image" content="https://example.com/assets/og-image.jpg" />
+  <meta property="og:url" content="https://example.com/semantic-html" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Introduction to Semantic HTML & Accessibility — Example Course" />
+  <meta name="twitter:description" content="Practical notes and examples on semantic HTML and accessibility." />
+  <meta name="twitter:image" content="https://example.com/assets/og-image.jpg" />
+
+  <!-- Preconnect to critical origins (performance + perceived speed) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Minimal critical CSS inline -->
+  <style>
+    :root{--accent:#2563eb;--text:#0b1220}
+    html,body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:#fff;color:var(--text)}
+    main{max-width:1000px;margin:1rem auto;padding:0 1rem}
+    header,nav,main,footer{display:block}
+    header{padding:1rem 0}
+    .hero img{max-width:100%;height:auto;display:block}
+    :focus{outline:none}
+    :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  </style>
+
+  <!-- JSON-LD structured data: Article and Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://example.com/semantic-html"
+    },
+    "headline":"Introduction to Semantic HTML & Accessibility",
+    "description":"Practical notes and examples on semantic HTML and accessibility.",
+    "image":"https://example.com/assets/og-image.jpg",
+    "author": {"@type":"Person","name":"Instructor Name"},
+    "publisher": {"@type":"Organization","name":"Example","logo":{"@type":"ImageObject","url":"https://example.com/assets/logo.png"}},
+    "datePublished":"2025-12-30"
+  }
+  </script>
+
+  <link rel="alternate" hreflang="en" href="https://example.com/semantic-html" />
+  <link rel="alternate" hreflang="es" href="https://example.com/es/semantic-html" />
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#content" style="position:absolute;left:-9999px;">Skip to content</a>
+
+  <header role="banner">
+    <div class="site-branding">
+      <a href="/" aria-label="Example home"><img src="/assets/logo.png" alt="Example logo" width="120" height="32"></a>
+    </div>
+    <nav role="navigation" aria-label="Primary">
+      <ul style="display:flex;gap:1rem;list-style:none;padding:0;margin:0">
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content" role="main">
+    <article>
+      <header class="hero" aria-labelledby="page-title">
+        <img
+          src="https://example.com/assets/hero.jpg"
+          srcset="https://example.com/assets/hero-small.jpg 600w, https://example.com/assets/hero.jpg 1200w"
+          sizes="(max-width: 600px) 96vw, 1200px"
+          alt="Students collaborating while learning web development"
+          width="1200" height="600" loading="eager" />
+        <h1 id="page-title">Introduction to Semantic HTML & Accessibility</h1>
+        <p>Helpful, well-structured content that matches learner intent — examples, code, and best practices.</p>
+      </header>
+
+      <nav aria-label="Article contents">
+        <h2 class="sr-only">Contents</h2>
+        <ul>
+          <li><a href="#what">What is semantic HTML?</a></li>
+          <li><a href="#why">Why accessibility matters</a></li>
+          <li><a href="#examples">Examples</a></li>
+        </ul>
+      </nav>
+
+      <section id="what">
+        <h2>What is semantic HTML?</h2>
+        <p>Semantic HTML uses elements that describe their meaning — e.g., &lt;main&gt;, &lt;article&gt;, &lt;nav&gt; — improving accessibility and SEO.</p>
+      </section>
+
+      <section id="why">
+        <h2>Why accessibility matters</h2>
+        <p>Accessible pages reach more users and are generally better understood by search engines. Use proper headings, alt text, and labels.</p>
+      </section>
+
+      <section id="examples">
+        <h2>Examples</h2>
+        <h3>Accessible form</h3>
+        <form action="/contact" method="post" aria-describedby="form-desc">
+          <p id="form-desc">We respond within 2 business days.</p>
+          <label for="name">Full name</label>
+          <input id="name" name="name" required autocomplete="name" />
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </article>
+  </main>
+
+  <footer role="contentinfo" style="text-align:center;padding:2rem 1rem">
+    <p>© 2025 Example — <a href="/privacy">Privacy</a> • <a href="/sitemap.xml">Sitemap</a></p>
+  </footer>
+
+  <!-- Minimal, deferred non-critical scripts -->
+  <script defer src="/assets/site.js"></script>
+</body>
+</html>

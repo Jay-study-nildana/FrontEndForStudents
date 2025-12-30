@@ -1,0 +1,3 @@
+/* Small helper styles for components demo */
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.card img { height: 180px; object-fit: cover; }

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BEM + SMACSS Mini Project</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header site-header--large">
+    <div class="site-header__brand">
+      <a class="site-header__logo" href="/">MyBrand</a>
+    </div>
+
+    <nav class="site-header__nav nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="#">Home</a></li>
+        <li class="nav__item"><a class="nav__link nav__link--active" href="#">Articles</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page page--has-sidebar">
+    <article class="post post--featured">
+      <h1 class="post__title">BEM + SMACSS: Writing Scalable CSS</h1>
+      <p class="post__meta">By Instructor — Dec 2025</p>
+      <div class="post__body">
+        <p>This mini project shows a simple blog layout using BEM naming and SMACSS categories (base, layout, module, state, theme).</p>
+      </div>
+
+      <div class="post__actions">
+        <button class="btn btn--primary">Read more</button>
+        <button class="btn btn--ghost">Share</button>
+      </div>
+    </article>
+
+    <aside class="sidebar sidebar--right">
+      <section class="widget widget--search">
+        <h2 class="widget__title">Search</h2>
+        <form class="search">
+          <input class="search__input" type="search" placeholder="Search articles" />
+          <button class="search__btn">Go</button>
+        </form>
+      </section>
+
+      <section class="widget widget--tags">
+        <h2 class="widget__title">Tags</h2>
+        <ul class="tags">
+          <li class="tags__item"><a class="tags__link" href="#">CSS</a></li>
+          <li class="tags__item"><a class="tags__link" href="#">BEM</a></li>
+          <li class="tags__item"><a class="tags__link" href="#">SMACSS</a></li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__copy">© 2025 Example</p>
+  </footer>
+</body>
+</html>

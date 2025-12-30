@@ -1,0 +1,18 @@
+// This file is an example SASS partial that overrides Bootstrap SASS variables.
+// To use it in a real project:
+// 1. Install bootstrap and sass: npm i bootstrap sass
+// 2. Create a build file (e.g., styles.scss) that imports _custom before bootstrap:
+//    @import "custom";  // your overrides
+//    @import "bootstrap/scss/bootstrap";
+// 3. Compile: npx sass styles.scss styles.css --no-source-map
+
+// Example variable overrides (Sass variables)
+$primary: #7c3aed !default;
+$body-bg: #fbf7ff !default;
+$body-color: #0b1220 !default;
+$border-color: #efe6ff !default;
+$enable-css-custom-properties: true; // keep CSS variables enabled
+
+// You can also override grid/breakpoints, spacers, etc:
+// $grid-breakpoints: (sm: 576px, md: 768px, lg: 992px, xl: 1200px);
+// $spacers: (0: 0, 1: .25rem, 2: .5rem, 3: .75rem, 4: 1rem);

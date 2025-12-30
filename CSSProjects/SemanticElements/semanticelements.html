@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Semantic Elements Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Page header (site-level) -->
+  <header class="site-header" role="banner">
+    <div class="brand">
+      <h1>Example Site</h1>
+      <p class="tagline">Learning semantic HTML & accessible structure</p>
+    </div>
+    <nav class="top-nav" aria-label="Primary navigation">
+      <ul>
+        <li><a href="#post1">Post</a></li>
+        <li><a href="#post2">Another</a></li>
+        <li><a href="#contact">Contact</a></li>     
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content landmark -->
+  <main id="main" class="container" role="main">
+    <!-- Primary article: self-contained content -->
+    <article id="post1" class="post">
+      <header class="post-header">
+        <h2>Understanding Semantic HTML</h2>
+        <p class="meta">By Jane Doe — Dec 30, 2025</p>
+      </header>
+
+      <section class="post-section">
+        <h3>Introduction</h3>
+        <p>Semantic elements give meaning to your markup — they help browsers, search engines, and assistive tech understand structure.</p>
+      </section>
+
+      <section class="post-section">
+        <h3>Why use them?</h3>
+        <p>They improve accessibility, SEO, and make your markup more maintainable.</p>
+      </section>
+
+      <footer class="post-footer">
+        <p>Tags: <span>HTML</span>, <span>Accessibility</span></p>
+      </footer>
+    </article>
+
+    <!-- Secondary article -->
+    <article id="post2" class="post">
+      <header><h2>When to use section vs article</h2></header>
+      <section>
+        <h3>Quick rules</h3>
+        <p>If content can stand on its own, use article. If it's a subsection of a larger whole, use section.</p>
+      </section>
+    </article>
+
+    <!-- Complementary content as an aside -->
+    <aside class="sidebar" aria-label="Related resources">
+      <h3>Related</h3>
+      <ul>
+        <li><a href="#">Semantic HTML guide</a></li>
+        <li><a href="#">Accessibility tips</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <!-- Page footer -->
+  <footer id="contact" class="site-footer" role="contentinfo">
+    <p>Contact: <a href="mailto:info@example.com">info@example.com</a> — © 2025 Example</p>
+  </footer>
+</body>
+</html>

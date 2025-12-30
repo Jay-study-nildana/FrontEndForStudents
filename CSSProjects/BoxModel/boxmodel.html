@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Box Model Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Box Model — Demo</h1>
+    <p class="lead">Explore content-box vs border-box, padding, border, margin, and margin collapse.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="example">
+      <h2>1. box-sizing: content-box (default)</h2>
+      <p>Width = content width. Padding & border are added outside the width.</p>
+      <div class="box content-box">
+        <div class="inner">content-box<br/>width:200px; padding:20px; border:6px</div>
+      </div>
+    </section>
+
+    <section class="example">
+      <h2>2. box-sizing: border-box</h2>
+      <p>Width includes padding & border — easier to reason about sizing.</p>
+      <div class="box border-box">
+        <div class="inner">border-box<br/>width:200px; padding:20px; border:6px</div>
+      </div>
+    </section>
+
+    <section class="example">
+      <h2>3. Margin collapse</h2>
+      <p>Adjacent vertical margins can collapse — top/bottom margins between block elements.</p>
+      <div class="collapse-demo">
+        <div class="m1">Element A (margin-bottom: 30px)</div>
+        <div class="m2">Element B (margin-top: 50px)</div>
+      </div>
+      <p class="note">The vertical gap is the larger margin (50px), not 80px — that's margin collapse.</p>
+    </section>
+
+    <section class="example">
+      <h2>4. Practical rule (recommended)</h2>
+      <p>Apply a global box-sizing rule to make layout predictable:</p>
+      <pre><code>*, *::before, *::after { box-sizing: border-box; }</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>Try resizing the window. Use devtools to inspect computed box sizes.</p>
+  </footer>
+</body>
+</html>

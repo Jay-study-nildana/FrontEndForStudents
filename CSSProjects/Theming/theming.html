@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Theming Mini Project</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="toolbar">
+    <h1 class="app-title">Theming Demo</h1>
+    <div class="controls">
+      <label for="theme">Theme:</label>
+      <select id="theme">
+        <option value="light" selected>Light</option>
+        <option value="dark">Dark</option>
+        <option value="high-contrast">High Contrast</option>
+      </select>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="card">
+      <h2>Themeable card</h2>
+      <p>This UI responds to theme changes using CSS variables and the <code>data-theme</code> attribute on <code>&lt;html&gt;</code>.</p>
+      <button class="btn">Action</button>
+    </section>
+  </main>
+
+  <script>
+    // Simple theme switcher: apply data-theme on the <html> element
+    const select = document.getElementById('theme');
+    function applyTheme(theme){
+      document.documentElement.setAttribute('data-theme', theme);
+      // persist preference
+      localStorage.setItem('theme', theme);
+    }
+    // init from saved preference or prefers-color-scheme
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      select.value = saved;
+      applyTheme(saved);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      select.value = 'dark';
+      applyTheme('dark');
+    }
+
+    select.addEventListener('change', (e) => applyTheme(e.target.value));
+  </script>
+</body>
+</html>

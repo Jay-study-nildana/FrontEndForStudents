@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- BAD SEO Demo: intentionally filled with anti-SEO patterns -->
+<html>
+<head>
+  <title>Home</title>
+  <!-- No meta description, no canonical, no lang, no viewport -->
+  <!-- Blocking third-party font and large CSS inline to slow rendering -->
+  <style>
+    /* bulky styles to simulate slow parse/render */
+    body{font-family: "Times New Roman", serif; color:#666; background:#fafafa}
+    /* ... imagine many more lines here ... */
+  </style>
+
+  <!-- No Open Graph / Twitter tags, no structured data -->
+  <!-- Intentionally telling crawlers not to index -->
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+  <!-- No semantic landmarks, multiple H1s (confusing) -->
+  <h1>Welcome</h1>
+  <p>Welcome to our site. Click here for more info. Click here for more info. Click here for more info.</p>
+
+  <!-- Images without alt text (bad for accessibility & SEO) -->
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" />
+
+  <!-- Links use "click here" (bad anchor text) -->
+  <a href="/page?id=123">click here</a>
+  <a href="javascript:void(0)">click here</a>
+
+  <!-- Main content is injected by JS after a delay (poor for crawlers & SSR) -->
+  <div id="content"></div>
+  <script>
+    // Simulate client-only rendering (bad for SEO if not server-rendered)
+    setTimeout(function(){
+      var c = document.getElementById('content');
+      c.innerHTML = '<h1>Latest</h1><p>Auto-generated content loaded via JavaScript.</p>';
+    }, 2000);
+  </script>
+
+  <!-- Broken internal links and many duplicate thin pages (simulated by query params) -->
+  <nav>
+    <a href="/product?ref=a">Product</a> |
+    <a href="/product?ref=b">Product</a> |
+    <a href="/product?ref=c">Product</a>
+  </nav>
+
+  <!-- No sitemap reference, robots.txt (see file) disallows crawling -->
+</body>
+</html>
