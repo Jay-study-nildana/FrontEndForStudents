@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The CSS Box Model — Slide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <main id="main" class="stage" role="main" aria-label="Slide: The CSS Box Model">
+    <section class="slide" aria-labelledby="slide-title" role="article">
+      <h1 id="slide-title" class="slide-title">The CSS Box Model</h1>
+
+      <ul class="bullets">
+        <li>Every element is a rectangular box: content → padding → border → margin</li>
+        <li>Total element size (content-box): total width = width + left/right padding + left/right border + left/right margin</li>
+        <li>
+          box-sizing:
+          <ul>
+            <li><strong>content-box</strong> (default): width applies to content only</li>
+            <li><strong>border-box</strong> (recommended): width includes padding + border</li>
+          </ul>
+        </li>
+        <li>Margin collapse: adjacent vertical margins between block elements can merge</li>
+        <li>Quick rule: use padding for inner spacing, margin for outer spacing, border for visual edge</li>
+      </ul>
+
+      <div class="demo">
+        <h2 class="demo-title">Interactive demo</h2>
+
+        <div class="controls">
+          <label for="boxSizingToggle">
+            <input id="boxSizingToggle" type="checkbox" /> Use border-box
+          </label>
+        </div>
+
+        <div class="box-model-demo" aria-hidden="false">
+          <!-- margin wrapper to visualize margin space -->
+          <div class="demo-margin">
+            <div class="demo-border">
+              <div class="demo-padding">
+                <div class="demo-content">
+                  content
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="measurements" aria-hidden="true">
+            <div><strong>Rendered total width</strong>: <span id="totalWidth">—</span></div>
+            <div>CSS width property on box: <span id="cssWidth">200px</span></div>
+            <div>Padding-left/right: <span id="padLR">20px</span></div>
+            <div>Border-left/right: <span id="borderLR">6px</span></div>
+            <div>Margin-left/right: <span id="marginLR">24px</span></div>
+          </div>
+        </div>
+
+        <p class="hint">Toggle the <strong>border-box</strong> option to see how the total size calculation changes.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Interactive demo script: toggle box-sizing and display computed total width.
+    (function () {
+      const toggle = document.getElementById('boxSizingToggle');
+      const demo = document.querySelector('.demo-border'); // the element whose box-sizing we'll toggle
+      const totalWidthEl = document.getElementById('totalWidth');
+      const cssWidthEl = document.getElementById('cssWidth');
+
+      // default values (kept in sync with CSS)
+      const cssWidth = 200; // px
+      const padLR = 20;     // px (left + right each 20)
+      const borderLR = 6;   // px (left + right each 6)
+      const marginLR = 24;  // px (left + right each 24)
+
+      function updateMeasurements() {
+        // get computed size of the demo element's outer box (includes content+padding+border)
+        const borderEl = document.querySelector('.demo-border');
+        const computed = borderEl.getBoundingClientRect();
+        // total rendered width including margins
+        const totalRenderedWidth = Math.round(computed.width + (marginLR * 2));
+        totalWidthEl.textContent = totalRenderedWidth + 'px';
+        cssWidthEl.textContent = cssWidth + 'px';
+      }
+
+      function applyBoxSizing(useBorderBox) {
+        if (useBorderBox) {
+          demo.style.boxSizing = 'border-box';
+        } else {
+          demo.style.boxSizing = 'content-box';
+        }
+        // reflow/read computed sizes
+        requestAnimationFrame(updateMeasurements);
+      }
+
+      // initialize
+      toggle.addEventListener('change', () => applyBoxSizing(toggle.checked));
+      // set initial based on checkbox state
+      applyBoxSizing(toggle.checked);
+      // update on resize so measurement is accurate
+      window.addEventListener('resize', updateMeasurements);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Breakpoints — Slide</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <main id="main" class="stage" role="main" aria-label="Slide: Responsive Breakpoints">
+    <section class="slide" aria-labelledby="slide-title" role="article">
+      <h1 id="slide-title" class="slide-title">Responsive Breakpoints</h1>
+
+      <ul class="bullets">
+        <li>Breakpoints are viewport widths where layout / typography adapt to improve UX</li>
+        <li>Prefer content-driven breakpoints: change layout when design breaks, not to match devices</li>
+        <li>Mobile-first pattern: write base (small screens) then add <code>@media (min-width: ...)</code></li>
+        <li>
+          Common breakpoint examples (guideline, not rules):
+          <ul>
+            <li><strong>small / phone</strong>: up to ~599px</li>
+            <li><strong>tablet</strong>: 600–899px</li>
+            <li><strong>small laptop</strong>: 900–1199px</li>
+            <li><strong>desktop / large</strong>: 1200px+</li>
+          </ul>
+        </li>
+        <li>Use few, meaningful breakpoints; prefer fluid techniques (flex, grid, clamp()) between breakpoints</li>
+        <li>Consider using <code>em</code>/<code>rem</code> for queries (scales with user font-size) or <code>px</code> for simplicity</li>
+      </ul>
+
+      <div class="demo" aria-labelledby="demo-title">
+        <h2 id="demo-title" class="demo-title">Live demo & breakpoint indicator</h2>
+
+        <div class="controls">
+          <label>
+            Show units:
+            <select id="unitSelect" aria-label="Show units">
+              <option value="px">px (viewport)</option>
+              <option value="rem">rem (root font-size)</option>
+            </select>
+          </label>
+          <div class="indicator" role="status" aria-live="polite">
+            <span id="bpName">—</span> • <span id="vw">—</span>
+          </div>
+        </div>
+
+        <div class="demo-stage">
+          <section class="hero">
+            <h3 class="hero-title">Fluid heading with clamp()</h3>
+            <p class="hero-sub">Resize the window to see typography and layout adapt between breakpoints.</p>
+          </section>
+
+          <section class="cards" id="cards" aria-label="Demo cards grid">
+            <article class="card">Card 1 — small content</article>
+            <article class="card">Card 2 — some longer content to show wrapping</article>
+            <article class="card">Card 3</article>
+            <article class="card">Card 4</article>
+            <article class="card">Card 5</article>
+            <article class="card">Card 6</article>
+          </section>
+        </div>
+
+        <div class="notes">
+          <p class="note"><strong>Tip:</strong> look for the point where content visually "breaks" — that's a candidate for a content-driven breakpoint.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Breakpoint detection & UI
+    (function () {
+      const bpNameEl = document.getElementById('bpName');
+      const vwEl = document.getElementById('vw');
+      const unitSelect = document.getElementById('unitSelect');
+
+      const breakpoints = [
+        { name: 'small / phone', min: 0, max: 599 },
+        { name: 'tablet', min: 600, max: 899 },
+        { name: 'small laptop', min: 900, max: 1199 },
+        { name: 'desktop / large', min: 1200, max: Infinity },
+      ];
+
+      function getBreakpoint(widthPx) {
+        return breakpoints.find(b => widthPx >= b.min && widthPx <= b.max) || breakpoints[0];
+      }
+
+      function updateIndicator() {
+        const widthPx = Math.round(window.innerWidth);
+        const rootFont = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+        const widthRem = (widthPx / rootFont).toFixed(2);
+
+        const bp = getBreakpoint(widthPx);
+        bpNameEl.textContent = bp.name;
+        const unit = unitSelect.value;
+        vwEl.textContent = unit === 'px' ? `${widthPx}px` : `${widthRem}rem`;
+      }
+
+      window.addEventListener('resize', updateIndicator);
+      unitSelect.addEventListener('change', updateIndicator);
+
+      // initial
+      updateIndicator();
+    })();
+  </script>
+</body>
+</html>

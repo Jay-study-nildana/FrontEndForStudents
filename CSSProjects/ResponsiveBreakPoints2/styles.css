@@ -1,0 +1,71 @@
+:root{
+  --bg: #f7fbff;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b63ff;
+  --gap: 1rem;
+  --container-max: 1100px;
+}
+
+/* Basic reset */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:var(--bg); color:#0b1220; }
+
+/* Skip link */
+.skip-link { position:absolute; left:-9999px; top:auto; background:#000; color:#fff; padding:.5rem .75rem; border-radius:4px; z-index:1000; }
+.skip-link:focus { left:1rem; top:1rem; }
+
+/* Stage / slide layout */
+.stage { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem; }
+.slide { width: min(var(--container-max), 96%); background: var(--card); border-radius:12px; padding:1.5rem 2rem; box-shadow: 0 8px 30px rgba(11,17,32,0.06); display:grid; grid-template-columns: 1fr 420px; gap: 1.25rem; align-items:start; }
+
+/* Title & bullets */
+.slide-title { grid-column: 1/2; margin:0 0 1rem 0; font-size: clamp(1.25rem, 1.1rem + 1.6vw, 1.9rem); color: var(--accent); }
+.bullets { grid-column: 1/2; margin:0; padding-left:1.25rem; line-height:1.5; }
+.bullets > li { margin: .5rem 0; }
+
+/* Demo column */
+.demo { grid-column: 2 / 3; background: linear-gradient(180deg, rgba(11,99,255,0.03), transparent); padding:1rem; border-radius:8px; min-width: 300px; }
+.demo-title { margin:0 0 .5rem 0; font-size:1rem; }
+.controls { display:flex; gap:.5rem; align-items:center; justify-content:space-between; margin-bottom:.75rem; color:var(--muted); }
+.controls select { padding:.25rem .5rem; border-radius:6px; }
+
+/* indicator */
+.indicator { font-size:.95rem; color:var(--muted); }
+
+/* Demo stage internals */
+.demo-stage { display:flex; flex-direction:column; gap:.75rem; }
+.hero { padding:.75rem; background:#fff; border-radius:8px; border:1px solid rgba(11,99,255,0.04); }
+.hero-title { margin:0; font-size: clamp(1.05rem, 1rem + 2.2vw, 1.6rem); color: #0b3ccd; }
+.hero-sub { margin:.35rem 0 0 0; color:var(--muted); font-size:.95rem; }
+
+/* Cards grid: base (mobile-first) — 1 column */
+.cards { display:grid; gap:.75rem; grid-template-columns: 1fr; margin-top:.5rem; }
+.card { background:#fff; padding:.9rem; border-radius:8px; border:1px solid rgba(2,6,23,0.04); color:#0b1220; }
+
+/* Tablet: 2 columns (min-width: 600px) */
+@media (min-width: 600px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Small laptop: 3 columns (min-width: 900px) */
+@media (min-width: 900px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Desktop: 4 columns (min-width: 1200px) */
+@media (min-width: 1200px) {
+  .cards { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Notes */
+.notes { margin-top:.75rem; font-size:.9rem; color:var(--muted); }
+.note { margin:0; }
+
+/* Responsive: stack on small screens */
+@media (max-width: 880px) {
+  .slide { grid-template-columns: 1fr; }
+  .demo { grid-column: 1 / -1; order: 3; }
+}

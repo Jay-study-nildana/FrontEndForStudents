@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Flexbox — Slide</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <main id="main" class="stage" role="main" aria-label="Slide: Flexbox (Flexible Box Layout)">
+    <section class="slide" aria-labelledby="slide-title" role="article">
+      <h1 id="slide-title" class="slide-title">Flexbox (Flexible Box Layout)</h1>
+
+      <ul class="bullets">
+        <li>Use Flexbox for 1-dimensional layouts (row OR column)</li>
+        <li>Main concepts: <strong>main axis</strong> (flex-direction) and <strong>cross axis</strong></li>
+        <li>Container properties:
+          <ul>
+            <li><code>display: flex</code>; <code>flex-direction</code>; <code>flex-wrap</code></li>
+            <li><code>justify-content</code> (align along main axis)</li>
+            <li><code>align-items</code> (align along cross axis)</li>
+            <li><code>align-content</code> (align multi-line content when wrapped)</li>
+            <li><code>gap</code> (space between items)</li>
+          </ul>
+        </li>
+        <li>Item properties:
+          <ul>
+            <li><code>flex: &lt;grow&gt; &lt;shrink&gt; &lt;basis&gt;</code></li>
+            <li><code>order</code> (change visual order)</li>
+            <li><code>align-self</code> (override <code>align-items</code> per item)</li>
+          </ul>
+        </li>
+        <li>Common patterns: horizontal nav, equal-height cards, centered content, responsive rows that wrap</li>
+      </ul>
+
+      <div class="demo" aria-labelledby="demo-title">
+        <h2 id="demo-title" class="demo-title">Interactive Flexbox Playground</h2>
+
+        <div class="controls" aria-hidden="false">
+          <fieldset>
+            <legend>Container controls</legend>
+            <label>Direction
+              <select id="direction">
+                <option value="row">row</option>
+                <option value="row-reverse">row-reverse</option>
+                <option value="column">column</option>
+                <option value="column-reverse">column-reverse</option>
+              </select>
+            </label>
+
+            <label>Wrap
+              <select id="wrap">
+                <option value="nowrap">nowrap</option>
+                <option value="wrap">wrap</option>
+                <option value="wrap-reverse">wrap-reverse</option>
+              </select>
+            </label>
+
+            <label>Justify
+              <select id="justify">
+                <option value="flex-start">flex-start</option>
+                <option value="flex-end">flex-end</option>
+                <option value="center">center</option>
+                <option value="space-between">space-between</option>
+                <option value="space-around">space-around</option>
+                <option value="space-evenly">space-evenly</option>
+              </select>
+            </label>
+
+            <label>Align items
+              <select id="alignItems">
+                <option value="stretch">stretch</option>
+                <option value="flex-start">flex-start</option>
+                <option value="flex-end">flex-end</option>
+                <option value="center">center</option>
+                <option value="baseline">baseline</option>
+              </select>
+            </label>
+
+            <label>Align content
+              <select id="alignContent">
+                <option value="stretch">stretch</option>
+                <option value="flex-start">flex-start</option>
+                <option value="flex-end">flex-end</option>
+                <option value="center">center</option>
+                <option value="space-between">space-between</option>
+                <option value="space-around">space-around</option>
+              </select>
+            </label>
+
+            <label>Gap (px)
+              <input id="gap" type="number" min="0" value="12" style="width:6ch" />
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Item controls</legend>
+            <label>Select item
+              <select id="itemSelect">
+                <option value="0">Item 1</option>
+                <option value="1">Item 2</option>
+                <option value="2">Item 3</option>
+                <option value="3">Item 4</option>
+                <option value="4">Item 5</option>
+                <option value="5">Item 6</option>
+              </select>
+            </label>
+
+            <label>flex (grow shrink basis)
+              <input id="flexGrow" type="number" min="0" value="1" style="width:4ch" /> 
+              <input id="flexShrink" type="number" min="0" value="1" style="width:4ch" />
+              <input id="flexBasis" type="text" value="0" style="width:5ch" />
+            </label>
+
+            <label>order
+              <input id="order" type="number" value="0" style="width:4ch" />
+            </label>
+
+            <label>align-self
+              <select id="alignSelf">
+                <option value="auto">auto</option>
+                <option value="stretch">stretch</option>
+                <option value="flex-start">flex-start</option>
+                <option value="flex-end">flex-end</option>
+                <option value="center">center</option>
+                <option value="baseline">baseline</option>
+              </select>
+            </label>
+
+            <div class="item-actions">
+              <button id="applyItem">Apply to item</button>
+              <button id="resetItem">Reset item</button>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="playground" aria-live="polite" aria-atomic="true">
+          <h3 class="playground-title">Playground container</h3>
+
+          <div id="flexContainer" class="flex-container" tabindex="0" aria-label="Flex container example">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2 (longer content)</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="item">Item 5</div>
+            <div class="item">Item 6</div>
+          </div>
+
+          <div class="computed" id="computed" aria-hidden="true">
+            <div>Container: <span id="computedContainer">—</span></div>
+            <div>Selected item computed: <span id="computedItem">—</span></div>
+          </div>
+        </div>
+
+        <div class="patterns">
+          <h4>Common patterns (static examples)</h4>
+
+          <div class="pattern nav-pattern">
+            <nav aria-label="Example horizontal nav">
+              <ul class="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Docs</a></li>
+                <li><a href="#">Components</a></li>
+                <li><a href="#">About</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="pattern cards-pattern">
+            <div class="cards-row">
+              <div class="card">Card A — equal height</div>
+              <div class="card">Card B — taller content<br/>line<br/>line</div>
+              <div class="card">Card C</div>
+            </div>
+          </div>
+
+          <div class="pattern center-pattern">
+            <div class="center-box">Centered both axes</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Flexbox playground interactions
+    (function () {
+      // Container controls
+      const container = document.getElementById('flexContainer');
+      const direction = document.getElementById('direction');
+      const wrap = document.getElementById('wrap');
+      const justify = document.getElementById('justify');
+      const alignItems = document.getElementById('alignItems');
+      const alignContent = document.getElementById('alignContent');
+      const gap = document.getElementById('gap');
+
+      // Item controls
+      const itemSelect = document.getElementById('itemSelect');
+      const flexGrow = document.getElementById('flexGrow');
+      const flexShrink = document.getElementById('flexShrink');
+      const flexBasis = document.getElementById('flexBasis');
+      const order = document.getElementById('order');
+      const alignSelf = document.getElementById('alignSelf');
+      const applyItem = document.getElementById('applyItem');
+      const resetItem = document.getElementById('resetItem');
+
+      // computed display
+      const computedContainer = document.getElementById('computedContainer');
+      const computedItem = document.getElementById('computedItem');
+
+      function applyContainer() {
+        container.style.display = 'flex';
+        container.style.flexDirection = direction.value;
+        container.style.flexWrap = wrap.value;
+        container.style.justifyContent = justify.value;
+        container.style.alignItems = alignItems.value;
+        container.style.alignContent = alignContent.value;
+        container.style.gap = (parseInt(gap.value, 10) || 0) + 'px';
+        reportComputed();
+      }
+
+      function getSelectedItem() {
+        const i = parseInt(itemSelect.value, 10);
+        return container.children[i];
+      }
+
+      function applyToItem() {
+        const el = getSelectedItem();
+        if (!el) return;
+        const grow = parseFloat(flexGrow.value) || 0;
+        const shrink = parseFloat(flexShrink.value) || 1;
+        const basis = (flexBasis.value || '0');
+        el.style.flex = `${grow} ${shrink} ${basis}`;
+        el.style.order = (order.value !== '') ? order.value : '';
+        el.style.alignSelf = alignSelf.value;
+        reportComputed();
+      }
+
+      function resetItemStyles() {
+        const el = getSelectedItem();
+        if (!el) return;
+        el.style.flex = '';
+        el.style.order = '';
+        el.style.alignSelf = '';
+        // restore inputs to default for convenience
+        flexGrow.value = '1';
+        flexShrink.value = '1';
+        flexBasis.value = '0';
+        order.value = '0';
+        alignSelf.value = 'auto';
+        reportComputed();
+      }
+
+      function reportComputed() {
+        // container computed summary
+        const style = getComputedStyle(container);
+        const info = `direction: ${style.flexDirection}; wrap: ${style.flexWrap}; justify: ${style.justifyContent}; align-items: ${style.alignItems}; gap: ${style.gap}`;
+        computedContainer.textContent = info;
+
+        // selected item computed
+        const el = getSelectedItem();
+        if (el) {
+          const s = getComputedStyle(el);
+          computedItem.textContent = `flex: ${s.flex}; order: ${s.order}; align-self: ${s.alignSelf}; width=${Math.round(el.getBoundingClientRect().width)}px`;
+        } else {
+          computedItem.textContent = '—';
+        }
+      }
+
+      // wire events
+      [direction, wrap, justify, alignItems, alignContent, gap].forEach(el => el.addEventListener('change', applyContainer));
+      gap.addEventListener('input', applyContainer);
+
+      applyItem.addEventListener('click', (e) => { e.preventDefault(); applyToItem(); });
+      resetItem.addEventListener('click', (e) => { e.preventDefault(); resetItemStyles(); });
+
+      // initialize defaults
+      applyContainer();
+      reportComputed();
+
+      // update computed info on resize to show real widths
+      window.addEventListener('resize', reportComputed);
+    })();
+  </script>
+</body>
+</html>

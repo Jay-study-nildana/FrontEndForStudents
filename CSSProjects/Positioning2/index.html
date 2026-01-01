@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSS Positioning — Slide</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <main id="main" class="stage" role="main" aria-label="Slide: CSS Positioning">
+    <section class="slide" aria-labelledby="slide-title" role="article">
+      <h1 id="slide-title" class="slide-title">CSS Positioning</h1>
+
+      <ul class="bullets">
+        <li>position values: <strong>static</strong> (default), <strong>relative</strong>, <strong>absolute</strong>, <strong>fixed</strong>, <strong>sticky</strong></li>
+        <li><strong>static</strong>: normal flow — top/left ignored</li>
+        <li><strong>relative</strong>: offsets move the element but original space is preserved</li>
+        <li><strong>absolute</strong>: removed from flow — positioned relative to nearest positioned ancestor (non-static)</li>
+        <li><strong>fixed</strong>: positioned relative to viewport — stays during scroll</li>
+        <li><strong>sticky</strong>: behaves like relative until crossing threshold, then acts like fixed (requires an offset like top)</li>
+        <li>Offsets: <code>top</code> / <code>right</code> / <code>bottom</code> / <code>left</code> (or shorthand <code>inset</code>)</li>
+        <li><strong>z-index</strong> &amp; stacking context: controls overlap; certain properties (position + z-index, transform, opacity, etc.) create stacking contexts</li>
+        <li>Best practices: use relative to "anchor" absolute children, prefer <code>transform</code> for animations (better perf), avoid deep reliance on global fixed positioning for mobile</li>
+      </ul>
+
+      <div class="demo">
+        <h2 class="demo-title">Interactive demos</h2>
+
+        <div class="controls">
+          <label for="posSelect">Position</label>
+          <select id="posSelect">
+            <option value="static">static</option>
+            <option value="relative">relative</option>
+            <option value="absolute">absolute</option>
+            <option value="fixed">fixed</option>
+            <option value="sticky">sticky</option>
+          </select>
+
+          <label for="topInput">top</label>
+          <input id="topInput" type="text" placeholder="e.g. 10px or auto" value="10px" />
+
+          <label for="leftInput">left</label>
+          <input id="leftInput" type="text" placeholder="e.g. 10px or auto" value="10px" />
+
+          <label for="zInput">z-index</label>
+          <input id="zInput" type="number" value="1" style="width:6ch" />
+        </div>
+
+        <div class="demo-grid">
+          <div class="example example--anchor" id="anchorExample" aria-label="Anchor example">
+            <div class="example__note">Anchor container (set to <code>position:relative</code>)</div>
+            <div class="box" id="demoBox" tabindex="0">demo</div>
+            <div class="sibling">Sibling content (in normal flow)</div>
+          </div>
+
+          <div class="example example--fixed" aria-label="Fixed example">
+            <div class="example__note">Fixed element (viewport)</div>
+            <div class="fixed-box" id="fixedBox">fixed</div>
+            <p class="small-muted">Scroll the slide to see fixed element stay put.</p>
+          </div>
+
+          <div class="example example--sticky" aria-label="Sticky example">
+            <div class="example__note">Sticky inside scroll area (<code>top: 0</code>)</div>
+            <div class="scroll-area" id="scrollArea">
+              <div class="sticky-box" id="stickyBox">sticky</div>
+              <div class="long">
+                <!-- filler lines to allow scrolling -->
+                <p>Line 1</p><p>Line 2</p><p>Line 3</p><p>Line 4</p><p>Line 5</p>
+                <p>Line 6</p><p>Line 7</p><p>Line 8</p><p>Line 9</p><p>Line 10</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="example example--stack" aria-label="Stacking context example">
+            <div class="example__note">Stacking context &amp; overlap</div>
+            <div class="stack">
+              <div class="stack__a">A</div>
+              <div class="stack__b" id="stackB">B (transform)</div>
+              <div class="stack__c" id="stackC">C (z-index)</div>
+            </div>
+            <div class="stack-controls">
+              <label><input type="checkbox" id="makeTransform" /> Add <code>transform: translateZ(0)</code> to B (makes stacking context)</label>
+              <label><input type="checkbox" id="bringCtoFront" /> Set C z-index: 100</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="measurements">
+          <div><strong>demoBox computed:</strong> <span id="computedInfo">—</span></div>
+          <div class="hint">Change the position/select and offsets to observe behavior. Use DevTools to inspect stacking contexts.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Interactive behavior for positioning demo
+    (function () {
+      const posSelect = document.getElementById('posSelect');
+      const topInput = document.getElementById('topInput');
+      const leftInput = document.getElementById('leftInput');
+      const zInput = document.getElementById('zInput');
+      const demoBox = document.getElementById('demoBox');
+      const anchor = document.getElementById('anchorExample');
+      const computedInfo = document.getElementById('computedInfo');
+
+      const fixedBox = document.getElementById('fixedBox');
+      const stickyBox = document.getElementById('stickyBox');
+
+      const makeTransform = document.getElementById('makeTransform');
+      const bringCtoFront = document.getElementById('bringCtoFront');
+      const stackB = document.getElementById('stackB');
+      const stackC = document.getElementById('stackC');
+
+      function applyPosition() {
+        const pos = posSelect.value;
+        // Reset styles to defaults to avoid leftover values
+        demoBox.style.position = '';
+        demoBox.style.top = '';
+        demoBox.style.left = '';
+        demoBox.style.right = '';
+        demoBox.style.bottom = '';
+        demoBox.style.zIndex = '';
+
+        // Always keep anchor positioned so absolute children can be anchored
+        anchor.style.position = 'relative';
+
+        if (pos === 'static') {
+          // static: no offsets, normal flow
+          // clear anchor positioning to show default flow effect optionally
+          // keep anchor relative to allow absolute demonstration when switched
+        } else if (pos === 'relative') {
+          demoBox.style.position = 'relative';
+          if (topInput.value.trim()) demoBox.style.top = topInput.value;
+          if (leftInput.value.trim()) demoBox.style.left = leftInput.value;
+          demoBox.style.zIndex = zInput.value || '';
+        } else if (pos === 'absolute') {
+          demoBox.style.position = 'absolute';
+          if (topInput.value.trim()) demoBox.style.top = topInput.value;
+          if (leftInput.value.trim()) demoBox.style.left = leftInput.value;
+          demoBox.style.zIndex = zInput.value || '';
+        } else if (pos === 'fixed') {
+          // fixed is relative to the viewport — move the element out of the anchor into body flow (for demo)
+          // we keep it in the same DOM, but fixed positions relative to viewport
+          demoBox.style.position = 'fixed';
+          // if user used px values, they position relative to viewport
+          if (topInput.value.trim()) demoBox.style.top = topInput.value;
+          if (leftInput.value.trim()) demoBox.style.left = leftInput.value;
+          demoBox.style.zIndex = zInput.value || 1000;
+        } else if (pos === 'sticky') {
+          demoBox.style.position = 'sticky';
+          // sticky requires an offset (top/bottom)
+          if (topInput.value.trim()) demoBox.style.top = topInput.value;
+          if (leftInput.value.trim()) demoBox.style.left = leftInput.value;
+          // sticky will only stick within its scroll container; in this demo it's inside the anchorExample container
+        }
+
+        reportComputed();
+      }
+
+      function reportComputed() {
+        // basic info: position + offset values + bounding rect
+        const style = window.getComputedStyle(demoBox);
+        const rect = demoBox.getBoundingClientRect();
+        const info = `position: ${style.position}; top: ${style.top}; left: ${style.left}; z-index: ${style.zIndex}; rect.x=${Math.round(rect.x)}, y=${Math.round(rect.y)}, w=${Math.round(rect.width)}, h=${Math.round(rect.height)}`;
+        computedInfo.textContent = info;
+      }
+
+      // stacking controls
+      function updateStacking() {
+        if (makeTransform.checked) {
+          stackB.style.transform = 'translateZ(0)';
+        } else {
+          stackB.style.transform = '';
+        }
+        if (bringCtoFront.checked) {
+          stackC.style.zIndex = '100';
+        } else {
+          stackC.style.zIndex = '';
+        }
+      }
+
+      // event listeners
+      posSelect.addEventListener('change', applyPosition);
+      topInput.addEventListener('input', applyPosition);
+      leftInput.addEventListener('input', applyPosition);
+      zInput.addEventListener('input', applyPosition);
+
+      makeTransform.addEventListener('change', updateStacking);
+      bringCtoFront.addEventListener('change', updateStacking);
+
+      // Fixed box: toggle visibility when scrolling to demonstrate it's fixed
+      window.addEventListener('scroll', () => {
+        // nothing needed: fixedBox stays in viewport
+      });
+
+      // init
+      applyPosition();
+      updateStacking();
+
+      // Recompute info on resize/scroll
+      window.addEventListener('resize', reportComputed);
+      window.addEventListener('scroll', reportComputed);
+    })();
+  </script>
+</body>
+</html>

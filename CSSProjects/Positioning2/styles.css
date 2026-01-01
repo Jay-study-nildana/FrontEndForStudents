@@ -1,0 +1,93 @@
+/* Slide styling + CSS Positioning demo styles */
+
+:root{
+  --bg:#f7fbff;
+  --card:#fff;
+  --muted:#6b7280;
+  --accent:#0b63ff;
+  --note-bg:#f1f5ff;
+}
+
+/* Basic reset */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:#0b1220; }
+
+/* Skip link */
+.skip-link { position:absolute; left:-9999px; top:auto; background:#000; color:#fff; padding:.5rem .75rem; border-radius:4px; z-index:1000; }
+.skip-link:focus { left:1rem; top:1rem; }
+
+/* Stage + slide */
+.stage { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem; }
+.slide { width:min(1000px,96%); background:var(--card); border-radius:12px; padding:1.5rem 2rem; box-shadow:0 8px 30px rgba(11,17,32,0.06); display:grid; grid-template-columns:1fr 420px; gap:1.25rem; align-items:start; }
+
+/* Title & bullets */
+.slide-title { grid-column:1/2; margin:0 0 1rem 0; font-size:clamp(1.25rem,1.2rem + 1.5vw,1.85rem); color:var(--accent); }
+.bullets { grid-column:1/2; margin:0; padding-left:1.25rem; line-height:1.5; }
+.bullets > li { margin:.5rem 0; }
+
+/* Demo column */
+.demo { grid-column:2/3; background:linear-gradient(180deg, rgba(11,99,255,0.03), transparent); padding:1rem; border-radius:8px; min-width:300px; }
+.demo-title { margin:0 0 .5rem 0; font-size:1rem }
+.controls { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin-bottom:.75rem; color:var(--muted); }
+.controls label { font-size:.9rem; display:flex; align-items:center; gap:.4rem; }
+
+/* Demo grid */
+.demo-grid { display:grid; gap:.75rem; }
+
+/* example panels */
+.example { background:var(--note-bg); padding:.75rem; border-radius:8px; border:1px solid rgba(11,99,255,0.06); }
+.example__note { font-size:.85rem; color:var(--muted); margin-bottom:.5rem; }
+
+/* Anchor example: relative container with a box and sibling to show flow */
+.example--anchor { min-height:120px; position:relative; overflow:visible; }
+.example--anchor .sibling { margin-top:.75rem; color:var(--muted); font-size:.9rem }
+
+/* the demo box that changes position */
+.box {
+  background: linear-gradient(180deg, rgba(11,99,255,0.12), rgba(11,99,255,0.06));
+  border: 2px solid rgba(11,99,255,0.28);
+  color: #022b8f;
+  padding: .6rem .8rem;
+  border-radius:6px;
+  width: 120px;
+  text-align:center;
+  font-weight:700;
+  cursor:default;
+}
+
+/* Fixed example */
+.example--fixed { position:relative; min-height:80px; }
+.fixed-box {
+  position:fixed;
+  right:1rem;
+  bottom:1rem;
+  background:#111827;color:#fff;padding:.5rem .75rem;border-radius:6px;box-shadow:0 8px 20px rgba(2,6,23,0.3);
+}
+
+/* Sticky example inside a scrollable container */
+.example--sticky .scroll-area { height:160px; overflow:auto; padding:.5rem; background:#fff; border-radius:6px; border:1px solid rgba(2,6,23,0.04); }
+.sticky-box { position:sticky; top:0; background:linear-gradient(180deg,#fff,#f7fbff); padding:.45rem .6rem; border-radius:6px; border:1px solid rgba(11,99,255,0.06); font-weight:600; }
+
+/* stacking context demo */
+.example--stack .stack { position:relative; height:120px; margin-bottom:.5rem; }
+.stack__a, .stack__b, .stack__c {
+  position:absolute; width:84px; height:84px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; border-radius:8px;
+}
+.stack__a { left:8px; top:8px; background:#ef4444; z-index:2; }
+.stack__b { left:44px; top:28px; background:#f59e0b; z-index:1; }
+.stack__c { left:80px; top:48px; background:#2563eb; z-index:3; }
+
+/* stacking controls */
+.stack-controls { display:flex; gap:.5rem; align-items:center; font-size:.85rem; color:var(--muted); }
+
+/* measurements & hint */
+.measurements { margin-top:.5rem; font-size:.9rem; color:var(--muted); }
+.hint { margin-top:.5rem; font-size:.9rem; color:var(--muted); }
+
+/* responsive: stack on small screens */
+@media (max-width:880px) {
+  .slide { grid-template-columns:1fr; }
+  .demo { grid-column:1/-1; }
+}

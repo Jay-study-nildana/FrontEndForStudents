@@ -1,0 +1,398 @@
+:root {
+  --bg: #f7fbff;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b63ff;
+  --gap: 1rem;
+
+  --header-height: 64px;
+  --container-max: 1100px;
+
+  --radius: 10px;
+}
+
+/* Reset & basics */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: #0b1220;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Header (Flexbox) */
+.site-header {
+  background: var(--card);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid rgba(2, 6, 23, 0.04);
+}
+.header-inner {
+  height: var(--header-height);
+  display: flex; /* flex container: main axis is row by default */
+  align-items: center; /* center items along cross axis */
+  justify-content: space-between; /* brand on one side, nav on the other */
+  gap: 1rem;
+}
+
+/* Brand */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.brand-logo {
+  flex: 0 0 auto;
+  border-radius: 6px;
+}
+.brand-text {
+  font-size: 1rem;
+}
+
+/* Nav - desktop layout */
+.nav-menu {
+  display: block;
+}
+.nav-list {
+  display: flex; /* nav items in a row */
+  gap: 0.5rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-ghost {
+  background: transparent;
+  border-color: rgba(2, 6, 23, 0.06);
+  color: var(--accent);
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Nav toggle (mobile) */
+.nav-toggle {
+  display: none; /* hidden on desktop */
+  background: transparent;
+  border: 0;
+  padding: 0.35rem;
+  border-radius: 6px;
+  margin-left: auto;
+}
+.nav-toggle:focus {
+  outline: 3px solid rgba(11, 99, 255, 0.12);
+  outline-offset: 2px;
+}
+.hamburger {
+  width: 22px;
+  height: 2px;
+  background: #0b1220;
+  display: block;
+  position: relative;
+  border-radius: 2px;
+}
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: inherit;
+  border-radius: 2px;
+}
+.hamburger::before {
+  top: -6px;
+}
+.hamburger::after {
+  top: 6px;
+}
+
+/* Hero */
+.hero {
+  padding: 2.25rem 0;
+}
+.hero-inner {
+  display: flex; /* two-column layout with flexbox */
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column; /* mobile-first: stack vertically */
+}
+.hero-title {
+  margin: 0 0 0.5rem 0;
+  font-size: clamp(1.4rem, 1.2rem + 2.4vw, 2.4rem);
+  color: #042a9a;
+}
+.hero-lead {
+  margin: 0 0 1rem 0;
+  color: var(--muted);
+  max-width: 55ch;
+}
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* media: hero image */
+.hero-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(11, 17, 32, 0.06);
+}
+
+/* feature grid */
+.feature-grid {
+  padding: 1.5rem 0;
+}
+.grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.feature {
+  flex: 1 1 220px;
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+  text-align: center;
+}
+
+/* Desktop / larger screens: switch header & hero layout using media query */
+@media (min-width: 780px) {
+  .nav-toggle {
+    display: none;
+  } /* keep hidden, menu is visible as horizontal nav */
+
+  .nav-menu {
+    display: block;
+  }
+  .header-inner {
+    padding: 0 0.25rem;
+  }
+
+  .hero-inner {
+    flex-direction: row; /* two columns on desktop: content + media */
+    align-items: center;
+  }
+
+  /* make nav items more compact */
+  .nav-list a {
+    padding: 0.45rem 0.6rem;
+  }
+}
+
+/* Mobile: collapse nav into toggle & vertical menu */
+@media (max-width: 779px) {
+  .nav-toggle {
+    display: inline-flex;
+  } /* show hamburger */
+  .nav-menu {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: var(--card);
+    border-bottom: 1px solid rgba(2, 6, 23, 0.04);
+    transform-origin: top;
+    box-shadow: 0 6px 20px rgba(11, 17, 32, 0.06);
+    display: none; /* hidden by default on mobile */
+  }
+  .nav-menu.is-open {
+    display: block;
+  } /* toggled open state */
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem;
+  }
+  .nav-list li {
+    padding: 0.25rem 0;
+  }
+  .nav-list a {
+    display: block;
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Focus-visible for accessibility */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 3px solid rgba(11, 99, 255, 0.16);
+  outline-offset: 3px;
+}
+
+/* small tweaks */
+.site-footer {
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid rgba(2, 6, 23, 0.04);
+  margin-top: 2rem;
+}
+
+/* Page utilities and demo components (flexbox-heavy examples) */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+}
+.page-header .heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.page-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #042a9a;
+}
+.page-sub {
+  margin: 0;
+  color: var(--muted);
+}
+
+.page-section {
+  padding: 1.5rem 0;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.card {
+  flex: 1 1 220px;
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.two-col {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+@media (min-width: 900px) {
+  .two-col {
+    flex-direction: row;
+  }
+}
+
+.doc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.doc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: var(--card);
+  border: 1px solid rgba(2, 6, 23, 0.03);
+}
+
+.signin-panel {
+  max-width: 520px;
+  background: var(--card);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.form-row label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.form-row input {
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(2, 6, 23, 0.06);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* small helper for centered demo */
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
