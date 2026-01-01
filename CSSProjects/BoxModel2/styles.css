@@ -1,0 +1,126 @@
+/* Slide styling + Box Model demo styles */
+
+:root{
+  --bg: #f7fbff;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b63ff;
+}
+
+/* Basic reset */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:#0b1220; }
+
+/* Accessibility: visible skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: #000;
+  color: #fff;
+  padding: .5rem .75rem;
+  border-radius: 4px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Stage/slide layout */
+.stage {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+}
+
+.slide {
+  width: min(1000px, 96%);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 30px rgba(11,17,32,0.06);
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.25rem;
+  align-items:start;
+}
+
+/* Title and bullets */
+.slide-title {
+  grid-column: 1 / 2;
+  margin: 0 0 1rem 0;
+  font-size: clamp(1.25rem, 1.2rem + 1.5vw, 1.85rem);
+  color: var(--accent);
+}
+
+.bullets {
+  grid-column: 1 / 2;
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.5;
+}
+.bullets > li { margin: 0.5rem 0; }
+
+/* Demo column */
+.demo {
+  grid-column: 2 / 3;
+  background: linear-gradient(180deg, rgba(11,99,255,0.03), transparent);
+  padding: 1rem;
+  border-radius: 8px;
+  min-width: 260px;
+}
+.demo-title { margin: 0 0 .5rem 0; font-size: 1rem; color:#0b1220; }
+.controls { margin-bottom: .75rem; font-size:.95rem; color:var(--muted); }
+
+/* Box model visualization structure:
+   demo-margin (shows margin space)
+     demo-border (element with border)
+       demo-padding (padding area)
+         demo-content (content area)
+*/
+
+/* margin wrapper visualized by outer spacing + subtle background */
+.box-model-demo { display:flex; flex-direction:column; gap:.75rem; align-items:center; }
+.demo-margin { margin: 24px; /* left/right margin visualized via space */ }
+
+/* the element that we toggle box-sizing on */
+.demo-border {
+  width: 200px;                 /* CSS width property in px (used by demo) */
+  border: 6px solid rgba(11,99,255,0.35);
+  background: linear-gradient(180deg, rgba(11,99,255,0.04), rgba(11,99,255,0.02));
+  border-radius: 6px;
+  /* box-sizing toggled via script */
+}
+
+/* padding wrapper */
+.demo-padding { padding: 20px; background: rgba(11,99,255,0.02); }
+
+/* content area */
+.demo-content {
+  background: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  text-align:center;
+  font-weight:600;
+  color:#0b1220;
+  box-shadow: 0 2px 6px rgba(11,17,32,0.04);
+}
+
+/* measurements block */
+.measurements { font-size: .875rem; color: var(--muted); text-align:left; margin-top:.5rem; }
+
+/* hint */
+.hint { font-size: .9rem; color:var(--muted); margin-top:.5rem; }
+
+/* Responsiveness: stack on small screens */
+@media (max-width: 880px) {
+  .slide { grid-template-columns: 1fr; }
+  .slide-title { grid-column: 1 / -1; }
+  .bullets { grid-column: 1 / -1; }
+  .demo { grid-column: 1 / -1; order: 3; }
+}

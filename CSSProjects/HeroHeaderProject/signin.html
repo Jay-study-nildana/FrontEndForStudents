@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sign In — Flexbox Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <svg
+            class="brand-logo"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <circle cx="12" cy="12" r="10" fill="#0b63ff"></circle>
+            <text
+              x="12"
+              y="16"
+              text-anchor="middle"
+              font-size="10"
+              fill="#fff"
+              font-family="Arial"
+            >
+              JS
+            </text>
+          </svg>
+          <span class="brand-text">JayStudy</span>
+        </a>
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          aria-controls="primaryNav"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+        <nav id="primaryNav" class="nav-menu" role="navigation">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a class="btn btn-ghost" href="signin.html">Sign in</a></li>
+            <li>
+              <a class="btn btn-primary" href="get-started.html">Get started</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="main" role="main">
+      <div class="container page-section center" style="min-height: 60vh">
+        <div class="signin-panel">
+          <h1 style="margin: 0 0 0.5rem 0">Sign in</h1>
+          <p class="muted">
+            This is a demo sign-in form — no real authentication.
+          </p>
+          <form id="signinForm">
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div class="form-row">
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" required />
+            </div>
+            <div style="display: flex; gap: 0.5rem; justify-content: flex-end">
+              <button class="btn btn-ghost" type="reset">Reset</button>
+              <button class="btn btn-primary" type="submit">Sign in</button>
+            </div>
+          </form>
+          <p id="signinMessage" class="muted" style="margin-top: 1rem"></p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© 2026 JayStudy — Sign In</div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

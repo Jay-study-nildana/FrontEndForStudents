@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Responsive Header & Hero — Flexbox Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" role="banner" aria-label="Site header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Homepage">
+          <svg
+            class="brand-logo"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <circle cx="12" cy="12" r="10" fill="#0b63ff"></circle>
+            <text
+              x="12"
+              y="16"
+              text-anchor="middle"
+              font-size="10"
+              fill="#fff"
+              font-family="Arial"
+            >
+              JS
+            </text>
+          </svg>
+          <span class="brand-text">JayStudy</span>
+        </a>
+
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          aria-controls="primaryNav"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="primaryNav"
+          class="nav-menu"
+          role="navigation"
+          aria-label="Primary"
+        >
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a class="btn btn-ghost" href="signin.html">Sign in</a></li>
+            <li>
+              <a class="btn btn-primary" href="get-started.html">Get started</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="main" role="main">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-content">
+            <h1 class="hero-title">Build responsive layouts with Flexbox</h1>
+            <p class="hero-lead">
+              Practical patterns and an accessible header/hero starting point.
+              Resize the viewport to see the navigation and hero adapt using
+              Flexbox and simple CSS variables.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#">Start tutorial</a>
+              <a class="btn btn-ghost" href="#">View examples</a>
+            </div>
+          </div>
+
+          <div class="hero-media" aria-hidden="true">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=60&fm=jpg&fit=crop"
+              srcset="
+                https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=60&fm=jpg&fit=crop   600w,
+                https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=60&fm=jpg&fit=crop   900w,
+                https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=60&fm=jpg&fit=crop 1200w
+              "
+              sizes="(max-width: 720px) 100vw, 50vw"
+              alt="Laptop and notes on a desk"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-grid">
+        <div class="container">
+          <div class="grid">
+            <article class="feature">
+              Flexible layout with <code>display:flex</code>
+            </article>
+            <article class="feature">
+              Align and distribute with <code>justify-content</code>
+            </article>
+            <article class="feature">
+              Responsive wrapping with <code>flex-wrap</code>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <p>© 2026 JayStudy — Flexbox demo</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

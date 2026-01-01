@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Get Started — Flexbox Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <svg
+            class="brand-logo"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <circle cx="12" cy="12" r="10" fill="#0b63ff"></circle>
+            <text
+              x="12"
+              y="16"
+              text-anchor="middle"
+              font-size="10"
+              fill="#fff"
+              font-family="Arial"
+            >
+              JS
+            </text>
+          </svg>
+          <span class="brand-text">JayStudy</span>
+        </a>
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          aria-controls="primaryNav"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+        <nav id="primaryNav" class="nav-menu" role="navigation">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a class="btn btn-ghost" href="signin.html">Sign in</a></li>
+            <li>
+              <a class="btn btn-primary" href="get-started.html">Get started</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="main" role="main">
+      <div class="container page-section">
+        <div class="page-header">
+          <div class="heading-row">
+            <h1 class="page-title">Get Started</h1>
+            <p class="page-sub">
+              A short checklist and starter kit so students can follow along in
+              class.
+            </p>
+          </div>
+        </div>
+
+        <section class="page-section">
+          <div class="cards">
+            <article class="card">
+              <h3>Clone the repo</h3>
+              <p class="muted">
+                Copy the project locally and open it in a code editor.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Open in browser</h3>
+              <p class="muted">
+                Open `index.html` to view the demo and navigation to new pages.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Experiment</h3>
+              <p class="muted">
+                Tweak flex properties and observe layout changes on resize.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© 2026 JayStudy — Get Started</div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

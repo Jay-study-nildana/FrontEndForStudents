@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Docs — Flexbox Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" role="banner" aria-label="Site header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Homepage">
+          <svg
+            class="brand-logo"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <circle cx="12" cy="12" r="10" fill="#0b63ff"></circle>
+            <text
+              x="12"
+              y="16"
+              text-anchor="middle"
+              font-size="10"
+              fill="#fff"
+              font-family="Arial"
+            >
+              JS
+            </text>
+          </svg>
+          <span class="brand-text">JayStudy</span>
+        </a>
+
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          aria-controls="primaryNav"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="primaryNav"
+          class="nav-menu"
+          role="navigation"
+          aria-label="Primary"
+        >
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a class="btn btn-ghost" href="signin.html">Sign in</a></li>
+            <li>
+              <a class="btn btn-primary" href="get-started.html">Get started</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="main" role="main">
+      <div class="container page-section">
+        <header class="page-header">
+          <div class="heading-row">
+            <h1 class="page-title">Documentation</h1>
+            <p class="page-sub">
+              Quick reference, layout patterns, and accessible components using
+              Flexbox.
+            </p>
+          </div>
+        </header>
+
+        <div class="two-col">
+          <section class="doc-list" aria-label="Docs list">
+            <div class="doc-item">
+              <div
+                class="doc-meta center"
+                style="
+                  width: 56px;
+                  height: 56px;
+                  border-radius: 8px;
+                  background: var(--accent);
+                  color: #fff;
+                  align-items: center;
+                  justify-content: center;
+                  display: flex;
+                "
+              >
+                1
+              </div>
+              <div>
+                <strong>Header & Navigation</strong>
+                <div class="muted">
+                  Patterns for sticky header, hamburger toggle, and accessible
+                  nav.
+                </div>
+              </div>
+            </div>
+            <div class="doc-item">
+              <div
+                class="doc-meta center"
+                style="
+                  width: 56px;
+                  height: 56px;
+                  border-radius: 8px;
+                  background: #042a9a;
+                  color: #fff;
+                  align-items: center;
+                  justify-content: center;
+                  display: flex;
+                "
+              >
+                2
+              </div>
+              <div>
+                <strong>Hero & Media</strong>
+                <div class="muted">
+                  Responsive two-column hero using flex-direction and responsive
+                  images.
+                </div>
+              </div>
+            </div>
+            <div class="doc-item">
+              <div
+                class="doc-meta center"
+                style="
+                  width: 56px;
+                  height: 56px;
+                  border-radius: 8px;
+                  background: #0b63ff;
+                  color: #fff;
+                  align-items: center;
+                  justify-content: center;
+                  display: flex;
+                "
+              >
+                3
+              </div>
+              <div>
+                <strong>Cards & Grids</strong>
+                <div class="muted">
+                  Flexible card layouts reliant on <code>flex-wrap</code> and
+                  basis control.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <aside class="signin-panel">
+            <h3 style="margin-top: 0">Getting started</h3>
+            <p class="muted">
+              Use these docs to copy patterns into your own projects. Everything
+              is layouted with Flexbox utilities.
+            </p>
+            <div style="margin-top: 1rem">
+              <a class="btn btn-primary" href="get-started.html">Start guide</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <p>© 2026 JayStudy — Docs</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
