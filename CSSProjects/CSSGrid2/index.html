@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grid + Flex Mini Project — Two‑Dimensional Layouts</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="site-grid" id="page">
+    <header class="site-header" role="banner">
+      <div class="header-inner">
+        <h1 class="brand">GridLab</h1>
+        <nav class="top-nav" role="navigation" aria-label="Top">
+          <a href="#">Docs</a>
+          <a href="#">Patterns</a>
+          <a href="#">Examples</a>
+        </nav>
+      </div>
+    </header>
+
+    <aside class="site-sidebar" role="complementary" aria-label="Sidebar">
+      <h2 class="sidebar-title">Quick Links</h2>
+      <ul class="sidebar-list">
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#cards">Cards</a></li>
+      </ul>
+    </aside>
+
+    <main id="main" class="site-main" role="main" tabindex="-1" aria-label="Main content">
+      <section id="hero" class="hero">
+        <h2>Grid — rows & columns made explicit</h2>
+        <p class="lead">Use CSS Grid for two‑dimensional layouts: define tracks (rows/columns), place items, span tracks, and combine with Flexbox for component-level alignment.</p>
+        <div class="hero-actions">
+          <button class="btn primary">Learn grid</button>
+          <button class="btn ghost">Try examples</button>
+        </div>
+      </section>
+
+      <section id="gallery" class="panel gallery" aria-labelledby="gallery-title">
+        <h3 id="gallery-title">Responsive Card Gallery (auto‑fill tracks)</h3>
+
+        <!-- grid container: uses auto-fill / minmax to create responsive columns -->
+        <div class="cards-grid">
+          <article class="card">
+            <h4>Card 1</h4>
+            <p>Simple card demonstrating a grid item.</p>
+          </article>
+
+          <article class="card">
+            <h4>Card 2</h4>
+            <p>Another card.</p>
+          </article>
+
+          <article class="card featured">
+            <h4>Featured — spans two columns on wide screens</h4>
+            <p>This card uses grid-column to span multiple tracks. Great for hero cards or wide content.</p>
+          </article>
+
+          <article class="card">
+            <h4>Card 4</h4>
+            <p>Grid automatically places this in the next available cell.</p>
+          </article>
+
+          <article class="card">
+            <h4>Card 5</h4>
+            <p>Use gap to control spacing between grid cells.</p>
+          </article>
+
+          <article class="card">
+            <h4>Card 6</h4>
+            <p>Cards are also flex containers internally for easy alignment of their content.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="dashboard" class="panel dashboard" aria-labelledby="dashboard-title">
+        <h3 id="dashboard-title">Dashboard (explicit tracks)</h3>
+
+        <!-- grid container with explicit rows and columns and named areas -->
+        <div class="dashboard-grid" role="region" aria-label="Dashboard widgets">
+          <div class="widget widget-a">A<br/><small>Summary metric</small></div>
+          <div class="widget widget-b">B<br/><small>Chart area</small></div>
+          <div class="widget widget-c">C<br/><small>List</small></div>
+          <div class="widget widget-d">D<br/><small>Map / media</small></div>
+        </div>
+      </section>
+
+      <section id="cards" class="panel card-layout" aria-labelledby="cards-title">
+        <h3 id="cards-title">Card with internal grid</h3>
+
+        <!-- A card that uses grid internally to align image + meta in rows/columns -->
+        <article class="profile-card">
+          <div class="profile-media" aria-hidden="true"></div>
+          <div class="profile-body">
+            <h4>Designer Jane</h4>
+            <p class="muted">Product designer — grid & flex enthusiast</p>
+
+            <div class="profile-stats">
+              <div class="stat">
+                <div class="stat-value">24</div>
+                <div class="stat-label">Projects</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Awards</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">120</div>
+                <div class="stat-label">Commits</div>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <button class="btn primary">View profile</button>
+              <button class="btn ghost">Message</button>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div>© 2026 GridLab — demo of CSS Grid patterns</div>
+    </footer>
+  </div>
+</body>
+</html>

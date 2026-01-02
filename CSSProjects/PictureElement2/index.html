@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>picture Element — Art Direction & Format Selection Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <h1 class="brand">PictureLab</h1>
+      <p class="byline">Art direction + modern formats (AVIF/WebP) with safe fallbacks using &lt;picture&gt;.</p>
+    </div>
+  </header>
+
+  <main id="content" class="page" role="main">
+    <section class="hero panel" aria-labelledby="hero-title">
+      <h2 id="hero-title">Art-directed hero image with format fallbacks</h2>
+
+      <!-- picture element chooses the first matching source.
+           This example:
+           - Uses AVIF for wide screens first,
+           - Falls back to WebP for older UAs that don't support AVIF,
+           - Then falls back to JPEG via the inner <img>.
+           - sizes helps the browser pick the appropriate candidate from srcset. -->
+      <picture class="hero-picture">
+        <!-- AVIF, art-directed wide crop -->
+        <source
+          type="image/avif"
+          media="(min-width:900px)"
+          srcset="
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=1600&fm=avif 1600w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=1200&fm=avif 1200w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=800&fm=avif 800w
+          "
+          sizes="(min-width:900px) 80vw, 100vw"
+        />
+
+        <!-- WebP fallback (same wide art direction) -->
+        <source
+          type="image/webp"
+          media="(min-width:900px)"
+          srcset="
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=1600&fm=webp 1600w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=1200&fm=webp 1200w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=800&fm=webp 800w
+          "
+          sizes="(min-width:900px) 80vw, 100vw"
+        />
+
+        <!-- AVIF / WebP for narrow viewport: use a different crop or smaller sizes (art direction) -->
+        <source
+          type="image/avif"
+          media="(max-width:899px)"
+          srcset="
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=900&fm=avif 900w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=600&fm=avif 600w
+          "
+          sizes="100vw"
+        />
+
+        <source
+          type="image/webp"
+          media="(max-width:899px)"
+          srcset="
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=900&fm=webp 900w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=600&fm=webp 600w
+          "
+          sizes="100vw"
+        />
+
+        <!-- Final fallback: JPEG on the <img>. alt stays here and is used for all sources. -->
+        <img
+          class="hero-img"
+          src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800&fm=jpg"
+          alt="Workspace with plants and laptop — art-directed crop"
+          loading="lazy"
+          width="1600"
+          height="900"
+        />
+      </picture>
+
+      <p class="note">The browser evaluates &lt;source&gt; elements in order and picks the first candidate it supports. Use &lt;picture&gt; when you need art-directed swaps or to serve modern formats with fallbacks. For simple resolution-only swaps where composition is identical, prefer srcset on the &lt;img&gt;.</p>
+    </section>
+
+    <section class="examples panel" aria-labelledby="examples-title">
+      <h3 id="examples-title">Practical patterns</h3>
+
+      <div class="grid">
+        <!-- Example A: srcset on <img> (resolution-only) -->
+        <figure class="card">
+          <h4>Resolution variations (same composition)</h4>
+          <p class="muted">Use srcset on the inner &lt;img&gt; when composition doesn't change.</p>
+          <img
+            src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&fm=jpg"
+            srcset="
+              https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&fm=jpg 400w,
+              https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&fm=jpg 800w,
+              https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&fm=jpg 1200w
+            "
+            sizes="(max-width:600px) 100vw, 33vw"
+            alt="Designer workstation — same composition"
+            loading="lazy"
+            class="demo-img"
+          />
+        </figure>
+
+        <!-- Example B: picture for art direction -->
+        <figure class="card">
+          <h4>Art direction (different crops)</h4>
+          <p class="muted">Swap to a portrait crop on small screens, wide crop on large screens.</p>
+
+          <picture>
+            <source
+              media="(max-width:480px)"
+              srcset="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&fm=webp 600w"
+              type="image/webp"
+              sizes="100vw"
+            />
+            <source
+              media="(min-width:481px)"
+              srcset="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&fm=webp 900w"
+              type="image/webp"
+              sizes="(max-width:900px) 50vw, 33vw"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&fm=jpg"
+              alt="Sketching composition — changes crop for small screens"
+              loading="lazy"
+              class="demo-img"
+              width="900" height="600"
+            />
+          </picture>
+        </figure>
+
+        <!-- Example C: density descriptors for UI icons -->
+        <figure class="card">
+          <h4>Density descriptors (icons)</h4>
+          <p class="muted">Use 1x / 2x density descriptors for small inline images like icons.</p>
+          <img
+            class="icon"
+            role="img"
+            aria-label="Example icon"
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%23e6e6e6'/><path d='M20 36c0-6 12-12 24-6' stroke='%238a8a8a' stroke-width='3' fill='none' stroke-linecap='round'/><circle cx='32' cy='24' r='6' fill='%238a8a8a'/></svg>"
+            srcset="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%23e6e6e6'/><path d='M20 36c0-6 12-12 24-6' stroke='%238a8a8a' stroke-width='3' fill='none' stroke-linecap='round'/><circle cx='32' cy='24' r='6' fill='%238a8a8a'/></svg> 1x, data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%23e6e6e6'/><path d='M20 36c0-6 12-12 24-6' stroke='%238a8a8a' stroke-width='3' fill='none' stroke-linecap='round'/><circle cx='32' cy='24' r='6' fill='%238a8a8a'/></svg> 2x"
+            alt="Example icon"
+            width="64" height="64"
+          />
+        </figure>
+
+        <!-- Example D: fallback content & accessibility -->
+        <figure class="card">
+          <h4>Keep content identical & alt on the img</h4>
+          <p class="muted">Provide the same informational content across sources. Put meaningful alt text on the inner &lt;img&gt; — that's what assistive tech uses.</p>
+          <picture>
+            <source srcset="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&fm=webp 800w" type="image/webp" sizes="100vw" />
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&fm=jpg" alt="Notebook and pen on desk" loading="lazy" class="demo-img" width="800" height="533"/>
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <section class="notes panel">
+      <h3>Best practices & tips</h3>
+      <ul>
+        <li>Use &lt;picture&gt; when composition/format needs to change per breakpoint; otherwise prefer srcset on &lt;img&gt; for simpler cases.</li>
+        <li>Keep identical visual content and semantics across all &lt;source&gt; candidates. The <code>alt</code> attribute belongs on the inner &lt;img&gt; and applies to all sources.</li>
+        <li>Provide a clear <code>sizes</code> policy when using width descriptors (e.g., <code>400w</code>, <code>800w</code>) so the browser can pick the correct candidate.</li>
+        <li>Include width/height attributes to reserve layout space and reduce CLS. Use object-fit or CSS to control cropping.</li>
+        <li>Use modern formats (AVIF/WebP) where possible, with JPEG/PNG fallback via the last <code>&lt;img&gt;</code>.</li>
+      </ul>
+
+      <div class="controls">
+        <button id="show-sources" class="btn">Show selected source (debug)</button>
+        <span id="format-support" class="muted"></span>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

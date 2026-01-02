@@ -1,0 +1,283 @@
+:root {
+  /* baseline rhythm and scale */
+  --base-size: 16px; /* JS can update this (demo) */
+  --baseline: 1.25rem; /* vertical rhythm unit (uses rem) */
+  --measure: 65ch; /* ideal line-length target */
+
+  /* color & UI */
+  --bg: #fbfdff;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b63ff;
+  --radius: 10px;
+}
+
+/* Ensure sizing is relative to the root font-size.
+   The html font-size is itself fluid using clamp to provide a sensible
+   base that grows with viewport but stays bounded. This is mobile-first. */
+html {
+  /* base: keep a sensible minimum for readability, let it grow with viewport width */
+  font-size: clamp(14px, calc(12px + 0.8vw), 18px);
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  background: var(--bg);
+  color: #071029;
+  line-height: 1.5; /* base line-height (unitless) */
+}
+
+/* Page layout */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), #7cc3ff);
+}
+.brand-text {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Expose demo control area only when JS enables it (progressive enhancement) */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.control-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.control-value {
+  font-weight: 700;
+}
+
+/* Page content container */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* Rhythm helpers using rem-based baseline */
+.h1-spacing {
+  margin: 0 0 calc(var(--baseline) * 1) 0;
+}
+p {
+  margin: 0 0 calc(var(--baseline) * 0.9) 0;
+}
+
+/* Measure: keep comfortable line-length for paragraphs */
+.measure {
+  max-width: var(--measure);
+  padding: 1rem;
+  background: var(--card);
+  border-radius: 8px;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+}
+.article {
+  padding-top: 0.5rem;
+}
+
+/* HERO with fluid heading */
+.hero {
+  padding: 1rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(11, 99, 255, 0.03), transparent);
+  border: 1px solid rgba(2, 6, 23, 0.04);
+}
+.hero-title {
+  margin: 0 0 0.5rem 0;
+  /* fluid heading: min 1.5rem, prefer viewport-driven scale, max 3rem */
+  font-size: clamp(1.5rem, 2.6vw + 0.5rem, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.hero-lead {
+  margin: 0 0 1rem 0;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  color: var(--muted);
+}
+
+/* Kicker (small-caps) — disable on small screens for legibility */
+.kicker,
+.kicker-like,
+.kicker .label {
+  font-variant-caps: small-caps;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+@media (max-width: 480px) {
+  .kicker,
+  .kicker-like,
+  .kicker .label {
+    font-variant-caps: normal;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+}
+
+/* Examples grid */
+.demo {
+  padding: 1rem;
+  background: var(--card);
+  border-radius: 8px;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+}
+.cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+.card {
+  padding: 1rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff, #f7fbff);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Buttons & em-based component scaling */
+.btn {
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.card .btn {
+  font-size: 1em;
+} /* button scales with parent (em) */
+
+/* Typographic preview */
+.scale-preview {
+  display: grid;
+  gap: 1rem;
+}
+.scale-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.scale-swatch {
+  flex: 1 1 320px;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+}
+.swatch-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+/* Examples of heading scale using clamp() (bounded fluid) */
+.preview-h1 {
+  font-size: clamp(1.75rem, 3.6vw + 0.25rem, 3.4rem);
+  margin: 0;
+}
+.preview-h2 {
+  font-size: clamp(1.25rem, 2.4vw + 0.25rem, 2rem);
+  margin: 0;
+}
+.preview-body {
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+}
+.preview-small {
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  color: var(--muted);
+}
+
+/* Line-height tuning: use unitless values so line-height scales with font-size */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.05;
+}
+p,
+li {
+  line-height: 1.6;
+}
+
+/* Accessibility considerations: don't allow too-small text on very small viewports */
+@media (max-width: 340px) {
+  html {
+    font-size: 14px;
+  } /* fallback guard for very small viewports */
+}
+
+/* Responsive layout for cards grid */
+@media (min-width: 700px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* small-caps warning styling example (avoid when tiny) */
+.site-footer {
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 0.5rem;
+}
+
+/* Respect reduced motion for any transitions in the demo (good practice) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

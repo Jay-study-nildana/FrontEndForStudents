@@ -1,0 +1,346 @@
+/* Media Queries — styles.css
+   Mobile-first base styles, then min-width breakpoints.
+   Demonstrates: viewport breakpoints, prefers-* queries, hover capability, resolution queries.
+*/
+
+/* Variables */
+:root {
+  --bg: #fbfdff;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b63ff;
+  --gap: 1rem;
+  --radius: 10px;
+}
+
+/* Reset & basics */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: #071029;
+}
+a {
+  color: inherit;
+}
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Header */
+.site-header {
+  background: var(--card);
+  border: 1px solid rgba(2, 6, 23, 0.06);
+  border-radius: 8px;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), #7cc3ff);
+}
+.brand-text {
+  font-weight: 700;
+}
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-list {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+.nav-toggle {
+  display: inline-block;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(11, 99, 255, 0.03), transparent);
+  border: 1px solid rgba(2, 6, 23, 0.04);
+}
+.hero-inner {
+  max-width: 680px;
+}
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  background: var(--accent);
+  color: white;
+}
+.btn.ghost {
+  background: transparent;
+  border-color: rgba(2, 6, 23, 0.06);
+  color: var(--accent);
+}
+
+/* GALLERY grid (mobile-first): 1 column baseline */
+.gallery-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+.card {
+  background: var(--card);
+  border: 1px solid rgba(2, 6, 23, 0.06);
+  border-radius: 8px;
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.card.featured {
+  border-color: rgba(11, 99, 255, 0.12);
+}
+
+/* Examples grid */
+.examples-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+.example {
+  background: var(--card);
+  padding: 0.6rem;
+  border: 1px solid rgba(2, 6, 23, 0.06);
+  border-radius: 8px;
+}
+
+/* Interaction demo box (hover feature) */
+.hover-box {
+  padding: 1rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff, #f7fbff);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.hover-box:focus {
+  outline: 3px solid rgba(11, 99, 255, 0.12);
+  outline-offset: 3px;
+}
+
+/* Reduced motion demo */
+.motion-box {
+  height: 80px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #e6f2ff, #fff);
+  animation: float 4s ease-in-out infinite;
+}
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .motion-box {
+    animation: none;
+    transition: none;
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* High-resolution icon demo (uses background image swap) */
+.hires-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background: #fff url("https://via.placeholder.com/64") center/cover no-repeat;
+  border: 1px solid rgba(2, 6, 23, 0.06);
+}
+/* use resolution media query to swap to 2x icon on high-DPI screens */
+@media (min-resolution: 2dppx) {
+  .hires-icon {
+    background-image: url("https://via.placeholder.com/128");
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #071022;
+    --card: #09121a;
+    --muted: #9aa6b2;
+    --accent: #66b0ff;
+  }
+  body {
+    background: var(--bg);
+    color: #dfeefe;
+  }
+  .site-header,
+  .card,
+  .example,
+  .hero {
+    background: var(--card);
+    border-color: rgba(255, 255, 255, 0.04);
+  }
+  .logo {
+    background: linear-gradient(135deg, var(--accent), #3f88d6);
+  }
+  .btn {
+    color: #071022;
+  }
+}
+
+/* Hover-capability query:
+   Only apply hover-specific styles on devices that actually support hover.
+   This avoids applying hover tricks that are awkward on touch screens. */
+@media (hover: hover) and (pointer: fine) {
+  .hover-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
+  }
+}
+
+/* CONTENT-DRIVEN BREAKPOINTS (mobile-first)
+   Choose breakpoints where layout needs to adapt (not by device names).
+   - Around 600px: move to two-column grid for gallery and examples
+   - Around 900px: larger layout — featured card spans columns and nav becomes visible
+*/
+
+/* Small tablets / larger phones */
+@media (min-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .examples-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nav-list {
+    display: flex;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .hero {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .hero-visual {
+    flex: 0 0 40%;
+  }
+  .hero-inner {
+    flex: 1 1 60%;
+  }
+}
+
+/* Wider screens / content-rich layouts */
+@media (min-width: 900px) {
+  .gallery-grid {
+    /* fewer columns than pure auto-fill intentionally to let cards have more horizontal space */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  /* featured card spans two columns — demonstrates spanning */
+  .card.featured {
+    grid-column: span 2;
+  }
+  .examples-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .logo {
+    width: 48px;
+    height: 48px;
+  }
+  .brand-text {
+    font-size: 1.1rem;
+  }
+  .page {
+    padding: 1.5rem;
+  }
+}
+
+/* Use clamp() for fluid typography without many breakpoints */
+h1 {
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  margin: 0.25rem 0;
+}
+h2 {
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  margin: 0.5rem 0;
+}
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Accessibility: provide visible focus styles for keyboard users */
+a:focus-visible,
+button:focus-visible,
+.hover-box:focus-visible {
+  outline: 3px solid rgba(11, 99, 255, 0.14);
+  outline-offset: 3px;
+}

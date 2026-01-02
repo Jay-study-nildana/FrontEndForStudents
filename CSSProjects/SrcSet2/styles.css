@@ -1,0 +1,153 @@
+/* srcset & responsive images — styles.css
+   Simple, clean layout to demonstrate srcset / sizes / picture usage
+*/
+
+:root {
+  --bg: #fbfdff;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b63ff;
+  --gap: 1rem;
+  --radius: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: #071029;
+}
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Header */
+.site-header {
+  padding: 0.75rem 0;
+}
+.inner {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+.brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.byline {
+  color: var(--muted);
+  margin-left: 1rem;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(180deg, rgba(11, 99, 255, 0.03), transparent);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+  margin-bottom: 1rem;
+}
+.hero-picture {
+  display: block;
+  margin: 0 0 0.5rem 0;
+}
+.hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Gallery grid */
+.gallery {
+  margin-top: 1rem;
+}
+.lead {
+  color: var(--muted);
+}
+.gallery-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+.media-card {
+  background: var(--card);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.media-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #fff, #f7fbff);
+}
+
+/* small icon styling */
+.icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+  object-fit: cover;
+}
+
+.media-card .icon {
+  display: block;
+  margin: 0 auto;
+}
+
+/* notes */
+.demo {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+  margin-top: 1rem;
+}
+ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+/* Responsive columns for gallery */
+@media (min-width: 700px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

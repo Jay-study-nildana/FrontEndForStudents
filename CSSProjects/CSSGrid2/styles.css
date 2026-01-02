@@ -1,0 +1,335 @@
+/* Grid + Flex Mini Project
+   Demonstrates:
+   - Grid container vs grid items
+   - explicit tracks, auto-fill tracks, spanning, gaps
+   - alignment APIs: align-items / justify-items / place-items / align-self / justify-self
+   - combining Grid for page structure and Flexbox for component alignment
+*/
+
+/* Basic reset & variables */
+:root {
+  --bg: #fbfdff;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b63ff;
+  --gap: 1rem;
+  --container-max: 1100px;
+  --radius: 10px;
+  --surface-border: rgba(2, 6, 23, 0.06);
+  --sidebar-w: 220px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: #071029;
+}
+a {
+  color: inherit;
+}
+.page {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* SITE GRID: overall page uses CSS Grid (two-dimensional) */
+.site-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile-first: single column */
+  grid-template-rows: auto 1fr auto;
+  gap: var(--gap);
+  min-height: 100vh;
+}
+
+/* Header, sidebar, main and footer are grid items */
+.site-header {
+  background: var(--card);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  padding: 0.6rem;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.brand {
+  margin: 0;
+  font-weight: 700;
+  color: var(--accent);
+}
+.top-nav a {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.45rem;
+  border-radius: 6px;
+}
+.top-nav a:hover {
+  background: rgba(11, 99, 255, 0.06);
+}
+
+/* Sidebar and footer styling */
+.site-sidebar {
+  background: var(--card);
+  border: 1px solid var(--surface-border);
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+.sidebar-title {
+  margin: 0 0 0.5rem 0;
+}
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-list a {
+  display: block;
+  padding: 0.25rem 0;
+  color: var(--muted);
+}
+
+/* Main content area */
+.site-main {
+  padding: 0;
+}
+
+/* HERO uses flex for internal alignment (Grid for page structure + Flex for component) */
+.hero {
+  background: linear-gradient(180deg, rgba(11, 99, 255, 0.03), transparent);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--surface-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.hero-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn.ghost {
+  background: transparent;
+  border-color: rgba(2, 6, 23, 0.06);
+}
+
+/* ---------- GALLERY: auto-fill responsive tracks ---------- */
+/* cards-grid demonstrates responsive columns using auto-fill/minmax */
+.cards-grid {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  align-items: start; /* controls cross-axis alignment of each grid item */
+  justify-items: stretch; /* make items stretch to fill the column width */
+}
+
+/* individual card uses flex internally for vertical layout */
+.card {
+  background: var(--card);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 120px;
+}
+
+/* Featured card spanning tracks: on wider screens make it span two columns */
+.featured {
+  background: linear-gradient(180deg, rgba(11, 99, 255, 0.03), transparent);
+  border-color: rgba(11, 99, 255, 0.12);
+}
+@media (min-width: 900px) {
+  .featured {
+    grid-column: span 2;
+  } /* spans two columns of the cards-grid on wide screens */
+}
+
+/* ---------- DASHBOARD: explicit tracks + named areas ---------- */
+/* dashboard-grid demonstrates explicit columns, rows and alignment */
+.dashboard-grid {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.75rem;
+  /* explicit columns: sidebar-like column + two flexible columns */
+  grid-template-columns: 120px 1fr 1fr;
+  grid-auto-rows: 120px; /* default row height for widgets */
+  align-items: stretch; /* stretch widgets to fill their grid area */
+  justify-items: stretch;
+}
+
+/* Widgets are grid items — use align-self / justify-self to change alignment */
+.widget {
+  background: var(--card);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Place the widgets intentionally (example of explicit placement) */
+.widget-a {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+} /* left column, first row */
+.widget-b {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+} /* spans two columns */
+.widget-c {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+} /* second column, second row */
+.widget-d {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+} /* third column, second row */
+
+/* show how to center content inside an item with justify-self / align-self */
+.widget-a {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.widget-b {
+  align-items: flex-start;
+} /* keep chart aligned to top-left */
+
+/* ---------- INTERNAL GRID: profile card ---------- */
+/* the profile-card demonstrates using grid inside a card for two-dimensional layout */
+.profile-card {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+/* media: stack internally on narrow screens */
+@media (max-width: 680px) {
+  .profile-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+
+/* profile media uses background to simulate an image */
+.profile-media {
+  background: linear-gradient(135deg, #cfe8ff, #eaf5ff);
+  border-radius: 8px;
+  width: 100%;
+  height: 100px;
+  min-height: 80px;
+}
+
+/* profile-stats uses grid for small metric boxes */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.stat {
+  background: linear-gradient(180deg, #fff, #f7fbff);
+  padding: 0.5rem;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+}
+.stat-value {
+  font-weight: 700;
+}
+
+/* card actions use flex to align buttons horizontally */
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Footer */
+.site-footer {
+  grid-column: 1/-1;
+  padding: 0.5rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- Responsive layout for full page (switching grid template) ---------- */
+@media (min-width: 900px) {
+  /* At larger widths convert site-grid to a two-column two-row layout:
+     header on top spanning both columns,
+     sidebar left and main right,
+     footer spanning both columns at bottom.
+  */
+  .site-grid {
+    grid-template-columns: var(--sidebar-w) 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--gap);
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+  .site-header {
+    grid-area: header;
+  }
+  .site-sidebar {
+    grid-area: sidebar;
+  }
+  .site-main {
+    grid-area: main;
+  }
+  .site-footer {
+    grid-area: footer;
+  }
+}

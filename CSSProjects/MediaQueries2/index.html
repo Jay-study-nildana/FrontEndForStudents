@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Media Queries — Mini Project</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand" aria-label="Brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span class="brand-text">MediaQueryLab</span>
+      </div>
+
+      <nav class="top-nav" role="navigation" aria-label="Primary navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+        <ul id="primaryNav" class="nav-list">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#examples">Examples</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page" role="main">
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <h1 id="hero-title">Media Queries: adapt with intent</h1>
+        <p class="lead">Apply different CSS based on viewport size, resolution, input capabilities, and user preferences (reduced motion, color scheme).</p>
+
+        <div class="hero-actions">
+          <a class="btn" href="#gallery">See gallery</a>
+          <a class="btn ghost" href="#examples">See examples</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <!-- art-directed image: different crop/size for narrow and wide via picture element -->
+        <picture>
+          <source media="(min-width:900px)" srcset="https://images.unsplash.com/photo-1503602642458-232111445657?w=1600&q=60&fm=jpg&fit=crop">
+          <img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=60&fm=jpg&fit=crop" alt="Workspace with plants and laptop" loading="lazy">
+        </picture>
+      </div>
+    </section>
+
+    <section id="gallery" class="panel" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Responsive Gallery — columns change with width</h2>
+
+      <!-- grid: columns change via media queries (content driven breakpoints) -->
+      <div class="gallery-grid">
+        <!-- placeholder cards; images use srcset to adapt resolution -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&q=60&fm=jpg&fit=crop"
+               srcset="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400 400w, https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800 800w"
+               sizes="(max-width:600px) 100vw, 33vw"
+               alt="Designer workstation" loading="lazy">
+          <h3>Card A</h3>
+          <p class="muted">Cards per row adapt to available width.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=60&fm=jpg&fit=crop" alt="Sketching" loading="lazy">
+          <h3>Card B</h3>
+          <p class="muted">Grid gap and padding scale at breakpoints.</p>
+        </article>
+
+        <article class="card featured">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=60&fm=jpg&fit=crop" alt="Workspace and coffee" loading="lazy">
+          <h3>Featured</h3>
+          <p class="muted">Featured card spans columns on wide screens using grid-column.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=60&fm=jpg&fit=crop" alt="Notebook" loading="lazy">
+          <h3>Card C</h3>
+          <p class="muted">Use media queries to adjust typography and spacing.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?w=600&q=60&fm=jpg&fit=crop" alt="Pens and desk" loading="lazy">
+          <h3>Card D</h3>
+          <p class="muted">Swap images or art direction with <code>&lt;picture&gt;</code> or CSS background-image.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=60&fm=jpg&fit=crop" alt="Coffee and sketch" loading="lazy">
+          <h3>Card E</h3>
+          <p class="muted">Prefer content-driven breakpoints: change when layout looks wrong, not by device name.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="examples" class="panel" aria-labelledby="examples-title">
+      <h2 id="examples-title">Media Query Examples</h2>
+
+      <div class="examples-grid">
+        <article class="example">
+          <h4>Interaction: hover vs touch</h4>
+          <p class="muted">Only enable hover-specific effects on devices that support hovering.</p>
+          <div class="hover-box" tabindex="0">Hover me (if supported)</div>
+        </article>
+
+        <article class="example">
+          <h4>Reduced motion</h4>
+          <p class="muted">Animations are disabled if the user prefers reduced motion.</p>
+          <div class="motion-box" aria-hidden="true"></div>
+        </article>
+
+        <article class="example">
+          <h4>High-resolution (retina) assets</h4>
+          <p class="muted">Use resolution media queries to swap to higher-DPI assets.</p>
+          <div class="hires-icon" aria-hidden="true"></div>
+        </article>
+
+        <article class="example">
+          <h4>Dark mode</h4>
+          <p class="muted">Automatically switch color scheme with prefers-color-scheme.</p>
+          <div class="color-swatch" aria-hidden="true"></div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer" role="contentinfo">
+      <p>Demo — Media Queries essentials: responsive layout, art-directed images, input capability, reduced motion, color-scheme, and resolution.</p>
+    </footer>
+  </main>
+</body>
+</html>
