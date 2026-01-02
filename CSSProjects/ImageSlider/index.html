@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reliable Image Slider — Demo</title>
+  <meta name="description" content="Accessible, reliable image-only slider with keyboard and autoplay." />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <main id="main" class="page" role="main">
+    <header class="page-header">
+      <h1>Reliable Image Slider</h1>
+      <p class="lead">Explicit image loading + small JS ensures every slide requests its image reliably.</p>
+    </header>
+
+    <section class="slider" aria-label="Featured images" data-autoplay="true">
+      <div class="slider__viewport" id="viewport">
+        <button class="slider__btn slider__btn--prev" aria-label="Previous slide" id="prevBtn">&larr;</button>
+
+        <div class="slider__track" id="track" role="list">
+          <figure class="slide" role="listitem" data-index="0">
+            <img
+              data-src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=60&fm=jpg&fit=crop"
+              data-srcset="
+                https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=60&fm=jpg&fit=crop 600w,
+                https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=60&fm=jpg&fit=crop 900w,
+                https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=60&fm=jpg&fit=crop 1200w
+              "
+              sizes="(max-width:720px) 100vw, 50vw"
+              alt="Workspace with laptop and coffee"
+              class="slide__img"
+            />
+          </figure>
+
+          <figure class="slide" role="listitem" data-index="1">
+            <img
+              data-src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=60&fm=jpg&fit=crop"
+              data-srcset="
+                https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=60&fm=jpg&fit=crop 600w,
+                https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&q=60&fm=jpg&fit=crop 900w,
+                https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=60&fm=jpg&fit=crop 1200w
+              "
+              sizes="(max-width:720px) 100vw, 50vw"
+              alt="Hands sketching in a notebook"
+              class="slide__img"
+            />
+          </figure>
+
+          <figure class="slide" role="listitem" data-index="2">
+            <img
+              data-src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=60&fm=jpg&fit=crop"
+              data-srcset="
+                https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=60&fm=jpg&fit=crop 600w,
+                https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=60&fm=jpg&fit=crop 900w,
+                https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=60&fm=jpg&fit=crop 1200w
+              "
+              sizes="(max-width:720px) 100vw, 50vw"
+              alt="Modern workspace with monitor and plants"
+              class="slide__img"
+            />
+          </figure>
+        </div>
+
+        <button class="slider__btn slider__btn--next" aria-label="Next slide" id="nextBtn">&rarr;</button>
+      </div>
+
+      <div class="slider__controls">
+        <div class="slider__dots" id="dots" role="tablist" aria-label="Select slide">
+          <!-- created by JS -->
+        </div>
+        <button class="slider__play" id="playBtn" aria-pressed="false" aria-label="Pause autoplay">Pause</button>
+      </div>
+
+      <div id="announcer" class="slider__announcer" aria-live="polite" aria-atomic="true" hidden></div>
+    </section>
+
+    <section class="notes">
+      <h2>Notes</h2>
+      <ul>
+        <li>Images are loaded explicitly by the script (data-src → src) and preloaded for neighbors.</li>
+        <li>If an image fails to load you'll see a fallback area and the slider will continue to work.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

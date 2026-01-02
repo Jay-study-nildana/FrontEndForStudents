@@ -1,0 +1,142 @@
+:root {
+  --bg: #fbfdff;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b63ff;
+  --gap: 1rem;
+  --radius: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: #071029;
+}
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.site-header {
+  margin-bottom: 1rem;
+}
+.inner {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.brand {
+  font-weight: 700;
+}
+.byline {
+  color: var(--muted);
+  margin-left: 0.5rem;
+}
+
+/* Panels */
+.panel {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+  margin-bottom: 1rem;
+}
+.note {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Hero picture */
+.hero-picture {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Grid of examples */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.card {
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff, #f7fbff);
+  border: 1px solid rgba(2, 6, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+    align-items: center;
+  text-align: center;
+}
+.demo-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.icon {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0.5rem auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.btn {
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* small accessibility text */
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}

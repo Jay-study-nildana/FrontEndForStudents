@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Typography — Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="brand-text">TypeLab</span>
+      </div>
+
+      <div class="controls" id="controls" aria-hidden="true">
+        <label for="baseSize" class="control-label">Base size</label>
+        <input id="baseSize" type="range" min="12" max="22" step="1" value="16" />
+        <span id="baseValue" class="control-value">16px</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="page">
+    <section class="hero">
+      <h1 class="hero-title">Responsive typography that scales with intent</h1>
+      <p class="hero-lead">This demo shows techniques to keep text readable, balanced, and proportionate across view sizes using relative units, fluid scaling, and bounded sizes.</p>
+    </section>
+
+    <section class="measure demo">
+      <h2>Maintain comfortable line-length and rhythm</h2>
+      <p>Readability depends on line-length and consistent vertical rhythm. This container is bounded with a max measure (in ch) so lines stay between ~45–75 characters. Spacing uses a baseline rhythm variable so headings and paragraphs maintain consistent vertical spacing.</p>
+
+      <article class="article">
+        <h3>Fluid headings with sensible bounds</h3>
+        <p>Headings below use clamp() to scale between a minimum and maximum value. The middle value uses viewport units so type grows smoothly between breakpoints without abrupt jumps.</p>
+
+        <h4 class="kicker">kicker / small caps example</h4>
+        <p class="muted">Small-caps can be useful for accent text but avoid tiny caps on small viewports; this demo disables small-caps at narrow widths to keep legibility.</p>
+      </article>
+    </section>
+
+    <section class="examples demo">
+      <h2>Techniques & patterns</h2>
+
+      <div class="cards">
+        <article class="card">
+          <h3 class="card-title">Relative units (rem / em)</h3>
+          <p>Use rem for layout spacing and em for component-relative sizing. The example button below uses em so it scales with the parent's font-size.</p>
+          <button class="btn">Button (em)</button>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">Fluid scale (viewport-based)</h3>
+          <p>clamp() with a vw-driven middle value gives smooth, bounded scaling across widths.</p>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">Accessibility: minimum sizes</h3>
+          <p>We enforce minimum readable sizes with the lower bound of clamp(), and let users scale text with browser zoom. The demo control (JS) shows how the base font-size affects everything.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="test-visual demo">
+      <h2>Typographic scale preview</h2>
+      <div class="scale-preview">
+        <div class="scale-row">
+          <div class="scale-swatch"><span class="swatch-label">h1</span><h1 class="preview-h1">The quick brown fox</h1></div>
+          <div class="scale-swatch"><span class="swatch-label">h2</span><h2 class="preview-h2">Jumps over the lazy dog</h2></div>
+        </div>
+
+        <div class="scale-row">
+          <div class="scale-swatch"><span class="swatch-label">body</span><p class="preview-body">Body text demonstrates comfortable measure and a line-height tuned to the size so paragraphs are easy to scan. Resize the viewport or use the base-size control (if available).</p></div>
+
+          <div class="scale-swatch"><span class="swatch-label">small</span><p class="preview-small">Small caption text remains legible thanks to sensible bounds and disabled small-caps at narrow widths.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Demo — Responsive Typography: rem/em, clamp(), viewport values, measure and rhythm, and accessibility considerations.</p>
+    </footer>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

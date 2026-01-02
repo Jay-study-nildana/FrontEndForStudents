@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>srcset & responsive images — Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <h1 class="brand">SrcsetLab</h1>
+      <p class="byline">Let the browser pick the best image for the device & layout</p>
+    </div>
+  </header>
+
+  <main id="content" class="page">
+    <section class="hero">
+      <h2>Art-directed hero (picture + webp fallback)</h2>
+
+      <!-- picture element: art direction + modern format (webp) with jpg fallback -->
+      <picture class="hero-picture">
+        <!-- WebP for wide screens -->
+        <source
+          type="image/webp"
+          media="(min-width: 900px)"
+          srcset="
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=1600&fm=webp 1600w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=1200&fm=webp 1200w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=800&fm=webp 800w
+          "
+          sizes="(min-width:900px) 80vw, 100vw"
+        />
+
+        <!-- WebP for narrow screens (different crop or smaller) -->
+        <source
+          type="image/webp"
+          media="(max-width: 899px)"
+          srcset="
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=900&fm=webp 900w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=600&fm=webp 600w
+          "
+          sizes="100vw"
+        />
+
+        <!-- Fallback JPEG sources (same art direction) -->
+        <source
+          media="(min-width:900px)"
+          srcset="
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=1600&fm=jpg 1600w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=1200&fm=jpg 1200w,
+            https://images.unsplash.com/photo-1503602642458-232111445657?w=800&fm=jpg 800w
+          "
+          sizes="(min-width:900px) 80vw, 100vw"
+        />
+
+        <!-- final fallback img - small default; lazy loading enabled -->
+        <img
+          class="hero-img"
+          src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800&fm=jpg"
+          alt="Workspace with plants and laptop — art-directed crop"
+          loading="lazy"
+          width="1600"
+          height="900"
+        />
+      </picture>
+
+      <p class="hero-note">This uses &lt;picture&gt; to let us pick different crops/formats per breakpoint. The browser chooses the best srcset candidate based on the declared sizes and device DPR.</p>
+    </section>
+
+    <section class="gallery" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Gallery: srcset + sizes (width descriptors)</h2>
+
+      <p class="lead">Each gallery image provides multiple widths. The sizes attribute tells the browser the image's expected rendered width for each media condition so it can choose the best source.</p>
+
+      <div class="gallery-grid">
+        <!-- Example 1: width descriptors + sizes -->
+        <figure class="media-card">
+          <img
+            class="responsive"
+            data-src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&fm=jpg"
+            data-srcset="
+              https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&fm=jpg 400w,
+              https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&fm=jpg 800w,
+              https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&fm=jpg 1200w
+            "
+            data-low-srcset="
+              https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=300&fm=jpg 300w,
+              https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&fm=jpg 600w
+            "
+            sizes="(max-width:600px) 100vw, (max-width:1100px) 50vw, 33vw"
+            alt="Designer workstation with swatches"
+            loading="lazy"
+            width="1200"
+            height="800"
+          />
+          <figcaption>Designer workstation (uses srcset widths + sizes)</figcaption>
+        </figure>
+
+        <!-- Example 2: density descriptors (1x / 2x) for small inline images such as icons -->
+        <figure class="media-card">
+          <!-- inline SVG icon (no external request) -->
+          <svg
+            class="icon"
+            width="64"
+            height="64"
+            viewBox="0 0 24 24"
+            role="img"
+            aria-label="Example icon (inline SVG)"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="24" height="24" rx="4" fill="#e5e7eb"/>
+            <path d="M7 12l3 3 7-7" stroke="#111827" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <figcaption>Icon as inline SVG (no external image)</figcaption>
+        </figure>
+
+        <!-- Example 3: picture for portrait vs landscape art direction -->
+        <figure class="media-card">
+          <picture>
+            <source
+              media="(max-width:480px)"
+              srcset="
+                https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&fm=webp 600w,
+                https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&fm=webp 400w
+              "
+              sizes="100vw"
+              type="image/webp"
+            />
+            <source
+              media="(min-width:481px)"
+              srcset="
+                https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&fm=webp 900w,
+                https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&fm=webp 600w
+              "
+              sizes="(max-width:900px) 50vw, 33vw"
+              type="image/webp"
+            />
+            <!-- fallback -->
+            <img
+              class="responsive"
+              data-src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&fm=jpg"
+              data-srcset="
+                https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&fm=jpg 600w,
+                https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&fm=jpg 900w
+              "
+              sizes="(max-width:900px) 50vw, 33vw"
+              alt="Hands sketching in notebook (art-directed)"
+              loading="lazy"
+              width="900"
+              height="600"
+            />
+          </picture>
+          <figcaption>Art-directed crop with picture & webp</figcaption>
+        </figure>
+
+        <!-- Example 4: explicit low-data mode example (script will pick data-low-srcset if Save-Data enabled) -->
+        <figure class="media-card">
+          <img
+            class="responsive"
+            data-src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&fm=jpg"
+            data-srcset="
+              https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&fm=jpg 400w,
+              https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&fm=jpg 800w,
+              https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&fm=jpg 1200w
+            "
+            data-low-srcset="
+              https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=300&fm=jpg 300w
+            "
+            sizes="(max-width:600px) 100vw, 33vw"
+            alt="Workspace and coffee (low-data aware)"
+            loading="lazy"
+            width="1200"
+            height="800"
+          />
+          <figcaption>Low-data aware image (script selects smaller srcset if Save-Data on)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="notes demo">
+      <h2>Notes & best practices</h2>
+      <ul>
+        <li>Use width descriptors (e.g. 400w, 800w) with a sensible <code>sizes</code> policy so the browser knows the rendered width.</li>
+        <li>Prefer modern formats (WebP/AVIF) with fallback JPEG/PNG via <code>&lt;picture&gt;</code>.</li>
+        <li>Provide <code>width</code>/<code>height</code> when possible to avoid layout shift (CLS).</li>
+        <li>Use <code>loading="lazy"</code> for offscreen images and an IntersectionObserver fallback for broader control.</li>
+        <li>Respect user network preferences (navigator.connection.saveData) to avoid asking for large assets.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
