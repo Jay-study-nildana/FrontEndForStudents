@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Theming in CSS – Complex Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <!-- Theme switcher -->
+    <div class="theme-switcher-wrap">
+      <label for="themeSwitcher" class="theme-switcher-label">Theme:</label>
+      <select id="themeSwitcher" class="theme-switcher">
+        <option value="light">🌞 Light</option>
+        <option value="dark">🌙 Dark</option>
+        <option value="solarized">🌅 Solarized</option>
+      </select>
+    </div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+      <div class="nav-logo">ThemeBox</div>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        ☰
+      </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Theming in CSS<br />with Custom Properties</h1>
+          <p class="hero-subtitle">
+            Enjoy this visually rich, fully themeable demo site.&nbsp;
+            <strong
+              >Switch the theme above to see everything update live!</strong
+            >
+          </p>
+          <div class="hero-actions">
+            <a href="#pricing" class="btn btn-primary">See Pricing</a>
+            <a href="#features" class="btn btn-secondary">See Features</a>
+          </div>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?w=800&q=80"
+          alt="Decorative"
+          class="hero-image"
+        />
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title">Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🌙</span>
+            <h3>Theming</h3>
+            <p>
+              Global themes for backgrounds, cards, text, buttons, accents, and
+              more. Easy to brand &amp; extend.
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔁</span>
+            <h3>Runtime Switcher</h3>
+            <p>
+              Users can choose themes at runtime. Try Light, Dark, or our
+              Solarized theme demo above!
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🎨</span>
+            <h3>Consistent Design</h3>
+            <p>
+              Every design decision is made via theme tokens: radius, shadows,
+              link styles, etc.—not just color.
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔗</span>
+            <h3>Components</h3>
+            <p>
+              Reusable sections, cards, and actions, all instantly match the
+              active theme.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <h2 class="section-title">Pricing</h2>
+        <div class="pricing-cards">
+          <div class="pricing-card">
+            <div class="pricing-header">Free</div>
+            <div class="pricing-price">$0<span>/mo</span></div>
+            <ul>
+              <li>1 theme included</li>
+              <li>Basic features</li>
+              <li>Email support</li>
+            </ul>
+            <button class="btn btn-primary">Get Started</button>
+          </div>
+          <div class="pricing-card featured">
+            <div class="pricing-header">Pro</div>
+            <div class="pricing-price">$49<span>/mo</span></div>
+            <ul>
+              <li>Unlimited themes</li>
+              <li>Theme API access</li>
+              <li>Priority support</li>
+              <li>Full component set</li>
+            </ul>
+            <button class="btn btn-primary">Choose Pro</button>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-header">Enterprise</div>
+            <div class="pricing-price">Contact&nbsp;Us</div>
+            <ul>
+              <li>Custom onboarding</li>
+              <li>Personalized themes</li>
+              <li>SLA, SSO, &amp; more</li>
+            </ul>
+            <button class="btn btn-primary">Contact Us</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section (slider) -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonial-carousel" id="testimonialCarousel">
+          <div class="testimonial-slide active">
+            <blockquote>
+              “Switching themes is effortless and inspiring, our branding team
+              loves the flexibility!”
+            </blockquote>
+            <div class="testimonial-info">
+              <img
+                class="testimonial-avatar"
+                src="https://randomuser.me/api/portraits/women/61.jpg"
+                alt="Samira R"
+              />
+              <div><strong>Samira R.</strong><br />Brand Director</div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <blockquote>
+              “Our devs and designers can finally speak the same language—it's
+              all theme tokens.”
+            </blockquote>
+            <div class="testimonial-info">
+              <img
+                class="testimonial-avatar"
+                src="https://randomuser.me/api/portraits/men/23.jpg"
+                alt="Gabriel H"
+              />
+              <div><strong>Gabriel H.</strong><br />Lead Frontend</div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <blockquote>
+              “Our clients now get custom themes nearly instantly. This is what
+              design systems should feel like.”
+            </blockquote>
+            <div class="testimonial-info">
+              <img
+                class="testimonial-avatar"
+                src="https://randomuser.me/api/portraits/women/10.jpg"
+                alt="Mei L"
+              />
+              <div><strong>Mei L.</strong><br />Agency Partner</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-nav">
+          <button
+            class="testimonial-prev"
+            onclick="prevTestimonial()"
+            aria-label="Previous testimonial"
+          >
+            &lt;
+          </button>
+          <button
+            class="testimonial-next"
+            onclick="nextTestimonial()"
+            aria-label="Next testimonial"
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Previews Section -->
+    <section class="blog" id="blog">
+      <div class="container">
+        <h2 class="section-title">From our Blog</h2>
+        <div class="blog-grid">
+          <article class="blog-card">
+            <img
+              src="https://picsum.photos/seed/theming/400/200"
+              alt="Blog 1"
+              class="blog-image"
+            />
+            <div class="blog-content">
+              <h3 class="blog-title">How Themes Save Time and Money</h3>
+              <p class="blog-excerpt">
+                Discover how adopting a token-based theming system can bring
+                agility to your team, improve speed, and make your UI stand out.
+              </p>
+              <a href="#" class="blog-link">Read More &rarr;</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img
+              src="https://picsum.photos/seed/webcss/400/200"
+              alt="Blog 2"
+              class="blog-image"
+            />
+            <div class="blog-content">
+              <h3 class="blog-title">5 Ways to Build Custom Themes</h3>
+              <p class="blog-excerpt">
+                A practical guide to implementing user-selectable and brand-able
+                themes for modern web platforms and apps.
+              </p>
+              <a href="#" class="blog-link">Read More &rarr;</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img
+              src="https://picsum.photos/seed/uicolors/400/200"
+              alt="Blog 3"
+              class="blog-image"
+            />
+            <div class="blog-content">
+              <h3 class="blog-title">Beyond Dark Mode: Fun with Theming!</h3>
+              <p class="blog-excerpt">
+                Learn to go beyond light/dark—experiment with company palettes,
+                accessibility, and fun easter egg themes.
+              </p>
+              <a href="#" class="blog-link">Read More &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact/Footer -->
+    <footer id="contact" class="footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand">ThemeBox</div>
+          <nav class="footer-nav">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-meta">
+          &copy; 2026 ThemeBox. All rights reserved. &mdash; Powered by creative
+          theming.
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

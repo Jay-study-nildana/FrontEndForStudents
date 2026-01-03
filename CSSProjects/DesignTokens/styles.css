@@ -1,64 +1,130 @@
-/* Design tokens expressed as CSS custom properties (tokens file) */
-:root{
-  /* Color palette */
-  --color-primary: #2563eb;
-  --color-primary-contrast: #ffffff;
-  --color-muted: #6b7280;
-  --color-bg: #ffffff;
-  --color-surface: #f8fafc;
+/* ========= Design Tokens ========= */
+:root {
+  /* Color tokens */
+  --color-bg: #f5f7fa;
+  --color-surface: #fff;
+  --color-primary: #228be6;
+  --color-primary-hover: #1760a5;
+  --color-text-main: #2d2d2d;
+  --color-text-muted: #666;
+  --color-heading: #194374;
 
-  /* Typography */
-  --font-family-system: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  /* Spacing tokens */
+  --space-xs: 8px;
+  --space-s: 16px;
+  --space-m: 24px;
+  --space-l: 40px;
+
+  /* Border tokens */
+  --radius: 8px;
+  --radius-full: 999px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.10);
+
+  /* Typography tokens */
   --font-size-base: 1rem;
-  --line-height-base: 1.6;
-
-  /* Spacing scale */
-  --space-0: 0rem;
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.5rem;
-
-  /* Radii */
-  --radius-sm: 6px;
-  --radius-md: 8px;
-
-  /* Elevation (shadows) */
-  --shadow-1: 0 6px 18px rgba(11,17,32,0.04);
+  --font-size-lg: 1.3rem;
+  --font-size-xl: 2rem;
+  --font-heading: 600 2rem/1.2 system-ui, sans-serif;
+  --font-bold: 700;
 }
 
-/* Base using tokens */
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:var(--font-family-system);background:var(--color-surface);color:#0b1220}
-.wrap{max-width:900px;margin:1.5rem auto;padding:0 1rem}
-.header{margin-bottom:1rem}
-.brand{margin:0;font-size:1.25rem}
-.muted{color:var(--color-muted)}
+/* ========= DARK MODE TOKENS ========= */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #171b21;
+    --color-surface: #232936;
+    --color-primary: #5abfff;
+    --color-primary-hover: #228be6;
+    --color-text-main: #f3f4fa;
+    --color-text-muted: #b0b7c3;
+    --color-heading: #88d0ff;
 
-/* Components that consume tokens */
-.btn{
-  padding: calc(var(--space-2)) calc(var(--space-3));
-  border-radius: var(--radius-md);
-  border: none;
+    --shadow: 0 2px 8px rgba(0,0,0,0.45);
+  }
+}
+
+/* ========= TOGGLE DARK MODE VIA CLASS ========= */
+body.dark {
+  --color-bg: #171b21;
+  --color-surface: #232936;
+  --color-primary: #5abfff;
+  --color-primary-hover: #228be6;
+  --color-text-main: #f3f4fa;
+  --color-text-muted: #b0b7c3;
+  --color-heading: #88d0ff;
+  --shadow: 0 2px 8px rgba(0,0,0,0.45);
+}
+
+/* ========= Global Styles ========= */
+body {
+  background: var(--color-bg);
+  margin: 0;
   font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  box-shadow: var(--shadow-1);
+  color: var(--color-text-main);
+  font-family: system-ui, sans-serif;
+  transition: background 0.2s, color 0.2s;
 }
-.btn--primary{
+
+.heading {
+  text-align: center;
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-l);
+  color: var(--color-heading);
+  font: var(--font-heading);
+}
+
+.card-list {
+  display: flex;
+  gap: var(--space-m);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ========= Card Component ========= */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 18rem;
+  padding: var(--space-m);
+  text-align: center;
+  margin-bottom: var(--space-m);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-s);
+}
+
+.card__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-bold);
+  margin: 0 0 var(--space-xs) 0;
+  color: var(--color-text-main);
+}
+
+.card__desc {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-s);
+  font-size: var(--font-size-base);
+}
+
+/* ========= Button ========= */
+.btn {
+  padding: var(--space-xs) var(--space-m);
+  border-radius: var(--radius);
   background: var(--color-primary);
-  color: var(--color-primary-contrast);
+  color: #fff;
+  border: none;
+  font-weight: var(--font-bold);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: background 0.2s;
 }
-.btn--secondary{
-  background: transparent;
-  color: var(--color-primary);
-  border: 1px solid rgba(37,99,235,0.12);
+.btn:hover {
+  background: var(--color-primary-hover);
 }
-
-/* Spacing tokens in layout */
-.stack{display:flex;gap:var(--space-2)}
-.chip{background:var(--color-bg);padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm);border:1px solid #eef2ff}
-
-/* Example: change tokens to scale the whole UI:
-   document.documentElement.style.setProperty('--space-4','1.25rem');
-*/

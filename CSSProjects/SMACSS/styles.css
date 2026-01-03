@@ -1,0 +1,66 @@
+/* == Atomic/Utility Classes == */
+.p-2 { padding: 20px; }
+.m-0 { margin: 0; }
+.mb-1 { margin-bottom: 10px; }
+.mb-2 { margin-bottom: 16px; }
+.rounded { border-radius: 8px; }
+.shadow { box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+.flex { display: flex; }
+.gap-1 { gap: 8px; }
+.text-center { text-align: center; }
+
+/* == Module: Card == */
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  max-width: 320px;
+  margin: 16px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.card-title-highlight {
+  color: #007acc;
+  background: #e6f2fb;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.card-desc {
+  color: #666;
+  font-size: 1rem;
+}
+
+.card-actions { }
+
+.card-actions-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* == Style: Card Variants == */
+.card-featured {
+  border: 2px solid #007acc;
+  background: #f5fafd;
+  box-shadow: 0 4px 10px rgba(0,122,204,0.08);
+}
+
+/* == Module: Button == */
+.btn {
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
