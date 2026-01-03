@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMA Card Component Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1 class="text-center">Card Component Demo (SMA)</h1>
+
+  <!-- Regular Card -->
+  <div class="card p-2 rounded shadow">
+    <h2 class="card-title m-0 mb-1">Regular Card</h2>
+    <p class="card-desc mb-2">This is a basic card using SMA naming.</p>
+    <div class="card-actions flex gap-1">
+      <button class="btn">Action</button>
+    </div>
+  </div>
+  
+  <!-- Featured Card (style) -->
+  <div class="card card-featured p-2 rounded shadow">
+    <h2 class="card-title m-0 mb-1">Featured Card</h2>
+    <p class="card-desc mb-2">This card uses <code>.card-featured</code> style class.</p>
+    <div class="card-actions flex gap-1">
+      <button class="btn">Special Action</button>
+    </div>
+  </div>
+  
+  <!-- Card with highlighted title -->
+  <div class="card p-2 rounded shadow">
+    <h2 class="card-title card-title-highlight m-0 mb-1">Highlighted Title Card</h2>
+    <p class="card-desc mb-2">Title is highlighted with <code>.card-title-highlight</code>.</p>
+    <div class="card-actions flex gap-1">
+      <button class="btn">Action</button>
+    </div>
+  </div>
+  
+  <!-- Card with disabled actions -->
+  <div class="card p-2 rounded shadow">
+    <h2 class="card-title m-0 mb-1">Disabled Actions Card</h2>
+    <p class="card-desc mb-2">Actions use <code>.card-actions-disabled</code> style class.</p>
+    <div class="card-actions card-actions-disabled flex gap-1">
+      <button class="btn" disabled>Action</button>
+    </div>
+  </div>
+</body>
+</html>

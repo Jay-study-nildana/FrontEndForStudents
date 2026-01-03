@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Design Tokens Complex Site Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Dark mode toggle button -->
+  <button class="toggle-dark" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+    🌙
+  </button>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-logo">TokenCo</div>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="#blog" class="nav-link">Blog</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">A Design Token-Driven Web Experience</h1>
+        <p class="hero-subtitle">
+          Scalable, consistent, and instantly customizable UI with real design tokens in action.<br>
+          This demo showcases tokens for theming, spacing, colors, typography, and more.
+        </p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary">See Pricing</a>
+          <a href="#features" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80" alt="Web Illustration" class="hero-image" />
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🎨</span>
+          <h3 class="feature-title">Theming</h3>
+          <p>Switch between light and dark instantly with theme tokens. Update branding with a few changes.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⚡</span>
+          <h3 class="feature-title">Performance</h3>
+          <p>Design tokens make your CSS lean—no duplicate hardcoded values, just unified variables.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📱</span>
+          <h3 class="feature-title">Responsive</h3>
+          <p>Tokens set breakpoints and spacing. All layouts adapt smoothly across devices.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🔗</span>
+          <h3 class="feature-title">Components</h3>
+          <p>Reusable components powered by design tokens are both flexible and consistent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="section-title">Pricing</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <div class="pricing-header">Starter</div>
+          <div class="pricing-price"><span>$</span>9<span>/mo</span></div>
+          <ul>
+            <li>Basic components</li>
+            <li>Email support</li>
+            <li>Theming: Light only</li>
+          </ul>
+          <button class="btn btn-primary">Choose Starter</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-header">Pro</div>
+          <div class="pricing-price"><span>$</span>29<span>/mo</span></div>
+          <ul>
+            <li>All components</li>
+            <li>Priority email support</li>
+            <li>Theming: Light & Dark</li>
+            <li>Custom tokens</li>
+          </ul>
+          <button class="btn btn-primary">Choose Pro</button>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-header">Enterprise</div>
+          <div class="pricing-price"><span>Contact</span> Us</div>
+          <ul>
+            <li>Custom SLA</li>
+            <li>Dedicated support</li>
+            <li>Branded tokens</li>
+            <li>On-premise deployment</li>
+          </ul>
+          <button class="btn btn-primary">Contact Us</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section (carousel/slider) -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Users Say</h2>
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <div class="testimonial-slide active">
+          <blockquote>“A designer’s dream. Change the mood of dozens of pages with a token update!”</blockquote>
+          <div class="testimonial-info">
+            <img class="testimonial-avatar" src="https://randomuser.me/api/portraits/men/44.jpg" alt="Miguel S" />
+            <div><strong>Miguel S.</strong><br><span>Product Designer</span></div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <blockquote>“No more CSS spaghetti. Tokens keep our design language unified and devs happy.”</blockquote>
+          <div class="testimonial-info">
+            <img class="testimonial-avatar" src="https://randomuser.me/api/portraits/women/58.jpg" alt="Elena R" />
+            <div><strong>Elena R.</strong><br><span>Frontend Engineer</span></div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <blockquote>“Running design audits? Just check the tokens. Everything makes sense.”</blockquote>
+          <div class="testimonial-info">
+            <img class="testimonial-avatar" src="https://randomuser.me/api/portraits/men/77.jpg" alt="Jamal B" />
+            <div><strong>Jamal B.</strong><br><span>UX Lead</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-nav">
+        <button class="testimonial-prev" onclick="prevTestimonial()" aria-label="Previous testimonial">&lt;</button>
+        <button class="testimonial-next" onclick="nextTestimonial()" aria-label="Next testimonial">&gt;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Previews Section -->
+  <section class="blog" id="blog">
+    <div class="container">
+      <h2 class="section-title">Latest Blog Posts</h2>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <img src="https://source.unsplash.com/random/400x200?css,variables" alt="Blog 1" class="blog-image" />
+          <div class="blog-content">
+            <h3 class="blog-title">Design Tokens: The Secret to Consistent UI</h3>
+            <p class="blog-excerpt">Explore the role of design tokens in scalable and maintainable web design. Make your next redesign a breeze.</p>
+            <a href="#" class="blog-link">Read More &rarr;</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <img src="https://source.unsplash.com/random/400x200?web,theme" alt="Blog 2" class="blog-image" />
+          <div class="blog-content">
+            <h3 class="blog-title">How to Theme Instantly with CSS Vars</h3>
+            <p class="blog-excerpt">Step-by-step guide on using CSS custom properties for dark mode, branded themes, and more—demonstrated with real code.</p>
+            <a href="#" class="blog-link">Read More &rarr;</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <img src="https://source.unsplash.com/random/400x200?ux,design" alt="Blog 3" class="blog-image" />
+          <div class="blog-content">
+            <h3 class="blog-title">Supercharge UX with One-line Token Updates</h3>
+            <p class="blog-excerpt">Quick fixes, site-wide changes, and a stable design system? Tokens make it effortless for your whole team.</p>
+            <a href="#" class="blog-link">Read More &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact/Footer -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">TokenCo</div>
+        <nav class="footer-nav">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-meta">
+        &copy; 2026 TokenCo. All rights reserved. &mdash; Built with <span aria-label="love">❤️</span> and design tokens.
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

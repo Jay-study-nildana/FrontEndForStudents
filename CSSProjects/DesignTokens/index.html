@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design Tokens CSS Demo (Dark Mode)</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Optional: Just to make the toggle button look okay */
+    .toggle-dark {
+      position: fixed;
+      right: 1.2rem;
+      top: 1.2rem;
+      z-index: 10;
+      padding: 0.5em 1.2em;
+      border: none;
+      border-radius: 999px;
+      background: var(--color-surface);
+      color: var(--color-text-main);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-dark" onclick="toggleDarkMode()">
+    Toggle Dark Mode
+  </button>
+  <h1 class="heading">Profile Cards (Design Tokens, with Dark Mode)</h1>
+  <div class="card-list">
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Miller" class="avatar">
+      <h2 class="card__title">Alex Miller</h2>
+      <p class="card__desc">Frontend Developer</p>
+      <button class="btn">Follow</button>
+    </div>
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Priya Singh" class="avatar">
+      <h2 class="card__title">Priya Singh</h2>
+      <p class="card__desc">UI/UX Designer</p>
+      <button class="btn">Follow</button>
+    </div>
+    <!-- Card 3 -->
+    <div class="card">
+      <img src="https://randomuser.me/api/portraits/men/83.jpg" alt="Liam Wong" class="avatar">
+      <h2 class="card__title">Liam Wong</h2>
+      <p class="card__desc">Full Stack Engineer</p>
+      <button class="btn">Follow</button>
+    </div>
+  </div>
+  <script>
+    // Simple toggle for demonstration
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>

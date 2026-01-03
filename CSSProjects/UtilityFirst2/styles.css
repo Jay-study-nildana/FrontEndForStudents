@@ -1,0 +1,42 @@
+/* Utility-first CSS classes */
+
+/* Layout */
+.p-3 { padding: 20px; }
+.p-5 { padding: 40px; }
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-4 { margin-bottom: 32px; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-3 { gap: 18px; }
+.justify-center { justify-content: center; }
+.w-64 { width: 16rem; }
+
+/* Typography */
+.text-xl { font-size: 2rem; }
+.text-lg { font-size: 1.2rem; }
+.font-bold { font-weight: bold; }
+.text-center { text-align: center; }
+.text-gray { color: #666; }
+.text-white { color: #fff; }
+
+/* Backgrounds */
+.bg-white { background: #fff; }
+.bg-light { background: #f5f7fa; }
+.bg-blue { background: #228be6; }
+.bg-blue-dark { background: #1760a5; }
+
+/* Border radius & shadow */
+.rounded { border-radius: 8px; }
+.rounded-full { border-radius: 999px; }
+.shadow { box-shadow: 0 2px 8px rgba(0,0,0,0.10); }
+
+/* Button & hover */
+.py-1 { padding-top: 8px; padding-bottom: 8px; }
+.px-4 { padding-left: 24px; padding-right: 24px; }
+.button, button { border: none; cursor: pointer; font: inherit; }
+.hover\:bg-blue-dark:hover { background: #1760a5; }
+
+/* Avatar */
+.avatar { width: 72px; height: 72px; object-fit: cover; display: block; }

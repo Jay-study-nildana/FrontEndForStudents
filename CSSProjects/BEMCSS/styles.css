@@ -1,0 +1,62 @@
+/* BEM CSS for Card Component Demo */
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 16px;
+  padding: 20px;
+  max-width: 320px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: inline-block;
+  vertical-align: top;
+}
+
+.card__title {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.card__title--highlighted {
+  color: #007acc;
+  background: #e6f2fb;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.card__description {
+  margin: 0 0 16px;
+  color: #666;
+  font-size: 1rem;
+}
+
+.card__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.card__actions--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.card__button {
+  padding: 8px 16px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card__button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.card--featured {
+  border: 2px solid #007acc;
+  background: #f5fafd;
+  box-shadow: 0 4px 10px rgba(0,122,204,0.08);
+}

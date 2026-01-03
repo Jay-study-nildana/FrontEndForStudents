@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BEM Card Component Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Card Component Demo (BEM)</h1>
+  
+  <!-- Regular Card -->
+  <div class="card">
+    <h2 class="card__title">Regular Card</h2>
+    <p class="card__description">This is a basic card component using BEM naming.</p>
+    <div class="card__actions">
+      <button class="card__button">Action</button>
+    </div>
+  </div>
+  
+  <!-- Featured Card (modifier) -->
+  <div class="card card--featured">
+    <h2 class="card__title">Featured Card</h2>
+    <p class="card__description">This card has the <code>.card--featured</code> modifier.</p>
+    <div class="card__actions">
+      <button class="card__button">Special Action</button>
+    </div>
+  </div>
+  
+  <!-- Card with highlighted title (element modifier) -->
+  <div class="card">
+    <h2 class="card__title card__title--highlighted">Highlighted Title Card</h2>
+    <p class="card__description">Notice the highlighted title using <code>.card__title--highlighted</code>.</p>
+    <div class="card__actions">
+      <button class="card__button">Action</button>
+    </div>
+  </div>
+  
+  <!-- Card with disabled actions (element modifier) -->
+  <div class="card">
+    <h2 class="card__title">Disabled Actions Card</h2>
+    <p class="card__description">The actions are disabled using <code>.card__actions--disabled</code>.</p>
+    <div class="card__actions card__actions--disabled">
+      <button class="card__button" disabled>Action</button>
+    </div>
+  </div>
+</body>
+</html>
