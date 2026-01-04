@@ -1,0 +1,130 @@
+/* Contrast Lab — CSS (focus on color tokens, accessible defaults, forced-colors awareness) */
+
+/* Design tokens via CSS variables so themes can swap without repainting every rule */
+:root{
+  --bg: #ffffff;
+  --text: #0b1220;
+  --muted: #6b7280;
+  --primary: #0b75ff;
+  --accent: #ffb020;
+  --surface: #f8fafc;
+
+  --radius: 8px;
+  --container-max: 72rem;
+
+  --motion-fast: 120ms;
+  --shadow: rgba(16,24,40,0.06);
+}
+
+/* Minimal reset & base */
+* { box-sizing: border-box; }
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+}
+.container { max-width: var(--container-max); margin: 0 auto; padding: 1rem; }
+
+/* Skip link */
+.skip-link {
+  position: absolute; left: 1rem; top: -48px;
+  background: var(--primary); color: #fff; padding: .5rem .75rem; border-radius: 6px;
+  z-index: 999; transition: top var(--motion-fast) ease;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Header */
+.site-header { border-bottom: 1px solid rgba(11,17,32,0.04); position: sticky; top:0; background: linear-gradient(180deg, rgba(11,117,255,0.03), transparent); z-index: 30; }
+.header-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.6rem 0; }
+
+/* Buttons / inputs */
+.btn { background: var(--primary); color: #fff; border: none; padding: .5rem .75rem; border-radius: 8px; cursor: pointer; font-weight:600; }
+.btn-ghost { background: transparent; border: 1px solid rgba(11,17,32,0.06); color: var(--text); }
+.input { padding: .45rem .6rem; border-radius: 6px; border: 1px solid rgba(11,17,32,0.06); }
+
+/* Hero */
+.hero h1 { margin: 0 0 .25rem; font-size: clamp(1.4rem, 1.1rem + 2.2vw, 2rem); }
+.lead { color: var(--muted); margin: 0 0 1rem; }
+
+/* Panels */
+.panel { background: color-mix(in srgb, var(--surface) 94%, var(--bg) 6%); border-radius: 12px; padding: 1rem; margin: 1rem 0; box-shadow: 0 8px 24px var(--shadow); }
+.muted { color: var(--muted); }
+
+/* Checker layout */
+.checker { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; align-items: center; }
+.checker .row { display:flex; gap:.5rem; align-items:center; }
+.color-input { width: 3rem; height: 2.4rem; border: none; padding: 0; background: transparent; cursor: pointer; }
+.hex-input { width: 8.5rem; padding: .35rem; border-radius: 6px; border:1px solid rgba(0,0,0,0.06); }
+
+/* Result region */
+.result { margin-top: 1rem; display: grid; grid-template-columns: 1fr 220px; gap:1rem; align-items:start; }
+.sample {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(11,17,32,0.04);
+  min-height: 4rem;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 18px;
+}
+.scores dl { display:grid; gap:.4rem; grid-template-columns: 1fr auto; align-items:center; }
+.scores dt { color: var(--muted); }
+
+/* Palette grid */
+.palette-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .75rem; margin-top:.5rem; }
+.palette-card { display:flex; gap:.5rem; align-items:center; padding:.6rem; border-radius:10px; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border:1px solid rgba(11,17,32,0.03); }
+.palette-card .swatch { width:48px; height:48px; border-radius:8px; flex: 0 0 48px; border: 1px solid rgba(0,0,0,0.06); }
+.palette-card .meta { flex:1; display:flex; flex-direction:column; gap:.25rem; }
+.token-sample { font-weight:700; }
+
+/* Annotation badges */
+.annotation { font-size:.85rem; padding:.25rem .4rem; border-radius:999px; background: rgba(0,0,0,0.06); color: var(--text); display:inline-block; }
+
+/* Visually-hidden helper */
+.sr-only { position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden !important; clip:rect(0 0 0 0) !important; white-space:nowrap !important; border:0 !important; }
+.visually-hidden-live { position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden !important; clip:rect(0 0 0 0) !important; white-space:nowrap !important; border:0 !important; }
+
+/* Focus-visible */
+:focus { outline:none; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset:3px; border-radius:6px; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* Forced colors (Windows High Contrast) */
+@media (forced-colors: active) {
+  :root {
+    --bg: Window;
+    --text: WindowText;
+    --primary: Highlight;
+    --accent: Highlight;
+    --surface: Window;
+  }
+  .palette-card { border-color: WindowText; }
+  .sample { border-color: WindowText; }
+}
+
+/* Dark theme override (applied via data-theme attribute on body) */
+:root[data-theme="dark"] {
+  --bg: #0b1220;
+  --text: #e6eef8;
+  --muted: #a6b1c2;
+  --primary: #4ea8ff;
+  --accent: #ffb020;
+  --surface: #071027;
+}
+
+/* High-contrast theme */
+:root[data-theme="high-contrast"] {
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: #ffffff;
+  --primary: #ffff00;
+  --accent: #00ff00;
+  --surface: #000000;
+}
