@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Accessible & Performant UI Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Skip link -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Page header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="Homepage">A11yDemo</a>
+
+      <!-- Simple accessible nav -->
+      <nav class="main-nav" role="navigation" aria-label="Primary">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#cards">Cards</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utility controls -->
+      <div class="header-actions">
+        <button id="open-search" class="icon-btn" aria-label="Open search" aria-haspopup="dialog">🔍</button>
+        <button id="open-settings" class="icon-btn" aria-label="Open settings" data-modal-target="#settings-modal">⚙️</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main id="main-content" tabindex="-1" class="container" role="main">
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="hero-title">Accessible & Performant UI Patterns</h1>
+      <p class="hero-lead">Demonstration of accessible components: tabs, modal, form validation, keyboard support, and performance-safe animations.</p>
+      <div class="hero-actions">
+        <button class="btn" id="open-getting-started">Get Started</button>
+        <button class="btn" id="open-modal" data-modal-target="#demo-modal">Open Demo Modal</button>
+      </div>
+    </section>
+
+    <!-- Accessible Tabs -->
+    <section id="features" class="section fade-in" aria-labelledby="features-heading">
+      <h2 id="features-heading">Features</h2>
+      <div class="tabs" data-tabs>
+        <div role="tablist" aria-label="Demo tabs" class="tablist">
+          <button role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" tabindex="0">Overview</button>
+          <button role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1">Performance</button>
+          <button role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1">Accessibility</button>
+        </div>
+
+        <div id="panel-1" role="tabpanel" aria-labelledby="tab-1" class="tabpanel">
+          <p class="p">This UI uses semantic HTML, sensible defaults, and animations limited to transform/opacity for performance.</p>
+        </div>
+        <div id="panel-2" role="tabpanel" aria-labelledby="tab-2" class="tabpanel" hidden>
+          <p class="p">Prefer composited properties (transform & opacity), avoid layout-thrashing animations, and respect user reduced-motion settings.</p>
+        </div>
+        <div id="panel-3" role="tabpanel" aria-labelledby="tab-3" class="tabpanel" hidden>
+          <p class="p">Focus-visible indicators, skip link, high contrast colors, keyboard navigation, and ARIA patterns used where necessary.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards grid (interactive) -->
+    <section id="cards" class="section" aria-labelledby="cards-heading">
+      <h2 id="cards-heading">Cards</h2>
+      <div class="grid">
+        <article class="card" tabindex="0">
+          <h3 class="card-title">Keyboard friendly</h3>
+          <p class="p">Cards are focusable for keyboard users and provide visible focus styles.</p>
+          <div class="card-actions">
+            <button class="btn btn-ghost" aria-describedby="card1-desc">Learn</button>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0">
+          <h3 class="card-title">Low-cost hover</h3>
+          <p class="p">Hover effects use transform + shadow only — cheap for the compositor</p>
+          <div class="card-actions">
+            <button class="btn btn-ghost">Explore</button>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0">
+          <h3 class="card-title">Containment hint</h3>
+          <p class="p">Use containment for expensive subtrees when possible.</p>
+          <div class="card-actions">
+            <button class="btn btn-ghost">Try</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact / Form with validation -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <form id="contact-form" novalidate>
+        <div class="form-row">
+          <label for="name">Name <span aria-hidden="true">*</span></label>
+          <input id="name" name="name" class="input" required aria-required="true" />
+          <div id="name-error" class="form-error" aria-live="polite"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" class="input" required aria-required="true" />
+          <div id="email-error" class="form-error" aria-live="polite"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" class="input"></textarea>
+        </div>
+
+        <div class="form-row form-actions">
+          <button type="submit" class="btn">Send message</button>
+          <button type="reset" class="btn btn-ghost">Reset</button>
+        </div>
+
+        <div id="form-status" class="visually-hidden-live" aria-live="polite" role="status"></div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Demo modal -->
+  <div id="demo-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="demo-modal-title" tabindex="-1">
+    <div class="modal-overlay" data-dismiss-modal></div>
+    <div class="modal-panel" role="document">
+      <header class="modal-header">
+        <h3 id="demo-modal-title">Demo Modal</h3>
+        <button class="icon-btn" data-dismiss-modal aria-label="Close dialog">✖</button>
+      </header>
+      <div class="modal-body">
+        <p>This modal demonstrates focus trap, accessible markup, and reduced-motion handling.</p>
+        <p><a href="#">Focusable link</a> inside the modal.</p>
+      </div>
+      <footer class="modal-footer">
+        <button class="btn" data-dismiss-modal>Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Settings modal (example multiple modals) -->
+  <div id="settings-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="settings-modal-title" tabindex="-1">
+    <div class="modal-overlay" data-dismiss-modal></div>
+    <div class="modal-panel" role="document">
+      <header class="modal-header">
+        <h3 id="settings-modal-title">Settings</h3>
+        <button class="icon-btn" data-dismiss-modal aria-label="Close settings">✖</button>
+      </header>
+      <div class="modal-body">
+        <label for="pref-motion" class="label">Motion intensity</label>
+        <select id="pref-motion" class="input" aria-label="Motion intensity">
+          <option value="normal">Normal</option>
+          <option value="reduced">Reduced</option>
+        </select>
+      </div>
+      <footer class="modal-footer">
+        <button class="btn" data-dismiss-modal>Save</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Live notifications (hidden visually but announced) -->
+  <div id="announcer" class="visually-hidden-live" aria-live="polite" role="status" aria-atomic="true"></div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <small>© Accessible Demo — built with WCAG practices.</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

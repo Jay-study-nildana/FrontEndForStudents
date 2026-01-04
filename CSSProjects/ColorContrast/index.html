@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Color Contrast Lab — WCAG-focused demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-row">
+      <a class="brand" href="#" aria-label="Homepage">ContrastLab</a>
+
+      <div class="theme-controls" role="toolbar" aria-label="Theme controls">
+        <label for="theme-select" class="sr-only">Select theme</label>
+        <select id="theme-select" class="input" aria-label="Select color theme">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="high-contrast">High contrast</option>
+        </select>
+        <button id="toggle-annotations" class="btn btn-ghost" aria-pressed="false">Toggle annotations</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container" role="main" tabindex="-1">
+    <section class="hero">
+      <h1>Color Contrast Lab</h1>
+      <p class="lead">Interactive playground to test foreground/background color pairs against WCAG 2.1 contrast ratios (AA / AAA). Use the pickers, try palettes, and read the pass/fail guidance.</p>
+    </section>
+
+    <section aria-labelledby="checker-heading" class="panel">
+      <h2 id="checker-heading">Contrast Checker</h2>
+
+      <form id="checker-form" class="checker" aria-describedby="checker-desc">
+        <p id="checker-desc" class="muted">Pick a foreground and background color, set the sample text size and weight, and run the check. Results update live.</p>
+
+        <div class="row">
+          <label for="fg-color">Foreground</label>
+          <input id="fg-color" type="color" value="#0b1220" class="color-input" aria-label="Foreground color">
+          <input id="fg-hex" type="text" class="hex-input" value="#0b1220" aria-label="Foreground hex" />
+        </div>
+
+        <div class="row">
+          <label for="bg-color">Background</label>
+          <input id="bg-color" type="color" value="#ffffff" class="color-input" aria-label="Background color">
+          <input id="bg-hex" type="text" class="hex-input" value="#ffffff" aria-label="Background hex" />
+        </div>
+
+        <div class="row">
+          <label for="font-size">Font size</label>
+          <select id="font-size" class="input" aria-label="Sample font size">
+            <option value="14">14px (normal)</option>
+            <option value="18">18px (large-ish)</option>
+            <option value="24">24px (large)</option>
+            <option value="32">32px (display)</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="font-weight">Font weight</label>
+          <select id="font-weight" class="input" aria-label="Sample font weight">
+            <option value="400">400 (normal)</option>
+            <option value="600">600 (semibold)</option>
+            <option value="700">700 (bold)</option>
+          </select>
+        </div>
+
+        <div class="row actions">
+          <button type="button" id="swap-btn" class="btn btn-ghost">Swap</button>
+          <button type="button" id="use-palette" class="btn">Apply sample palette</button>
+        </div>
+      </form>
+
+      <div class="result" aria-live="polite" id="result">
+        <div class="sample" id="sample-text" tabindex="0" role="region" aria-label="Sample text preview">
+          The quick brown fox jumps over the lazy dog.
+        </div>
+
+        <div class="scores" id="scores" aria-hidden="false">
+          <dl>
+            <dt>Contrast ratio</dt>
+            <dd id="ratio">-</dd>
+            <dt>WCAG AA (normal)</dt>
+            <dd id="aa-normal">-</dd>
+            <dt>WCAG AA (large)</dt>
+            <dd id="aa-large">-</dd>
+            <dt>WCAG AAA (normal)</dt>
+            <dd id="aaa-normal">-</dd>
+            <dt>WCAG AAA (large)</dt>
+            <dd id="aaa-large">-</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="palettes-heading" class="panel">
+      <h2 id="palettes-heading">Palettes & Examples</h2>
+      <p class="muted">Predefined tokens with annotations. Toggle annotations to show pass/fail labels.</p>
+
+      <div class="palette-grid" id="palette-grid">
+        <!-- Example cards generated/updated by JS — include semantic markup for screen readers -->
+        <article class="palette-card" data-fore="#0b1220" data-back="#ffffff">
+          <div class="swatch" aria-hidden="true"></div>
+          <div class="meta">
+            <div class="token-name">Primary text on white</div>
+            <div class="token-sample">Sample</div>
+          </div>
+          <div class="annotation" aria-hidden="true"></div>
+        </article>
+
+        <article class="palette-card" data-fore="#ffffff" data-back="#0b75ff">
+          <div class="swatch" aria-hidden="true"></div>
+          <div class="meta">
+            <div class="token-name">White on primary</div>
+            <div class="token-sample">Sample</div>
+          </div>
+          <div class="annotation" aria-hidden="true"></div>
+        </article>
+
+        <article class="palette-card" data-fore="#6b7280" data-back="#ffffff">
+          <div class="swatch" aria-hidden="true"></div>
+          <div class="meta">
+            <div class="token-name">Muted on white (example)</div>
+            <div class="token-sample">Sample</div>
+          </div>
+          <div class="annotation" aria-hidden="true"></div>
+        </article>
+
+        <article class="palette-card" data-fore="#ffb020" data-back="#0b1220">
+          <div class="swatch" aria-hidden="true"></div>
+          <div class="meta">
+            <div class="token-name">Accent on dark</div>
+            <div class="token-sample">Sample</div>
+          </div>
+          <div class="annotation" aria-hidden="true"></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="resources-heading" class="panel">
+      <h2 id="resources-heading">Guidance & Resources</h2>
+      <ul>
+        <li><a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" target="_blank" rel="noopener">WCAG 2.1 Contrast Minimum</a></li>
+        <li><a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM Contrast Checker</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#contrast" target="_blank" rel="noopener">MDN: Understanding contrast</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Contrast Lab — interactive WCAG color contrast examples.</small>
+    </div>
+  </footer>
+
+  <div id="announcer" class="visually-hidden-live" aria-live="polite" role="status" aria-atomic="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

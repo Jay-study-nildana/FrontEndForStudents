@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Keyboard Navigation Demo — A11y Patterns</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-row">
+      <a class="brand" href="#" aria-label="Homepage">KBNavDemo</a>
+
+      <!-- Toolbar demonstrates roving tabindex (left/right arrow navigation) -->
+      <div class="toolbar" role="toolbar" aria-label="Formatting toolbar" data-roving="toolbar">
+        <button class="tool" data-tool="bold" aria-pressed="false">B</button>
+        <button class="tool" data-tool="italic" aria-pressed="false">I</button>
+        <button class="tool" data-tool="underline" aria-pressed="false">U</button>
+        <button class="tool" data-tool="strike" aria-pressed="false">S</button>
+      </div>
+
+      <nav class="main-nav" role="navigation" aria-label="Primary" id="primary-nav">
+        <ul role="menubar" class="menubar" aria-label="Main menu">
+          <li role="none"><button role="menuitem" class="menuitem">Home</button></li>
+          <li role="none"><button role="menuitem" class="menuitem">Products</button></li>
+          <li role="none"><button role="menuitem" class="menuitem">About</button></li>
+          <li role="none"><button role="menuitem" class="menuitem">Contact</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" role="main" tabindex="-1">
+    <section class="intro">
+      <h1>Keyboard Navigation Patterns</h1>
+      <p class="lead">This demo focuses on keyboard-first interactions: roving tabindex, arrow-key navigation, grid traversal, and shortcut keys.</p>
+      <p class="hint">Try: Tab to the toolbar then use Left/Right, open the grid and navigate with Arrow keys, press "/" to focus search.</p>
+    </section>
+
+    <!-- Search with a keyboard shortcut ("/") -->
+    <section class="search">
+      <label for="site-search">Search</label>
+      <input id="site-search" type="search" class="input" aria-label="Site search" placeholder="Press / to focus">
+    </section>
+
+    <!-- Tabs demonstrating roving tabindex + Left/Right + Home/End -->
+    <section aria-labelledby="tabs-heading" class="component">
+      <h2 id="tabs-heading">Roving Tabs</h2>
+      <div class="tabs" role="tablist" aria-label="Demo tabs" data-roving="tabs">
+        <button role="tab" aria-selected="true" aria-controls="tab-panel-1" id="t-1">Overview</button>
+        <button role="tab" aria-selected="false" aria-controls="tab-panel-2" id="t-2">Keyboard</button>
+        <button role="tab" aria-selected="false" aria-controls="tab-panel-3" id="t-3">Grid</button>
+      </div>
+      <div id="tab-panel-1" role="tabpanel" aria-labelledby="t-1">Overview content.</div>
+      <div id="tab-panel-2" role="tabpanel" aria-labelledby="t-2" hidden>Keyboard guidance content.</div>
+      <div id="tab-panel-3" role="tabpanel" aria-labelledby="t-3" hidden>Grid demo content.</div>
+    </section>
+
+    <!-- Focusable grid: arrow navigation (Left/Right/Up/Down) -->
+    <section aria-labelledby="grid-heading" class="component">
+      <h2 id="grid-heading">Card Grid (Arrow-navigation)</h2>
+      <div class="grid" role="grid" tabindex="0" aria-label="Demo card grid" data-grid>
+        <!-- each card is focusable and has role gridcell -->
+        <article class="card" role="gridcell" tabindex="-1"> <h3>Card 1</h3><p>Item A</p></article>
+        <article class="card" role="gridcell" tabindex="-1"> <h3>Card 2</h3><p>Item B</p></article>
+        <article class="card" role="gridcell" tabindex="-1"> <h3>Card 3</h3><p>Item C</p></article>
+        <article class="card" role="gridcell" tabindex="-1"> <h3>Card 4</h3><p>Item D</p></article>
+        <article class="card" role="gridcell" tabindex="-1"> <h3>Card 5</h3><p>Item E</p></article>
+        <article class="card" role="gridcell" tabindex="-1"> <h3>Card 6</h3><p>Item F</p></article>
+      </div>
+      <p class="muted">Use Arrow keys to move focus among cards. Enter opens the card (demo alert).</p>
+    </section>
+
+    <!-- Listbox example: Up/Down and typeahead -->
+    <section aria-labelledby="listbox-heading" class="component">
+      <h2 id="listbox-heading">Listbox (Up/Down, Typeahead)</h2>
+      <div class="listbox-wrapper" role="application">
+        <label for="fruit-list" class="sr-only">Choose a fruit</label>
+        <ul id="fruit-list" role="listbox" tabindex="0" aria-label="Fruits" aria-activedescendant="" data-listbox>
+          <li role="option" id="opt-apple" tabindex="-1">Apple</li>
+          <li role="option" id="opt-banana" tabindex="-1">Banana</li>
+          <li role="option" id="opt-cherry" tabindex="-1">Cherry</li>
+          <li role="option" id="opt-date" tabindex="-1">Date</li>
+          <li role="option" id="opt-elderberry" tabindex="-1">Elderberry</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Modal to show focus-trap interaction -->
+    <section class="component">
+      <h2>Modal with focus trap</h2>
+      <button class="btn" id="open-modal" data-modal-target="#demo-modal">Open Modal</button>
+    </section>
+  </main>
+
+  <!-- Simple modal -->
+  <div id="demo-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title" tabindex="-1">
+    <div class="modal-overlay" data-dismiss-modal></div>
+    <div class="modal-panel" role="document">
+      <header class="modal-header">
+        <h3 id="modal-title">Example Modal</h3>
+        <button class="icon-btn" data-dismiss-modal aria-label="Close">✖</button>
+      </header>
+      <div class="modal-body">
+        <p>Modal content — focus is trapped while open. Press Escape to close.</p>
+        <a href="#">A link</a>
+        <button class="btn" data-dismiss-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="live" class="visually-hidden-live" aria-live="polite" role="status"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Keyboard Navigation Demo — built to demonstrate roving tabindex and arrow key navigation.</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
