@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Event Delegation — Simple Demo</title>
+
+  <!-- Tailwind CDN for quick styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 min-h-screen p-6">
+  <div class="max-w-2xl mx-auto space-y-4">
+    <header>
+      <h1 class="text-2xl font-semibold">Event Delegation — Simple Interactive Demo</h1>
+      <p class="text-sm text-slate-600">One listener on the list manages add / edit / delete / toggle. Check the console for many logs.</p>
+    </header>
+
+    <section class="bg-white p-4 rounded shadow">
+      <form id="add-form" class="flex gap-2 mb-3">
+        <input id="item-input" class="flex-1 px-3 py-2 border rounded" placeholder="Type new item and press Add" />
+        <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded">Add</button>
+        <button id="clear-btn" type="button" class="px-4 py-2 bg-rose-500 text-white rounded">Clear All</button>
+      </form>
+
+      <div class="text-xs text-slate-500 mb-3">Click an item to select it. Click edit/delete (right) to act. All actions handled via one listener on the list.</div>
+
+      <ul id="todo-list" class="space-y-2" aria-live="polite"></ul>
+    </section>
+
+    <section class="bg-white p-4 rounded shadow text-sm">
+      <div class="font-medium mb-1">Interactive controls</div>
+      <div class="space-y-2">
+        <button id="log-state" class="px-3 py-1 bg-amber-500 text-white rounded">Log current items (console)</button>
+        <button id="toggle-listener" class="px-3 py-1 bg-slate-200 rounded">Toggle Delegated Listener (on)</button>
+        <div class="text-xs text-slate-500">Use "Toggle Delegated Listener" to see what happens when the container listener is removed.</div>
+      </div>
+    </section>
+
+    <footer class="text-xs text-slate-400">
+      Open the browser console (F12) and watch logs as you interact. This demo prints event.target, currentTarget, action detection, and more.
+    </footer>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

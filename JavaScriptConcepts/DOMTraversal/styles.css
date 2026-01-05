@@ -1,0 +1,30 @@
+:root{
+  --bg:#f7f8fb;
+  --card:#fff;
+  --muted:#6b7280;
+  --accent:#2563eb;
+  --danger:#ef4444;
+  --radius:8px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);display:flex;align-items:center;justify-content:center;min-height:100vh}
+.app{width:100%;max-width:540px;padding:24px}
+h1{margin:0 0 18px;font-size:28px}
+.todo-form{display:flex;gap:8px;margin-bottom:12px}
+.todo-form input{flex:1;padding:10px;border-radius:6px;border:1px solid #e6e9ef}
+.todo-form button{padding:10px 16px;border-radius:6px;border:none;background:var(--accent);color:white;cursor:pointer}
+
+.controls{display:flex;gap:8px;margin-bottom:12px;align-items:center}
+.controls input[type="search"]{flex:1;padding:8px;border-radius:6px;border:1px solid #e6e9ef}
+.controls select{padding:8px;border-radius:6px;border:1px solid #e6e9ef}
+.controls button{padding:8px;border-radius:6px;border:none;background:var(--danger);color:white;cursor:pointer}
+
+.todo-list{list-style:none;padding:0;margin:0;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:0 6px 20px rgba(34,41,47,0.06)}
+.todo-item{display:flex;align-items:center;gap:10px;padding:12px;border-bottom:1px solid #f3f4f6}
+.todo-item:last-child{border-bottom:0}
+.todo-item .title{flex:1}
+.todo-item.completed .title{text-decoration:line-through;color:var(--muted)}
+.todo-item button{border:none;background:transparent;cursor:pointer;color:var(--muted)}
+.footer{margin-top:12px;color:var(--muted);font-size:14px}
