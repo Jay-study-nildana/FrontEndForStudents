@@ -1,0 +1,19 @@
+/* Small demo styles; Tailwind covers most visuals */
+
+/* Highlight the active nav link */
+nav a.active {
+  background: #eef2ff;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Small visual for the content area so state changes are obvious */
+#view {
+  min-height: 180px;
+}
+
+/* prettify pre block */
+pre {
+  font-size: 12px;
+  margin: 0;
+}

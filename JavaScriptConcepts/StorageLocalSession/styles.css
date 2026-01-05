@@ -1,0 +1,48 @@
+/* Minimal extra styles (Tailwind covers the rest) */
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+.storage-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #eef2ff;
+  background: #fff;
+}
+
+.storage-key {
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.storage-value {
+  color: #334155;
+  font-size: 13px;
+  max-width: 44ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* tiny action chips */
+.chip {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #f1f5f9;
+  color: #0f172a;
+  cursor: pointer;
+}
+
+/* brief visual when item is moved/updated */
+.flash {
+  transition: background-color 280ms ease;
+  background-color: rgba(99,102,241,0.08);
+}

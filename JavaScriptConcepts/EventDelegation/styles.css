@@ -1,0 +1,50 @@
+/* Extra tiny styles for the demo (Tailwind covers most) */
+
+li.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid #eef2ff;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+li.todo-item .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+li.todo-item .title {
+  font-size: 14px;
+  color: #0f172a;
+}
+
+li.todo-item .controls {
+  display: flex;
+  gap: 6px;
+}
+
+button.small {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #e6e9ef;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+li.todo-item.selected {
+  outline: 2px solid rgba(99,102,241,0.18);
+  background: #fbfdff;
+}
+
+/* Tiny visual for deleted items (just to see a flash if used) */
+.fade-out {
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
