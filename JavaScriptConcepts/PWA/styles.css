@@ -1,0 +1,20 @@
+/* Small custom styles on top of Tailwind */
+:root {
+  --accent: #0a84ff;
+}
+
+/* Ensure body font smoothing and comfortable reading */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* tiny utility for hidden state used by script-controlled elements */
+.hidden-by-js {
+  display: none !important;
+}
+
+/* Style the update banner buttons */
+#updateBanner button {
+  cursor: pointer;
+}

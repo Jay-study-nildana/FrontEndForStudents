@@ -155,12 +155,6 @@ export default function JavaScriptLearning(): JSX.Element {
           </p>
           <div className="mt-4 flex gap-3">
             <Link
-                to="/js-learning/prototypes"
-                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-                >
-                Prototypes
-            </Link>
-            <Link
                 to="/js-learning/sets"
                 className="px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700"
                 >
@@ -181,6 +175,35 @@ export default function JavaScriptLearning(): JSX.Element {
 
           </div>
         </div>
+        <div className="rounded-lg p-6 bg-gradient-to-tr from-amber-50 to-yellow-50 dark:from-slate-800 dark:to-slate-700 shadow">
+          <h3 className="font-semibold text-lg">Get hands-on</h3>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            Try short exercises, small projects, and interactive code challenges
+            to build confidence.
+          </p>
+          <div className="mt-4 flex gap-3">
+
+            <Link
+                to="/js-learning/promises"
+                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+                >
+                Promises
+            </Link>
+            <Link
+                to="/js-learning/fetch-and-rate-limit"
+                className="px-4 py-2 bg-teal-600 text-white rounded hover:bg-teal-700"
+                >
+                Fetch & Rate Limit
+            </Link>
+            <Link
+                to="/js-learning/promise-all-demo"
+                className="px-4 py-2 bg-lime-600 text-white rounded hover:bg-lime-700"
+                >
+                Promise.all Demo
+            </Link>
+
+          </div>
+        </div>        
         
       </div>            
 

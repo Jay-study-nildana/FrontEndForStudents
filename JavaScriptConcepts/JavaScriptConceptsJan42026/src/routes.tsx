@@ -28,6 +28,9 @@ const Maps = lazy(() => import("./jslearning/Maps"));
 const Sets = lazy(() => import("./jslearning/Sets"));
 const MapFilterReduce = lazy(() => import("./jslearning/MapFilterReduce"));
 const Immutability = lazy(() => import("./jslearning/Immutability"));
+const Promises = lazy(() => import("./jslearning/Promises"));
+const FetchAndRateLimit = lazy(() => import("./jslearning/FetchAndRateLimit"));
+const PromiseAllDemo = lazy(() => import("./jslearning/PromiseAllDemo"));
 
 
 export type AppRoute = {
@@ -146,6 +149,21 @@ export const routesConfig: AppRoute[] = [
     path: "/js-learning/immutability",
     name: "Immutability",
     element: <Immutability />,
+  },
+  {
+    path: "/js-learning/promises",
+    name: "Promises",
+    element: <Promises />,
+  },
+  {
+    path: "/js-learning/fetch-and-rate-limit",
+    name: "Fetch & Rate Limit",
+    element: <FetchAndRateLimit />,
+  },
+  {
+    path: "/js-learning/promise-all-demo",
+    name: "Promise.all Demo",
+    element: <PromiseAllDemo />,
   },
 ];
 

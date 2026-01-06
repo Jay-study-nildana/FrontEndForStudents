@@ -1,0 +1,21 @@
+{
+  "name": "Vanilla PWA Notes Demo",
+  "short_name": "PWA Notes",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a84ff",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Crect fill='%230a84ff' width='192' height='192' rx='32'/%3E%3Ctext x='50%25' y='55%25' font-size='80' text-anchor='middle' fill='white' font-family='Arial'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Crect fill='%230a84ff' width='512' height='512' rx='64'/%3E%3Ctext x='50%25' y='55%25' font-size='220' text-anchor='middle' fill='white' font-family='Arial'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
