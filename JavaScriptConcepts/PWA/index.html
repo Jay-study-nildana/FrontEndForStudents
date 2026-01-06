@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0a84ff" />
+  <title>Vanilla PWA — Notes</title>
+
+  <!-- Tailwind Play CDN (convenient for demos; not recommended for production builds) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- App manifest -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Small custom CSS (extra utilities or overrides) -->
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="bg-slate-50 min-h-screen antialiased">
+  <div class="max-w-3xl mx-auto p-6">
+    <header class="flex items-center justify-between mb-6">
+      <div>
+        <h1 class="text-2xl font-semibold text-slate-900">Vanilla PWA — Notes</h1>
+        <p class="text-sm text-slate-600">A small demo using service worker, Cache, IndexedDB and localStorage</p>
+      </div>
+
+      <div class="space-x-2">
+        <button id="installBtn" class="hidden px-3 py-1 rounded bg-indigo-600 text-white text-sm">Install</button>
+        <span id="status" class="inline-flex items-center px-3 py-1 rounded bg-amber-100 text-amber-800 text-sm">Loading...</span>
+      </div>
+    </header>
+
+    <!-- Update prompt banner shown when SW update is waiting -->
+    <div id="updateBanner" class="hidden mb-4 p-4 rounded border-l-4 border-blue-600 bg-blue-50 text-blue-800">
+      A new version is available.
+      <button id="reloadBtn" class="ml-3 px-3 py-1 rounded bg-blue-600 text-white text-sm">Reload</button>
+      <button id="dismissUpdateBtn" class="ml-2 text-sm text-blue-700 underline">Dismiss</button>
+    </div>
+
+    <main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section class="md:col-span-2 space-y-4">
+        <div class="p-4 bg-white rounded shadow">
+          <label class="block text-sm text-slate-700">Your name (stored in localStorage)</label>
+          <input id="username" type="text" placeholder="Jane" class="mt-2 w-full px-3 py-2 border rounded" />
+        </div>
+
+        <div class="p-4 bg-white rounded shadow">
+          <h2 class="font-medium text-lg mb-2">Create a note</h2>
+          <label class="block text-sm text-slate-700">Title</label>
+          <input id="noteTitle" type="text" placeholder="Shopping list" class="mt-1 w-full px-3 py-2 border rounded" />
+
+          <label class="block text-sm text-slate-700 mt-3">Body</label>
+          <textarea id="noteBody" rows="4" class="mt-1 w-full px-3 py-2 border rounded" placeholder="Buy milk..."></textarea>
+
+          <div class="mt-3 flex items-center gap-2">
+            <button id="saveBtn" class="px-3 py-2 rounded bg-indigo-600 text-white">Save (IndexedDB)</button>
+            <button id="syncNowBtn" class="px-3 py-2 rounded border">Sync Now</button>
+            <span id="queuedCount" class="ml-auto text-sm text-slate-600">Queued: 0</span>
+          </div>
+
+          <p class="mt-2 text-xs text-slate-500">
+            Notes are stored in IndexedDB. When offline, notes are queued for background sync and will be delivered later.
+            (This demo uses jsonplaceholder.typicode.com as the remote endpoint.)
+          </p>
+        </div>
+
+        <div class="p-4 bg-white rounded shadow">
+          <h2 class="font-medium text-lg mb-2">Notes (local)</h2>
+          <ul id="notesList" class="space-y-3"></ul>
+        </div>
+      </section>
+
+      <aside class="space-y-4">
+        <div class="p-4 bg-white rounded shadow text-sm">
+          <h3 class="font-medium">Connectivity</h3>
+          <p class="mt-2"><strong id="onlineState">—</strong></p>
+          <p class="text-xs text-slate-500 mt-2">This indicator reflects navigator.onLine. Network requests may still fail.</p>
+        </div>
+
+        <div class="p-4 bg-white rounded shadow text-sm">
+          <h3 class="font-medium">PWA</h3>
+          <ul class="mt-2 space-y-2">
+            <li>Manifest: <span id="manifestState">—</span></li>
+            <li>Service Worker: <span id="swState">—</span></li>
+            <li>Cache Size: <span id="cacheSize">—</span></li>
+          </ul>
+        </div>
+
+        <div class="p-4 bg-white rounded shadow text-sm">
+          <h3 class="font-medium">Actions</h3>
+          <div class="mt-2 space-y-2">
+            <button id="clearCacheBtn" class="w-full px-3 py-2 rounded border">Clear caches</button>
+            <button id="clearDBBtn" class="w-full px-3 py-2 rounded border">Clear notes DB</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="mt-6 text-xs text-slate-500 text-center">
+      Demo: uses localStorage, IndexedDB, service worker precache + runtime caching and background sync (if supported).
+    </footer>
+  </div>
+
+  <!-- Main app JS -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
