@@ -29,24 +29,46 @@ This project shows
 
 a .env.example has been provided. fill up the neccessary details. 
 
-# prisma
+# how to run (prepare database)
 
+```
+npx prisma migrate deploy 
+npm run prisma:seed
+```
+
+note: To apply existing migrations from the migrations folder: npx prisma migrate deploy 
+note: To generate a fresh migration (delete the exisiting migration folder first) from the current schema and apply it (dev workflow): npx prisma migrate dev --name init
+
+# how to run (project)
+
+```
+npm install
+npm run start:dev
+npm run start
+```
+
+# swagger
+
+1. Swagger UI: http://localhost:3000/docs
+1. Swagger JSON: http://localhost:3000/docs-json
+
+# prisma commands (for reference)
+
+```
 npm install prisma --save-dev
 npm install @prisma/client
 npx prisma init (if prisma folder is deleted or you want to start fresh)
 npx prisma migrate dev --name init
 npx prisma generate 
+npx prisma migrate deploy
+```
 
-# how to run
+# TODO
 
-npm install
-npm run start:dev
-npm run start
-
-# swagger
-
-Swagger UI: http://localhost:3000/docs
-Swagger JSON: http://localhost:3000/docs-json
+1. fix linting errors
+1. fix errors (jest))
+1. fix errors (e2e)
+1. check and improve coverage (after fixing jest and e2e errors)
 
 # book a session with me
 
