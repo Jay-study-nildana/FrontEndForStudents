@@ -32,18 +32,20 @@ a .env.example has been provided. fill up the neccessary details.
 # how to run (prepare database)
 
 ```
+npx prisma generate
 npx prisma migrate deploy 
-npm run prisma:seed
+npm run prisma:seed 
+npx prisma studio (check if tables and seed data is added as expected)
 ```
 
 note: To apply existing migrations from the migrations folder: npx prisma migrate deploy 
 note: To generate a fresh migration (delete the exisiting migration folder first) from the current schema and apply it (dev workflow): npx prisma migrate dev --name init
+note : if you get errors, try 'npm install' and 'npm install @prisma/client'
 
 # how to run (project)
 
 ```
 npm install
-npm run start:dev
 npm run start
 ```
 
@@ -51,17 +53,6 @@ npm run start
 
 1. Swagger UI: http://localhost:3000/docs
 1. Swagger JSON: http://localhost:3000/docs-json
-
-# prisma commands (for reference)
-
-```
-npm install prisma --save-dev
-npm install @prisma/client
-npx prisma init (if prisma folder is deleted or you want to start fresh)
-npx prisma migrate dev --name init
-npx prisma generate 
-npx prisma migrate deploy
-```
 
 # TODO
 
