@@ -1,0 +1,148 @@
+generator client {
+  provider     = "prisma-client-js"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  USER
+  ADMIN
+  SUPERADMIN
+}
+
+enum OrgRole {
+  MEMBER
+  ADMIN
+  OWNER
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model UserTwo {
+  id                 Int            @id @default(autoincrement())
+  email              String         @unique
+  name               String?
+  role               Role           @default(USER)
+  profile            Profile?
+  posts              Post[]
+  comments           Comment[]
+  memberships        Membership[]
+  ownedOrganizations Organization[] @relation("OrgOwner")
+  createdAt          DateTime       @default(now())
+  balance            Decimal        @default(0)
+  bigScore           BigInt?
+  avatar             Bytes?
+  metadata           Json?
+  auditLogs          AuditLog[]
+}
+
+model Profile {
+  id       Int     @id @default(autoincrement())
+  bio      String?
+  nickname String?
+  user     UserTwo @relation(fields: [userId], references: [id])
+  userId   Int     @unique
+}
+
+model Organization {
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
+  description String?
+  owner       UserTwo?     @relation("OrgOwner", fields: [ownerId], references: [id])
+  ownerId     Int?
+  memberships Membership[]
+  createdAt   DateTime     @default(now())
+}
+
+model Membership {
+  id             Int          @id @default(autoincrement())
+  user           UserTwo      @relation(fields: [userId], references: [id])
+  userId         Int
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  organizationId Int
+  role           OrgRole      @default(MEMBER)
+  joinedAt       DateTime     @default(now())
+
+  @@unique([userId, organizationId])
+}
+
+model Category {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  slug        String  @unique
+  posts       Post[] // implicit many-to-many between Post and Category
+  description String?
+  order       Int     @default(0)
+}
+
+model Tag {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  postTags PostTag[]
+}
+
+model Post {
+  id         Int        @id @default(autoincrement())
+  title      String
+  content    String?
+  status     PostStatus @default(DRAFT)
+  published  Boolean    @default(false)
+  author     UserTwo?   @relation(fields: [authorId], references: [id])
+  authorId   Int?
+  comments   Comment[]
+  categories Category[] // implicit many-to-many
+  postTags   PostTag[] // explicit many-to-many payload relation with Tag
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  views      Int        @default(0)
+}
+
+model PostTag {
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    Int
+  tag       Tag      @relation(fields: [tagId], references: [id])
+  tagId     Int
+  relevance Int      @default(0) // payload on the relation
+  addedAt   DateTime @default(now())
+
+  @@id([postId, tagId])
+}
+
+model Comment {
+  id        Int       @id @default(autoincrement())
+  content   String
+  post      Post      @relation(fields: [postId], references: [id])
+  postId    Int
+  author    UserTwo?  @relation(fields: [authorId], references: [id])
+  authorId  Int?
+  parent    Comment?  @relation("CommentToReplies", fields: [parentId], references: [id])
+  parentId  Int?
+  replies   Comment[] @relation("CommentToReplies")
+  createdAt DateTime  @default(now())
+  likes     Int       @default(0)
+}
+
+model AuditLog {
+  id         Int      @id @default(autoincrement())
+  action     String
+  actor      UserTwo? @relation(fields: [actorId], references: [id])
+  actorId    Int?
+  targetType String?
+  targetId   Int?
+  meta       Json?
+  createdAt  DateTime @default(now())
+}
