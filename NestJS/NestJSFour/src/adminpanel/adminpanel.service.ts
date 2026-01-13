@@ -41,14 +41,17 @@ export class AdminpanelService {
   async listAllUsers(): Promise<UserListItemDto[]> {
     return this.adminUserService.listAllUsers();
   }
-  
+
   /**
    * Assign a role to a user and return the updated user DTO (or null if not found).
    * Delegates to the repository implementation.
    */
-  async assignRoleToUser(id: string, role: string): Promise<UserListItemDto | null> {
+  async assignRoleToUser(
+    id: string,
+    role: string,
+  ): Promise<UserListItemDto | null> {
     return this.adminUserService.assignRoleToUser(id, role);
-  }  
+  }
 
   /**
    * Return all role names available in the system.
@@ -56,5 +59,5 @@ export class AdminpanelService {
    */
   async listRoles(): Promise<string[]> {
     return this.adminUserService.listRoles();
-  }  
+  }
 }

@@ -138,7 +138,7 @@ export class AdminUserServiceImpl implements AdminUserService {
     return dto;
   }
 
-    /**
+  /**
    * Return all users (no query params). Maps results to UserListItemDto[].
    * Note: This method returns all users — callers should be cautious in production
    * if the table is large; consider adding server-side caps if needed.
@@ -175,9 +175,14 @@ export class AdminUserServiceImpl implements AdminUserService {
     });
   }
 
-    async assignRoleToUser(id: string, role: string): Promise<UserListItemDto | null> {
+  async assignRoleToUser(
+    id: string,
+    role: string,
+  ): Promise<UserListItemDto | null> {
     // ensure user exists
-    const user = await this.prisma.passPortAuthUser.findUnique({ where: { id } });
+    const user = await this.prisma.passPortAuthUser.findUnique({
+      where: { id },
+    });
     if (!user) return null;
 
     // find or create role by name
@@ -207,11 +212,11 @@ export class AdminUserServiceImpl implements AdminUserService {
     return this.getUserById(id);
   }
 
-    async listRoles(): Promise<string[]> {
+  async listRoles(): Promise<string[]> {
     const roles = await this.prisma.passPortAuthRole.findMany({
       select: { name: true },
       orderBy: { name: 'asc' },
     });
-    return roles.map(r => r.name).filter(Boolean);
+    return roles.map((r) => r.name).filter(Boolean);
   }
 }

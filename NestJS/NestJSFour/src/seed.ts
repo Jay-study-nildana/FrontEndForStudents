@@ -1,7 +1,8 @@
 import 'dotenv/config';
 
 // Optional: prefer binary engine locally
-process.env.PRISMA_CLIENT_ENGINE_TYPE = process.env.PRISMA_CLIENT_ENGINE_TYPE ?? 'binary';
+process.env.PRISMA_CLIENT_ENGINE_TYPE =
+  process.env.PRISMA_CLIENT_ENGINE_TYPE ?? 'binary';
 
 import { PrismaClient } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
@@ -13,7 +14,10 @@ if (!connectionString) {
 }
 
 const adapter = new PrismaPg({ connectionString });
-const prisma = new PrismaClient({ adapter, log: ['info', 'warn', 'error'] } as any);
+const prisma = new PrismaClient({
+  adapter,
+  log: ['info', 'warn', 'error'],
+} as any);
 
 async function main() {
   const bcryptRounds = Number(process.env.BCRYPT_SALT_ROUNDS ?? 12);
@@ -63,7 +67,9 @@ async function main() {
   // Ensure the user has both roles via the join table
   console.log('Assigning roles to user...');
   for (const r of roles) {
-    const roleRow = await prisma.passPortAuthRole.findUnique({ where: { name: r.name } });
+    const roleRow = await prisma.passPortAuthRole.findUnique({
+      where: { name: r.name },
+    });
     if (!roleRow) {
       // Should not happen because of upsert above
       console.warn('Role not found (unexpected):', r.name);
@@ -93,7 +99,6 @@ async function main() {
 
 main()
   .catch((e) => {
-    // eslint-disable-next-line no-console
     console.error('Seed error', e);
     process.exitCode = 1;
   })

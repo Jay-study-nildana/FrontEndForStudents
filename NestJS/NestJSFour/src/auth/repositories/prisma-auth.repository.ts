@@ -10,7 +10,10 @@ import {
 export class PrismaAuthRepository implements AuthRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async createUser(input: RegisterUserDto, roleName?: string): Promise<UserResponseDto> {
+  async createUser(
+    input: RegisterUserDto,
+    roleName?: string,
+  ): Promise<UserResponseDto> {
     const created = await this.prisma.passPortAuthUser.create({
       data: {
         email: input.email,
@@ -21,7 +24,9 @@ export class PrismaAuthRepository implements AuthRepository {
 
     if (roleName) {
       await this.ensureRoleExists(roleName);
-      const role = await this.prisma.passPortAuthRole.findUnique({ where: { name: roleName } });
+      const role = await this.prisma.passPortAuthRole.findUnique({
+        where: { name: roleName },
+      });
       if (role) {
         await this.prisma.passPortAuthUserRole.create({
           data: {
@@ -70,18 +75,20 @@ export class PrismaAuthRepository implements AuthRepository {
     });
   }
 
-//   async listRoles() {
-//     return this.prisma.passPortAuthRole.findMany();
-//   }
+  //   async listRoles() {
+  //     return this.prisma.passPortAuthRole.findMany();
+  //   }
 
-  async listRoles(): Promise<{ id: string; name: string; description?: string }[]> {
+  async listRoles(): Promise<
+    { id: string; name: string; description?: string }[]
+  > {
     const rows = await this.prisma.passPortAuthRole.findMany();
-    return rows.map(r => ({
+    return rows.map((r) => ({
       id: r.id,
       name: r.name,
       description: r.description ?? undefined,
     }));
-  }  
+  }
 
   async saveRefreshToken(
     userId: string,
@@ -139,7 +146,9 @@ export class PrismaAuthRepository implements AuthRepository {
 
   async assignRoleToUser(userId: string, roleName: string) {
     await this.ensureRoleExists(roleName);
-    const role = await this.prisma.passPortAuthRole.findUnique({ where: { name: roleName } });
+    const role = await this.prisma.passPortAuthRole.findUnique({
+      where: { name: roleName },
+    });
     if (!role) return;
     // avoid duplicate assignment
     await this.prisma.passPortAuthUserRole.upsert({
@@ -150,7 +159,9 @@ export class PrismaAuthRepository implements AuthRepository {
   }
 
   async removeRoleFromUser(userId: string, roleName: string) {
-    const role = await this.prisma.passPortAuthRole.findUnique({ where: { name: roleName } });
+    const role = await this.prisma.passPortAuthRole.findUnique({
+      where: { name: roleName },
+    });
     if (!role) return;
     await this.prisma.passPortAuthUserRole.deleteMany({
       where: { userId, roleId: role.id },
@@ -168,6 +179,101 @@ export class PrismaAuthRepository implements AuthRepository {
       roles: (row.userRoles ?? []).map((ur: any) => ur.role.name),
       createdAt: row.createdAt,
       updatedAt: row.updatedAt ?? null,
+    };
+  }
+
+  //illustrating transaction usage
+  async createUserWithRole(
+    input: RegisterUserDto,
+    roleName?: string,
+  ): Promise<UserResponseDto> {
+    const created = await this.prisma.$transaction(async (tx) => {
+      const user = await tx.passPortAuthUser.create({
+        data: {
+          email: input.email,
+          password: input.password,
+          name: input.name ?? null,
+        },
+      });
+
+      if (roleName) {
+        const role = await tx.passPortAuthRole.upsert({
+          where: { name: roleName },
+          update: {},
+          create: { name: roleName },
+        });
+
+        await tx.passPortAuthUserRole.upsert({
+          where: { userId_roleId: { userId: user.id, roleId: role.id } },
+          update: {},
+          create: { userId: user.id, roleId: role.id },
+        });
+      }
+
+      return tx.passPortAuthUser.findUnique({
+        where: { id: user.id },
+        include: { userRoles: { include: { role: true } } },
+      });
+    });
+
+    if (!created) throw new Error('Failed to create user');
+
+    return {
+      id: created.id,
+      email: created.email,
+      name: created.name ?? null,
+      isActive: created.isActive,
+      emailVerifiedAt: created.emailVerifiedAt ?? null,
+      lastLoginAt: created.lastLoginAt ?? null,
+      roles: (created.userRoles ?? []).map((ur: any) => ur.role.name),
+      createdAt: created.createdAt,
+      updatedAt: created.updatedAt ?? null,
+    };
+  }
+
+  async createUserWithRoleWithNestedQueries(
+    input: RegisterUserDto,
+    roleName?: string,
+  ): Promise<UserResponseDto> {
+    const createData: any = {
+      email: input.email,
+      password: input.password,
+      name: input.name ?? null,
+    };
+
+    if (roleName) {
+      // use nested create + connectOrCreate on role via the join table
+      createData.userRoles = {
+        create: {
+          role: {
+            connectOrCreate: {
+              where: { name: roleName },
+              create: { name: roleName },
+            },
+          },
+        },
+      };
+    }
+
+    const created = await this.prisma.passPortAuthUser.create({
+      data: createData,
+      include: {
+        userRoles: {
+          include: { role: true },
+        },
+      },
+    });
+
+    return {
+      id: created.id,
+      email: created.email,
+      name: created.name ?? null,
+      isActive: created.isActive,
+      emailVerifiedAt: created.emailVerifiedAt ?? null,
+      lastLoginAt: created.lastLoginAt ?? null,
+      roles: (created.userRoles ?? []).map((ur: any) => ur.role.name),
+      createdAt: created.createdAt,
+      updatedAt: created.updatedAt ?? null,
     };
   }
 }

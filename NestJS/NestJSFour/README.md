@@ -24,6 +24,10 @@ This project shows
     1. Upload files
     1. View files
     1. Files are linked to the user who uploaded the files. 
+1. Showcases RAW SQL Usage with Prisma
+1. Showcases Transations with Prisma
+1. Showcases Nested Queries
+1. Jest Testing and End to End testing and Code Coverage
 
 # .env file
 
@@ -56,10 +60,8 @@ npm run start
 
 # TODO
 
-1. fix linting errors
-1. fix errors (jest))
-1. fix errors (e2e)
-1. check and improve coverage (after fixing jest and e2e errors)
+1. fix linting errors (started but ongoing)
+1. check and improve coverage (started but ongoing)
 
 # book a session with me
 

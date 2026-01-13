@@ -1,4 +1,4 @@
-import { FileListItemDto } from "./FileListItemDto";
+import { FileListItemDto } from './FileListItemDto';
 
 /**
  * Simple paginated wrapper for file list responses.

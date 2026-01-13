@@ -17,7 +17,9 @@ export class RolesGuard implements CanActivate {
     const user = req.user;
     if (!user) return false;
 
-    const userRoles: string[] = Array.isArray(user.roles) ? user.roles : [user.role];
+    const userRoles: string[] = Array.isArray(user.roles)
+      ? user.roles
+      : [user.role];
     return required.some((r) => userRoles.includes(r));
   }
 }

@@ -11,7 +11,6 @@ import { RolesGuard } from './roles.guard';
 import { PrismaModule } from 'src/prisma.module';
 
 @Module({
-
   imports: [
     PrismaModule,
     PassportModule,
@@ -31,7 +30,7 @@ import { PrismaModule } from 'src/prisma.module';
         };
       },
     }),
-  ],    
+  ],
 
   controllers: [AuthController],
   providers: [

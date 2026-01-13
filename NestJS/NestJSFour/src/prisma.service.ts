@@ -15,11 +15,14 @@ import { ConfigService } from '@nestjs/config';
  *   process.env.DATABASE_URL (recommended for typical setups).
  */
 
-// const connectionString = process.env.DATABASE_URL; //this will not work 
+// const connectionString = process.env.DATABASE_URL; //this will not work
 var connectionString = new ConfigService().get<string>('DATABASE_URL');
 
 @Injectable()
-export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
+export class PrismaService
+  extends PrismaClient
+  implements OnModuleInit, OnModuleDestroy
+{
   constructor(private configService: ConfigService) {
     // If you want to use the PrismaPg adapter, construct it here and pass it to the client.
     // Casting to `any` suppresses TypeScript complaints about unknown properties.

@@ -18,14 +18,22 @@ export interface UserResponseDto {
 }
 
 export interface AuthRepository {
-  createUser(input: RegisterUserDto, roleName?: string): Promise<UserResponseDto>;
+  createUser(
+    input: RegisterUserDto,
+    roleName?: string,
+  ): Promise<UserResponseDto>;
   findUserByEmail(email: string): Promise<any | null>; // full Prisma row incl. password
   findUserById(id: string): Promise<UserResponseDto | null>;
   ensureRoleExists(name: string, description?: string): Promise<void>;
   listRoles(): Promise<{ id: string; name: string; description?: string }[]>;
 
   // Refresh token operations:
-  saveRefreshToken(userId: string, tokenHash: string, expiresAt: Date, meta?: { ip?: string; userAgent?: string }): Promise<string>;
+  saveRefreshToken(
+    userId: string,
+    tokenHash: string,
+    expiresAt: Date,
+    meta?: { ip?: string; userAgent?: string },
+  ): Promise<string>;
   findRefreshTokenByHash(tokenHash: string): Promise<any | null>;
   findRefreshTokenById(id: string): Promise<any | null>;
   revokeRefreshTokenById(id: string): Promise<void>;
@@ -34,4 +42,16 @@ export interface AuthRepository {
   // role assignment helpers
   assignRoleToUser(userId: string, roleName: string): Promise<void>;
   removeRoleFromUser(userId: string, roleName: string): Promise<void>;
+
+  // new atomic create+assign method to showcase transactions
+  createUserWithRole(
+    input: RegisterUserDto,
+    roleName?: string,
+  ): Promise<UserResponseDto>;
+
+  // new nested-write variant (creates user and role/join using nested writes, no explicit transactions)
+  createUserWithRoleWithNestedQueries(
+    input: RegisterUserDto,
+    roleName?: string,
+  ): Promise<UserResponseDto>;
 }

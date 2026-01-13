@@ -18,9 +18,12 @@ export class GetPostsQueryDto {
   @Min(1)
   limit?: number = 10;
 
-  @ApiPropertyOptional({ example: 'true', description: 'Filter by published status' })
+  @ApiPropertyOptional({
+    example: 'true',
+    description: 'Filter by published status',
+  })
   @IsOptional()
-    @Transform(({ value }) => {
+  @Transform(({ value }) => {
     if (value === undefined) return undefined;
     if (value === 'true') return true;
     if (value === 'false') return false;

@@ -3,9 +3,9 @@
  * Currently focused on listing users with pagination and basic filters.
  */
 
-import { ListUsersDto } from "../dto/ListUsersDto";
-import { PaginatedUsersDto } from "../dto/PaginatedUsersDto";
-import { UserListItemDto } from "../dto/UserListItemDto";
+import { ListUsersDto } from '../dto/ListUsersDto';
+import { PaginatedUsersDto } from '../dto/PaginatedUsersDto';
+import { UserListItemDto } from '../dto/UserListItemDto';
 
 export interface AdminUserService {
   /**
@@ -19,14 +19,14 @@ export interface AdminUserService {
    */
   getUserById(id: string): Promise<UserListItemDto | null>;
 
-    /**
+  /**
    * Return all users without requiring filter/query params.
    * - Useful for internal admin tooling or endpoints that need the full list.
    * - Implementations should still avoid returning sensitive fields.
    */
-  listAllUsers(): Promise<UserListItemDto[]>;  
+  listAllUsers(): Promise<UserListItemDto[]>;
 
-    /**
+  /**
    * Assign the provided role name to the user identified by `id` and return the updated user DTO.
    *
    * Implementations should:
@@ -36,7 +36,7 @@ export interface AdminUserService {
    */
   assignRoleToUser(id: string, role: string): Promise<UserListItemDto | null>;
 
-    /**
+  /**
    * Return all role names available in the system.
    * Implementations should return a simple array of role name strings (e.g. ['admin','user']).
    */

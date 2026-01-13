@@ -30,7 +30,10 @@ export class PostsController {
 
   @HttpPost()
   @ApiOperation({ summary: 'Create a post' })
-  @ApiCreatedResponse({ description: 'The created post', type: PostResponseDto })
+  @ApiCreatedResponse({
+    description: 'The created post',
+    type: PostResponseDto,
+  })
   create(@Body() dto: CreatePostDto): Promise<PostResponseDto> {
     return this.service.create(dto);
   }

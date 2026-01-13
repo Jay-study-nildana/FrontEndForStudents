@@ -29,7 +29,11 @@ export interface FileRepository {
   deleteById(id: string): Promise<FileListItemDto | null>;
 
   // List files for an owner as DTOs
-  listByOwner(ownerId: string, skip?: number, take?: number): Promise<FileListItemDto[]>;
+  listByOwner(
+    ownerId: string,
+    skip?: number,
+    take?: number,
+  ): Promise<FileListItemDto[]>;
   // List all files (no filters). Use with care for large datasets.
   listAll(): Promise<FileListItemDto[]>;
 

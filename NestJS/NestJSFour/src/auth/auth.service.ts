@@ -1,4 +1,9 @@
-import { Injectable, UnauthorizedException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import {
+  Injectable,
+  UnauthorizedException,
+  ForbiddenException,
+  BadRequestException,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import * as bcrypt from 'bcrypt';
@@ -20,13 +25,21 @@ export class AuthService {
     private readonly jwtService: JwtService,
     private readonly cfg: ConfigService,
   ) {
-    this.jwtSecret = this.cfg.get<string>('JWT_SECRET') || (() => { throw new Error('JWT_SECRET is not set'); })();
+    this.jwtSecret =
+      this.cfg.get<string>('JWT_SECRET') ||
+      (() => {
+        throw new Error('JWT_SECRET is not set');
+      })();
     //8 hours X 60 minutes = 480 minutes
     //to help with testing, set default to 8 hours instead of 15 minutes
     // change back to 15m in production or whatever you prefer
     this.jwtExpiresIn = this.cfg.get<string>('JWT_EXPIRES_IN') || '480m';
-    this.refreshTokenDays = Number(this.cfg.get<number>('REFRESH_TOKEN_EXPIRES_DAYS') ?? 7);
-    this.bcryptRounds = Number(this.cfg.get<number>('BCRYPT_SALT_ROUNDS') ?? 12);
+    this.refreshTokenDays = Number(
+      this.cfg.get<number>('REFRESH_TOKEN_EXPIRES_DAYS') ?? 7,
+    );
+    this.bcryptRounds = Number(
+      this.cfg.get<number>('BCRYPT_SALT_ROUNDS') ?? 12,
+    );
 
     //I want to display all the env values that are being used here
 
@@ -47,7 +60,51 @@ export class AuthService {
     const roleName = input.role ?? 'user';
     // ensure role exists first
     await this.repo.ensureRoleExists(roleName);
-    const user = await this.repo.createUser({ ...input, password: hashed }, roleName);
+    const user = await this.repo.createUser(
+      { ...input, password: hashed },
+      roleName,
+    );
+    return user;
+  }
+
+  // new service method that uses the repository's createUserWithRole (transactional at repo level)
+  async createUserWithRole(
+    input: RegisterUserDto,
+    roleName?: string,
+  ): Promise<UserResponseDto> {
+    if (!input.email || !input.password) {
+      throw new BadRequestException('email and password are required');
+    }
+
+    const hashed = await bcrypt.hash(input.password, this.bcryptRounds);
+    const resolvedRole = roleName ?? input.role ?? 'user';
+    // ensure role exists (repo implementation may also handle this, but keep consistency)
+    await this.repo.ensureRoleExists(resolvedRole);
+
+    const user = await this.repo.createUserWithRole(
+      { ...input, password: hashed },
+      resolvedRole,
+    );
+    return user;
+  }
+
+  // new service method that uses the repository's createUserWithRoleWithNestedQueries (nested writes, no explicit transactions)
+  async createUserWithRoleWithNestedQueries(
+    input: RegisterUserDto,
+    roleName?: string,
+  ): Promise<UserResponseDto> {
+    if (!input.email || !input.password) {
+      throw new BadRequestException('email and password are required');
+    }
+
+    const hashed = await bcrypt.hash(input.password, this.bcryptRounds);
+    const resolvedRole = roleName ?? input.role ?? 'user';
+
+    // call nested-write repo method (role will be created/connected via connectOrCreate)
+    const user = await this.repo.createUserWithRoleWithNestedQueries(
+      { ...input, password: hashed },
+      resolvedRole,
+    );
     return user;
   }
 
@@ -68,22 +125,40 @@ export class AuthService {
     return safe;
   }
 
-  async login(user: { id: string; email: string; roles?: string[] }): Promise<TokensDto> {
-    const payload = { sub: user.id, email: user.email, roles: user.roles ?? [] };
+  async login(user: {
+    id: string;
+    email: string;
+    roles?: string[];
+  }): Promise<TokensDto> {
+    const payload = {
+      sub: user.id,
+      email: user.email,
+      roles: user.roles ?? [],
+    };
     // const accessToken = this.jwtService.sign(payload, { expiresIn: this.jwtExpiresIn });
-    const accessToken = this.jwtService.sign(payload, { expiresIn: this.jwtExpiresIn as any });
+    const accessToken = this.jwtService.sign(payload, {
+      expiresIn: this.jwtExpiresIn as any,
+    });
 
     // generate refresh token (random), hash it, store
     const refreshTokenPlain = crypto.randomBytes(64).toString('hex');
-    const refreshTokenHash = crypto.createHash('sha256').update(refreshTokenPlain).digest('hex');
-    const expiresAt = new Date(Date.now() + this.refreshTokenDays * 24 * 60 * 60 * 1000);
+    const refreshTokenHash = crypto
+      .createHash('sha256')
+      .update(refreshTokenPlain)
+      .digest('hex');
+    const expiresAt = new Date(
+      Date.now() + this.refreshTokenDays * 24 * 60 * 60 * 1000,
+    );
     await this.repo.saveRefreshToken(user.id, refreshTokenHash, expiresAt);
 
     return { access_token: accessToken, refresh_token: refreshTokenPlain };
   }
 
   async refresh(refreshTokenPlain: string): Promise<TokensDto> {
-    const hash = crypto.createHash('sha256').update(refreshTokenPlain).digest('hex');
+    const hash = crypto
+      .createHash('sha256')
+      .update(refreshTokenPlain)
+      .digest('hex');
     const tokenRow = await this.repo.findRefreshTokenByHash(hash);
     if (!tokenRow) throw new UnauthorizedException('Invalid refresh token');
 
@@ -99,9 +174,18 @@ export class AuthService {
 
     // rotate: create a new refresh token and mark the old one replaced
     const newRefreshPlain = crypto.randomBytes(64).toString('hex');
-    const newHash = crypto.createHash('sha256').update(newRefreshPlain).digest('hex');
-    const expiresAt = new Date(Date.now() + this.refreshTokenDays * 24 * 60 * 60 * 1000);
-    const newId = await this.repo.saveRefreshToken(tokenRow.userId, newHash, expiresAt);
+    const newHash = crypto
+      .createHash('sha256')
+      .update(newRefreshPlain)
+      .digest('hex');
+    const expiresAt = new Date(
+      Date.now() + this.refreshTokenDays * 24 * 60 * 60 * 1000,
+    );
+    const newId = await this.repo.saveRefreshToken(
+      tokenRow.userId,
+      newHash,
+      expiresAt,
+    );
 
     // mark old token as revoked and link replacedBy
     await this.repo.revokeRefreshTokenById(tokenRow.id);
@@ -123,14 +207,19 @@ export class AuthService {
     const roles = (user.userRoles ?? []).map((ur: any) => ur.role.name);
     const payload = { sub: user.id, email: user.email, roles };
     // const accessToken = this.jwtService.sign(payload, { expiresIn: this.jwtExpiresIn });
-    const accessToken = this.jwtService.sign(payload, { expiresIn: this.jwtExpiresIn as any });
+    const accessToken = this.jwtService.sign(payload, {
+      expiresIn: this.jwtExpiresIn as any,
+    });
 
     return { access_token: accessToken, refresh_token: newRefreshPlain };
   }
 
   async logout(refreshTokenPlain: string | undefined, userId?: string) {
     if (refreshTokenPlain) {
-      const hash = crypto.createHash('sha256').update(refreshTokenPlain).digest('hex');
+      const hash = crypto
+        .createHash('sha256')
+        .update(refreshTokenPlain)
+        .digest('hex');
       const tokenRow = await this.repo.findRefreshTokenByHash(hash);
       if (!tokenRow) throw new UnauthorizedException('Invalid refresh token');
       await this.repo.revokeRefreshTokenById(tokenRow.id);

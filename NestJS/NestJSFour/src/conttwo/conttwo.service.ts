@@ -12,9 +12,7 @@ import { PrismaPostRepository } from './conttwo.repository';
  */
 @Injectable()
 export class PostsService {
-  constructor(
-    private readonly repo: PrismaPostRepository,
-  ) {}
+  constructor(private readonly repo: PrismaPostRepository) {}
 
   create(input: CreatePostDto): Promise<PostResponseDto> {
     return this.repo.create(input);

@@ -6,6 +6,6 @@ import { InMemoryContoneRepository } from './contone.repository';
 @Module({
   controllers: [ContoneController],
   providers: [ContoneService, InMemoryContoneRepository],
-  exports: [InMemoryContoneRepository]
+  exports: [InMemoryContoneRepository],
 })
 export class ContoneModule {}

@@ -1,4 +1,8 @@
-import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+  Logger,
+} from '@nestjs/common';
 import { CreateFileRecord } from './repositories/fileupload.repository.interface';
 import { v4 as uuidv4 } from 'uuid';
 import { extname, join } from 'path';
@@ -33,8 +37,10 @@ export class FilesService {
         mkdirSync(this.uploadsDir, { recursive: true });
         this.logger.log(`Created uploads directory at ${this.uploadsDir}`);
       } catch (err) {
-        this.logger.error('Failed to create uploads directory', err as any);
-        throw new InternalServerErrorException('Unable to initialize uploads directory');
+        this.logger.error('Failed to create uploads directory', err);
+        throw new InternalServerErrorException(
+          'Unable to initialize uploads directory',
+        );
       }
     }
   }
@@ -46,7 +52,11 @@ export class FilesService {
    * ownerId: string identifier for file owner (plain UUID, not DB-relational)
    * dto: additional metadata (isPublic etc.)
    */
-  async uploadFile(ownerId: string, file: Express.Multer.File, dto: { isPublic?: boolean }) {
+  async uploadFile(
+    ownerId: string,
+    file: Express.Multer.File,
+    dto: { isPublic?: boolean },
+  ) {
     if (!file) {
       throw new InternalServerErrorException('No file provided');
     }
@@ -97,7 +107,7 @@ export class FilesService {
     return this.fileRepository.findById(id);
   }
 
-    /**
+  /**
    * Delete a file metadata record by id and return the deleted DTO (or null if not found).
    * Delegates to the repository which handles the DB delete.
    */
@@ -106,10 +116,14 @@ export class FilesService {
     return deleted;
   }
 
-    /**
+  /**
    * Return files owned by the given ownerId with simple pagination.
    */
-  async listByOwner(ownerId: string, skip = 0, take = 25): Promise<FileListItemDto[]> {
+  async listByOwner(
+    ownerId: string,
+    skip = 0,
+    take = 25,
+  ): Promise<FileListItemDto[]> {
     return this.fileRepository.listByOwner(ownerId, skip, take);
   }
 
@@ -119,7 +133,7 @@ export class FilesService {
    */
   async listAll(): Promise<FileListItemDto[]> {
     return this.fileRepository.listAll();
-  }  
+  }
 
   /**
    * Return the public URL (if available) for the stored file by id, or null if not found.
@@ -127,5 +141,5 @@ export class FilesService {
    */
   async getUrlById(id: string): Promise<string | null> {
     return this.fileRepository.getUrlById(id);
-  }  
+  }
 }

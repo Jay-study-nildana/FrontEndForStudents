@@ -1,5 +1,11 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { IsOptional, IsString, IsBoolean, IsInt, Length } from 'class-validator';
+import {
+  IsOptional,
+  IsString,
+  IsBoolean,
+  IsInt,
+  Length,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 
 /**
@@ -8,7 +14,11 @@ import { Type } from 'class-transformer';
  * This explicit class works well with Swagger (class-based).
  */
 export class UpdatePostDto {
-  @ApiPropertyOptional({ example: 'Updated title', minLength: 1, maxLength: 255 })
+  @ApiPropertyOptional({
+    example: 'Updated title',
+    minLength: 1,
+    maxLength: 255,
+  })
   @IsOptional()
   @IsString()
   @Length(1, 255)

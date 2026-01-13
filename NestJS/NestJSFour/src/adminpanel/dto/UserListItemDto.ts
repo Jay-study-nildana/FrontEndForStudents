@@ -23,7 +23,8 @@ export class UserListItemDto {
   id!: string;
 
   @ApiProperty({
-    description: 'Primary email for the user (used for login and notifications).',
+    description:
+      'Primary email for the user (used for login and notifications).',
     example: 'alice@example.com',
     type: String,
   })
@@ -38,14 +39,16 @@ export class UserListItemDto {
   name?: string | null;
 
   @ApiProperty({
-    description: 'Whether the user account is active and allowed to authenticate.',
+    description:
+      'Whether the user account is active and allowed to authenticate.',
     example: true,
     type: Boolean,
   })
   isActive!: boolean;
 
   @ApiPropertyOptional({
-    description: 'ISO 8601 timestamp when the user verified their email, or null if not verified.',
+    description:
+      'ISO 8601 timestamp when the user verified their email, or null if not verified.',
     example: '2025-01-01T00:00:00.000Z',
     type: String,
     format: 'date-time',
@@ -54,7 +57,8 @@ export class UserListItemDto {
   emailVerifiedAt?: Date | null;
 
   @ApiPropertyOptional({
-    description: 'ISO 8601 timestamp of the user\'s last successful login, or null if never logged in.',
+    description:
+      "ISO 8601 timestamp of the user's last successful login, or null if never logged in.",
     example: '2025-02-01T12:34:56.000Z',
     type: String,
     format: 'date-time',
@@ -63,7 +67,8 @@ export class UserListItemDto {
   lastLoginAt?: Date | null;
 
   @ApiProperty({
-    description: 'List of role names assigned to the user. Strings only to keep response compact and stable.',
+    description:
+      'List of role names assigned to the user. Strings only to keep response compact and stable.',
     example: ['admin', 'moderator'],
     isArray: true,
     type: String,
@@ -79,7 +84,8 @@ export class UserListItemDto {
   createdAt!: Date;
 
   @ApiPropertyOptional({
-    description: 'ISO 8601 timestamp when the user record was last updated, or null.',
+    description:
+      'ISO 8601 timestamp when the user record was last updated, or null.',
     example: '2025-03-01T08:00:00.000Z',
     type: String,
     format: 'date-time',
