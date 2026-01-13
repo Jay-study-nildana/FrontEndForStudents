@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import type { PassPortAuthFile } from '@prisma/client';
-import { FileRepository, CreateFileRecord } from './fileupload.repository.interface';
+import {
+  FileRepository,
+  CreateFileRecord,
+} from './fileupload.repository.interface';
 import { FileListItemDto } from '../dto/FileListItemDto';
 
 /**
@@ -28,7 +31,7 @@ export class PrismaFileRepository implements FileRepository {
     return created;
   }
 
-    private toDto(entity: PassPortAuthFile): FileListItemDto {
+  private toDto(entity: PassPortAuthFile): FileListItemDto {
     const dto = new FileListItemDto();
     dto.id = entity.id;
     dto.ownerId = entity.ownerId;
@@ -43,7 +46,9 @@ export class PrismaFileRepository implements FileRepository {
   }
 
   async findById(id: string): Promise<FileListItemDto | null> {
-    const file = await this.prisma.passPortAuthFile.findUnique({ where: { id } });
+    const file = await this.prisma.passPortAuthFile.findUnique({
+      where: { id },
+    });
     if (!file) return null;
     return this.toDto(file);
   }
@@ -54,7 +59,9 @@ export class PrismaFileRepository implements FileRepository {
    */
   async deleteById(id: string): Promise<FileListItemDto | null> {
     // Find first to avoid Prisma throwing if not found
-    const file = await this.prisma.passPortAuthFile.findUnique({ where: { id } });
+    const file = await this.prisma.passPortAuthFile.findUnique({
+      where: { id },
+    });
     if (!file) return null;
 
     // Delete and return DTO based on the found record (deleted record will be returned too,
@@ -63,7 +70,11 @@ export class PrismaFileRepository implements FileRepository {
     return this.toDto(file);
   }
 
-  async listByOwner(ownerId: string, skip = 0, take = 25): Promise<FileListItemDto[]> {
+  async listByOwner(
+    ownerId: string,
+    skip = 0,
+    take = 25,
+  ): Promise<FileListItemDto[]> {
     const files = await this.prisma.passPortAuthFile.findMany({
       where: { ownerId },
       orderBy: { createdAt: 'desc' },
@@ -82,20 +93,27 @@ export class PrismaFileRepository implements FileRepository {
   }
 
   async getUrlById(id: string): Promise<string | null> {
-    const file = await this.prisma.passPortAuthFile.findUnique({ where: { id } });
+    const file = await this.prisma.passPortAuthFile.findUnique({
+      where: { id },
+    });
     if (!file) return null;
 
     // Use explicit FILE_BASE_URL if provided (for CDN or proxy), otherwise fall back to APP_BASE_URL or localhost.
-    const configuredBase = process.env.FILE_BASE_URL || process.env.APP_BASE_URL;
-    const base = configuredBase ? configuredBase.replace(/\/+$/u, '') : 'http://localhost:3000';
+    const configuredBase =
+      process.env.FILE_BASE_URL || process.env.APP_BASE_URL;
+    const base = configuredBase
+      ? configuredBase.replace(/\/+$/u, '')
+      : 'http://localhost:3000';
 
     // Public facing path where uploaded files are served. Default matches disk storage dir used in controller.
-    const uploadsPath = (process.env.UPLOADS_URL_PATH ?? '/uploads').replace(/\/+$/u, '');
+    const uploadsPath = (process.env.UPLOADS_URL_PATH ?? '/uploads').replace(
+      /\/+$/u,
+      '',
+    );
 
     // storageName may contain characters that need encoding
     const encodedName = encodeURIComponent(file.storageName);
 
     return `${base}${uploadsPath.startsWith('/') ? '' : '/'}${uploadsPath}/${encodedName}`;
-  }  
-
+  }
 }

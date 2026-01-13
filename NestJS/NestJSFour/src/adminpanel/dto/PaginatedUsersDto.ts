@@ -9,24 +9,24 @@ import { UserListItemDto } from './UserListItemDto';
 // Keeping a dedicated UserListItemDto ensures the paginated wrapper remains generic
 // and the item shape is defined in one place.
 
- /**
-  * PaginatedUsersDto
-  *
-  * Purpose:
-  * - Acts as a simple, explicit wrapper for paginated responses from admin user list endpoints.
-  * - By using a dedicated DTO we make the response contract explicit for consumers
-  *   and for tools like Swagger / OpenAPI, TypeScript typing, and automated tests.
-  *
-  * Design notes:
-  * - data: typed to an array of UserListItemDto so the element schema is reused.
-  * - total: total number of matching items across all pages (used by UIs for pagination).
-  * - page: current page number (1-based) — keeps the API simple and predictable.
-  * - pageSize: number of items returned per page (server-side enforced cap recommended).
-  *
-  * Why document with ApiProperty:
-  * - Swagger/OpenAPI generation needs explicit metadata for arrays and nested DTOs.
-  * - Provides better developer experience (examples, descriptions, types) in generated docs.
-  */
+/**
+ * PaginatedUsersDto
+ *
+ * Purpose:
+ * - Acts as a simple, explicit wrapper for paginated responses from admin user list endpoints.
+ * - By using a dedicated DTO we make the response contract explicit for consumers
+ *   and for tools like Swagger / OpenAPI, TypeScript typing, and automated tests.
+ *
+ * Design notes:
+ * - data: typed to an array of UserListItemDto so the element schema is reused.
+ * - total: total number of matching items across all pages (used by UIs for pagination).
+ * - page: current page number (1-based) — keeps the API simple and predictable.
+ * - pageSize: number of items returned per page (server-side enforced cap recommended).
+ *
+ * Why document with ApiProperty:
+ * - Swagger/OpenAPI generation needs explicit metadata for arrays and nested DTOs.
+ * - Provides better developer experience (examples, descriptions, types) in generated docs.
+ */
 export class PaginatedUsersDto {
   @ApiProperty({
     description: 'List of users for the current page.',
@@ -51,7 +51,8 @@ export class PaginatedUsersDto {
   data!: UserListItemDto[];
 
   @ApiProperty({
-    description: 'Total number of matching users (across all pages). Useful for client-side pagination UI.',
+    description:
+      'Total number of matching users (across all pages). Useful for client-side pagination UI.',
     example: 123,
     type: Number,
   })
@@ -68,7 +69,8 @@ export class PaginatedUsersDto {
   page!: number;
 
   @ApiProperty({
-    description: 'Number of items returned per page (server may enforce a maximum).',
+    description:
+      'Number of items returned per page (server may enforce a maximum).',
     example: 25,
     type: Number,
   })

@@ -7,10 +7,7 @@ import { PrismaPostRepository } from './conttwo.repository';
 @Module({
   imports: [PrismaModule], // <<-- ensure PrismaService is available here
   controllers: [PostsController],
-  providers: [
-    PostsService,
-    PrismaPostRepository,
-  ],
+  providers: [PostsService, PrismaPostRepository],
   exports: [], // export PrismaPostRepository if other modules should reuse it
 })
 export class ConttwoModule {}

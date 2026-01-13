@@ -71,7 +71,8 @@ export class AdminpanelController {
   @ApiQuery({
     name: 'search',
     required: false,
-    description: 'Search term matched against name or email (case-insensitive, contains).',
+    description:
+      'Search term matched against name or email (case-insensitive, contains).',
     type: String,
   })
   @ApiQuery({
@@ -83,7 +84,8 @@ export class AdminpanelController {
   @ApiQuery({
     name: 'isActive',
     required: false,
-    description: 'Filter by active status. Accepts boolean or "true"/"false" string in query.',
+    description:
+      'Filter by active status. Accepts boolean or "true"/"false" string in query.',
     type: Boolean,
   })
   @ApiQuery({
@@ -136,7 +138,7 @@ export class AdminpanelController {
     return user;
   }
 
-    /**
+  /**
    * GET /adminpanel/users/all
    *
    * - Returns all users without pagination or filters. Useful for small admin tools
@@ -190,9 +192,12 @@ export class AdminpanelController {
 
   @Get('roles')
   @ApiOperation({ summary: 'List all available role names' })
-  @ApiOkResponse({ description: 'Array of role names', type: String, isArray: true })
+  @ApiOkResponse({
+    description: 'Array of role names',
+    type: String,
+    isArray: true,
+  })
   async listRoles(): Promise<string[]> {
     return this.adminpanelService.listRoles();
   }
 }
-

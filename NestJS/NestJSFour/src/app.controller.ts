@@ -1,7 +1,14 @@
 // ...existing code...
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { IsString, IsOptional, IsBoolean } from 'class-validator';
-import { ApiTags, ApiOperation, ApiCreatedResponse, ApiOkResponse, ApiBody, ApiProperty } from '@nestjs/swagger';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiCreatedResponse,
+  ApiOkResponse,
+  ApiBody,
+  ApiProperty,
+} from '@nestjs/swagger';
 import { AppService } from './app.service';
 import { PrismaService } from './prisma.service';
 
@@ -25,7 +32,10 @@ class CreatePostDtoApp {
 @ApiTags('app')
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService, private prisma: PrismaService) {}
+  constructor(
+    private readonly appService: AppService,
+    private prisma: PrismaService,
+  ) {}
 
   // instantiate PrismaService here (singleton per process)
   // private readonly prisma = new PrismaService();

@@ -1,4 +1,12 @@
-import { Controller, Post, UseGuards, Request, Body, Get, HttpCode } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  UseGuards,
+  Request,
+  Body,
+  Get,
+  HttpCode,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './local-auth.guard';
 import { RegisterUserDto } from './dto/RegisterUserDto';
@@ -10,6 +18,7 @@ import { ApiBody } from '@nestjs/swagger';
 import { ApiBearerAuth, ApiOperation, ApiOkResponse } from '@nestjs/swagger';
 import { Roles } from './roles.decorator';
 import { RolesGuard } from './roles.guard';
+import { ApiCreatedResponse } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
@@ -20,7 +29,50 @@ export class AuthController {
     return this.authService.register(body);
   }
 
-    @UseGuards(LocalAuthGuard)
+  // new admin-only endpoint that uses AuthService.createUserWithRole (transactional at repo level)
+  @ApiBearerAuth('access-token')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('admin')
+  @Post('create-with-role')
+  @ApiOperation({
+    summary:
+      'Admin: create a user and optionally assign a role (transactional)',
+  })
+  @ApiCreatedResponse({
+    description: 'Created user',
+    schema: {
+      example: { id: '<uuid>', email: 'user@example.com', roles: ['user'] },
+    },
+  })
+  @ApiBody({ type: RegisterUserDto })
+  async createUserWithRole(@Body() body: RegisterUserDto) {
+    return this.authService.createUserWithRole(body, body.role);
+  }
+
+  // new admin-only endpoint that uses nested-write service method (no explicit transactions)
+  @ApiBearerAuth('access-token')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('admin')
+  @Post('create-with-role-nested')
+  @ApiOperation({
+    summary:
+      'Admin: create a user and optionally assign a role (nested writes, no explicit transaction)',
+  })
+  @ApiCreatedResponse({
+    description: 'Created user',
+    schema: {
+      example: { id: '<uuid>', email: 'user@example.com', roles: ['user'] },
+    },
+  })
+  @ApiBody({ type: RegisterUserDto })
+  async createUserWithRoleNested(@Body() body: RegisterUserDto) {
+    return this.authService.createUserWithRoleWithNestedQueries(
+      body,
+      body.role,
+    );
+  }
+
+  @UseGuards(LocalAuthGuard)
   @Post('login')
   @HttpCode(200)
   @ApiBody({ type: LoginDto })
@@ -34,19 +86,19 @@ export class AuthController {
     return this.authService.refresh(body.refreshToken);
   }
 
-//   @UseGuards(JwtAuthGuard)
-//   @Post('logout')
-//   async logout(@Body() body: RefreshTokenDto, @GetUser('id') userId: string) {
-//     // Accept refresh token or revoke all for the authenticated user
-//     if (body?.refreshToken) {
-//       await this.authService.logout(body.refreshToken);
-//     } else {
-//       await this.authService.logout(undefined, userId);
-//     }
-//     return { success: true };
-//   }
+  //   @UseGuards(JwtAuthGuard)
+  //   @Post('logout')
+  //   async logout(@Body() body: RefreshTokenDto, @GetUser('id') userId: string) {
+  //     // Accept refresh token or revoke all for the authenticated user
+  //     if (body?.refreshToken) {
+  //       await this.authService.logout(body.refreshToken);
+  //     } else {
+  //       await this.authService.logout(undefined, userId);
+  //     }
+  //     return { success: true };
+  //   }
 
-  @ApiBearerAuth('access-token')                 // <-- allow Swagger to send the bearer token for this operation
+  @ApiBearerAuth('access-token') // <-- allow Swagger to send the bearer token for this operation
   @UseGuards(JwtAuthGuard)
   @Post('logout')
   @ApiBody({ type: RefreshTokenDto, required: false }) // body optional when revoking all tokens
@@ -60,30 +112,43 @@ export class AuthController {
     return { success: true };
   }
 
-//   @UseGuards(JwtAuthGuard)
-//   @Get('me')
-//   getProfile(@GetUser() user: any) {
-//     // user is from JwtStrategy.validate (id, email, roles)
-//     return user;
-//   }
+  //   @UseGuards(JwtAuthGuard)
+  //   @Get('me')
+  //   getProfile(@GetUser() user: any) {
+  //     // user is from JwtStrategy.validate (id, email, roles)
+  //     return user;
+  //   }
 
-    // Protect and mark this specific endpoint for Swagger
-  @ApiBearerAuth('access-token')          // <-- Swagger: indicate this operation uses the "access-token" scheme
-  @UseGuards(JwtAuthGuard)               // <-- runtime guard
+  // Protect and mark this specific endpoint for Swagger
+  @ApiBearerAuth('access-token') // <-- Swagger: indicate this operation uses the "access-token" scheme
+  @UseGuards(JwtAuthGuard) // <-- runtime guard
   @Get('me')
   @ApiOperation({ summary: 'Get current authenticated user' })
-  @ApiOkResponse({ description: 'Current user (from JWT)', schema: { example: { id: '<uuid>', email: 'alice@example.com', roles: ['user'] } } })
+  @ApiOkResponse({
+    description: 'Current user (from JWT)',
+    schema: {
+      example: { id: '<uuid>', email: 'alice@example.com', roles: ['user'] },
+    },
+  })
   getProfile(@GetUser() user: any) {
     // user is from JwtStrategy.validate (id, email, roles)
     return user;
   }
 
   //check auth system
-    // Public endpoint — available with or without a token (Swagger will show the bearer input)
+  // Public endpoint — available with or without a token (Swagger will show the bearer input)
   @ApiBearerAuth('access-token')
   @Get('public-info')
   @ApiOperation({ summary: 'Public endpoint (token optional)' })
-  @ApiOkResponse({ description: 'Public info', schema: { example: { message: 'This endpoint works with or without a token', authenticated: false } } })
+  @ApiOkResponse({
+    description: 'Public info',
+    schema: {
+      example: {
+        message: 'This endpoint works with or without a token',
+        authenticated: false,
+      },
+    },
+  })
   publicInfo(@Request() req: any) {
     return {
       message: 'This endpoint works with or without a token',
@@ -97,7 +162,15 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   @Get('protected')
   @ApiOperation({ summary: 'Protected endpoint (requires valid token)' })
-  @ApiOkResponse({ description: 'Protected data', schema: { example: { message: 'You are authenticated', user: { id: '<uuid>', email: 'alice@example.com' } } } })
+  @ApiOkResponse({
+    description: 'Protected data',
+    schema: {
+      example: {
+        message: 'You are authenticated',
+        user: { id: '<uuid>', email: 'alice@example.com' },
+      },
+    },
+  })
   protectedEndpoint(@GetUser() user: any) {
     return { message: 'You are authenticated', user };
   }
@@ -108,17 +181,23 @@ export class AuthController {
   @Roles('admin')
   @Get('admin-only')
   @ApiOperation({ summary: "Admin-only endpoint (requires 'admin' role)" })
-  @ApiOkResponse({ description: 'Admin response', schema: { example: { message: 'admin access granted' } } })
+  @ApiOkResponse({
+    description: 'Admin response',
+    schema: { example: { message: 'admin access granted' } },
+  })
   adminOnly(@GetUser() user: any) {
     return { message: 'admin access granted', userId: user?.id ?? null };
   }
 
-    @ApiBearerAuth('access-token')
+  @ApiBearerAuth('access-token')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('user')
   @Get('user-only')
   @ApiOperation({ summary: "User-only endpoint (requires 'user' role)" })
-  @ApiOkResponse({ description: 'User response', schema: { example: { message: 'user access granted' } } })
+  @ApiOkResponse({
+    description: 'User response',
+    schema: { example: { message: 'user access granted' } },
+  })
   userOnly(@GetUser() user: any) {
     return { message: 'user access granted', userId: user?.id ?? null };
   }

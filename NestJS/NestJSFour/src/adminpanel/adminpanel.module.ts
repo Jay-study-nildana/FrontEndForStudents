@@ -1,4 +1,3 @@
-
 import { Module } from '@nestjs/common';
 // Module decorator from NestJS used to define a module boundary (imports/providers/controllers/exports).
 
@@ -37,15 +36,15 @@ import { PrismaModule } from 'src/prisma.module';
 
   // providers: classes instantiated by Nest and available for injection within this module.
   providers: [
-    AdminpanelService,     // Business/facade service that orchestrates admin operations; depends on AdminUserServiceImpl.
-    AdminUserServiceImpl,  // Concrete data-access provider (uses PrismaService). Must be a provider so it can be injected.
+    AdminpanelService, // Business/facade service that orchestrates admin operations; depends on AdminUserServiceImpl.
+    AdminUserServiceImpl, // Concrete data-access provider (uses PrismaService). Must be a provider so it can be injected.
   ],
 
   // exports: providers from this module that should be available to other modules that import this module.
   exports: [
     AdminUserServiceImpl, // Export the repository implementation so other modules (or tests) can reuse it when they import AdminpanelModule.
-                          // Exporting also allows consumers to rely on this concrete implementation without re-declaring it.
-                          // Note: If you want to expose the higher-level facade instead, you could export AdminpanelService as well.
+    // Exporting also allows consumers to rely on this concrete implementation without re-declaring it.
+    // Note: If you want to expose the higher-level facade instead, you could export AdminpanelService as well.
   ],
 })
 export class AdminpanelModule {}

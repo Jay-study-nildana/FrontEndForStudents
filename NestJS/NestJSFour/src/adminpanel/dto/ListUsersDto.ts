@@ -1,5 +1,12 @@
 import { Type, Transform } from 'class-transformer';
-import { IsInt, IsOptional, IsString, IsBoolean, Min, Max } from 'class-validator';
+import {
+  IsInt,
+  IsOptional,
+  IsString,
+  IsBoolean,
+  Min,
+  Max,
+} from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
 
 /**
@@ -9,7 +16,8 @@ export class ListUsersDto {
   @IsOptional()
   @IsString()
   @ApiPropertyOptional({
-    description: 'Search term matched against name or email (case-insensitive, contains).',
+    description:
+      'Search term matched against name or email (case-insensitive, contains).',
     example: 'alice@example.com',
     type: String,
   })
@@ -32,7 +40,8 @@ export class ListUsersDto {
     return !!value;
   })
   @ApiPropertyOptional({
-    description: 'Filter by active status. Accepts boolean or "true"/"false" string in query.',
+    description:
+      'Filter by active status. Accepts boolean or "true"/"false" string in query.',
     example: true,
     type: Boolean,
   })

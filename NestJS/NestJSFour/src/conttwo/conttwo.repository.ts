@@ -1,11 +1,10 @@
-
-import { CreatePostDto } from "./dto/CreatePostDto";
-import { UpdatePostDto } from "./dto/UpdatePostDto";
-import { PostResponseDto } from "./dto/PostResponseDto";
-import { GetPostsQueryDto } from "./dto/GetPostsQueryDto";
+import { CreatePostDto } from './dto/CreatePostDto';
+import { UpdatePostDto } from './dto/UpdatePostDto';
+import { PostResponseDto } from './dto/PostResponseDto';
+import { GetPostsQueryDto } from './dto/GetPostsQueryDto';
 
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from "src/prisma.service";
+import { PrismaService } from 'src/prisma.service';
 
 // export const POST_REPOSITORY = 'POST_REPOSITORY';
 
@@ -15,7 +14,7 @@ export interface PostRepository {
   findOne(id: number): Promise<PostResponseDto | null>;
   update(id: number, input: UpdatePostDto): Promise<PostResponseDto>;
   delete(id: number): Promise<PostResponseDto>;
-  findWithQuery(query: GetPostsQueryDto): Promise<PostResponseDto[]>; 
+  findWithQuery(query: GetPostsQueryDto): Promise<PostResponseDto[]>;
 }
 
 @Injectable()
@@ -51,9 +50,12 @@ export class PrismaPostRepository implements PostRepository {
   async update(id: number, input: UpdatePostDto): Promise<PostResponseDto> {
     // Build data object only with provided properties:
     const data: any = {};
-    if (Object.prototype.hasOwnProperty.call(input, 'title')) data.title = input.title;
-    if (Object.prototype.hasOwnProperty.call(input, 'content')) data.content = input.content;
-    if (Object.prototype.hasOwnProperty.call(input, 'published')) data.published = input.published;
+    if (Object.prototype.hasOwnProperty.call(input, 'title'))
+      data.title = input.title;
+    if (Object.prototype.hasOwnProperty.call(input, 'content'))
+      data.content = input.content;
+    if (Object.prototype.hasOwnProperty.call(input, 'published'))
+      data.published = input.published;
 
     // Handle authorId changes via relation API:
     if (Object.prototype.hasOwnProperty.call(input, 'authorId')) {
@@ -104,8 +106,7 @@ export class PrismaPostRepository implements PostRepository {
       title: row.title,
       content: row.content ?? null,
       published: row.published ?? null,
-      authorId: row.authorId ?? null
+      authorId: row.authorId ?? null,
     };
   }
 }
-

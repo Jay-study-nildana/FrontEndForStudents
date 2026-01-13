@@ -17,7 +17,16 @@ import { UploadFileDto } from './dto/UploadFileDto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { extname } from 'path';
 import { Request } from 'express';
-import { ApiTags, ApiBearerAuth, ApiOperation, ApiConsumes, ApiBody, ApiCreatedResponse, ApiBadRequestResponse, ApiUnauthorizedResponse } from '@nestjs/swagger';
+import {
+  ApiTags,
+  ApiBearerAuth,
+  ApiOperation,
+  ApiConsumes,
+  ApiBody,
+  ApiCreatedResponse,
+  ApiBadRequestResponse,
+  ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 import { Get } from '@nestjs/common';
 import { ApiParam } from '@nestjs/swagger';
 import { FileListItemDto } from './dto/FileListItemDto';
@@ -49,7 +58,9 @@ import { Query } from '@nestjs/common';
 @Controller('files')
 export class FilesController {
   // Limit default max file size (bytes)
-  private readonly maxFileSize = Number(process.env.MAX_FILE_SIZE ?? 10 * 1024 * 1024); // 10MB
+  private readonly maxFileSize = Number(
+    process.env.MAX_FILE_SIZE ?? 10 * 1024 * 1024,
+  ); // 10MB
 
   constructor(private readonly filesService: FilesService) {}
 
@@ -87,7 +98,9 @@ export class FilesController {
   @ApiUnauthorizedResponse({ description: 'Unauthorized' })
   @UseInterceptors(
     FileInterceptor('file', {
-      limits: { fileSize: Number(process.env.MAX_FILE_SIZE ?? 10 * 1024 * 1024) },
+      limits: {
+        fileSize: Number(process.env.MAX_FILE_SIZE ?? 10 * 1024 * 1024),
+      },
       storage: diskStorage({
         destination: (req, file, cb) => {
           const dir = process.env.UPLOADS_DIR ?? './uploads';
@@ -100,7 +113,7 @@ export class FilesController {
             const storageName = `${uuidv4()}${ext}`;
             cb(null, storageName);
           } catch (err) {
-            cb(err as any, file.originalname);
+            cb(err, file.originalname);
           }
         },
       }),
@@ -118,10 +131,12 @@ export class FilesController {
 
     // Extract owner/user id from the authenticated request user.
     // Your JwtAuthGuard may populate req.user.id or req.user.sub depending on implementation.
-    const user = req.user as any;
+    const user = req.user;
     const ownerId: string = user?.id ?? user?.sub;
     if (!ownerId) {
-      throw new BadRequestException('Authenticated user id not found on request');
+      throw new BadRequestException(
+        'Authenticated user id not found on request',
+      );
     }
 
     // Delegate to service which will create DB metadata record.
@@ -143,7 +158,11 @@ export class FilesController {
 
   @Get('allthefiles')
   @ApiOperation({ summary: 'List all files (no filters)' })
-  @ApiOkResponse({ description: 'Array of all file metadata', type: FileListItemDto, isArray: true })
+  @ApiOkResponse({
+    description: 'Array of all file metadata',
+    type: FileListItemDto,
+    isArray: true,
+  })
   async listAll(): Promise<FileListItemDto[]> {
     return this.filesService.listAll();
   }
@@ -172,7 +191,10 @@ export class FilesController {
     description: 'UUID of the file metadata record to delete',
     example: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
   })
-  @ApiOkResponse({ description: 'Deleted file metadata', type: FileListItemDto })
+  @ApiOkResponse({
+    description: 'Deleted file metadata',
+    type: FileListItemDto,
+  })
   @ApiNotFoundResponse({ description: 'File not found' })
   async deleteById(
     @Param('id', new ParseUUIDPipe()) id: string,
@@ -189,9 +211,25 @@ export class FilesController {
     description: 'UUID of the owner (user) whose files to list',
     example: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
   })
-  @ApiQuery({ name: 'skip', required: false, description: 'Number of items to skip', type: Number, example: 0 })
-  @ApiQuery({ name: 'take', required: false, description: 'Number of items to return', type: Number, example: 25 })
-  @ApiOkResponse({ description: 'Array of file metadata', type: FileListItemDto, isArray: true })
+  @ApiQuery({
+    name: 'skip',
+    required: false,
+    description: 'Number of items to skip',
+    type: Number,
+    example: 0,
+  })
+  @ApiQuery({
+    name: 'take',
+    required: false,
+    description: 'Number of items to return',
+    type: Number,
+    example: 25,
+  })
+  @ApiOkResponse({
+    description: 'Array of file metadata',
+    type: FileListItemDto,
+    isArray: true,
+  })
   async listByOwner(
     @Param('ownerId', new ParseUUIDPipe()) ownerId: string,
     @Query('skip') skip?: string,
@@ -212,7 +250,15 @@ export class FilesController {
   })
   @ApiOkResponse({
     description: 'Object containing public URL for the file',
-    schema: { type: 'object', properties: { url: { type: 'string', example: 'http://localhost:3000/uploads/abcd-1234.png' } } },
+    schema: {
+      type: 'object',
+      properties: {
+        url: {
+          type: 'string',
+          example: 'http://localhost:3000/uploads/abcd-1234.png',
+        },
+      },
+    },
   })
   @ApiNotFoundResponse({ description: 'File not found or URL not available' })
   async getUrlById(@Param('id', new ParseUUIDPipe()) id: string) {
@@ -220,5 +266,4 @@ export class FilesController {
     if (!url) throw new NotFoundException(`URL for file id ${id} not found`);
     return { url };
   }
-
 }

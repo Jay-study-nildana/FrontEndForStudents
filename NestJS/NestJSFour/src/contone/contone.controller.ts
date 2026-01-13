@@ -30,7 +30,10 @@ export class ContoneController {
   @Post()
   @ApiOperation({ summary: 'Create a contone' })
   @ApiBody({ type: CreateContoneDto })
-  @ApiCreatedResponse({ description: 'The contone has been created.', type: Contone })
+  @ApiCreatedResponse({
+    description: 'The contone has been created.',
+    type: Contone,
+  })
   create(@Body() dto: CreateContoneDto) {
     return this.service.create(dto);
   }
@@ -72,7 +75,10 @@ export class ContoneController {
   @Delete(':id')
   @ApiOperation({ summary: 'Delete a contone' })
   @ApiParam({ name: 'id', description: 'Contone id' })
-  @ApiOkResponse({ description: 'Deletion result', schema: { example: { success: true } } })
+  @ApiOkResponse({
+    description: 'Deletion result',
+    schema: { example: { success: true } },
+  })
   @ApiNotFoundResponse({ description: 'Contone not found' })
   remove(@Param('id') id: string) {
     try {
