@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "74316bc4-dd0a-4227-a37a-dabc425869c8",
+		"name": "Jan202026",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9430666"
+	},
+	"item": [
+		{
+			"name": "NestROOT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

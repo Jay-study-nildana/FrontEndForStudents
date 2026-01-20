@@ -1,0 +1,28 @@
+{
+  "name": "redis-bullmq-smoke",
+  "version": "1.0.0",
+  "description": "Minimal Node.js project to smoke-test Redis connectivity and BullMQ job lifecycle",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test:ioredis": "node src/test-ioredis.js",
+    "test:bullmq": "node src/bullmq-smoke.js",
+    "test:all": "node src/test-all.js"
+  },
+  "keywords": [
+    "redis",
+    "bullmq",
+    "ioredis",
+    "smoke-test"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bullmq": "^5.66.5",
+    "dotenv": "^16.3.1",
+    "ioredis": "^5.3.2"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
