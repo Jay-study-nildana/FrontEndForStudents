@@ -2,13 +2,6 @@
 
 some node JS related code for my students.
 
-# Projects
-
-1. [NodeJSHelloWorld](NodeJSHelloWorld) - Hello World with Node JS.
-1. [NodeJSHelloWorld2](NodeJSHelloWorld2) - Hello World with Node JS. One more.
-1. [MongoDB_API_CRUD_HelloWorld](mongodbhwnov2024a) - Hello World with Mongo DB plus API Server.
-1. [HuggingFaceHelloWorld](HuggingFaceHelloWorld) - Hello World on using Hugging Face Serverless API with Microsoft Phi 4
-
 # book a session with me
 
 1. [calendly](https://calendly.com/jaycodingtutor/30min)

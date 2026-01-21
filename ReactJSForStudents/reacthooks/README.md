@@ -1,10 +1,22 @@
-# Bootstrap 5 Projects
+# React JS : Hooks
 
-Some bootsrap focused projects for my students. 
+Simple react js projec that shows usage of
+
+1. useEffect
+1. useReducer
+1. useRef
+1. custom hooks.
+
+## how to run.
+
+```
+    npm install
+    npm run dev
+```
 
 # book a session with me
 
-1. https://calendly.com/jaycodingtutor/30min
+1. [calendly](https://calendly.com/jaycodingtutor/30min)
 
 # hire and get to know me
 
