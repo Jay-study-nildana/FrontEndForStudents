@@ -21,7 +21,7 @@ export default function Home(): JSX.Element {
           </ul>
         </div>
 
-        <div className="rounded-lg p-6 bg-gradient-to-tr from-indigo-50 to-cyan-50 dark:from-slate-800 dark:to-slate-700 shadow">
+        <div className="rounded-lg p-6 bg-linear-to-tr from-indigo-50 to-cyan-50 dark:from-slate-800 dark:to-slate-700 shadow">
           <h3 className="font-semibold text-lg">Get started</h3>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
             Explore About and Contact pages. Try resizing the viewport and

@@ -28,7 +28,7 @@ export default function About(): JSX.Element {
         </div>
       </div>
 
-      <div className="mt-6 rounded-lg p-6 bg-gradient-to-br from-amber-50 to-rose-50 dark:from-slate-900 dark:to-slate-800 shadow">
+      <div className="mt-6 rounded-lg p-6 bg-linear-to-br from-amber-50 to-rose-50 dark:from-slate-900 dark:to-slate-800 shadow">
         <h3 className="font-semibold">Team</h3>
         <p className="text-sm text-slate-700 dark:text-slate-300">
           Solo demo: designed to be straightforward and easy to extend.

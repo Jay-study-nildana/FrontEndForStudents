@@ -22,7 +22,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  /* color: #646cff; */
   text-decoration: inherit;
 }
 a:hover {
@@ -51,30 +51,33 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+/* Style only truly unstyled native buttons (buttons without a class).
+   Buttons that use Tailwind classes (have a class attribute) will not be affected. */
+button:not([class]) {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(0,0,0,0.08);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: transparent; /* changed from #1a1a1a */
+  background-color: #f9f9f9;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.15s;
 }
-button:hover {
+button:not([class]):hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
+button:not([class]):focus,
+button:not([class]):focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Keep the media query only for unstyled buttons (optional) */
 @media (prefers-color-scheme: light) {
   a:hover {
     color: #747bff;
   }
-  button {
+  button:not([class]) {
     background-color: #f9f9f9;
   }
 }

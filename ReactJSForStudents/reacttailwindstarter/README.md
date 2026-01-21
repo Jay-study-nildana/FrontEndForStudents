@@ -4,37 +4,14 @@ A simple react js project with tailwind configured. To be used as a starter poin
 
 ## commands
 
-npm install
-npm run dev
-
-## other notes
-
 ```
-npm create vite@latest react-tw-hw3 -- --template react
-npm install tailwindcss @tailwindcss/vite
+  npm install
+  npm run dev
 ```
 
-Add the @tailwindcss/vite plugin to your Vite configuration.
+## tailwind v4 setup
 
-```
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import tailwindcss from '@tailwindcss/vite'
-
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    react(), 
-    tailwindcss()
-  ],
-})
-```
-
-index.css
-
-```
-@import "tailwindcss";
-```
+check the file tailwindv4setup.md
 
 # book a session with me
 

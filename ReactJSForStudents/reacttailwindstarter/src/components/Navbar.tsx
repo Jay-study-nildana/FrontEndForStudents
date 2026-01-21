@@ -32,8 +32,8 @@ export default function Navbar(): JSX.Element {
     <header className="max-w-6xl mx-auto px-6 py-6">
       {/* make nav relative so the mobile menu (absolute) can span the full header width */}
       <nav className="flex items-center justify-between relative">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-cyan-400 flex items-center justify-center shadow">
+        <div className="flex items-center gap-3 mr-auto md:mr-12">
+          <div className="w-10 h-10 rounded-full bg-linear-to-tr from-indigo-500 to-cyan-400 flex items-center justify-center shadow">
             <span className="text-white font-bold">TW</span>
           </div>
           <div>
