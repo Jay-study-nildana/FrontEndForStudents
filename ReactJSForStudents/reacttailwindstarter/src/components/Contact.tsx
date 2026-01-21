@@ -33,7 +33,7 @@ export default function Contact(): JSX.Element {
         </div>
       </div>
 
-      <div className="mt-6 rounded-lg p-6 bg-gradient-to-br from-amber-50 to-rose-50 dark:from-slate-900 dark:to-slate-800 shadow">
+      <div className="mt-6 rounded-lg p-6 bg-linear-to-br from-amber-50 to-rose-50 dark:from-slate-900 dark:to-slate-800 shadow">
         <h3 className="font-semibold">Quick links</h3>
         <ul className="mt-2 text-sm text-slate-700 dark:text-slate-300 space-y-1">
           <li><a href="#" className="text-indigo-600">Help Center</a></li>

@@ -38,22 +38,43 @@ export const routesConfig: AppRoute[] = [
   },
 ];
 
+/**
+ * Build react-router children from the central config.
+ * - "/" -> index
+ * - "*" -> wildcard
+ * - Strip leading "/" for top-level absolute paths so they become child paths
+ */
+function buildChildrenFromConfig(routes: AppRoute[]) {
+  const children: Array<Record<string, any>> = [];
+
+  for (const r of routes) {
+    if (r.path === "/") {
+      children.push({ index: true, element: r.element });
+      continue;
+    }
+
+    if (r.path === "*") {
+      children.push({ path: "*", element: r.element });
+      continue;
+    }
+
+    const relative = r.path.startsWith("/") ? r.path.replace(/^\//, "") : r.path;
+    children.push({ path: relative, element: r.element });
+  }
+
+  return children;
+}
+
 // Router component using MainLayout as wrapper
 export default function AppRoutes(): React.ReactElement {
-  // Compose react-router config: put MainLayout as the top layout that contains Outlet
+  const children = buildChildrenFromConfig(routesConfig);
+
   const elements = useRoutes([
     {
       path: "/",
       element: <MainLayout />,
-      children: [
-        { index: true, element: <Home /> }, // handles "/"
-        { path: "about", element: <About /> },
-        { path: "contact", element: <Contact /> },
-        { path: "*", element: <NotFound /> },
-      ],
+      children,
     },
-    // optional fallback redirect (if you prefer redirecting unknown to /)
-    // { path: "*", element: <Navigate to="/" replace /> },
   ]);
 
   return (
