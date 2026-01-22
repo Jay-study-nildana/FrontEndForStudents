@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* let components / Tailwind control foreground/background where needed */
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  /* color: #646cff; */
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* Avoid layout issues caused by centering at the document root.
+   Let the app/container (Tailwind .max-w-6xl.mx-auto) handle centering. */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent accidental horizontal scroll */
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: transparent; /* background handled in app via Tailwind */
+  color: inherit;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Style only truly unstyled native buttons (buttons without a class).
+   Buttons that use Tailwind classes (have a class attribute) will not be affected. */
+button:not([class]) {
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.15s;
+}
+button:not([class]):hover {
+  border-color: #646cff;
+}
+button:not([class]):focus,
+button:not([class]):focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Keep the media query only for unstyled buttons (optional) */
+@media (prefers-color-scheme: light) {
+  a:hover {
+    color: #747bff;
+  }
+  button:not([class]) {
+    background-color: #f9f9f9;
+  }
+}

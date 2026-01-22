@@ -1,0 +1,289 @@
+:root {
+  --card-bg: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --border: #e6e9ee;
+  --shadow: 0 6px 20px rgba(16,24,40,0.06);
+}
+
+/* Root layout */
+.profile-root {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #0f172a;
+  max-width: 980px;
+  margin: 24px auto;
+}
+
+/* Cover */
+.profile-cover {
+  height: 160px;
+  background-color: #f3f4f6;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Card */
+.profile-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-top: -48px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  overflow: visible;
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.profile-avatar-wrap {
+  margin-top: -8px;
+  flex: 0 0 auto;
+}
+
+.profile-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 4px solid #fff;
+  background: #fff;
+}
+
+/* Meta */
+.profile-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.profile-handle {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.profile-role {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.profile-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.btn-follow {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+}
+
+.btn-follow.following {
+  background: #e6eefc;
+  color: var(--accent);
+  border: 1px solid rgba(37,99,235,0.12);
+}
+
+.btn-message {
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+/* Stats */
+.profile-stats {
+  display: flex;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.stat {
+  text-align: left;
+}
+
+.stat-val {
+  font-weight: 700;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Tabs */
+.profile-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.profile-tabs button {
+  background: transparent;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.profile-tabs button.active {
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+/* Sections */
+.profile-section {
+  padding: 14px 6px;
+}
+
+.profile-bio {
+  margin: 0 0 12px 0;
+  color: #0f172a;
+  line-height: 1.5;
+}
+
+/* Details */
+.profile-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.detail-label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.detail-value {
+  font-weight: 600;
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Activity */
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.activity-item {
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fff;
+}
+
+.activity-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.activity-type {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.activity-title {
+  font-weight: 600;
+}
+
+.activity-excerpt {
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+/* Contacts */
+.contacts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid #f8fafc;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.contact-label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.contact-value a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Placeholder */
+.placeholder {
+  color: var(--muted);
+  padding: 12px;
+  border: 1px dashed #edf2f7;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .profile-root { margin: 12px; }
+  .profile-avatar { width: 76px; height: 76px; border-radius: 10px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}

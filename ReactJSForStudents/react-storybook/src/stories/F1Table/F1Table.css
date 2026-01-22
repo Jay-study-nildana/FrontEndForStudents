@@ -1,0 +1,133 @@
+.f1table-root {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #111827;
+  border: 1px solid #e6e9ee;
+  border-radius: 8px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+.f1table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.f1table-input {
+  padding: 8px 10px;
+  border: 1px solid #e6e9ee;
+  border-radius: 6px;
+  min-width: 280px;
+}
+
+.f1table-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.f1table-btn {
+  background: #f3f4f6;
+  border: 1px solid #e6e9ee;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.f1table-wrap {
+  overflow-x: auto;
+}
+
+.f1table-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.f1table-th {
+  text-align: left;
+  padding: 10px 12px;
+  background: #fafbfd;
+  border-bottom: 1px solid #eef2f6;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.f1table-th-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.f1table-sort-indicator {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.f1table-table td {
+  padding: 10px 12px;
+  border-bottom: 1px dashed #f1f5f9;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.f1table-driver {
+  display: flex;
+  flex-direction: column;
+}
+
+.f1table-driver-main {
+  font-weight: 600;
+}
+
+.f1table-driver-sub {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Empty row */
+.f1table-empty {
+  padding: 24px;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* Footer */
+.f1table-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  align-items: center;
+  gap: 12px;
+}
+
+.f1table-pager {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.f1table-page-indicator {
+  margin: 0 6px;
+  color: #374151;
+  font-size: 13px;
+}
+
+/* Screen-reader helper */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
