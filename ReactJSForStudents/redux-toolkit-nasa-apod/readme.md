@@ -5,10 +5,12 @@ redux demo.
 1. codesandbox : https://codesandbox.io/p/sandbox/redux-toolkit-nasa-apod-ikn5b3
 1. codesandbox : https://codesandbox.io/p/sandbox/react-js-nasa-apod-4l8hxz
 
+Note : this is a very old project. use the new 'react-reduxtoolkit' which also consumes the same NASA APOD API
+
 # how to run
 
 1. npm install
-1. npm start
+1. npm run start
 
 # book a session with me
 

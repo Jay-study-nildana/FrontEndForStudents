@@ -1,0 +1,55 @@
+/* Lightweight styling for the Image component demo */
+
+.img__wrap {
+  position: relative;
+  background-color: var(--img-bg, #f3f4f6);
+  color: inherit;
+}
+
+/* skeleton shown while loading */
+.img__skeleton {
+  width: 100%;
+  height: 100%;
+  min-height: 48px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.03) 50%, rgba(255,255,255,0.02) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+
+/* placeholder when provided */
+.img__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 48px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+/* small error UI */
+.img__error {
+  width: 100%;
+  height: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff5f5;
+  color: #ef4444;
+}
+
+/* simple fade-in for loaded images (applied by switching display to block) */
+.img__wrap img {
+  transition: opacity 180ms ease-in, transform 240ms ease;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* shimmer keyframes */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
