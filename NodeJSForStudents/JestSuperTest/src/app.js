@@ -12,11 +12,13 @@
  * Keep this file minimal and pure (no global state) so tests are reliable.
  */
 
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const { v4: uuidv4 } = require('uuid');
-const usersModule = require('../routes/users');
+const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
+const { v4: uuidv4 } = require("uuid");
+const usersModule = require("../routes/users");
+const strUtilsModule = require("../routes/stroperations");
+const fileOperationsModule = require("../routes/fileoperations");
 
 const app = express();
 
@@ -31,10 +33,10 @@ app.use(express.json());
 
 // Simple request correlation middleware
 app.use((req, res, next) => {
-  const incoming = req.header('x-request-id') || req.header('x-correlation-id');
+  const incoming = req.header("x-request-id") || req.header("x-correlation-id");
   const requestId = incoming || uuidv4();
   // Expose to tests/clients
-  res.setHeader('X-Request-Id', requestId);
+  res.setHeader("X-Request-Id", requestId);
 
   // Also attach to req for handlers
   req.requestId = requestId;
@@ -42,14 +44,18 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/users', usersModule.router);
+app.use("/users", usersModule.router);
+app.use("/str", strUtilsModule.router);
+app.use("/files", fileOperationsModule.router);
 
 // Health endpoint
-app.get('/health', (req, res) => res.json({ status: 'ok', requestId: req.requestId }));
+app.get("/health", (req, res) =>
+  res.json({ status: "ok", requestId: req.requestId }),
+);
 
 // 404
 app.use((req, res) => {
-  res.status(404).json({ error: 'Not found', requestId: req.requestId });
+  res.status(404).json({ error: "Not found", requestId: req.requestId });
 });
 
 module.exports = app;
