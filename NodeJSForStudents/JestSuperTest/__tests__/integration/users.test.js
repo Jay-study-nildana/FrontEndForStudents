@@ -7,9 +7,9 @@
  */
 
 const request = require('supertest');
-const app = require('../src/app');
-const usersModule = require('../routes/users');
-const logger = require('../src/logger');
+const app = require('../../src/app');
+const usersModule = require('../../routes/users');
+const logger = require('../../src/logger');
 
 beforeAll(() => {
   // Optional: additional global setup
