@@ -1,0 +1,294 @@
+{
+  "info": {
+    "_postman_id": "74316bc4-dd0a-4227-a37a-dabc425869c8",
+    "name": "Jan202026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9430666"
+  },
+  "item": [
+    {
+      "name": "NestROOT",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Job Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/jobs/21",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs",
+            "21"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Jobs With Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/jobs",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Jobs Completed",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/jobs-completed",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs-completed"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Jobs In Progress",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/jobs-inprogress",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs-inprogress"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Jobs Failed",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/jobs-failed",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs-failed"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Job",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"jobonoe\",\r\n    \"payload\":\"some payload one\"\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/jobs",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Job With Type of Job - Email",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"email\",\r\n  \"type\": \"email\",\r\n  \"payload\": {\r\n    \"to\": \"student@example.com\",\r\n    \"subject\": \"Welcome!\",\r\n    \"body\": \"Hello and welcome to the course.\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/jobs-create-with-type",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs-create-with-type"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Job With Type of Job - Resize Image",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"resize-image\",\r\n  \"type\": \"resize-image\",\r\n  \"payload\": {\r\n    \"filename\": \"photo.jpg\",\r\n    \"size\": \"800x600\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/jobs-create-with-type",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs-create-with-type"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Job With Type of Job - Data Import",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"data-import\",\r\n  \"type\": \"data-import\",\r\n  \"payload\": {\r\n    \"records\": 1000,\r\n    \"source\": \"students.csv\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/jobs-create-with-type",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs-create-with-type"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Job With Type of Job - Wrong Type",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"send-sms\",\r\n  \"type\": \"send-sms\",\r\n  \"payload\": {\r\n    \"to\": \"+1234567890\",\r\n    \"message\": \"Test SMS\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/jobs-create-with-type",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs-create-with-type"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Job Bulk",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"jobs\": [\r\n        {\r\n            \"name\": \"jobonoe\",\r\n            \"payload\": \"some payload one\"\r\n        },\r\n        {\r\n            \"name\": \"jobtwo\",\r\n            \"payload\": \"some payload two\"\r\n        },\r\n                {\r\n            \"name\": \"jobthree\",\r\n            \"payload\": \"some payload three\"\r\n        }        \r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/jobs/bulk",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "jobs",
+            "bulk"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
