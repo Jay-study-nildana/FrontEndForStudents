@@ -1,0 +1,60 @@
+@host = http://localhost:3000
+# Replace {{id}} after creating an item.
+@id = 3763473f-56cd-4d4f-8b2a-c82cd08ebb66
+
+### Create contone
+POST {{host}}/contone
+Content-Type: application/json
+
+{
+  "title": "Sample Contone",
+  "description": "A short description"
+}
+
+### Get all contones
+GET {{host}}/contone
+
+### Get one contone
+GET {{host}}/contone/{{id}}
+
+### Update contone
+PUT {{host}}/contone/{{id}}
+Content-Type: application/json
+
+{
+  "title": "Updated Contone Title",
+  "description": "Updated description"
+}
+
+### Delete contone
+DELETE {{host}}/contone/{{id}}
+```// filepath: c:\Users\vijay\Videos\PracDec24\nest-hw-2\contone.http
+@host = http://localhost:3000
+# Replace {{id}} after creating an item.
+
+### Create contone
+POST {{host}}/contone
+Content-Type: application/json
+
+{
+  "title": "Sample Contone",
+  "description": "A short description"
+}
+
+### Get all contones
+GET {{host}}/contone
+
+### Get one contone
+GET {{host}}/contone/{{id}}
+
+### Update contone
+PUT {{host}}/contone/{{id}}
+Content-Type: application/json
+
+{
+  "title": "Updated Contone Title",
+  "description": "Updated description"
+}
+
+### Delete contone
+DELETE {{host}}/contone/{{id}}
