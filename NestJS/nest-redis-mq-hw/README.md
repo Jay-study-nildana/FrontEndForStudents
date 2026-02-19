@@ -2,6 +2,18 @@
 
 Demo project that shows usage fo Nest JS with Bull MQ, Workers and Redis.
 
+Here, you can.
+
+1. add a job
+1. add multiple jobs in bulk
+1. get job status
+1. add a specific job type
+1. get all jobs
+1. get completed jobs
+1. get failed jobs
+
+Note: each individual job type is handled by a modular function. So, if you want to, you can add actual processing code and make this demo project into a real working project with real functionality. 
+
 # env file
 
 fill all values in .env file.

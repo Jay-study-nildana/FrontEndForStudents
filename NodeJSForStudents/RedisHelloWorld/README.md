@@ -2,6 +2,8 @@
 
 hello world project showcasing redis with bull mq inside a node js project. 
 
+Note: This project does not do any actual controller or worker in action. It only shows you how to configure redis and bullmq and perform a simple 'smoke test'. use this to understand how bullmq and redis work. After looking at this project go to the project, 'nest-redis-mq-hw' inside 'NestJS' folder for the full redis, bullmq and worker in action.
+
 # .env file
 
 fill the values of the env file.
