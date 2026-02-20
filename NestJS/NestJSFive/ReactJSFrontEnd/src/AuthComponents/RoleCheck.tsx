@@ -22,7 +22,7 @@ const RoleCheck: React.FC = () => {
     setError(null);
     try {
       const token = getAccessToken();
-      const url = `${import.meta.env.VITE_API_URL || "http://localhost:3000"}${path}`;
+      const url = `${import.meta.env.VITE_API_URL}${path}`;
       const res = await fetch(url, {
         method: "GET",
         headers: {

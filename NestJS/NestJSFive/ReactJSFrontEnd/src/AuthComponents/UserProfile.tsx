@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
 import { Link } from "react-router-dom";
 
@@ -14,11 +15,37 @@ const UserProfile: React.FC = () => {
     } catch {}
   };
 
+  const navigate = useNavigate();
+  const [countdown, setCountdown] = useState(10);
+
+  useEffect(() => {
+    if (isAuthenticated) return;
+    if (countdown === 0) {
+      navigate("/login");
+      return;
+    }
+    const timer = setTimeout(() => setCountdown((c) => c - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [isAuthenticated, countdown, navigate]);
+
   if (!isAuthenticated) {
     return (
       <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow text-center">
         <h2 className="text-2xl font-bold mb-2">User Profile</h2>
-        <p className="text-red-600">You are not logged in.</p>
+        <p className="text-red-600 mb-2">You are not logged in.</p>
+        <p className="mb-2">
+          Redirecting to login in{" "}
+          <span className="font-semibold">{countdown}</span> second
+          {countdown !== 1 ? "s" : ""}...
+        </p>
+        <p>
+          <a
+            href="/login"
+            className="text-blue-600 hover:underline font-semibold"
+          >
+            Go to login now
+          </a>
+        </p>
       </div>
     );
   }
@@ -37,7 +64,13 @@ const UserProfile: React.FC = () => {
           to="/posts"
           className="text-blue-600 hover:underline font-semibold text-sm"
         >
-          Go to Posts
+          Go to Posts (In Memory DB. ContOne endpoints)
+        </Link>
+        <Link
+          to="/posts-cont-two"
+          className="text-blue-600 hover:underline font-semibold text-sm"
+        >
+          Go to Posts (PostGre DB. ContTwo endpoints)
         </Link>
         <Link
           to="/role-check"
@@ -55,7 +88,13 @@ const UserProfile: React.FC = () => {
           to="/posts/public"
           className="text-blue-600 hover:underline font-semibold text-sm"
         >
-          Go to Public Posts
+          Go to Public Posts (Cont One, In Memory DB)
+        </Link>
+        <Link
+          to="/posts-cont-two-public"
+          className="text-blue-600 hover:underline font-semibold text-sm"
+        >
+          Go to Public Posts (Cont Two, PostGre DB)
         </Link>
         {getRoles().includes("admin") ? (
           <Link

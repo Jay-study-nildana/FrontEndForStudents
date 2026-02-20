@@ -15,17 +15,17 @@ import { GetImagesForPostWithUUIDResponseDto } from './dto/GetImagesForPostWithU
 export interface PostRepository {
   create(input: CreatePostDto): Promise<PostResponseDto>;
   findAll(): Promise<PostResponseDto[]>;
-  findOne(id: number): Promise<PostResponseDto | null>;
-  update(id: number, input: UpdatePostDto): Promise<PostResponseDto>;
-  delete(id: number): Promise<PostResponseDto>;
+  findOne(id: string): Promise<PostResponseDto | null>;
+  update(id: string, input: UpdatePostDto): Promise<PostResponseDto>;
+  delete(id: string): Promise<PostResponseDto>;
   findWithQuery(query: GetPostsQueryDto): Promise<PostResponseDto[]>;
-  addImageToPost(
-    input: AddImageToPostRequestDto,
-  ): Promise<AddImageToPostResponseDto>;
+  // addImageToPost(
+  //   input: AddImageToPostRequestDto,
+  // ): Promise<AddImageToPostResponseDto>;
   addImageToPostWithUUID(
     input: AddImageToPostWithUUIDRequestDto,
   ): Promise<AddImageToPostWithUUIDResponseDto>;
-  getImagesForPost(postId: number): Promise<GetImagesForPostResponseDto>;
+  // getImagesForPost(postId: string): Promise<GetImagesForPostResponseDto>;
   getImagesForPostWithUUID(
     postId: string,
   ): Promise<GetImagesForPostWithUUIDResponseDto>;

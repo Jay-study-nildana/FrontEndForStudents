@@ -28,7 +28,7 @@ export class PostsService {
     return this.repo.findAll();
   }
 
-  async findOne(id: number): Promise<PostResponseDto> {
+  async findOne(id: string): Promise<PostResponseDto> {
     const post = await this.repo.findOne(id);
     if (!post) {
       throw new NotFoundException(`Post with id=${id} not found`);
@@ -36,13 +36,13 @@ export class PostsService {
     return post;
   }
 
-  async update(id: number, input: UpdatePostDto): Promise<PostResponseDto> {
+  async update(id: string, input: UpdatePostDto): Promise<PostResponseDto> {
     // ensure resource exists so we return 404 instead of Prisma error
     await this.findOne(id);
     return this.repo.update(id, input);
   }
 
-  async remove(id: number): Promise<PostResponseDto> {
+  async remove(id: string): Promise<PostResponseDto> {
     // ensure resource exists so we return 404 instead of Prisma error
     await this.findOne(id);
     return this.repo.delete(id);
@@ -52,13 +52,13 @@ export class PostsService {
     return this.repo.findWithQuery(query);
   }
 
-  async addImageToPost(
-    input: AddImageToPostRequestDto,
-  ): Promise<AddImageToPostResponseDto> {
-    // Optionally, check if post exists before adding image
-    await this.findOne(input.postId);
-    return this.repo.addImageToPost(input);
-  }
+  // async addImageToPost(
+  //   input: AddImageToPostRequestDto,
+  // ): Promise<AddImageToPostResponseDto> {
+  //   // Optionally, check if post exists before adding image
+  //   await this.findOne(input.postId);
+  //   return this.repo.addImageToPost(input);
+  // }
 
   async addImageToPostWithUUID(
     input: AddImageToPostWithUUIDRequestDto,
@@ -69,11 +69,11 @@ export class PostsService {
     return this.repo.addImageToPostWithUUID(input);
   }
 
-  async getImagesForPost(postId: number): Promise<GetImagesForPostResponseDto> {
-    // Optionally, check if post exists before fetching images
-    await this.findOne(postId);
-    return this.repo.getImagesForPost(postId);
-  }
+  // async getImagesForPost(postId: number): Promise<GetImagesForPostResponseDto> {
+  //   // Optionally, check if post exists before fetching images
+  //   await this.findOne(postId);
+  //   return this.repo.getImagesForPost(postId);
+  // }
 
   async getImagesForPostWithUUID(
     postId: string,

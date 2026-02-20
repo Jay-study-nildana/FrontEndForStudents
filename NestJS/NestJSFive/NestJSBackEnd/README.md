@@ -45,6 +45,7 @@ npx prisma studio (check if tables and seed data is added as expected)
 1. note: To apply existing migrations from the migrations folder: npx prisma migrate deploy 
 1. note: To generate a fresh migration (delete the exisiting migration folder first) from the current schema and apply it (dev workflow): npx prisma migrate dev --name init
 1. note : if you get errors, try 'npm install' and 'npm install @prisma/client'
+1. the seed file is trigger via prisma client using prisma.config, seed: "ts-node --transpile-only src/seed.ts",
 
 # how to run (project)
 

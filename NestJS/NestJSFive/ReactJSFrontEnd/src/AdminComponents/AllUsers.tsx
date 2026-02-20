@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { type AllUsersResponseDTO } from "./AllUsersDTO";
 import FieldLoader from "../Utils/FieldLoader";
 import { Link } from "react-router-dom";
-const API_URL = "http://localhost:3000/adminpanel/users?isActive=true";
+const API_URL = `${import.meta.env.VITE_API_URL}/adminpanel/users?isActive=true`;
 import { useAuth } from "../auth/AuthProvider";
 
 const AllUsers: React.FC = () => {

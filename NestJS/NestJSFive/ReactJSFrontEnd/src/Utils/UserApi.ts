@@ -1,7 +1,7 @@
 // src/AdminComponents/UserApi.ts
 import { type UserDetailsDTO } from "../AdminComponents/DTOS/UserDetailsDTO";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export async function fetchUserDetails(
   id: string,

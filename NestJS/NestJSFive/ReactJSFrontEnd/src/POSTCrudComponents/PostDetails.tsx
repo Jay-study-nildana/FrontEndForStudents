@@ -9,7 +9,8 @@ import { useAuth } from "../auth/AuthProvider";
 
 // Fetch all files from the backend
 export async function fetchAllFiles(token: string) {
-  const response = await fetch("http://localhost:3000/files/allthefiles", {
+  const apiBase = import.meta.env.VITE_API_URL;
+  const response = await fetch(`${apiBase}/files/allthefiles`, {
     method: "GET",
     headers: {
       accept: "application/json",
@@ -23,7 +24,7 @@ export async function fetchAllFiles(token: string) {
   // For each file, fetch its URL
   const filesWithUrls = await Promise.all(
     files.map(async (file: any) => {
-      const urlRes = await fetch(`http://localhost:3000/files/url/${file.id}`, {
+      const urlRes = await fetch(`${apiBase}/files/url/${file.id}`, {
         method: "GET",
         headers: {
           accept: "application/json",
@@ -64,8 +65,9 @@ const PostDetails: React.FC = () => {
       setLinkedImagesLoading(true);
       setLinkedImagesError(null);
       try {
+        const apiBase = import.meta.env.VITE_API_URL;
         const res = await fetch(
-          `http://localhost:3000/posts/${id}/images-uuid`,
+          `${apiBase}/posts/${id}/images-uuid`,
           {
             method: "GET",
             headers: { accept: "application/json" },
@@ -100,7 +102,8 @@ const PostDetails: React.FC = () => {
     setLinkError(null);
     setLinkSuccess(null);
     try {
-      const res = await fetch("http://localhost:3000/posts/add-image-uuid", {
+      const apiBase = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${apiBase}/posts/add-image-uuid`, {
         method: "POST",
         headers: {
           accept: "application/json",

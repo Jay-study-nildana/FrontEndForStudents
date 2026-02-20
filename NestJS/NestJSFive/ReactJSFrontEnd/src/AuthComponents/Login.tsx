@@ -1,10 +1,13 @@
 // src/components/Login.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
 import { Link } from "react-router-dom";
 
 const Login: React.FC = () => {
   const { login, isAuthenticated, getEmail } = useAuth();
+  const navigate = useNavigate();
+  const [countdown, setCountdown] = useState(10);
   const [email, setEmail] = useState("seed@example.com");
   const [password, setPassword] = useState("Password123!");
   const [error, setError] = useState<string | null>(null);
@@ -23,13 +26,36 @@ const Login: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    if (countdown === 0) {
+      navigate("/profile");
+      return;
+    }
+    const timer = setTimeout(() => setCountdown((c) => c - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [isAuthenticated, countdown, navigate]);
+
   if (isAuthenticated) {
     return (
       <div className="p-4 text-center">
         <h2 className="text-xl font-bold mb-2">
           Welcome, {getEmail() || "User"}!
         </h2>
-        <p>You are logged in.</p>
+        <p className="mb-2">You are logged in.</p>
+        <p className="mb-2">
+          Redirecting to your profile in{" "}
+          <span className="font-semibold">{countdown}</span> second
+          {countdown !== 1 ? "s" : ""}...
+        </p>
+        <p>
+          <a
+            href="/profile"
+            className="text-blue-600 hover:underline font-semibold"
+          >
+            Go to your profile now
+          </a>
+        </p>
       </div>
     );
   }

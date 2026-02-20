@@ -3,7 +3,7 @@ import { useAuth } from "../auth/AuthProvider";
 import FieldLoader from "../Utils/FieldLoader";
 import { type FileUploadResponseDTO } from "./FileUploadResponseDTO";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const initialResponse: FileUploadResponseDTO | null = null;
 

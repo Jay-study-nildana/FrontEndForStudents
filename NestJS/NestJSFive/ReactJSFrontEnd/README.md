@@ -14,6 +14,18 @@ Illustrates the following concepts.
 1. An SVG based 'animation' which displays an interactive track racing.
 1. Multiple "Page Not Found" components with several variations.
 
+Also, 
+
+1. Integrates with the NestJS BackEnd
+1. Login, Logout and Register
+1. CRUD operation views
+1. Filed Upload and display
+1. Content display from blog themed endpoints
+
+## env file
+
+create .env file using the example env file and fill all details.
+
 ## commands
 
 ```

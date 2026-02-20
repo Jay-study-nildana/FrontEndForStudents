@@ -72,18 +72,18 @@ export class PostsController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get a post by id' })
-  @ApiParam({ name: 'id', type: Number })
+  @ApiParam({ name: 'id', type: String })
   @ApiOkResponse({ description: 'The post', type: PostResponseDto })
-  findOne(@Param('id', ParseIntPipe) id: number): Promise<PostResponseDto> {
+  findOne(@Param('id') id: string): Promise<PostResponseDto> {
     return this.service.findOne(id);
   }
 
   @Put(':id')
   @ApiOperation({ summary: 'Update a post' })
-  @ApiParam({ name: 'id', type: Number })
+  @ApiParam({ name: 'id', type: String })
   @ApiOkResponse({ description: 'Updated post', type: PostResponseDto })
   update(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body() dto: UpdatePostDto,
   ): Promise<PostResponseDto> {
     return this.service.update(id, dto);
@@ -91,36 +91,36 @@ export class PostsController {
 
   @Delete(':id')
   @ApiOperation({ summary: 'Delete a post' })
-  @ApiParam({ name: 'id', type: Number })
+  @ApiParam({ name: 'id', type: String })
   @ApiOkResponse({ description: 'Deleted post', type: PostResponseDto })
-  remove(@Param('id', ParseIntPipe) id: number): Promise<PostResponseDto> {
+  remove(@Param('id') id: string): Promise<PostResponseDto> {
     return this.service.remove(id);
   }
 
-  @HttpPost('add-image')
-  @ApiOperation({ summary: 'Add an image to a post' })
-  @ApiBody({
-    description: 'Post ID and File ID to link as image',
-    type: AddImageToPostRequestDto,
-    examples: {
-      example1: {
-        summary: 'Basic example',
-        value: {
-          postId: 1,
-          fileId: 'a1b2c3d4-e5f6-7890-abcd-1234567890ab',
-        },
-      },
-    },
-  })
-  @ApiCreatedResponse({
-    description: 'Image added to post',
-    type: AddImageToPostResponseDto,
-  })
-  async addImageToPost(
-    @Body() dto: AddImageToPostRequestDto,
-  ): Promise<AddImageToPostResponseDto> {
-    return this.service.addImageToPost(dto);
-  }
+  // @HttpPost('add-image')
+  // @ApiOperation({ summary: 'Add an image to a post' })
+  // @ApiBody({
+  //   description: 'Post ID and File ID to link as image',
+  //   type: AddImageToPostRequestDto,
+  //   examples: {
+  //     example1: {
+  //       summary: 'Basic example',
+  //       value: {
+  //         postId: '1',
+  //         fileId: 'a1b2c3d4-e5f6-7890-abcd-1234567890ab',
+  //       },
+  //     },
+  //   },
+  // })
+  // @ApiCreatedResponse({
+  //   description: 'Image added to post',
+  //   type: AddImageToPostResponseDto,
+  // })
+  // async addImageToPost(
+  //   @Body() dto: AddImageToPostRequestDto,
+  // ): Promise<AddImageToPostResponseDto> {
+  //   return this.service.addImageToPost(dto);
+  // }
 
   @HttpPost('add-image-uuid')
   @ApiOperation({ summary: 'Add an image to a post (UUID)' })
@@ -147,17 +147,17 @@ export class PostsController {
     return this.service.addImageToPostWithUUID(dto);
   }
 
-  @Get(':id/images')
-  @ApiOperation({ summary: 'Get all images for a post' })
-  @ApiOkResponse({
-    description: 'List of images for the post',
-    type: GetImagesForPostResponseDto,
-  })
-  async getImagesForPost(
-    @Param('id', ParseIntPipe) id: number,
-  ): Promise<GetImagesForPostResponseDto> {
-    return this.service.getImagesForPost(id);
-  }
+  // @Get(':id/images')
+  // @ApiOperation({ summary: 'Get all images for a post' })
+  // @ApiOkResponse({
+  //   description: 'List of images for the post',
+  //   type: GetImagesForPostResponseDto,
+  // })
+  // async getImagesForPost(
+  //   @Param('id', ParseIntPipe) id: number,
+  // ): Promise<GetImagesForPostResponseDto> {
+  //   return this.service.getImagesForPost(id);
+  // }
 
   @Get(':uuid/images-uuid')
   @ApiOperation({ summary: 'Get all images for a post (UUID)' })
