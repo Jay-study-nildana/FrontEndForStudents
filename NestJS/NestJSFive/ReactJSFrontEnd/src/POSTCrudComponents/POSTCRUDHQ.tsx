@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddPostForm from "./AddPostForm";
 import PostList from "./PostList";
+import DeleteConfirmModal from "../POSTContTwoComponents/DeleteConfirmModal";
 
 import {
   type ContonePostDTO,
@@ -14,14 +15,17 @@ import {
   handleDeletePost as deletePostApi,
 } from "../Utils/postCrudApi";
 
-// const API_URL = "http://localhost:3000/contone";
-
 const POSTCRUDHQ: React.FC = () => {
   const [posts, setPosts] = useState<ContoneResponseDTO[]>([]);
   const [loading, setLoading] = useState(false);
   const [adding, setAdding] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showAdd, setShowAdd] = useState(false);
+
+  // Delete modal state
+  const [deleteId, setDeleteId] = useState<string | null>(null);
+  const [deleteLoading, setDeleteLoading] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
   // Fetch posts
   const fetchPosts = async () => {
@@ -38,9 +42,32 @@ const POSTCRUDHQ: React.FC = () => {
     await updatePostApi(id, update, setError, fetchPosts);
   };
 
-  // Delete post
-  const handleDeletePost = async (id: string) => {
-    await deletePostApi(id, setError, fetchPosts);
+  // Show delete modal
+  const handleRequestDelete = async (id: string) => {
+    setDeleteId(id);
+    setDeleteError(null);
+    return Promise.resolve();
+  };
+
+  // Confirm delete
+  const handleDeleteConfirm = async () => {
+    if (!deleteId) return;
+    setDeleteLoading(true);
+    setDeleteError(null);
+    try {
+      await deletePostApi(deleteId, setDeleteError, fetchPosts);
+      setDeleteId(null);
+    } catch (e: any) {
+      setDeleteError(e.message || "Delete failed");
+    } finally {
+      setDeleteLoading(false);
+    }
+  };
+
+  // Cancel delete
+  const handleDeleteCancel = () => {
+    setDeleteId(null);
+    setDeleteError(null);
   };
 
   useEffect(() => {
@@ -66,7 +93,14 @@ const POSTCRUDHQ: React.FC = () => {
           posts={posts}
           loading={loading}
           onUpdate={handleUpdatePost}
-          onDelete={handleDeletePost}
+          onDelete={handleRequestDelete}
+        />
+        <DeleteConfirmModal
+          open={!!deleteId}
+          loading={deleteLoading}
+          error={deleteError}
+          onConfirm={handleDeleteConfirm}
+          onCancel={handleDeleteCancel}
         />
       </div>
     </div>

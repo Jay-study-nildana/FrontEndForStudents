@@ -20,40 +20,40 @@ import { GetImagesForPostWithUUIDResponseDto, PostImageWithUUIDItemDto } from '.
 export class PrismaPostRepository implements PostRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getImagesForPost(postId: number): Promise<GetImagesForPostResponseDto> {
-    const images = await this.prisma.postImage.findMany({
-      where: { postId },
-      orderBy: { id: 'asc' },
-    });
-    return {
-      images: images.map(
-        (img) =>
-          ({
-            id: img.id,
-            postId: img.postId,
-            fileId: img.fileId,
-            createdAt: img.createdAt,
-          }) as PostImageItemDto,
-      ),
-    };
-  }
+  // async getImagesForPost(postId: number): Promise<GetImagesForPostResponseDto> {
+  //   const images = await this.prisma.postImage.findMany({
+  //     where: { postId },
+  //     orderBy: { id: 'asc' },
+  //   });
+  //   return {
+  //     images: images.map(
+  //       (img) =>
+  //         ({
+  //           id: img.id,
+  //           postId: img.postId,
+  //           fileId: img.fileId,
+  //           createdAt: img.createdAt,
+  //         }) as PostImageItemDto,
+  //     ),
+  //   };
+  // }
 
-  async addImageToPost(
-    input: AddImageToPostRequestDto,
-  ): Promise<AddImageToPostResponseDto> {
-    const created = await this.prisma.postImage.create({
-      data: {
-        postId: input.postId,
-        fileId: input.fileId,
-      },
-    });
-    return {
-      id: created.id,
-      postId: created.postId,
-      fileId: created.fileId,
-      createdAt: created.createdAt,
-    };
-  }
+  // async addImageToPost(
+  //   input: AddImageToPostRequestDto,
+  // ): Promise<AddImageToPostResponseDto> {
+  //   const created = await this.prisma.postImage.create({
+  //     data: {
+  //       postId: input.postId,
+  //       fileId: input.fileId,
+  //     },
+  //   });
+  //   return {
+  //     id: created.id,
+  //     postId: created.postId,
+  //     fileId: created.fileId,
+  //     createdAt: created.createdAt,
+  //   };
+  // }
 
   async addImageToPostWithUUID(
     input: AddImageToPostWithUUIDRequestDto,
@@ -113,12 +113,12 @@ export class PrismaPostRepository implements PostRepository {
     return rows.map((r) => this.mapPrismaToDto(r));
   }
 
-  async findOne(id: number): Promise<PostResponseDto | null> {
+  async findOne(id: string): Promise<PostResponseDto | null> {
     const row = await this.prisma.post.findUnique({ where: { id } });
     return row ? this.mapPrismaToDto(row) : null;
   }
 
-  async update(id: number, input: UpdatePostDto): Promise<PostResponseDto> {
+  async update(id: string, input: UpdatePostDto): Promise<PostResponseDto> {
     // Build data object only with provided properties:
     const data: any = {};
     if (Object.prototype.hasOwnProperty.call(input, 'title'))
@@ -145,7 +145,7 @@ export class PrismaPostRepository implements PostRepository {
     return this.mapPrismaToDto(updated);
   }
 
-  async delete(id: number): Promise<PostResponseDto> {
+  async delete(id: string): Promise<PostResponseDto> {
     const deleted = await this.prisma.post.delete({ where: { id } });
     return this.mapPrismaToDto(deleted);
   }

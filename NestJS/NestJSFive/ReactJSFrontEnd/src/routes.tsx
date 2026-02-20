@@ -29,11 +29,22 @@ import FilesHQ from "./FileComponents/FilesHQ";
 import AdminPanel from "./AdminComponents/AdminPanel";
 import UserDetails from "./AdminComponents/UserDetails";
 
-//POST CRUD thing
+//POST CRUD thing - ContOne
 
 import PostDetails from "./POSTCrudComponents/PostDetails";
 import POSTCRUDHQ from "./POSTCrudComponents/POSTCRUDHQ";
 import PostsPublicView from "./POSTCrudComponents/PostsPublicView";
+
+//POST CRUD thing - ContOne
+
+import POSTCRUDContTwoHQ from "./POSTContTwoComponents/POSTCRUDContTwoHQ";
+import PostDetailsContTwo from "./POSTContTwoComponents/PostDetails";
+import PostsContoneTwoPublic from "./POSTContTwoComponents/PostsContoneTwoPublic";
+
+// new homepage
+
+import HomePageNestJSFive from "./components/HomePageNestJSFive";
+
 
 export type AppRoute = {
   path: string;
@@ -47,6 +58,11 @@ export const routesConfig: AppRoute[] = [
   {
     path: "/",
     name: "Home",
+    element: <HomePageNestJSFive />,
+  },
+    {
+    path: "/f1-homepage",
+    name: "Home - F1",
     element: <LandingPageMain />,
   },
   {
@@ -122,6 +138,21 @@ export const routesConfig: AppRoute[] = [
     path: "/posts/public",
     name: "Posts Public View",
     element: <PostsPublicView />,
+  },
+  {
+    path: "/posts-cont-two",
+    name: "POST CRUD Cont Two HQ",
+    element: <POSTCRUDContTwoHQ />,
+  },
+  {
+    path: "/posts-cont-two/:id",
+    name: "Post Details Cont Two",
+    element: <PostDetailsContTwo />,
+  },
+    {
+    path: "/posts-cont-two-public",
+    name: "Posts Contone Two Public",
+    element: <PostsContoneTwoPublic />,
   },
 ];
 
