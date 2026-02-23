@@ -8,6 +8,6 @@ import { PrismaModule } from 'src/prisma.module';
   imports: [PrismaModule],
   controllers: [FilesController],
   providers: [FilesService, PrismaFileRepository],
-  exports: [PrismaFileRepository],
+  exports: [PrismaFileRepository, FilesService],
 })
 export class FilesforuserModule {}

@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
+import TokenExpiryTimer from "./TokenExpiryTimer";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
 import { Link } from "react-router-dom";
 
+// ...existing code...
+
 const UserProfile: React.FC = () => {
-  const { isAuthenticated, getEmail, getRoles, tokens } = useAuth();
+  const { isAuthenticated, getEmail, getRoles, tokens, refreshAccessToken } =
+    useAuth();
   const [copied, setCopied] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const [countdown, setCountdown] = useState(10);
 
   const handleCopy = async (text: string, label: string) => {
     try {
@@ -15,18 +21,13 @@ const UserProfile: React.FC = () => {
     } catch {}
   };
 
-  const navigate = useNavigate();
-  const [countdown, setCountdown] = useState(10);
-
-  useEffect(() => {
-    if (isAuthenticated) return;
-    if (countdown === 0) {
-      navigate("/login");
-      return;
+  const handleRefreshToken = async () => {
+    try {
+      await refreshAccessToken();
+    } catch (err) {
+      alert("Failed to refresh access token.");
     }
-    const timer = setTimeout(() => setCountdown((c) => c - 1), 1000);
-    return () => clearTimeout(timer);
-  }, [isAuthenticated, countdown, navigate]);
+  };
 
   if (!isAuthenticated) {
     return (
@@ -123,9 +124,17 @@ const UserProfile: React.FC = () => {
             >
               {copied === "access" ? "Copied!" : "Copy"}
             </button>
+            <button
+              className="ml-2 text-xs text-green-600 hover:underline border border-green-600 rounded px-2"
+              type="button"
+              onClick={handleRefreshToken}
+            >
+              Refresh Access Token
+            </button>
             <div className="break-all text-xs bg-gray-100 p-2 rounded mt-1">
               {tokens.access_token}
             </div>
+            <TokenExpiryTimer token={tokens.access_token} />
           </div>
           <div className="mb-2">
             <span className="font-semibold">Refresh Token:</span>

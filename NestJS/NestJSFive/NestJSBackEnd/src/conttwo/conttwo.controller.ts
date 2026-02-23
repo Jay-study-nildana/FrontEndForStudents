@@ -34,6 +34,23 @@ import { GetImagesForPostWithUUIDResponseDto } from './dto/GetImagesForPostWithU
 @ApiTags('posts')
 @Controller('posts')
 export class PostsController {
+  @HttpPost('generate-random-posts')
+  @ApiOperation({ summary: 'Generate random posts with random images' })
+  @ApiQuery({
+    name: 'count',
+    required: false,
+    type: Number,
+    description: 'Number of posts to generate (default: 5)',
+  })
+  @ApiCreatedResponse({
+    description: 'Randomly generated posts with images',
+    type: [PostResponseDto],
+  })
+  async generateRandomPosts(
+    @Query('count') count = 5,
+  ): Promise<PostResponseDto[]> {
+    return this.service.generateRandomPosts(Number(count) || 5);
+  }
   constructor(private readonly service: PostsService) {}
 
   @HttpPost()
