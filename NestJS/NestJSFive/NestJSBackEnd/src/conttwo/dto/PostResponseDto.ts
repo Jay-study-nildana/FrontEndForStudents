@@ -1,8 +1,8 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class PostResponseDto {
-  @ApiProperty({ example: 1 })
-  id: number;
+  @ApiProperty({ example: "98356d46-600e-40e2-bbcb-e1cab2bda9fc" })
+  id: string;
 
   @ApiProperty({ example: 'A great post' })
   title: string;

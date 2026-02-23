@@ -22,6 +22,11 @@ export interface PostRepository {
   // addImageToPost(
   //   input: AddImageToPostRequestDto,
   // ): Promise<AddImageToPostResponseDto>;
+  /**
+   * Generates a collection of PostResponseDto with random titles and content.
+   * @param count Number of posts to generate
+   */
+  generateRandomPosts(count: number): Promise<PostResponseDto[]>;
   addImageToPostWithUUID(
     input: AddImageToPostWithUUIDRequestDto,
   ): Promise<AddImageToPostWithUUIDResponseDto>;

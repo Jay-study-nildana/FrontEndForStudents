@@ -10,15 +10,37 @@ import { AddImageToPostWithUUIDResponseDto } from './dto/AddImageToPostWithUUIDR
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { PostRepository } from './post.repository.interface';
+import { FilesService } from '../filesforuser/filesforuser.service';
 import {
   GetImagesForPostResponseDto,
   PostImageItemDto,
 } from './dto/GetImagesForPostResponseDto';
-import { GetImagesForPostWithUUIDResponseDto, PostImageWithUUIDItemDto } from './dto/GetImagesForPostWithUUIDResponseDto';
+import {
+  GetImagesForPostWithUUIDResponseDto,
+  PostImageWithUUIDItemDto,
+} from './dto/GetImagesForPostWithUUIDResponseDto';
 
+/**
+ * PrismaPostRepository is a repository implementation for posts.
+ *
+ * We inject FilesService here so we can use its file-related methods when needed.
+ * Dependency injection allows us to use other services inside this class without manually creating them.
+ * This is a best practice in NestJS for modularity, testability, and separation of concerns.
+ */
 @Injectable()
 export class PrismaPostRepository implements PostRepository {
-  constructor(private readonly prisma: PrismaService) {}
+  /**
+   * The constructor injects both PrismaService and FilesService.
+   *
+   * - PrismaService is used for database operations.
+   * - FilesService is injected so we can use its methods for file handling.
+   *
+   * By injecting FilesService, we can call its methods directly in this repository.
+   */
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly filesService: FilesService,
+  ) {}
 
   // async getImagesForPost(postId: number): Promise<GetImagesForPostResponseDto> {
   //   const images = await this.prisma.postImage.findMany({
@@ -106,6 +128,37 @@ export class PrismaPostRepository implements PostRepository {
     return this.mapPrismaToDto(created);
   }
 
+  /**
+   * Generates random posts, stores them in the DB, and links a random image to each post.
+   * For each generated post, a random image from the file service is linked using addImageToPostWithUUID.
+   */
+  async generateRandomPosts(count: number): Promise<PostResponseDto[]> {
+    const createdPosts: PostResponseDto[] = [];
+    // Get all available images from the file service
+    const images = await this.filesService.listAll();
+    for (let i = 0; i < count; i++) {
+      // Generate random post data using helper functions
+      const createDto = {
+        title: this.generateRandomTitle(),
+        content: this.generateRandomContent(),
+        published: Math.random() > 0.5,
+      };
+      // Store post in DB
+      const post = await this.create(createDto);
+      createdPosts.push(post);
+
+      // If images are available, randomly link one to the post
+      if (images.length > 0) {
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+        await this.addImageToPostWithUUID({
+          postId: post.id.toString(),
+          fileId: randomImage.id,
+        });
+      }
+    }
+    return createdPosts;
+  }
+
   async findAll(): Promise<PostResponseDto[]> {
     const rows = await this.prisma.post.findMany({
       orderBy: { id: 'desc' },
@@ -179,5 +232,104 @@ export class PrismaPostRepository implements PostRepository {
       published: row.published ?? null,
       authorId: row.authorId ?? null,
     };
+  }
+
+  /**
+   * Generates a random title string using an adjective and a noun.
+   */
+  private generateRandomTitle(): string {
+    const adjectives = [
+      'Amazing',
+      'Brave',
+      'Calm',
+      'Delightful',
+      'Eager',
+      'Famous',
+      'Graceful',
+      'Happy',
+      'Jolly',
+      'Kind',
+      'Lucky',
+      'Mighty',
+      'Nice',
+      'Outstanding',
+      'Proud',
+      'Quick',
+      'Royal',
+      'Smart',
+      'Sunny',
+      'Vivid',
+    ];
+    const nouns = [
+      'Mountain',
+      'River',
+      'Forest',
+      'Ocean',
+      'Valley',
+      'Garden',
+      'Sky',
+      'Field',
+      'Trail',
+      'Desert',
+      'Lake',
+      'Canyon',
+      'Island',
+      'Village',
+      'Bridge',
+      'Tower',
+      'Palace',
+      'Castle',
+      'Harbor',
+      'Temple',
+    ];
+    const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const noun = nouns[Math.floor(Math.random() * nouns.length)];
+    return `${adjective} ${noun}`;
+  }
+
+  /**
+   * Generates a random content string using templates, adjectives, nouns, and verbs.
+   * The content will be between 500 and 2000 words.
+   */
+  private generateRandomContent(): string {
+    const templates = [
+      'The {adjective} {noun} {verb} under the {adjective2} {noun2}.',
+      'A {adjective} {noun} decided to {verb} today.',
+      'Many {noun}s are {verb}ing in the {noun2}.',
+      'Did you see the {adjective} {noun} {verb}?',
+      'Everyone loves a {adjective} {noun} that can {verb}.',
+    ];
+    const adjectives = ['quick', 'bright', 'silent', 'curious', 'ancient'];
+    const nouns = ['fox', 'tree', 'river', 'castle', 'cloud'];
+    const verbs = ['run', 'shine', 'grow', 'explore', 'rest'];
+
+    // Helper to generate a single sentence
+    const makeSentence = () => {
+      const template = templates[Math.floor(Math.random() * templates.length)];
+      return template
+        .replace(
+          '{adjective}',
+          adjectives[Math.floor(Math.random() * adjectives.length)],
+        )
+        .replace('{noun}', nouns[Math.floor(Math.random() * nouns.length)])
+        .replace('{verb}', verbs[Math.floor(Math.random() * verbs.length)])
+        .replace(
+          '{adjective2}',
+          adjectives[Math.floor(Math.random() * adjectives.length)],
+        )
+        .replace('{noun2}', nouns[Math.floor(Math.random() * nouns.length)]);
+    };
+
+    // Decide on a random word count between 500 and 2000
+    const targetWords = 500 + Math.floor(Math.random() * 1501);
+    let content = '';
+    let wordCount = 0;
+    while (wordCount < targetWords) {
+      const sentence = makeSentence();
+      content += sentence + ' ';
+      wordCount += sentence.split(' ').length;
+    }
+    // Trim to the exact word count
+    return content.split(' ').slice(0, targetWords).join(' ').trim();
   }
 }

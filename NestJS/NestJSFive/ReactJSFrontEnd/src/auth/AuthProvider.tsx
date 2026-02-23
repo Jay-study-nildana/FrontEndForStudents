@@ -24,6 +24,7 @@ interface AuthContextType {
   getAccessToken: () => string | null;
   getRoles: () => string[];
   getEmail: () => string | null;
+  refreshAccessToken: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -52,6 +53,7 @@ function parseJwt(token: string): any {
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
+
   const [tokens, setTokens] = useState<AuthTokens | null>(() => {
     const stored = localStorage.getItem(AUTH_STORAGE_KEY);
     if (stored) {
@@ -108,6 +110,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const getRoles = () => tokens?.roles || [];
   const getEmail = () => tokens?.email || null;
 
+  // Refresh access token using refresh token
+  const refreshAccessToken = async () => {
+    if (!tokens?.refresh_token) throw new Error("No refresh token available");
+    const res = await fetch(`${API_URL}/auth/refresh`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", accept: "*/*" },
+      body: JSON.stringify({ refreshToken: tokens.refresh_token }),
+    });
+    if (!res.ok) throw new Error("Failed to refresh access token");
+    const data = await res.json();
+    const decoded = parseJwt(data.access_token);
+    setTokens({ ...data, roles: decoded.roles, email: decoded.email });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -119,6 +135,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         getAccessToken,
         getRoles,
         getEmail,
+        refreshAccessToken,
       }}
     >
       {children}

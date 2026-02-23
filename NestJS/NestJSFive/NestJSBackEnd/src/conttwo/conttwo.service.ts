@@ -18,6 +18,13 @@ import { GetImagesForPostWithUUIDResponseDto } from './dto/GetImagesForPostWithU
  */
 @Injectable()
 export class PostsService {
+  /**
+   * Generates random posts and links random images to them using the repository method.
+   * @param count Number of posts to generate
+   */
+  generateRandomPosts(count: number): Promise<PostResponseDto[]> {
+    return this.repo.generateRandomPosts(count);
+  }
   constructor(private readonly repo: PrismaPostRepository) {}
 
   create(input: CreatePostDto): Promise<PostResponseDto> {
