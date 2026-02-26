@@ -1,4 +1,4 @@
-# NestJS Four
+# NestJS Five
 
 This project shows
 
@@ -28,6 +28,7 @@ This project shows
 1. Showcases Transations with Prisma
 1. Showcases Nested Queries
 1. Jest Testing and End to End testing and Code Coverage
+1. Showcases Search Features
 
 # .env file
 

@@ -11,6 +11,8 @@ import { GetImagesForPostResponseDto } from './dto/GetImagesForPostResponseDto';
 import { AddImageToPostWithUUIDRequestDto } from './dto/AddImageToPostWithUUIDRequestDto';
 import { AddImageToPostWithUUIDResponseDto } from './dto/AddImageToPostWithUUIDResponseDto';
 import { GetImagesForPostWithUUIDResponseDto } from './dto/GetImagesForPostWithUUIDResponseDto';
+import { PaginatedResultDto } from './dto/PaginatedResultDTO';
+import { SearchPostsDto } from './dto/SearchPostsDto';
 
 export interface PostRepository {
   create(input: CreatePostDto): Promise<PostResponseDto>;
@@ -19,9 +21,6 @@ export interface PostRepository {
   update(id: string, input: UpdatePostDto): Promise<PostResponseDto>;
   delete(id: string): Promise<PostResponseDto>;
   findWithQuery(query: GetPostsQueryDto): Promise<PostResponseDto[]>;
-  // addImageToPost(
-  //   input: AddImageToPostRequestDto,
-  // ): Promise<AddImageToPostResponseDto>;
   /**
    * Generates a collection of PostResponseDto with random titles and content.
    * @param count Number of posts to generate
@@ -30,8 +29,8 @@ export interface PostRepository {
   addImageToPostWithUUID(
     input: AddImageToPostWithUUIDRequestDto,
   ): Promise<AddImageToPostWithUUIDResponseDto>;
-  // getImagesForPost(postId: string): Promise<GetImagesForPostResponseDto>;
   getImagesForPostWithUUID(
     postId: string,
   ): Promise<GetImagesForPostWithUUIDResponseDto>;
+  searchPosts(searchDto: SearchPostsDto): Promise<PaginatedResultDto<PostResponseDto>>;
 }

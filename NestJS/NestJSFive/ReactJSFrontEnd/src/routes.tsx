@@ -40,6 +40,7 @@ import PostsPublicView from "./POSTCrudComponents/PostsPublicView";
 import POSTCRUDContTwoHQ from "./POSTContTwoComponents/POSTCRUDContTwoHQ";
 import PostDetailsContTwo from "./POSTContTwoComponents/PostDetails";
 import PostsContoneTwoPublic from "./POSTContTwoComponents/PostsContoneTwoPublic";
+import SearchPostsView from "./POSTContTwoComponents/SearchPostsView";
 
 // new homepage
 
@@ -153,6 +154,11 @@ export const routesConfig: AppRoute[] = [
     path: "/posts-cont-two-public",
     name: "Posts Contone Two Public",
     element: <PostsContoneTwoPublic />,
+  },
+  {
+    path: "/posts-cont-two-search",
+    name: "Search Posts",
+    element: <SearchPostsView />,
   },
 ];
 

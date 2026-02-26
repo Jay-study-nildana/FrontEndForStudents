@@ -1,4 +1,4 @@
-# React JS Project with Tailwind - F1 Theme
+# Front End for NestJS Five
 
 A simple react js project with tailwind configured. Built around F1 theme. 
 
@@ -21,6 +21,7 @@ Also,
 1. CRUD operation views
 1. Filed Upload and display
 1. Content display from blog themed endpoints
+1. Search Input and Display with Pagination
 
 ## env file
 

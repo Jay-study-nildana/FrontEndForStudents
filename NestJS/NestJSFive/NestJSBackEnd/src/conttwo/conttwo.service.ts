@@ -10,6 +10,8 @@ import { AddImageToPostResponseDto } from './dto/AddImageToPostResponseDto';
 import { AddImageToPostWithUUIDRequestDto } from './dto/AddImageToPostWithUUIDRequestDto';
 import { AddImageToPostWithUUIDResponseDto } from './dto/AddImageToPostWithUUIDResponseDto';
 import { GetImagesForPostWithUUIDResponseDto } from './dto/GetImagesForPostWithUUIDResponseDto';
+import { PaginatedResultDto } from './dto/PaginatedResultDTO';
+import { SearchPostsDto } from './dto/SearchPostsDto';
 
 /**
  * PostsService - thin application/service layer that depends on the repository
@@ -88,5 +90,10 @@ export class PostsService {
     // Optionally, check if post exists before fetching images
     // Example: await this.repo.findOneByUUID(postId);
     return this.repo.getImagesForPostWithUUID(postId);
+  }
+
+  async searchPosts(searchDto: SearchPostsDto): Promise<PaginatedResultDto<PostResponseDto>> {
+  // Optionally, add any business logic or validation here
+  return this.repo.searchPosts(searchDto);
   }
 }
