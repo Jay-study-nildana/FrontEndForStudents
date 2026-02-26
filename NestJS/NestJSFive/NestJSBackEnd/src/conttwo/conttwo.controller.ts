@@ -30,6 +30,8 @@ import { GetImagesForPostResponseDto } from './dto/GetImagesForPostResponseDto';
 import { AddImageToPostWithUUIDRequestDto } from './dto/AddImageToPostWithUUIDRequestDto';
 import { AddImageToPostWithUUIDResponseDto } from './dto/AddImageToPostWithUUIDResponseDto';
 import { GetImagesForPostWithUUIDResponseDto } from './dto/GetImagesForPostWithUUIDResponseDto';
+import { PaginatedResultDto } from './dto/PaginatedResultDTO';
+import { SearchPostsDto } from './dto/SearchPostsDto';
 
 @ApiTags('posts')
 @Controller('posts')
@@ -86,6 +88,27 @@ export class PostsController {
     }
     return this.service.findAll();
   }
+
+  @Get('search')
+  @ApiOperation({ summary: 'Search posts with filters and pagination' })
+  @ApiQuery({ name: 'title', required: false, type: String })
+  @ApiQuery({ name: 'content', required: false, type: String })
+  @ApiQuery({ name: 'published', required: false, type: Boolean })
+  @ApiQuery({ name: 'authorId', required: false, type: String })
+  @ApiQuery({ name: 'page', required: false, type: Number })
+  @ApiQuery({ name: 'pageSize', required: false, type: Number })
+  @ApiQuery({ name: 'sortBy', required: false, type: String })
+  @ApiQuery({ name: 'sortOrder', required: false, type: String })
+  @ApiOkResponse({
+    description: 'Paginated search results',
+    type: PaginatedResultDto, // You may need to use a generic or specify PostResponseDto[]
+  })
+  async searchPosts(
+    @Query() query: SearchPostsDto,
+  ): Promise<PaginatedResultDto<PostResponseDto>> {
+    // console.log('Received search query:', query);
+    return this.service.searchPosts(query);
+  }  
 
   @Get(':id')
   @ApiOperation({ summary: 'Get a post by id' })
@@ -188,4 +211,6 @@ export class PostsController {
   ): Promise<GetImagesForPostWithUUIDResponseDto> {
     return this.service.getImagesForPostWithUUID(uuid);
   }
+
+  
 }

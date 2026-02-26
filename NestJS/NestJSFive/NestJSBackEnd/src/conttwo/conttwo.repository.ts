@@ -19,6 +19,8 @@ import {
   GetImagesForPostWithUUIDResponseDto,
   PostImageWithUUIDItemDto,
 } from './dto/GetImagesForPostWithUUIDResponseDto';
+import { SearchPostsDto } from './dto/SearchPostsDto';
+import { PaginatedResultDto } from './dto/PaginatedResultDTO';
 
 /**
  * PrismaPostRepository is a repository implementation for posts.
@@ -332,4 +334,65 @@ export class PrismaPostRepository implements PostRepository {
     // Trim to the exact word count
     return content.split(' ').slice(0, targetWords).join(' ').trim();
   }
+
+  async searchPosts(searchDto: SearchPostsDto): Promise<PaginatedResultDto<PostResponseDto>> {
+    const {
+      title,
+      content,
+      published,
+      authorId,
+      page = 1,
+      pageSize = 10,
+      sortBy = 'id',
+      sortOrder = 'desc',
+    } = searchDto;
+
+    const skip = (page - 1) * pageSize;
+    const take = pageSize;
+
+// Build Prisma where clause
+const where: any = {};
+const orConditions: any[] = [];
+
+    if (title) {
+      orConditions.push(
+        { title: { contains: title, mode: 'insensitive' } },
+        { content: { contains: title, mode: 'insensitive' } }
+      );
+    }
+    if (content) {
+      orConditions.push(
+        { title: { contains: content, mode: 'insensitive' } },
+        { content: { contains: content, mode: 'insensitive' } }
+      );
+    }
+    if (orConditions.length > 0) {
+      where.OR = orConditions;
+    }
+    if (typeof published === 'boolean') {
+      where.published = published;
+    }
+    if (authorId) {
+      where.authorId = authorId;
+    }
+
+    // Get total count for pagination
+    const total = await this.prisma.post.count({ where });
+
+    // Fetch paginated posts
+    const posts = await this.prisma.post.findMany({
+      where,
+      orderBy: { [sortBy]: sortOrder },
+      skip,
+      take,
+    });
+
+    return {
+      items: posts.map((p) => this.mapPrismaToDto(p)),
+      total,
+      page,
+      pageSize,
+      totalPages: Math.ceil(total / pageSize),
+    };
+  }  
 }

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TokenExpiryTimer from "./TokenExpiryTimer";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
 import { Link } from "react-router-dom";
 
@@ -10,8 +10,8 @@ const UserProfile: React.FC = () => {
   const { isAuthenticated, getEmail, getRoles, tokens, refreshAccessToken } =
     useAuth();
   const [copied, setCopied] = useState<string | null>(null);
-  const navigate = useNavigate();
-  const [countdown, setCountdown] = useState(10);
+  // const navigate = useNavigate();
+  const [countdown, _setCountdown] = useState(10);
 
   const handleCopy = async (text: string, label: string) => {
     try {
@@ -84,6 +84,12 @@ const UserProfile: React.FC = () => {
           className="text-blue-600 hover:underline font-semibold text-sm"
         >
           Go to Files HQ
+        </Link>
+        <Link
+          to="/posts-cont-two-search"
+          className="text-blue-600 hover:underline font-semibold text-sm"
+        >
+          Go to Search Posts (Cont Two, PostGre DB)
         </Link>
         <Link
           to="/posts/public"
